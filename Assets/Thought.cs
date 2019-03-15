@@ -6,9 +6,15 @@ public class Thought : MonoBehaviour
 {
     // Start is called before the first frame update
     //public List<Unitoken> mySources;
-    public List<Unitoken> myTargets;
-    public List<Arc> myArcs;
+    public List<Thought> myThoughts;
+    public Arc myArc;
 
+
+    public ArcMapManager.ThoughtType myType;
+
+    public void Initialize(ArcMapManager.ThoughtType myType){
+        this.myType = myType;
+    }
     void Start()
     {
         

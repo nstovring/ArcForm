@@ -6,13 +6,6 @@ using UnityEngine.UI;
 
 public class Unitoken : Thought, ILabelable
 {
-//    RectTransform rectTransform;
-  
-
-
-    public Transform unitokenPrefab;
-    public Transform joinArcPrefab;
-
 
     List<LineRenderer> lineList = new List<LineRenderer>();
 
@@ -24,7 +17,8 @@ public class Unitoken : Thought, ILabelable
 
     public TMP_InputField InputField => ArcMapManager.Instance.inputField;
 
-    //public bool TextInputToggle = false;
+    public List<Arc> myArcs;
+
     Camera mCamera;
     // Start is called before the first frame update
     void Start()
@@ -36,14 +30,14 @@ public class Unitoken : Thought, ILabelable
         if(myArcs == null){
             myArcs = new List<Arc>();
         }
-        if(myTargets == null){
-            myTargets = new List<Unitoken>();
-        }
+//        if(myTargets == null){
+//            myTargets = new List<Unitoken>();
+        //}
     }
 
     public void Initialize(){
         //mySources = new List<Unitoken>();
-        myTargets = new List<Unitoken>();
+        myArcs = new List<Arc>();
         mCamera = Camera.main;
     }
 
@@ -73,37 +67,7 @@ public class Unitoken : Thought, ILabelable
         transform.position = mouseDelta;
     }
 
-    public void AddNewToken(){
-        tokenRotation = (360.0f/(myTargets.Count + 1.0f));
-        rotationVector = new Vector3(Mathf.Sin(tokenRotation * Mathf.Deg2Rad), Mathf.Cos(tokenRotation * Mathf.Deg2Rad), 0);
-        Vector3 offset = rotationVector * ArcMapManager.Instance.mapScale;
-
-        Unitoken newToken = Instantiate(unitokenPrefab, transform.position + offset, Quaternion.identity, transform.parent).GetComponent<Unitoken>();
-        newToken.transform.name = "Unitoken";
-        newToken.Initialize();
-
-        CreateJoinArc(newToken);
-    }
-
    
-    void CreateJoinArc(Unitoken newToken){
-        JoinArc newJoinArc = Instantiate(joinArcPrefab, Vector3.zero, Quaternion.identity, transform.parent).GetComponent<JoinArc>();
-        newJoinArc.SetTokens(this,newToken);
-        newJoinArc.ShowArc(ArcMapManager.Instance.linePadding);
-    }
-
-    public void AddArc(Arc arc){
-        myArcs.Add(arc);
-    }
-    // Update is called once per frame
-    void Update()
-    {
-       
-      
-    }
-
-    void OnGUI(){
-    }
 
     public virtual void ShowInputField()
     {

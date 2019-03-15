@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class JoinArc : Arc
 {
-   
     public Material lineMaterial;
     public Transform arrowSprite;
     LineRenderer myLine; 
@@ -17,7 +16,13 @@ public class JoinArc : Arc
         
     }
 
+    public void Initialize(Unitoken source, Unitoken target){
+        SetTokens(source,target);
+        ShowArc(ArcMapManager.Instance.linePadding);
+    }
+
     public void SetTokens(Unitoken source, Unitoken target){
+        
         source.SetTarget(target);
         target.AddSource(source);
         this.source = source;
