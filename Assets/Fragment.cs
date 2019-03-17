@@ -6,6 +6,9 @@ public class Fragment : MonoBehaviour
 {
     public List<Arc> myArcs;
 
+    public enum Type {Unitoken, Arc}
+    public Type myType;
+
     // Start is called before the first frame update
     void Start()
     {

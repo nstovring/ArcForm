@@ -21,9 +21,7 @@ public class Arc : Fragment, ILabelable
     public Fragment source;
     public Fragment target;
 
-    public enum ThoughtType {Arc, Thought};
     public enum ThoughtState {Folded, Unfolded};
-    public ThoughtType myType;
 
     public bool isLabelled;
     public string Label   { get => GetThoughtLabel();}
@@ -33,7 +31,7 @@ public class Arc : Fragment, ILabelable
         return "";
     }
     public virtual void Initialize(){
-        myType = ThoughtType.Arc;
+        myType = Type.Arc;
     }
 
     public virtual void ShowInputField()
@@ -48,6 +46,26 @@ public class Arc : Fragment, ILabelable
         MyLabel.text = label;
     }
 
+    public void Collape(){
+       myLabel.text = CollapseArc(this);
+    }
+    public string CollapseArc(Arc arc){
+        string left = "";
+        string right = "";
+
+        if(source.myType == Fragment.Type.Arc){
+            left += CollapseArc((Arc)source);
+        }else{
+            left += source.name;
+        }
+        if(target.myType == Fragment.Type.Arc){
+            right += CollapseArc((Arc)target);
+        }else{
+            right += source.name;
+        }
+        //returns a unitoken which inherits the arcs and the label is concatenated
+        return left + myLabel.text + right;
+    }
 
  
     public void Initialize(Fragment source, Fragment target){
@@ -68,6 +86,24 @@ public class Arc : Fragment, ILabelable
 
     public float myPadding;
     public void ShowArc(float padding){
+                
+
+                myPadding = padding;
+                Vector3[] points = InitializeLine();
+
+                Vector3 sourceToTarg = (points[1] - points[0]).normalized;
+                points[0] += sourceToTarg * padding;
+                points[1] -= sourceToTarg * padding;
+
+                UpdateArrowSprite(points[1], sourceToTarg);
+                //lineList.Add(line);
+                UpdateCollider(points);
+                SetCenter();
+                UpdateLabelPosition(center);
+
+    }
+
+    Vector3[] InitializeLine(){
                 myLine = new GameObject().AddComponent<LineRenderer>();
                 Vector3[] points = new Vector3[2];
 
@@ -75,9 +111,7 @@ public class Arc : Fragment, ILabelable
                 points[0] = source.transform.position;
                 points[1] = target.transform.position;
 
-                Vector3 sourceToTarg = (points[1] - points[0]).normalized;
-                points[0] += sourceToTarg * padding;
-                points[1] -= sourceToTarg * padding;
+               
 
                 
                 //Debug.Log(points[0] );
@@ -92,14 +126,7 @@ public class Arc : Fragment, ILabelable
                 myLine.transform.name = "JoinArcLine";
                 myLine.transform.parent = transform;
 
-                myPadding = padding;
-
-                UpdateArrowSprite(points[1], sourceToTarg);
-                //lineList.Add(line);
-                UpdateCollider(points);
-                SetCenter();
-                UpdateLabelPosition(center);
-
+                return points;
     }
     public void UpdateArrowSprite(Vector3 pos, Vector3 dir){
         arrowSprite.position = pos;
@@ -137,6 +164,12 @@ public class Arc : Fragment, ILabelable
     public void RefreshArc(){
 
                 Vector3[] points = new Vector3[2];
+                if(myLine == null){
+                    points = InitializeLine();
+                }else{
+                    myLine.GetPositions(points);
+                }
+                
 
                 points[0] = source.transform.position;
                 points[1] = target.transform.position;
@@ -145,6 +178,7 @@ public class Arc : Fragment, ILabelable
                 points[0] += sourceToTarg * ArcMapManager.Instance.linePadding;
                 points[1] -= sourceToTarg * ArcMapManager.Instance.linePadding;
 
+               
                 myLine.SetPositions(points);
                 UpdateCollider(points);
                 SetCenter();

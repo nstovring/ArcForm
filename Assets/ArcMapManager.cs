@@ -83,7 +83,25 @@ public class ArcMapManager : MonoBehaviour
         CreateJoinArc(source, newToken);
     }
 
-
+    public void CollapseArc(Arc arc){
+        string label = "";
+        Fragment source = arc.source;
+        Fragment target = arc.target;
+        List<Fragment> Left = new List<Fragment>();
+        List<Fragment> Right = new List<Fragment>();
+        while(source.myType == Fragment.Type.Arc){
+            source = ((Arc)source).source;
+            if(source.myType == Fragment.Type.Unitoken){
+                label += source.name;
+            }
+        }
+        while(target.myType == Fragment.Type.Arc){
+            target = ((Arc)target).target;
+            if(target.myType == Fragment.Type.Unitoken){
+                label += target.name;
+            }
+        }
+    }
    public void AddNewArc(Unitoken source){
        Unitoken target = AddNewToken();
        Arc arc = CreateJoinArc(source,target);

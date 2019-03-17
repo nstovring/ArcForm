@@ -37,7 +37,7 @@ public class Unitoken : Fragment, ILabelable
     }
 
     public void Initialize(){
-        //mySources = new List<Unitoken>();
+        myType = Type.Unitoken;
         myArcs = new List<Arc>();
         mCamera = Camera.main;
     }
