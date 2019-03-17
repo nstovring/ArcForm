@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Unitoken : Thought, ILabelable
+public class Unitoken : Fragment, ILabelable
 {
 
     List<LineRenderer> lineList = new List<LineRenderer>();
@@ -17,13 +17,13 @@ public class Unitoken : Thought, ILabelable
 
     public TMP_InputField InputField => ArcMapManager.Instance.inputField;
 
-    public List<Arc> myArcs;
+    public Transform getTransform { get => transform;}
+
 
     Camera mCamera;
     // Start is called before the first frame update
     void Start()
     {
-        myType = ThoughtType.Unitoken;
         ArcMapManager.AddToken(this);
 
         mCamera = Camera.main;
@@ -36,9 +36,7 @@ public class Unitoken : Thought, ILabelable
         //}
     }
 
-    public override void Initialize(){
-        base.Initialize();
-        myType = ThoughtType.Unitoken;
+    public void Initialize(){
         //mySources = new List<Unitoken>();
         myArcs = new List<Arc>();
         mCamera = Camera.main;
@@ -55,7 +53,8 @@ public class Unitoken : Thought, ILabelable
         //Create new join arc
         //
         if(Input.GetKey(KeyCode.Space)){
-            ArcMapManager.Instance.AddNewToken(this);
+            //ArcMapManager.Instance.AddNewToken(this);
+            ArcMapManager.Instance.AddNewArc(this);
         }
         else {
             ShowInputField();
@@ -64,12 +63,10 @@ public class Unitoken : Thought, ILabelable
 
     void OnMouseDrag()
     {
-        Vector3 mouseWorldPos = mCamera.ScreenToWorldPoint(Input.mousePosition);
-        float h = mouseWorldPos.x;
-        float v = mouseWorldPos.y;
-        Vector3 mouseDelta = new Vector3(h,v,0);
-        transform.position = mouseDelta;
+        //FollowMouse();
     }
+
+   
 
    
 

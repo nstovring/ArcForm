@@ -43,16 +43,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 2880948707504835926}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6663024139db9d34ea95a700debe8945, type: 3}
+  m_Script: {fileID: 11500000, guid: bffd444e7ee764d43aba550a51f36a88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myLabel: {fileID: 4686617690231274628}
-  center: {x: 0, y: 0, z: 0}
   source: {fileID: 0}
   target: {fileID: 0}
+  myArcs: []
+  myType: 0
+  isLabelled: 0
+  myLabel: {fileID: 4686617690231274628}
+  center: {x: 0, y: 0, z: 0}
   lineMaterial: {fileID: 2100000, guid: 003059e69d782064a827ed6f3613e778, type: 2}
   arrowSprite: {fileID: 2721634404002904048}
   myEdgeCollider: {fileID: 4895790722118960293}
+  newDirection: {x: 0, y: 1, z: 0}
   myPadding: 0
 --- !u!68 &4895790722118960293
 EdgeCollider2D:

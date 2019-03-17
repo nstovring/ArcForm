@@ -4,11 +4,9 @@ using UnityEngine;
 
 public class Fragment : MonoBehaviour
 {
-    // Start is called before the first frame update
-    Thought source;
-    Thought target;
+    public List<Arc> myArcs;
 
-    public bool isPlaced = false;
+    // Start is called before the first frame update
     void Start()
     {
         
@@ -18,15 +16,5 @@ public class Fragment : MonoBehaviour
     void Update()
     {
         
-    }
-
-    public void Initialize(Thought source, Thought target){
-        isPlaced = false;
-        
-    }
-
-    public void Move(){
-        //Unitoken follows mouse
-        //Arc follows personal source and target
     }
 }
