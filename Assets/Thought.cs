@@ -6,17 +6,42 @@ public class Thought : MonoBehaviour
 {
     // Start is called before the first frame update
     //public List<Unitoken> mySources;
-    public List<Thought> myThoughts;
+    //public List<Thought> myThoughts;
+    public Thought source;
+    public Thought target;
     public Arc myArc;
 
+    public enum ThoughtType {Unitoken, Arc, Thought, Fragment};
+    public enum ThoughtState {Folded, Unfolded, Thought};
+    public ThoughtType myType;
 
-    public ArcMapManager.ThoughtType myType;
+    public bool isLabelled;
+    public string Label   { get => GetThoughtLabel();}
 
-    public void Initialize(ArcMapManager.ThoughtType myType){
-        this.myType = myType;
+
+    public string GetThoughtLabel(){
+        return "";
     }
+    public virtual void Initialize(){
+        myType = ThoughtType.Arc;
+    }
+    public void SetType(){
+
+    }
+  
+
     void Start()
     {
+
+
+
+        //if(typeof(Arc).Equals(source)){
+        //    myType = ThoughtType.Fragment;
+        //}
+        //if()
+    }
+
+    public void CreateUnitokenThought(){
         
     }
 

@@ -23,6 +23,7 @@ public class Unitoken : Thought, ILabelable
     // Start is called before the first frame update
     void Start()
     {
+        myType = ThoughtType.Unitoken;
         ArcMapManager.AddToken(this);
 
         mCamera = Camera.main;
@@ -35,7 +36,9 @@ public class Unitoken : Thought, ILabelable
         //}
     }
 
-    public void Initialize(){
+    public override void Initialize(){
+        base.Initialize();
+        myType = ThoughtType.Unitoken;
         //mySources = new List<Unitoken>();
         myArcs = new List<Arc>();
         mCamera = Camera.main;
@@ -47,11 +50,12 @@ public class Unitoken : Thought, ILabelable
     void OnMouseDown()
     {
         //Show options
+        //Request action from manager depending on clicked type
         //Change label - Add labels
         //Create new join arc
         //
         if(Input.GetKey(KeyCode.Space)){
-            AddNewToken();
+            ArcMapManager.Instance.AddNewToken(this);
         }
         else {
             ShowInputField();

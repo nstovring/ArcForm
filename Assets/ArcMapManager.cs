@@ -6,7 +6,6 @@ public class ArcMapManager : MonoBehaviour
 {
     //This class is responsible for creating Tokens, Arcs and Thoughts
     public static ArcMapManager Instance;
-    public enum ThoughtType {Unitoken, Arc, Thought};
     public static List<Unitoken> unitokens;
     public Transform unitokenPrefab;
     public Transform joinArcPrefab;
@@ -15,11 +14,14 @@ public class ArcMapManager : MonoBehaviour
     public float linePadding = 0.2f;
     public float mapScale = 2.0f;
 
+    Camera mCamera;
+
     // Start is called before the first frame update
     void Start()
     {
         Instance = this;
         unitokens = new List<Unitoken>();
+        mCamera = Camera.main;
     }
 
     public void ShowInputField(Vector3 worldPos, ILabelable asker){
@@ -44,14 +46,14 @@ public class ArcMapManager : MonoBehaviour
 
     }
 
-    public Thought CreateThought(ThoughtType type){
+    public void CreateThought(Thought.ThoughtType type){
         switch(type){
-            case ThoughtType.Unitoken:
+            case Thought.ThoughtType.Unitoken:
             //Request info to create new Unitoken
             break;
-            case ThoughtType.Arc:
+            case Thought.ThoughtType.Arc:
             break;
-            case ThoughtType.Thought:
+            case Thought.ThoughtType.Thought:
             break;
         }
     }
@@ -74,7 +76,25 @@ public class ArcMapManager : MonoBehaviour
         }
     }
 
-    
+    public Thought AddNewToken(){
+        //source.tokenRotation = (360.0f/(source.myArcs.Count + 1.0f));
+        //Vector3 rotationVector = new Vector3(Mathf.Sin(source.tokenRotation * Mathf.Deg2Rad), Mathf.Cos(source.tokenRotation * Mathf.Deg2Rad), 0);
+        //Vector3 offset = rotationVector * ArcMapManager.Instance.mapScale;
+        Vector3 mouseWorldPos = mCamera.ScreenToWorldPoint(Input.mousePosition);
+        float h = mouseWorldPos.x;
+        float v = mouseWorldPos.y;
+        Vector3 mouseDelta = new Vector3(h,v,0);
+        transform.position = mouseDelta;
+
+
+        Unitoken newToken = Instantiate(unitokenPrefab, Vector3.zero, Quaternion.identity, transform.parent).GetComponent<Unitoken>();
+        newToken.transform.name = "Unitoken";
+        newToken.Initialize();
+
+        return newToken;
+    }
+
+
     public void AddNewToken(Unitoken source){
         source.tokenRotation = (360.0f/(source.myArcs.Count + 1.0f));
         Vector3 rotationVector = new Vector3(Mathf.Sin(source.tokenRotation * Mathf.Deg2Rad), Mathf.Cos(source.tokenRotation * Mathf.Deg2Rad), 0);
@@ -87,12 +107,20 @@ public class ArcMapManager : MonoBehaviour
         CreateJoinArc(source, newToken);
     }
 
-   
-    void CreateJoinArc(Unitoken source, Unitoken target){
+
+   public void AddNewFragment(Thought source){
+       Thought target = AddNewToken();
+       Thought arc = CreateJoinArc(source,target);
+       Fragment frag = new GameObject().AddComponent<Fragment>();
+       frag.Initialize(source, arc);
+
+   }
+    Arc CreateJoinArc(Thought source, Thought target){
         JoinArc newJoinArc = Instantiate(joinArcPrefab, Vector3.zero, Quaternion.identity, transform.parent).GetComponent<JoinArc>();
         newJoinArc.Initialize(source,target);
 
         AddArc(newJoinArc);
+        return newJoinArc;
     }
 
     public void AddArc(Arc arc){
