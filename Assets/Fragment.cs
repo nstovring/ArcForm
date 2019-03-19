@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Fragment : MonoBehaviour
 {
+    public int id;
+
     public List<Arc> myArcs;
 
     public enum Type {Unitoken, Arc}

@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class Unitoken : Fragment, ILabelable
 {
+    public Vector3 AnchoredPosition;
+    public Vector3 TransientPosition;
 
     List<LineRenderer> lineList = new List<LineRenderer>();
 
@@ -14,6 +16,8 @@ public class Unitoken : Fragment, ILabelable
 
     public TextMeshPro myLabel;
     public TextMeshPro MyLabel => myLabel;
+
+    public string label;
 
     public TMP_InputField InputField => ArcMapManager.Instance.inputField;
 
@@ -24,7 +28,7 @@ public class Unitoken : Fragment, ILabelable
     // Start is called before the first frame update
     void Start()
     {
-        ArcMapManager.AddToken(this);
+        //ArcMapManager.AddToken(this);
 
         mCamera = Camera.main;
 
@@ -36,7 +40,9 @@ public class Unitoken : Fragment, ILabelable
         //}
     }
 
-    public void Initialize(){
+    public void Initialize(string Label, Vector3 TransientPosition){
+        myLabel.text = Label;
+        this.TransientPosition = TransientPosition;
         myType = Type.Unitoken;
         myArcs = new List<Arc>();
         mCamera = Camera.main;
@@ -52,12 +58,15 @@ public class Unitoken : Fragment, ILabelable
         //Change label - Add labels
         //Create new join arc
         //
-        if(Input.GetKey(KeyCode.Space)){
+   
+      
+            ShowInputField();
+        
+    }
+    void Update(){
+        if(Input.GetKeyUp(KeyCode.Space) && ArcMapManager.Instance.selectedUnitoken == this){
             //ArcMapManager.Instance.AddNewToken(this);
             ArcMapManager.Instance.AddNewArc(this);
-        }
-        else {
-            ShowInputField();
         }
     }
 
