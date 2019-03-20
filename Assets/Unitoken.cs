@@ -22,7 +22,7 @@ public class Unitoken : Fragment, ILabelable
     public TMP_InputField InputField => ArcMapManager.Instance.inputField;
 
     public Transform getTransform { get => transform;}
-
+    public Transform hoverIcon;
 
     Camera mCamera;
     // Start is called before the first frame update
@@ -59,8 +59,8 @@ public class Unitoken : Fragment, ILabelable
         //Create new join arc
         //
    
-      
-            ShowInputField();
+        ArcMapManager.Instance.SelectUnitoken(this);
+        ShowInputField();
         
     }
     void Update(){
@@ -75,7 +75,28 @@ public class Unitoken : Fragment, ILabelable
         //FollowMouse();
     }
 
-   
+    void OnMouseOver()
+    {
+        //If your mouse hovers over the GameObject with the script attached, output this message
+        if(Input.GetMouseButtonDown(0)){
+            ArcMapManager.Instance.SelectUnitoken(this);
+        }
+        //Debug.Log("Mouse is over GameObject.");
+        SetHoverActive(true);
+    }
+
+    void OnMouseExit()
+    {
+        //The mouse is no longer hovering over the GameObject so output this message each frame
+        //Debug.Log("Mouse is no longer on GameObject.");
+        SetHoverActive(isSelected);
+    }
+
+    public bool isSelected;
+    public bool SetHoverActive(bool state){
+        hoverIcon.gameObject.SetActive(state);
+        return state;
+    }
 
    
 

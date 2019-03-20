@@ -196,9 +196,12 @@ public class ArcMapManager : MonoBehaviour
 
     public Unitoken selectedUnitoken;
     public void SelectUnitoken(Unitoken selected){
-        if(selectedUnitoken == null){
-            selectedUnitoken = selected;
-        }
+        if(selectedUnitoken != null)
+        selectedUnitoken.SetHoverActive(false);
+        selectedUnitoken.isSelected = false;
+        selectedUnitoken = selected;
+        selected.SetHoverActive(true);
+        selectedUnitoken.isSelected = true;
     }
     public void MoveUnitoken(){
         if(selectedUnitoken != null){
@@ -230,8 +233,26 @@ public class ArcMapManager : MonoBehaviour
                 selectedUnitoken = AddNewToken(mouseDelta);
                 Debug.Log(mouseDelta);
             }
+        }else{
+            //float scroll = Input.get
+            //selectedUnitoken
         }
         //MoveUnitoken();
+        MoveMap();
+    }
+
+    public float zoomScale = 1;
+
+    public void MoveMap(){
+        float h = Input.GetAxis("Horizontal");
+        float v = Input.GetAxis("Vertical");
+        float z = Input.mouseScrollDelta.y * zoomScale;
+        Vector3 mouseDelta = new Vector3(h,v,z);
+        mCamera.transform.position += mouseDelta;
+    }
+
+    public void ZoomMap(){
+
     }
 
     public void SaveMap(){
@@ -252,6 +273,10 @@ public class ArcMapManager : MonoBehaviour
             //x.transform.position = x.TransientPosition;
             AddNewArc(x);
         }
+    }
+
+    public void UpdateMap(){
+
     }
 
     public void ClearMap(){
