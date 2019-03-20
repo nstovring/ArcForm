@@ -5,15 +5,17 @@ using UnityEngine;
 public class ArcMapSaver : MonoBehaviour
 {
     // Start is called before the first frame update
-    void Start()
-    {
-        
+    public struct unitoken{
+        public int id;
+        public Vector3 TransientPosition;
+        public string Label;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public struct arc{
+        public int id;
+        public int source;
+        public int target;
+        public string Label;
     }
 
     static readonly string[] keys = {"unitokenTransientPositions", "unitokenLabels"};
@@ -27,7 +29,25 @@ public class ArcMapSaver : MonoBehaviour
     static int[] sources;
     static int[] targets;
 
+    public static void LoadMap(){
+        unitoken[] tokens = LoadUnitokens();
+        arc[] arcs = LoadArcs();
+        //Clear tokens?
+        foreach(unitoken x in tokens){
+            //x.transform.position = x.TransientPosition;
+            ArcMapManager.Instance.AddNewToken(x);
+        }
 
+        foreach(arc x in arcs){
+            //x.transform.position = x.TransientPosition;
+            ArcMapManager.Instance.AddNewArc(x);
+        }
+    }
+
+    public static void SaveMap(List<Unitoken> unitokens, List<Arc> arcs){
+        SaveUnitokens(unitokens);
+        SaveArcs(arcs);
+    }
     public static void SaveArcs(List<Arc> arcs){
         arcLabels = new string[arcs.Count-1];
         sources = new int[arcs.Count-1];
@@ -45,17 +65,17 @@ public class ArcMapSaver : MonoBehaviour
 
     }
 
-    public static ArcMapManager.arc[] LoadArcs(){
+    public static arc[] LoadArcs(){
 
 
         arcLabels =PlayerPrefsX.GetStringArray(arcKeys[0]);
         sources = PlayerPrefsX.GetIntArray(arcKeys[1]);
         targets = PlayerPrefsX.GetIntArray(arcKeys[2]);
 
-        ArcMapManager.arc[] loadedArcs = new ArcMapManager.arc[arcLabels.Length];
+        arc[] loadedArcs = new arc[arcLabels.Length];
 
         for(int i = 0; i < loadedArcs.Length; i++){
-            ArcMapManager.arc newArc = new ArcMapManager.arc();
+            arc newArc = new arc();
             newArc.Label = arcLabels[i];
             newArc.source = sources[i];
             newArc.target = targets[i];
@@ -82,16 +102,19 @@ public class ArcMapSaver : MonoBehaviour
 
     }
 
-    public static ArcMapManager.unitoken[] LoadUnitokens(){
+    public static unitoken[] LoadUnitokens(){
         transientPositions = PlayerPrefsX.GetVector3Array(keys[0]);
         unitokenLabels = PlayerPrefsX.GetStringArray(keys[1]);
 
-        ArcMapManager.unitoken[] loadedTokens = new ArcMapManager.unitoken[transientPositions.Length];
+
+        Random.InitState(42);
+
+        unitoken[] loadedTokens = new unitoken[transientPositions.Length];
 
         for(int i = 0; i < loadedTokens.Length; i++){
-            ArcMapManager.unitoken newToken = new ArcMapManager.unitoken();
+            unitoken newToken = new unitoken();
             newToken.Label = unitokenLabels[i];
-            newToken.TransientPosition = transientPositions[i];
+            newToken.TransientPosition = transientPositions[i] + new Vector3(0,0, Random.Range(-1.0f, 1.0f));
             //newToken.Initialize(unitokenLabels[i],transientPositions[i]);
 
             loadedTokens[i] = newToken;

@@ -2,22 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+[RequireComponent(typeof(ArcMapLayout))]
 public class ArcMapManager : MonoBehaviour
 {
     //This class is responsible for creating Tokens, Arcs and Thoughts
-    public struct unitoken{
-        public int id;
-        public Vector3 TransientPosition;
-        public string Label;
-    }
 
-    public struct arc{
-        public int id;
-        public int source;
-        public int target;
-        public string Label;
-    }
     public static ArcMapManager Instance;
+    public ArcMapLayout arcMapLayout;
     public List<Unitoken> unitokens;
     public List<Arc> Arcs;
 
@@ -28,6 +19,8 @@ public class ArcMapManager : MonoBehaviour
     public float linePadding = 0.2f;
     public float mapScale = 2.0f;
 
+    public Arc selectedArc;
+
     Camera mCamera;
 
     // Start is called before the first frame update
@@ -36,7 +29,8 @@ public class ArcMapManager : MonoBehaviour
         Instance = this;
         unitokens = new List<Unitoken>();
         Arcs = new List<Arc>();
-
+        
+        arcMapLayout = GetComponent<ArcMapLayout>();
         mCamera = Camera.main;
     }
 
@@ -101,7 +95,7 @@ public class ArcMapManager : MonoBehaviour
     }
 
 
-    public void AddNewToken(unitoken token){
+    public void AddNewToken(ArcMapSaver.unitoken token){
         Vector3 mouseWorldPos = mCamera.ScreenToWorldPoint(Input.mousePosition);
         float h = mouseWorldPos.x;
         float v = mouseWorldPos.y;
@@ -134,24 +128,15 @@ public class ArcMapManager : MonoBehaviour
         //CreateJoinArc(source, newToken);
     }
 
-    public void CollapseArc(Arc arc){
-        string label = "";
-        Fragment source = arc.source;
-        Fragment target = arc.target;
-        List<Fragment> Left = new List<Fragment>();
-        List<Fragment> Right = new List<Fragment>();
-        while(source.myType == Fragment.Type.Arc){
-            source = ((Arc)source).source;
-            if(source.myType == Fragment.Type.Unitoken){
-                label += source.name;
-            }
-        }
-        while(target.myType == Fragment.Type.Arc){
-            target = ((Arc)target).target;
-            if(target.myType == Fragment.Type.Unitoken){
-                label += target.name;
-            }
-        }
+
+    public void CollapseArc(){
+        string label = selectedArc.Collapse();
+        Vector3 center = selectedArc.TransientPosition;
+        ArcMapSaver.unitoken token = new ArcMapSaver.unitoken();
+        token.Label = label;
+        token.TransientPosition = center;
+        
+        AddNewToken(token);
     }
 
 
@@ -167,7 +152,7 @@ public class ArcMapManager : MonoBehaviour
    }
 
 
-    public void AddNewArc(arc newArc){
+    public void AddNewArc(ArcMapSaver.arc newArc){
        //Unitoken target = AddNewToken();
        Unitoken source = unitokens[newArc.source];
        Unitoken target = unitokens[newArc.target];
@@ -196,11 +181,15 @@ public class ArcMapManager : MonoBehaviour
 
     public Unitoken selectedUnitoken;
     public void SelectUnitoken(Unitoken selected){
-        if(selectedUnitoken != null)
-        selectedUnitoken.SetHoverActive(false);
-        selectedUnitoken.isSelected = false;
+        //Deselect
+        if(selectedUnitoken != null){
+            selectedUnitoken.SetHoverActive(false);
+            selectedUnitoken.isSelected = false;
+        }
+        //Select
         selectedUnitoken = selected;
-        selected.SetHoverActive(true);
+
+        selectedUnitoken.SetHoverActive(true);
         selectedUnitoken.isSelected = true;
     }
     public void MoveUnitoken(){
@@ -230,15 +219,23 @@ public class ArcMapManager : MonoBehaviour
                 float h = mouseWorldPos.x;
                 float v = mouseWorldPos.y;
                 Vector3 mouseDelta = new Vector3(h,v,0);
+
                 selectedUnitoken = AddNewToken(mouseDelta);
+                SelectUnitoken(selectedUnitoken);
                 Debug.Log(mouseDelta);
             }
-        }else{
-            //float scroll = Input.get
-            //selectedUnitoken
+        }
+
+        if(Input.GetKeyUp(KeyCode.Space) && selectedUnitoken != null){
+            //ArcMapManager.Instance.AddNewToken(this);
+            AddNewArc(selectedUnitoken);
         }
         //MoveUnitoken();
         MoveMap();
+
+        if(unitokens != null && unitokens.Count > 0){
+            UpdateMap();
+        }
     }
 
     public float zoomScale = 1;
@@ -256,28 +253,40 @@ public class ArcMapManager : MonoBehaviour
     }
 
     public void SaveMap(){
-        ArcMapSaver.SaveUnitokens(unitokens);
-        ArcMapSaver.SaveArcs(Arcs);
+        ArcMapSaver.SaveMap(unitokens, Arcs);
     }
 
     public void LoadMap(){
-        unitoken[] tokens = ArcMapSaver.LoadUnitokens();
-        arc[] arcs = ArcMapSaver.LoadArcs();
-        //Clear tokens?
-        foreach(unitoken x in tokens){
-            //x.transform.position = x.TransientPosition;
-            AddNewToken(x);
-        }
-
-        foreach(arc x in arcs){
-            //x.transform.position = x.TransientPosition;
-            AddNewArc(x);
-        }
+        ArcMapSaver.LoadMap();
     }
 
     public void UpdateMap(){
+        arcMapLayout.AddForces(unitokens, Arcs);
+        //Vector3[] tokenforces = arcMapLayout.GetUnitokenForceVectors(unitokens);
+        //Vector3[] arcforces = arcMapLayout.GetArcForceVectors(Arcs);
+//
+        //for(int i = 0; i < tokenforces.Length; i++){
+        //    unitokens[i].transform.position +=  tokenforces[i] * Time.deltaTime;
+        //    unitokens[i].TransientPosition = unitokens[i].transform.position;
+        //    Debug.DrawRay(unitokens[i].TransientPosition, tokenforces[i], Color.red);
+        //    //Debug.DrawRay(Vector3.zero, forces[i] * 10, Color.red);
+        //}
+//
+        //for(int i = 0; i < arcforces.Length; i++){
+        //    Fragment source = Arcs[i].source;
+        //    Fragment target = Arcs[i].target;
+        //    source.transform.position +=  arcforces[i] * Time.deltaTime * 0.5f;
+        //    source.TransientPosition = source.transform.position;
+//
+        //    target.transform.position +=  arcforces[i] * Time.deltaTime * 0.5f;
+        //    target.TransientPosition = target.transform.position;
+        //    //unitokens[i].transform.position +=  tokenforces[i] * Time.deltaTime;
+        //    //unitokens[i].TransientPosition = unitokens[i].transform.position;
+        //    Debug.DrawRay(Arcs[i].TransientPosition, arcforces[i], Color.blue);
+        //    //Debug.DrawRay(Vector3.zero, forces[i] * 10, Color.red);
+        //}
 
-    }
+   }
 
     public void ClearMap(){
         unitokens.Clear();

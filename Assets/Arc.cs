@@ -8,7 +8,6 @@ public class Arc : Fragment, ILabelable
     public TextMeshPro myLabel;
     public TextMeshPro MyLabel { get => myLabel;}
 
-    public Vector3 center;
 
     public Material lineMaterial;
     public Transform arrowSprite;
@@ -36,7 +35,7 @@ public class Arc : Fragment, ILabelable
 
     public virtual void ShowInputField()
     {
-        ArcMapManager.Instance.ShowInputField(center, this);
+        ArcMapManager.Instance.ShowInputField(TransientPosition, this);
     }
     public virtual void SetLabel(string label)
     {
@@ -46,8 +45,9 @@ public class Arc : Fragment, ILabelable
         MyLabel.text = label;
     }
 
-    public void Collape(){
-       myLabel.text = CollapseArc(this);
+    public string Collapse(){
+       //myLabel.text = CollapseArc(this);
+       return CollapseArc(this);
     }
     public string CollapseArc(Arc arc){
         string left = "";
@@ -98,8 +98,8 @@ public class Arc : Fragment, ILabelable
                 UpdateArrowSprite(points[1], sourceToTarg);
                 //lineList.Add(line);
                 UpdateCollider(points);
-                SetCenter();
-                UpdateLabelPosition(center);
+                SetTransientPosition();
+                UpdateLabelPosition(TransientPosition);
 
     }
 
@@ -139,8 +139,8 @@ public class Arc : Fragment, ILabelable
         this.newDirection = direction;
     }
 
-    public void SetCenter(){
-        center = target.transform.position - (target.transform.position - source.transform.position)/2.0f;
+    public void SetTransientPosition(){
+        TransientPosition = target.transform.position - (target.transform.position - source.transform.position)/2.0f;
     }
 
     public void UpdateCollider(Vector3[] points){
@@ -181,8 +181,8 @@ public class Arc : Fragment, ILabelable
                
                 myLine.SetPositions(points);
                 UpdateCollider(points);
-                SetCenter();
-                UpdateLabelPosition(center);
+                SetTransientPosition();
+                UpdateLabelPosition(TransientPosition);
                 UpdateArrowSprite(points[1], sourceToTarg);
     }
 
@@ -195,12 +195,20 @@ public class Arc : Fragment, ILabelable
     }
 
     void CheckHasChanged(){
-         if (source.transform.hasChanged || target.transform.hasChanged)
+         if (target.transform.hasChanged)
         {
             RefreshArc();
             source.transform.hasChanged = false;
             target.transform.hasChanged = false;
         }
+        if (target.transform.hasChanged)
+        {
+            RefreshArc();
+            source.transform.hasChanged = false;
+            target.transform.hasChanged = false;
+        }
+
+
     }
 
   

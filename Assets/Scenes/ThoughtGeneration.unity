@@ -522,7 +522,19 @@ PrefabInstance:
     - target: {fileID: 1845628402, guid: 235a496b87ed4c54f84ddc3920d41cea, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1918226689}
+      objectReference: {fileID: 1203884587}
+    - target: {fileID: 1845628402, guid: 235a496b87ed4c54f84ddc3920d41cea, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CollapseArc
+      objectReference: {fileID: 0}
+    - target: {fileID: 1845628402, guid: 235a496b87ed4c54f84ddc3920d41cea, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1845628402, guid: 235a496b87ed4c54f84ddc3920d41cea, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 240224538, guid: 235a496b87ed4c54f84ddc3920d41cea, type: 3}
       propertyPath: m_AnchorMin.y
       value: 0
@@ -619,6 +631,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1203884588}
   - component: {fileID: 1203884587}
+  - component: {fileID: 1203884589}
+  - component: {fileID: 1203884590}
   m_Layer: 0
   m_Name: ArcMapManager
   m_TagString: Untagged
@@ -638,6 +652,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb5e9339c5bbdb44393b6a68223ede63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  arcMapLayout: {fileID: 1203884589}
   unitokens: []
   Arcs: []
   unitokenPrefab: {fileID: 5341252115030082460, guid: 761bfe63af3f02747acf17b5445de68c,
@@ -647,6 +662,7 @@ MonoBehaviour:
   inputField: {fileID: 786468232}
   linePadding: 0.8
   mapScale: 2
+  selectedArc: {fileID: 1918226689}
   selectedUnitoken: {fileID: 0}
   zoomScale: 1
 --- !u!4 &1203884588
@@ -663,6 +679,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1203884589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1203884586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe85f85f033e89742a68a6a6db27191b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitokenForceList: []
+  arcForceList: []
+--- !u!114 &1203884590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1203884586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6a2e16ad306647488ee6ef731026547, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1554030818
 GameObject:
   m_ObjectHideFlags: 0
@@ -765,7 +807,7 @@ PrefabInstance:
     - target: {fileID: 5341252115030082460, guid: 761bfe63af3f02747acf17b5445de68c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1
+      value: 3.98
       objectReference: {fileID: 0}
     - target: {fileID: 5341252115030082460, guid: 761bfe63af3f02747acf17b5445de68c,
         type: 3}

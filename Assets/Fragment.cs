@@ -11,6 +11,8 @@ public class Fragment : MonoBehaviour
     public enum Type {Unitoken, Arc}
     public Type myType;
 
+    public Vector3 TransientPosition;
+
     // Start is called before the first frame update
     void Start()
     {

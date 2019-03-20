@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class Unitoken : Fragment, ILabelable
 {
     public Vector3 AnchoredPosition;
-    public Vector3 TransientPosition;
+    
 
     List<LineRenderer> lineList = new List<LineRenderer>();
 
@@ -64,10 +64,7 @@ public class Unitoken : Fragment, ILabelable
         
     }
     void Update(){
-        if(Input.GetKeyUp(KeyCode.Space) && ArcMapManager.Instance.selectedUnitoken == this){
-            //ArcMapManager.Instance.AddNewToken(this);
-            ArcMapManager.Instance.AddNewArc(this);
-        }
+       
     }
 
     void OnMouseDrag()
