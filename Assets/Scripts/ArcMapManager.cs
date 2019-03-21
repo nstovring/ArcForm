@@ -260,8 +260,14 @@ public class ArcMapManager : MonoBehaviour
         ArcMapSaver.LoadMap();
     }
 
+
+    public bool FlattenMap = false;
     public void UpdateMap(){
-        arcMapLayout.AddForces(unitokens, Arcs);
+        if(!FlattenMap){
+            arcMapLayout.AddForces(unitokens, Arcs);
+        }else{
+            arcMapLayout.AddFlattenForces(unitokens,Arcs);
+        }
         //Vector3[] tokenforces = arcMapLayout.GetUnitokenForceVectors(unitokens);
         //Vector3[] arcforces = arcMapLayout.GetArcForceVectors(Arcs);
 //

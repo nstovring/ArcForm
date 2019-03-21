@@ -102,12 +102,13 @@ public class ArcMapSaver : MonoBehaviour
 
     }
 
+    public bool rngLoad = false;
     public static unitoken[] LoadUnitokens(){
         transientPositions = PlayerPrefsX.GetVector3Array(keys[0]);
         unitokenLabels = PlayerPrefsX.GetStringArray(keys[1]);
 
-
-        Random.InitState(42);
+        //if(rngLoad)
+        //Random.InitState(42);
 
         unitoken[] loadedTokens = new unitoken[transientPositions.Length];
 

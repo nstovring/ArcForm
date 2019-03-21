@@ -9,6 +9,8 @@ public class ArcMapLayout : MonoBehaviour
     //List<Unitoken> Unitokens;
 
     public List<Vector3> unitokenForceList;
+    public List<Vector3> flattenForceList;
+
     public List<Vector3> arcForceList;
 
     void Start()
@@ -19,6 +21,35 @@ public class ArcMapLayout : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+    }
+
+
+  public void AddFlattenForces(List<Unitoken> unitokens, List<Arc> arcs){
+        Vector3[] tokenforces = GetUnitokenForceVectors(unitokens);
+        Vector3[] arcforces = GetArcForceVectors(arcs);
+        Vector3[] flattenForces = GetFlattenForceVectors(unitokens);
+
+        for(int i = 0; i < tokenforces.Length; i++){
+            unitokens[i].transform.position +=  tokenforces[i] * Time.deltaTime;
+            unitokens[i].transform.position +=  flattenForces[i] * Time.deltaTime;
+            unitokens[i].TransientPosition = unitokens[i].transform.position;
+
+            Debug.DrawRay(unitokens[i].TransientPosition, tokenforces[i], Color.red);
+            //Debug.DrawRay(Vector3.zero, forces[i] * 10, Color.red);
+        }
+
+        for(int i = 0; i < arcforces.Length; i++){
+            Fragment source = arcs[i].source;
+            Fragment target = arcs[i].target;
+            source.transform.position +=  arcforces[i] * Time.deltaTime * 0.5f;
+            source.TransientPosition = source.transform.position;
+
+            target.transform.position +=  arcforces[i] * Time.deltaTime * 0.5f;
+            target.TransientPosition = target.transform.position;
+            
+            Debug.DrawRay(arcs[i].TransientPosition, arcforces[i], Color.blue);
+            //Debug.DrawRay(Vector3.zero, forces[i] * 10, Color.red);
+        }
     }
 
     public void AddForces(List<Unitoken> unitokens, List<Arc> arcs){
@@ -40,8 +71,7 @@ public class ArcMapLayout : MonoBehaviour
 
             target.transform.position +=  arcforces[i] * Time.deltaTime * 0.5f;
             target.TransientPosition = target.transform.position;
-            //unitokens[i].transform.position +=  tokenforces[i] * Time.deltaTime;
-            //unitokens[i].TransientPosition = unitokens[i].transform.position;
+
             Debug.DrawRay(arcs[i].TransientPosition, arcforces[i], Color.blue);
             //Debug.DrawRay(Vector3.zero, forces[i] * 10, Color.red);
         }
@@ -66,6 +96,27 @@ public class ArcMapLayout : MonoBehaviour
         }
         return forces;
     }
+    public Vector3[] GetFlattenForceVectors(List<Unitoken> unitokens){
+        Vector3[] forces = new Vector3[unitokens.Count];
+        flattenForceList = new List<Vector3>();
+        for(int i = 0; i < unitokens.Count; i++){
+            Unitoken token = unitokens[i];
+
+            Vector3 transientPos = token.TransientPosition;
+            Vector3 flattenedPos =  new Vector3(transientPos.x,transientPos.y,0);
+            float distance = Vector3.Distance(transientPos,flattenedPos);
+
+            if(distance > 0.1f){
+                Vector3 dir = (flattenedPos - transientPos)/distance;
+                forces[i] += dir;
+            }
+
+            flattenForceList.Add(forces[i]);
+        }
+        return forces;
+    }
+
+   
 
     public Vector3[] GetArcForceVectors(List<Arc> arcs){
         Vector3[] forces = new Vector3[arcs.Count];
