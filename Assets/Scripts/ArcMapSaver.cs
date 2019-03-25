@@ -35,12 +35,12 @@ public class ArcMapSaver : MonoBehaviour
         //Clear tokens?
         foreach(unitoken x in tokens){
             //x.transform.position = x.TransientPosition;
-            ArcMapManager.Instance.AddNewToken(x);
+            ArcMapManager.Instance.tokenFactory.AddNewToken(x);
         }
 
         foreach(arc x in arcs){
             //x.transform.position = x.TransientPosition;
-            ArcMapManager.Instance.AddNewArc(x);
+            ArcMapManager.Instance.arcFactory.AddNewArc(x);
         }
     }
 

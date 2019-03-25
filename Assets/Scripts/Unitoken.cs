@@ -8,7 +8,7 @@ public class Unitoken : Fragment, ILabelable
 {
     public Vector3 AnchoredPosition;
     
-
+    public int arcCount;
     List<LineRenderer> lineList = new List<LineRenderer>();
 
     public Vector3 rotationVector;

@@ -650,6 +650,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ff5cc6cbdce7594ab4ef9fc670c451c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  subjects: []
 --- !u!4 &967795167
 Transform:
   m_ObjectHideFlags: 0
@@ -676,6 +677,8 @@ GameObject:
   - component: {fileID: 1203884587}
   - component: {fileID: 1203884589}
   - component: {fileID: 1203884590}
+  - component: {fileID: 1203884592}
+  - component: {fileID: 1203884591}
   m_Layer: 0
   m_Name: ArcMapManager
   m_TagString: Untagged
@@ -695,6 +698,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb5e9339c5bbdb44393b6a68223ede63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tokenFactory: {fileID: 0}
+  arcFactory: {fileID: 0}
   arcMapLayout: {fileID: 1203884589}
   unitokens: []
   Arcs: []
@@ -751,6 +756,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rngLoad: 0
+--- !u!114 &1203884591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1203884586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1beef54c482a1c243860ed12dd72e27f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  joinArcPrefab: {fileID: 2880948707504835924, guid: 6b151f0cd91da6e4f837f0eb8e3ca6d0,
+    type: 3}
+--- !u!114 &1203884592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1203884586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad0cb99bf6c95e04d90e9ad12d930e5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitokenPrefab: {fileID: 5341252115030082460, guid: 761bfe63af3f02747acf17b5445de68c,
+    type: 3}
 --- !u!1 &1554030818
 GameObject:
   m_ObjectHideFlags: 0

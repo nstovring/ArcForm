@@ -8,6 +8,8 @@ public class ArcMapManager : MonoBehaviour
     //This class is responsible for creating Tokens, Arcs and Thoughts
 
     public static ArcMapManager Instance;
+    public TokenFactory tokenFactory;
+    public ArcFactory arcFactory;
     public ArcMapLayout arcMapLayout;
     public List<Unitoken> unitokens;
     public List<Arc> Arcs;
@@ -31,6 +33,14 @@ public class ArcMapManager : MonoBehaviour
         Arcs = new List<Arc>();
         
         arcMapLayout = GetComponent<ArcMapLayout>();
+        if(tokenFactory == null)
+            tokenFactory = GetComponent<TokenFactory>();
+
+        if(arcFactory == null)
+            arcFactory = GetComponent<ArcFactory>();
+
+        tokenFactory.Initialize();
+        arcFactory.Initialize();
         mCamera = Camera.main;
     }
 
@@ -75,109 +85,10 @@ public class ArcMapManager : MonoBehaviour
         }
     }
     public void OnClickAddNewToken(){
-        AddNewToken();
+        tokenFactory.AddNewToken();
     }
-    public Unitoken AddNewToken(){
-        Vector3 mouseWorldPos = mCamera.ScreenToWorldPoint(Input.mousePosition);
-        float h = mouseWorldPos.x;
-        float v = mouseWorldPos.y;
-        Vector3 mouseDelta = new Vector3(h,v,0);
-        //transform.position = mouseDelta;
+   
 
-
-        Unitoken newToken = Instantiate(unitokenPrefab, mouseDelta, Quaternion.identity, transform.parent).GetComponent<Unitoken>();
-        newToken.transform.name = "Unitoken";
-        newToken.Initialize("Label", mouseDelta);
-
-        AddToken(newToken);
-
-        return newToken;
-    }
-
-
-    public void AddNewToken(ArcMapSaver.unitoken token){
-        Vector3 mouseWorldPos = mCamera.ScreenToWorldPoint(Input.mousePosition);
-        float h = mouseWorldPos.x;
-        float v = mouseWorldPos.y;
-        Vector3 mouseDelta = new Vector3(h,v,0);
-        //transform.position = mouseDelta;
-        Unitoken newToken = Instantiate(unitokenPrefab, token.TransientPosition, Quaternion.identity, transform.parent).GetComponent<Unitoken>();
-
-        newToken.transform.position = token.TransientPosition;
-        newToken.transform.name = "Unitoken";
-        newToken.Initialize(token.Label, token.TransientPosition);
-
-        AddToken(newToken);
-
-        //return newToken;
-    }
-
-    public Unitoken AddNewToken(Vector3 position){
-        //source.tokenRotation = (360.0f/(source.myArcs.Count + 1.0f));
-        //Vector3 rotationVector = new Vector3(Mathf.Sin(source.tokenRotation * Mathf.Deg2Rad), Mathf.Cos(source.tokenRotation * Mathf.Deg2Rad), 0);
-        ///Vector3 offset = rotationVector * ArcMapManager.Instance.mapScale;
-
-        Unitoken newToken = Instantiate(unitokenPrefab, position, Quaternion.identity, transform.parent).GetComponent<Unitoken>();
-        newToken.transform.name = "Unitoken";
-        newToken.Initialize("Label", position);
-
-        AddToken(newToken);
-
-        return newToken;
-
-        //CreateJoinArc(source, newToken);
-    }
-
-
-    public void CollapseArc(){
-        string label = selectedArc.Collapse();
-        Vector3 center = selectedArc.TransientPosition;
-        ArcMapSaver.unitoken token = new ArcMapSaver.unitoken();
-        token.Label = label;
-        token.TransientPosition = center;
-        
-        AddNewToken(token);
-    }
-
-
-   public void AddNewArc(Unitoken source){
-       Unitoken target = AddNewToken();
-       Arc arc = CreateJoinArc(source,target);
-       source.transform.parent = arc.transform;
-       target.transform.parent = arc.transform;
-       selectedUnitoken = target;
-       //Fragment frag = new GameObject("Fragment").AddComponent<Fragment>();
-       //frag.Initialize(arc);
-
-   }
-
-
-    public void AddNewArc(ArcMapSaver.arc newArc){
-       //Unitoken target = AddNewToken();
-       Unitoken source = unitokens[newArc.source];
-       Unitoken target = unitokens[newArc.target];
-
-       Arc arc = CreateJoinArc(source,target);
-
-       arc.SetLabel(newArc.Label);
-
-       source.transform.parent = arc.transform;
-       target.transform.parent = arc.transform;
-       selectedUnitoken = target;
-       Debug.Log("Creating arcs");
-
-
-       //Fragment frag = new GameObject("Fragment").AddComponent<Fragment>();
-       //frag.Initialize(arc);
-
-   }
-    Arc CreateJoinArc(Fragment source, Fragment target){
-        Arc newJoinArc = Instantiate(joinArcPrefab, Vector3.zero, Quaternion.identity, transform.parent).GetComponent<Arc>();
-        newJoinArc.Initialize(source,target);
-
-        AddArc(newJoinArc);
-        return newJoinArc;
-    }
 
     public Unitoken selectedUnitoken;
     public void SelectUnitoken(Unitoken selected){
@@ -220,7 +131,7 @@ public class ArcMapManager : MonoBehaviour
                 float v = mouseWorldPos.y;
                 Vector3 mouseDelta = new Vector3(h,v,0);
 
-                selectedUnitoken = AddNewToken(mouseDelta);
+                selectedUnitoken = tokenFactory.AddNewToken(mouseDelta);
                 SelectUnitoken(selectedUnitoken);
                 Debug.Log(mouseDelta);
             }
@@ -228,7 +139,7 @@ public class ArcMapManager : MonoBehaviour
 
         if(Input.GetKeyUp(KeyCode.Space) && selectedUnitoken != null){
             //ArcMapManager.Instance.AddNewToken(this);
-            AddNewArc(selectedUnitoken);
+            arcFactory.AddNewArc(selectedUnitoken);
         }
         //MoveUnitoken();
         MoveMap();
@@ -268,30 +179,6 @@ public class ArcMapManager : MonoBehaviour
         }else{
             arcMapLayout.AddFlattenForces(unitokens,Arcs);
         }
-        //Vector3[] tokenforces = arcMapLayout.GetUnitokenForceVectors(unitokens);
-        //Vector3[] arcforces = arcMapLayout.GetArcForceVectors(Arcs);
-//
-        //for(int i = 0; i < tokenforces.Length; i++){
-        //    unitokens[i].transform.position +=  tokenforces[i] * Time.deltaTime;
-        //    unitokens[i].TransientPosition = unitokens[i].transform.position;
-        //    Debug.DrawRay(unitokens[i].TransientPosition, tokenforces[i], Color.red);
-        //    //Debug.DrawRay(Vector3.zero, forces[i] * 10, Color.red);
-        //}
-//
-        //for(int i = 0; i < arcforces.Length; i++){
-        //    Fragment source = Arcs[i].source;
-        //    Fragment target = Arcs[i].target;
-        //    source.transform.position +=  arcforces[i] * Time.deltaTime * 0.5f;
-        //    source.TransientPosition = source.transform.position;
-//
-        //    target.transform.position +=  arcforces[i] * Time.deltaTime * 0.5f;
-        //    target.TransientPosition = target.transform.position;
-        //    //unitokens[i].transform.position +=  tokenforces[i] * Time.deltaTime;
-        //    //unitokens[i].TransientPosition = unitokens[i].transform.position;
-        //    Debug.DrawRay(Arcs[i].TransientPosition, arcforces[i], Color.blue);
-        //    //Debug.DrawRay(Vector3.zero, forces[i] * 10, Color.red);
-        //}
-
    }
 
     public void ClearMap(){
