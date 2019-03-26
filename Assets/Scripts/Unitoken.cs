@@ -19,7 +19,7 @@ public class Unitoken : Fragment, ILabelable
 
     public string label;
 
-    public TMP_InputField InputField => ArcMapManager.Instance.inputField;
+    public TMP_InputField InputField => UIManager.Instance.inputField;
 
     public Transform getTransform { get => transform;}
     public Transform hoverIcon;
@@ -99,7 +99,7 @@ public class Unitoken : Fragment, ILabelable
 
     public virtual void ShowInputField()
     {
-        ArcMapManager.Instance.ShowInputField(transform.position, this);
+        UIManager.Instance.ShowInputField(transform.position, this);
     }
 
     public virtual void SetLabel(string label)

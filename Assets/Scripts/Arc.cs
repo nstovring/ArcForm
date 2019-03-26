@@ -35,7 +35,7 @@ public class Arc : Fragment, ILabelable
 
     public virtual void ShowInputField()
     {
-        ArcMapManager.Instance.ShowInputField(TransientPosition, this);
+        UIManager.Instance.ShowInputField(TransientPosition, this);
     }
     public virtual void SetLabel(string label)
     {

@@ -16,7 +16,7 @@ public class ArcMapManager : MonoBehaviour
 
     public Transform unitokenPrefab;
     public Transform joinArcPrefab;
-    public TMP_InputField inputField;
+   
 
     public float linePadding = 0.2f;
     public float mapScale = 2.0f;
@@ -44,23 +44,7 @@ public class ArcMapManager : MonoBehaviour
         mCamera = Camera.main;
     }
 
-    public void ShowInputField(Vector3 worldPos, ILabelable asker){
 
-        inputField.transform.gameObject.SetActive(true);
-
-        inputField.onEndEdit.RemoveAllListeners();
-
-
-        Vector2 screenPos = RectTransformUtility.WorldToScreenPoint(Camera.main, worldPos);
-        RectTransform rectTransform =  inputField.GetComponent<RectTransform>();
-        rectTransform.position = screenPos;
-
-        inputField.onEndEdit.AddListener(delegate{
-            asker.SetLabel(inputField.text);
-            inputField.transform.gameObject.SetActive(false);
-        });
-
-    }
 
 
     public bool AddToken(Unitoken token){
@@ -184,5 +168,9 @@ public class ArcMapManager : MonoBehaviour
     public void ClearMap(){
         unitokens.Clear();
 
+    }
+
+    public void ToggleFlatten(){
+        FlattenMap = !FlattenMap;
     }
 }

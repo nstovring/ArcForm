@@ -14,7 +14,9 @@ namespace Xml2CSharp
 
     public class XMLParser : MonoBehaviour
     {
-        string testPath = "http://lookup.dbpedia.org/api/search.asmx/PrefixSearch?QueryClass=&MaxHits=5&QueryString=nicolaus";
+		public static XMLParser Instance;
+        string testPath = "http://lookup.dbpedia.org/api/search.asmx/PrefixSearch?QueryClass=&MaxHits=5&QueryString=";
+		string searchString = "nicolaus";
 		public List<string> Elements;
 		public List<string> Text;
 		public List<string> URI;
@@ -24,46 +26,22 @@ namespace Xml2CSharp
 			Elements = new List<string>();
 			Text = new List<string>();
 			URI = new List<string>();
+			Instance = this;
 		}
         public void Do()
 		{
-			ReadLink(testPath);
+			ReadLink(testPath + searchString);
 		}
-        public void ReadLink(string path){
+        public List<Result> ReadLink(string search){
+			string path = testPath + search;
+
             XmlTextReader reader = new XmlTextReader (path);
 			XmlSerializer serializer = new XmlSerializer(typeof(ArrayOfResult));
 			result = (ArrayOfResult)serializer.Deserialize(reader);
 			reader.Close();
 			Debug.Log(result.Result.Count);
-			foreach(Result x in result.Result){
-				Elements.Add(x.Label);
-				Text.Add(x.Description);
-				URI.Add(x.URI);
 
-				SearchBox.Instance.AddSearchResult(x.Label, x.Description, x.URI);
-			}
-            //while (reader.Read()) 
-            //{
-            //    switch (reader.NodeType) 
-            //    {
-            //        case XmlNodeType.Element: // The node is an element.
-            //            //Debug.Log ("<" + reader.Name);
-            //            //Debug.Log (">");
-			//			Elements.Add(reader.Name);
-            //            break;
-//
-            //        case XmlNodeType.Text: //Display the text in each element.
-            //            //Debug.Log (reader.Value);
-			//			Text.Add(reader.Value);
-            //            break;
-//
-            //        case XmlNodeType. EndElement: //Display the end of the element.
-            //            //Debug.Log ("</" + reader.Name);
-            //            //Debug.Log (">");
-			//			EndElement.Add(reader.Name);
-            //            break;
-            //    }
-            //}
+			return result.Result;
         }
     }
 	[XmlRoot(ElementName="Class", Namespace="http://lookup.dbpedia.org/")]
