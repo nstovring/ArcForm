@@ -15,39 +15,43 @@ public class DBPediaManager : MonoBehaviour
 
     void Start(){
         Initialize();
-        StartLoading();
+        //StartLoading();
     }  
     string testURI ="http://dbpedia.org/resource/The_Lord_of_the_Rings";
-    string testDataset ="http://dig.csail.mit.edu/2008/webdav/timbl/foaf.rdf";
+    string testDataset ="http://dbpedia.org/data/Albert_Einstein.rdf";
 
     public void Initialize(){
         subjects = new List<string>();
-        _worker = new BackgroundWorker ();
-        _worker.DoWork += (object sender, DoWorkEventArgs e) => Main();
+        //_worker = new BackgroundWorker ();
+        //_worker.DoWork += (object sender, DoWorkEventArgs e) => Main();
+        GetPredicates("Vka");
     }
 
     public void GetPredicates(string path){
         TripleStore store = new TripleStore();
         
 		//Create a Parameterized String
-		SparqlParameterizedString queryString = new SparqlParameterizedString();
+		//SparqlParameterizedString queryString = new SparqlParameterizedString();
 
-        InMemoryDataset ds = new InMemoryDataset(store, new Uri(path));
+        InMemoryDataset ds = new InMemoryDataset(store, new Uri(testDataset));
 
 		//Add a namespace declaration
 		//queryString.Namespaces.AddNamespace("foaf", new Uri("http://xmlns.com/foaf/0.1/"));
 		//queryString.Namespaces.AddNamespace("card", new Uri("http://www.w3.org/People/Berners-Lee/card#"));
+        store.AddFromUri(new Uri("http://dbpedia.org/resource/Barack_Obama"));
 
-		//Set the SPARQL command
-		//For more complex queries we can do this in multiple lines by using += on the
-		//CommandText property
-		//Note we can use @name style parameters here
+		SparqlParameterizedString queryString = new SparqlParameterizedString();
+        queryString.Namespaces.AddNamespace("foaf", new Uri("http://xmlns.com/foaf/0.1/"));
 
-		//Make a SELECT query against the Endpoint
+        queryString.CommandText = "SELECT * WHERE { { GRAPH ?g { ?s ?p ?o } } UNION { ?s ?p ?o } }";
+        //Get the Query processor
+		ISparqlQueryProcessor processor = new LeviathanQueryProcessor(store);
+        SparqlQueryParser sparqlparser = new SparqlQueryParser();
+		SparqlQuery query = sparqlparser.ParseFromString(queryString);
 
-        queryString.CommandText = "SELECT ?homepage WHERE { card:i foaf:knows ?known .";
-        queryString.CommandText += "?known foaf:homepage ?homepage .";
-        queryString.CommandText += "}";
+        object results = processor.ProcessQuery(query);
+        DebugResults(results);
+		
     }
 
     public void Main()
@@ -156,6 +160,71 @@ public class DBPediaManager : MonoBehaviour
 
         
 	}
+
+    public void DebugResults(object results){
+          try{
+            //SparqlResultSet res = (SparqlResultSet) results;
+
+            if (results is SparqlResultSet)
+		    {
+                SparqlResultSet rset = (SparqlResultSet)results;
+
+                string msg = rset.Count + " results:";
+
+                //mSprqlResult.text += "\n" + msg;
+                Debug.Log(msg);
+		    	//Print out the Results
+		    	  int cnt = 0;
+                foreach (SparqlResult r in rset)
+                {
+                    cnt++;
+                    msg = "#" + cnt + ": " + r.ToString();
+
+                    string targetLabel = r.ToString();
+                    //ArcMapSaver.unitoken target = new ArcMapSaver.unitoken();
+                    //target.Label =targetLabel;
+                    //Unitoken utarget = ArcMapManager.Instance.tokenFactory.AddNewToken(target);
+
+                    //ArcMapManager.Instance.arcFactory.AddNewArc(uSource,"HomePages known",utarget);
+
+                    Debug.Log(msg);
+                    //mSprqlResult.text += "\n" + msg;
+                    //Do whatever you want with each Result
+                }
+		    } else if (results is IGraph)
+            {
+                //CONSTRUCT/DESCRIBE queries give a IGraph
+                IGraph resGraph = (IGraph)results;
+
+                Debug.Log("\n" + "IGraph results:\n");
+                Debug.Log(resGraph.IsEmpty);
+                int cnt = 0;
+                foreach (Triple t in resGraph.Triples)
+                {
+                    string msg = "Triple #" + ++cnt + ": " + t.ToString();
+                    
+                    //subjects.Add(t.Subject.ToString());
+                    Debug.Log(msg);
+                    //mSprqlResult.text += msg;
+                    //Do whatever you want with each Triple
+                }
+            } else
+            {
+                //If you don't get a SparqlResutlSet or IGraph something went wrong 
+                //but didn't throw an exception so you should handle it here
+                string msg = "ERROR, or no results";
+                Debug.Log(msg);
+                //mSprqlResult.text += "\n" + msg;
+            }
+        }catch (RdfQueryException queryEx)
+        {
+            //There was an error executing the query so handle it here
+            Debug.Log(queryEx.Message);
+            //mSprqlResult.text += queryEx.Message     ;
+        }
+
+    }
+
     public List<string> subjects;
     BackgroundWorker _worker;
     Queue<Action> _actions = new Queue<Action>();

@@ -45,7 +45,7 @@ public class SearchBox : MonoBehaviour
     public void ClearResults(){
         if(searchResults.Count > 0){
             foreach(SearchResultElement x in searchResults){
-				Destroy(x);
+				Destroy(x.gameObject);
 		    }
         }
         
@@ -62,7 +62,7 @@ public class SearchBox : MonoBehaviour
         element.elementButton.onClick.AddListener(delegate{
             //Create new token with text and uri
             ArcMapManager.Instance.tokenFactory.AddNewToken(label);
-            //Search for
+            //Search for predicates
             ClearResults();
         });
     }
