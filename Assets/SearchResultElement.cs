@@ -8,6 +8,8 @@ public class SearchResultElement : MonoBehaviour
     // Start is called before the first frame update
     public Button elementButton;
     public Text elementText;
+
+    public string URI;
     void Start()
     {
         if(elementButton == null)
@@ -17,7 +19,9 @@ public class SearchResultElement : MonoBehaviour
             throw new UnassignedReferenceException();
     }
 
+    void GetPredicates(){
 
+    }
     // Update is called once per frame
     void Update()
     {

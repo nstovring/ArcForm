@@ -29,6 +29,7 @@ public class SearchBox : MonoBehaviour
         //rectTransform.position = screenPos;
 
         inputField.onEndEdit.AddListener(delegate{
+            ClearResults();
             Search(inputField.text);
             //inputField.transform.gameObject.SetActive(false);
         });
@@ -42,9 +43,12 @@ public class SearchBox : MonoBehaviour
     }
 
     public void ClearResults(){
-        foreach(SearchResultElement x in searchResults){
+        if(searchResults.Count > 0){
+            foreach(SearchResultElement x in searchResults){
 				Destroy(x);
-		}
+		    }
+        }
+        
         searchResults.Clear();
     }
 
@@ -52,7 +56,15 @@ public class SearchBox : MonoBehaviour
     {
         SearchResultElement element = Instantiate(searchElementPrefab, Vector3.zero, Quaternion.identity, transform).GetComponent<SearchResultElement>();
         element.elementText.text = label;
+        element.URI = uri;
         searchResults.Add(element);
+
+        element.elementButton.onClick.AddListener(delegate{
+            //Create new token with text and uri
+            ArcMapManager.Instance.tokenFactory.AddNewToken(label);
+            //Search for
+            ClearResults();
+        });
     }
     // Update is called once per frame
     void Update()

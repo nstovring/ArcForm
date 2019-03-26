@@ -26,6 +26,29 @@ public class DBPediaManager : MonoBehaviour
         _worker.DoWork += (object sender, DoWorkEventArgs e) => Main();
     }
 
+    public void GetPredicates(string path){
+        TripleStore store = new TripleStore();
+        
+		//Create a Parameterized String
+		SparqlParameterizedString queryString = new SparqlParameterizedString();
+
+        InMemoryDataset ds = new InMemoryDataset(store, new Uri(path));
+
+		//Add a namespace declaration
+		//queryString.Namespaces.AddNamespace("foaf", new Uri("http://xmlns.com/foaf/0.1/"));
+		//queryString.Namespaces.AddNamespace("card", new Uri("http://www.w3.org/People/Berners-Lee/card#"));
+
+		//Set the SPARQL command
+		//For more complex queries we can do this in multiple lines by using += on the
+		//CommandText property
+		//Note we can use @name style parameters here
+
+		//Make a SELECT query against the Endpoint
+
+        queryString.CommandText = "SELECT ?homepage WHERE { card:i foaf:knows ?known .";
+        queryString.CommandText += "?known foaf:homepage ?homepage .";
+        queryString.CommandText += "}";
+    }
 
     public void Main()
 	{
@@ -151,7 +174,7 @@ public class DBPediaManager : MonoBehaviour
         }
     }
 
-      public void StartLoading()
+    public void StartLoading()
     {
         _worker.RunWorkerAsync ();
     }
