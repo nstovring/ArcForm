@@ -15,7 +15,7 @@ namespace Xml2CSharp
     public class XMLParser : MonoBehaviour
     {
 		public static XMLParser Instance;
-        string testPath = "http://lookup.dbpedia.org/api/search.asmx/PrefixSearch?QueryClass=&MaxHits=5&QueryString=";
+        string testPath = "http://lookup.dbpedia.org/api/search.asmx/PrefixSearch?QueryClass=person&MaxHits=5&QueryString=";
 		string searchString = "nicolaus";
 		public List<string> Elements;
 		public List<string> Text;
