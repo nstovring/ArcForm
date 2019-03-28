@@ -3,14 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 [RequireComponent(typeof(ArcMapLayout))]
+[RequireComponent(typeof(ArcFactory))]
+[RequireComponent(typeof(TokenFactory))]
 public class ArcMapManager : MonoBehaviour
 {
     //This class is responsible for creating Tokens, Arcs and Thoughts
 
     public static ArcMapManager Instance;
-    public TokenFactory tokenFactory;
-    public ArcFactory arcFactory;
-    public ArcMapLayout arcMapLayout;
+    private TokenFactory tokenFactory;
+    private ArcFactory arcFactory;
+    private ArcMapLayout arcMapLayout;
     public List<Unitoken> unitokens;
     public List<Arc> Arcs;
 
@@ -25,14 +27,18 @@ public class ArcMapManager : MonoBehaviour
 
     Camera mCamera;
 
+    public bool FlattenMap = false;
+
     // Start is called before the first frame update
     void Start()
     {
         Instance = this;
         unitokens = new List<Unitoken>();
         Arcs = new List<Arc>();
-        
-        arcMapLayout = GetComponent<ArcMapLayout>();
+
+        if(arcMapLayout == null)
+            arcMapLayout = GetComponent<ArcMapLayout>();
+
         if(tokenFactory == null)
             tokenFactory = GetComponent<TokenFactory>();
 
@@ -43,8 +49,6 @@ public class ArcMapManager : MonoBehaviour
         arcFactory.Initialize();
         mCamera = Camera.main;
     }
-
-
 
 
     public bool AddToken(Unitoken token){
@@ -64,7 +68,7 @@ public class ArcMapManager : MonoBehaviour
             Arcs.Add(arc);
             return true;
         }else{
-            Debug.Log("Failed to add token");
+            Debug.Log("Failed to add arc");
             return false;
         }
     }
@@ -72,8 +76,6 @@ public class ArcMapManager : MonoBehaviour
         tokenFactory.AddNewToken();
     }
    
-
-
     public Unitoken selectedUnitoken;
     public void SelectUnitoken(Unitoken selected){
         //Deselect
@@ -156,7 +158,7 @@ public class ArcMapManager : MonoBehaviour
     }
 
 
-    public bool FlattenMap = false;
+
     public void UpdateMap(){
         if(!FlattenMap){
             arcMapLayout.AddForces(unitokens, Arcs);

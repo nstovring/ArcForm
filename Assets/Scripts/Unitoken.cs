@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+using StructureContainer;
 public class Unitoken : Fragment, ILabelable
 {
     public Vector3 AnchoredPosition;
@@ -17,12 +18,13 @@ public class Unitoken : Fragment, ILabelable
     public TextMeshPro myLabel;
     public TextMeshPro MyLabel => myLabel;
 
-    public string label;
 
     public TMP_InputField InputField => UIManager.Instance.inputField;
 
     public Transform getTransform { get => transform;}
     public Transform hoverIcon;
+
+    public unitoken myUnitokenStruct;
 
     Camera mCamera;
     // Start is called before the first frame update
@@ -40,15 +42,24 @@ public class Unitoken : Fragment, ILabelable
         //}
     }
 
-    public void Initialize(string Label, Vector3 TransientPosition){
-        myLabel.text = Label;
-        this.TransientPosition = TransientPosition;
+    public void Initialize(unitoken token){
+        myUnitokenStruct = token;
+
+        myLabel.text = token.Label;
+        this.TransientPosition = token.TransientPosition;
         myType = Type.Unitoken;
         myArcs = new List<Arc>();
         mCamera = Camera.main;
     }
 
-
+    public void Initialize(string label, Vector3 transientPosition, string uri){
+        myUnitokenStruct = new unitoken{URI = uri, TransientPosition = transientPosition, Label = label};
+        myLabel.text = label;
+        this.TransientPosition = transientPosition;
+        myType = Type.Unitoken;
+        myArcs = new List<Arc>();
+        mCamera = Camera.main;
+    }
 
 
     void OnMouseDown()

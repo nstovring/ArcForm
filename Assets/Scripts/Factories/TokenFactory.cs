@@ -1,12 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using StructureContainer;
+using System;
 
 public class TokenFactory : MonoBehaviour
 {
     public Transform unitokenPrefab;
     private Camera mCamera;
+
+    public static TokenFactory Instance;
 public void Initialize(){
+    Instance = this;
     mCamera = Camera.main;
 }
  public Unitoken AddNewToken(){
@@ -19,7 +24,8 @@ public void Initialize(){
 
         Unitoken newToken = Instantiate(unitokenPrefab, mouseDelta, Quaternion.identity, transform.parent).GetComponent<Unitoken>();
         newToken.transform.name = "Unitoken";
-        newToken.Initialize("Label", mouseDelta);
+          //throw new NotImplementedException();
+        newToken.Initialize("Label", mouseDelta, "Empty URI!!");
 
         ArcMapManager.Instance.AddToken(newToken);
 
@@ -27,7 +33,7 @@ public void Initialize(){
     }
 
 
-    public Unitoken AddNewToken(ArcMapSaver.unitoken token){
+    public Unitoken AddNewToken(unitoken token){
         Vector3 mouseWorldPos = mCamera.ScreenToWorldPoint(Input.mousePosition);
         float h = mouseWorldPos.x;
         float v = mouseWorldPos.y;
@@ -37,7 +43,7 @@ public void Initialize(){
 
         newToken.transform.position = token.TransientPosition;
         newToken.transform.name = "Unitoken";
-        newToken.Initialize(token.Label, token.TransientPosition);
+        newToken.Initialize(token);
 
         ArcMapManager.Instance.AddToken(newToken);
 
@@ -45,7 +51,7 @@ public void Initialize(){
     }
 
 
-    public Unitoken AddNewToken(string label){
+    public Unitoken AddNewToken(predicate p){
         Vector3 mouseWorldPos = mCamera.ScreenToWorldPoint(Input.mousePosition);
         float h = mouseWorldPos.x;
         float v = mouseWorldPos.y;
@@ -55,7 +61,7 @@ public void Initialize(){
 
         newToken.transform.position = Vector3.zero;
         newToken.transform.name = "Unitoken";
-        newToken.Initialize(label, Vector3.zero);
+        newToken.Initialize(p.property, Vector3.zero,  p.URI);
 
         ArcMapManager.Instance.AddToken(newToken);
 
@@ -68,7 +74,7 @@ public void Initialize(){
 
         Unitoken newToken = Instantiate(unitokenPrefab, position, Quaternion.identity, transform.parent).GetComponent<Unitoken>();
         newToken.transform.name = "Unitoken";
-        newToken.Initialize("Label", position);
+        newToken.Initialize("Label", position, "Empty URI!");
 
         ArcMapManager.Instance.AddToken(newToken);
 

@@ -212,3 +212,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   elementButton: {fileID: 5998761879267830435}
   elementText: {fileID: 5998761877337740388}
+  predicateContainer: {fileID: 0}
+  togglePrefab: {fileID: 6422597690816275997, guid: 1e076f0aee95693419f1900582faf7fa,
+    type: 3}
+  URI: 
+  myPredicates: []

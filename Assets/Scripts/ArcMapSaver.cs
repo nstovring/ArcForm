@@ -1,23 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using StructureContainer;
 public class ArcMapSaver : MonoBehaviour
 {
     // Start is called before the first frame update
-    public struct unitoken{
-        public int id;
-        public Vector3 TransientPosition;
-        public string Label;
-    }
-
-    public struct arc{
-        public int id;
-        public int source;
-        public int target;
-        public string Label;
-    }
-
+   
     static readonly string[] keys = {"unitokenTransientPositions", "unitokenLabels"};
     static readonly string[] arcKeys = {"label", "sourceID", "targetID"};
 
@@ -35,12 +23,12 @@ public class ArcMapSaver : MonoBehaviour
         //Clear tokens?
         foreach(unitoken x in tokens){
             //x.transform.position = x.TransientPosition;
-            ArcMapManager.Instance.tokenFactory.AddNewToken(x);
+            TokenFactory.Instance.AddNewToken(x);
         }
 
         foreach(arc x in arcs){
             //x.transform.position = x.TransientPosition;
-            ArcMapManager.Instance.arcFactory.AddNewArc(x);
+            ArcFactory.Instance.AddNewArc(x);
         }
     }
 

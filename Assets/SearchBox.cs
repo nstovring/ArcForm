@@ -7,7 +7,12 @@ public class SearchBox : MonoBehaviour
 {
     public static SearchBox Instance;
     public Transform searchElementPrefab;
+    public Transform togglePrefab;
     public InputField inputField;
+
+    public PredicateContainer predicateContainer;
+
+    public RectTransform myRectTransform;
     public List<SearchResultElement> searchResults;
     // Start is called before the first frame update
     void Start()
@@ -15,18 +20,21 @@ public class SearchBox : MonoBehaviour
         Instance = this;
         searchResults = new List<SearchResultElement>();
 
+        if(myRectTransform == null)
+            throw new UnassignedReferenceException();
         if(searchElementPrefab == null)
             throw new UnassignedReferenceException();
 
         if(inputField == null)
             throw new UnassignedReferenceException();
 
+        if(togglePrefab == null)
+            throw new MissingReferenceException();
+
+        if(predicateContainer == null)
+            throw new MissingReferenceException();
+
         inputField.onEndEdit.RemoveAllListeners();
-
-
-        //Vector2 screenPos = RectTransformUtility.WorldToScreenPoint(Camera.main, worldPos);
-        //RectTransform rectTransform =  inputField.GetComponent<RectTransform>();
-        //rectTransform.position = screenPos;
 
         inputField.onEndEdit.AddListener(delegate{
             ClearResults();
@@ -59,12 +67,13 @@ public class SearchBox : MonoBehaviour
         element.URI = uri;
         searchResults.Add(element);
 
-        element.elementButton.onClick.AddListener(delegate{
-            //Create new token with text and uri
-            ArcMapManager.Instance.tokenFactory.AddNewToken(label);
-            //Search for predicates
-            ClearResults();
-        });
+        //element.elementButton.onClick.AddListener(delegate{
+        //    //Create new token with text and uri
+        //    Unitoken token = ArcMapManager.Instance.tokenFactory.AddNewToken(label);
+        //    //token.
+        //    //Search for predicates
+        //    ClearResults();
+        //});
     }
     // Update is called once per frame
     void Update()
