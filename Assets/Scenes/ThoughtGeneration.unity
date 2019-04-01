@@ -1728,7 +1728,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 205, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1058848758
@@ -2000,6 +2000,7 @@ GameObject:
   - component: {fileID: 1203884590}
   - component: {fileID: 1203884592}
   - component: {fileID: 1203884591}
+  - component: {fileID: 1203884593}
   m_Layer: 0
   m_Name: ArcMapManager
   m_TagString: Untagged
@@ -2019,9 +2020,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb5e9339c5bbdb44393b6a68223ede63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tokenFactory: {fileID: 0}
-  arcFactory: {fileID: 0}
-  arcMapLayout: {fileID: 1203884589}
   unitokens: []
   Arcs: []
   unitokenPrefab: {fileID: 5341252115030082460, guid: 761bfe63af3f02747acf17b5445de68c,
@@ -2031,9 +2029,9 @@ MonoBehaviour:
   linePadding: 0.8
   mapScale: 2
   selectedArc: {fileID: 1918226689}
+  FlattenMap: 0
   selectedUnitoken: {fileID: 0}
   zoomScale: 1
-  FlattenMap: 0
 --- !u!4 &1203884588
 Transform:
   m_ObjectHideFlags: 0
@@ -2104,6 +2102,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitokenPrefab: {fileID: 5341252115030082460, guid: 761bfe63af3f02747acf17b5445de68c,
     type: 3}
+--- !u!114 &1203884593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1203884586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 706bfe153c44fbb4e880df0517476daf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoveredOVerToken: {fileID: 0}
 --- !u!224 &1258930076 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5998761879267830433, guid: 50113eacb5750bb45893a7ecb4230634,

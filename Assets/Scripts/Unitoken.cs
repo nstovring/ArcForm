@@ -89,6 +89,8 @@ public class Unitoken : Fragment, ILabelable
         if(Input.GetMouseButtonDown(0)){
             ArcMapManager.Instance.SelectUnitoken(this);
         }
+        
+        Mouselistener.Instance.hoveredOVerToken = this;
         //Debug.Log("Mouse is over GameObject.");
         SetHoverActive(true);
     }
@@ -97,7 +99,8 @@ public class Unitoken : Fragment, ILabelable
     {
         //The mouse is no longer hovering over the GameObject so output this message each frame
         //Debug.Log("Mouse is no longer on GameObject.");
-        SetHoverActive(isSelected);
+        SetHoverActive(false);
+        Mouselistener.Instance.hoveredOVerToken = null;
     }
 
     public bool isSelected;
