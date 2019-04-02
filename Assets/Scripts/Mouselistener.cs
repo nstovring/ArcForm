@@ -7,10 +7,12 @@ public class Mouselistener : MonoBehaviour
     Camera mCamera;
     public Unitoken hoveredOverToken;
     Unitoken hoveredStore;
-    bool isDraging;
+    public bool isDraging;
+    public bool startVectorStored;
     public static Mouselistener Instance;
 
     public static Vector3 mousePositionInSpace;
+    public Vector3 unitokenStartPosVector;
 
     // Start is called before the first frame update
     void Start()
@@ -24,31 +26,32 @@ public class Mouselistener : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Mouseposition and vector3 storage
-       
-
         // Click, Drag and Release
-        if (Input.GetMouseButton(0) && hoveredOverToken != null){
-            // Debug.Log("Pressed primary button is held");
+        if (Input.GetMouseButtonDown(0) && hoveredOverToken != null){
             isDraging = true;
             hoveredStore = hoveredOverToken;
         }
-        if (Input.GetMouseButton(0) && hoveredOverToken == null){
-            
-        //    // Debug.Log("Pressed primary button is held");
-        //    isDraging = true;
-        //    hoveredStore = hoveredOverToken;
+        if (Input.GetMouseButtonDown(0) && hoveredOverToken == null){
+            unitokenStartPosVector = new Vector3(mousePositionInSpace.x, mousePositionInSpace.y, 0);
+            startVectorStored = true;
+            isDraging = true;
         }
 
-        else{isDraging = false;}
-
         // Instantiate new Unitoken, 
-        if (Input.GetMouseButtonUp(0)){
-            if(hoveredStore != null){
+        if (Input.GetMouseButtonUp(0)){ // Drag from Token to new Token
+            if(hoveredStore != null && startVectorStored==false && hoveredOverToken == null){
                 Vector3 temp = new Vector3(mousePositionInSpace.x, mousePositionInSpace.y, 0);
                 ArcFactory.Instance.AddNewArc(hoveredStore, "Test", TokenFactory.Instance.AddNewToken(temp));
                 hoveredStore = null;
             }
+            if(startVectorStored == true && isDraging == true && hoveredOverToken != null){ // Drag from new Token to existing Token
+                
+                ArcFactory.Instance.AddNewArc(TokenFactory.Instance.AddNewToken(unitokenStartPosVector), "Test", hoveredOverToken);
+                hoveredOverToken=null;
+                startVectorStored = false;
+                 
+            }
+            isDraging = false;
 
         }
 
