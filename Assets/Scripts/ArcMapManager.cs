@@ -90,22 +90,15 @@ public class ArcMapManager : MonoBehaviour
         selectedUnitoken.SetHoverActive(true);
         selectedUnitoken.isSelected = true;
     }
-    public void MoveUnitoken(){
-        if(selectedUnitoken != null){
-            FollowMouse(selectedUnitoken.transform);
-            if(Input.GetMouseButtonUp(0)){
-                selectedUnitoken = null;
-            }
-        }
-    }
+    //public void MoveUnitoken(){
+    //    if(selectedUnitoken != null){
+    //        FollowMouse(selectedUnitoken.transform);
+    //        if(Input.GetMouseButtonUp(0)){
+    //            selectedUnitoken = null;
+    //        }
+    //    }
+    //}
 
-    public void FollowMouse(Transform trs){
-        Vector3 mouseWorldPos = mCamera.ScreenToWorldPoint(Input.mousePosition);
-        float h = mouseWorldPos.x;
-        float v = mouseWorldPos.y;
-        Vector3 mouseDelta = new Vector3(h,v,0);
-        trs.position = mouseDelta;
-    }
  
 
     // Update is called once per frame
@@ -178,6 +171,8 @@ public class ArcMapManager : MonoBehaviour
     public void ToggleFlatten(){
         FlattenMap = !FlattenMap;
     }
+
+  
 
 
 }
