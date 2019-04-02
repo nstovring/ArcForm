@@ -45,8 +45,8 @@ public class Mouselistener : MonoBehaviour
         // Instantiate new Unitoken, 
         if (Input.GetMouseButtonUp(0)){
             if(hoveredStore != null){
-                
-                ArcFactory.Instance.AddNewArc(hoveredStore, "Test", TokenFactory.Instance.AddNewToken(mousePositionInSpace));
+                Vector3 temp = new Vector3(mousePositionInSpace.x, mousePositionInSpace.y, 0);
+                ArcFactory.Instance.AddNewArc(hoveredStore, "Test", TokenFactory.Instance.AddNewToken(temp));
                 hoveredStore = null;
             }
 
