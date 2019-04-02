@@ -26,11 +26,11 @@ public class Mouselistener : MonoBehaviour
     void Update()
     {
         // Mouseposition and vector3 storage
-        Vector3 mouseWorldPos = mCamera.ScreenToWorldPoint(Input.mousePosition);
-        float h = mouseWorldPos.x;
-        float v = mouseWorldPos.y;
-        Vector3 mouseDelta = new Vector3(h,v,0);
-        Debug.Log(mouseDelta);
+     //  Vector3 mouseWorldPos = mCamera.ScreenToWorldPoint(Input.mousePosition);
+     //  float h = mouseWorldPos.x;
+     //  float v = mouseWorldPos.y;
+     //  Vector3 mouseDelta = new Vector3(h,v,0);
+     //  Debug.Log(mouseDelta);
 
         // Click, Drag and Release
         if (Input.GetMouseButton(0) && hoveredOverToken != null){
