@@ -65,11 +65,6 @@ public class ArcFactory : MonoBehaviour
        target.arcCount += 1;
 
 
-        source.tokenRotation = (360.0f/(source.arcCount + 1.0f));
-        Vector3 rotationVector = new Vector3(Mathf.Sin(source.tokenRotation * Mathf.Deg2Rad), Mathf.Cos(source.tokenRotation * Mathf.Deg2Rad), 0);
-        Vector3 offset = rotationVector * ArcMapManager.Instance.mapScale;
-
-        target.transform.position += offset;
        Arc arc = CreateJoinArc(source,target);
 
        arc.SetLabel(Predicate);
@@ -78,11 +73,6 @@ public class ArcFactory : MonoBehaviour
        target.transform.parent = arc.transform;
        ArcMapManager.Instance.selectedUnitoken = target;
        Debug.Log("Creating arcs");
-
-
-       //Fragment frag = new GameObject("Fragment").AddComponent<Fragment>();
-       //frag.Initialize(arc);
-
    }
 
 

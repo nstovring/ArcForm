@@ -26,12 +26,12 @@ public class Mouselistener : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        if(Input.GetMouseButtonUp(1)){
-                 Vector3 mouseWorldPos = mCamera.ScreenToWorldPoint(Input.mousePosition);
+         Vector3 mouseWorldPos = mCamera.ScreenToWorldPoint(Input.mousePosition);
                 float h = mouseWorldPos.x;
                 float v = mouseWorldPos.y;
                 Vector3 mouseDelta = new Vector3(h,v,0);
+        if(Input.GetMouseButtonUp(1)){
+                
 
                 ArcMapManager.Instance.selectedUnitoken = TokenFactory.Instance.AddNewToken(mouseDelta);
                 ArcMapManager.Instance.SelectUnitoken(ArcMapManager.Instance.selectedUnitoken);
@@ -40,10 +40,6 @@ public class Mouselistener : MonoBehaviour
 
             }
         
-        if(Input.GetKeyUp(KeyCode.Space) && ArcMapManager.Instance.selectedUnitoken != null){
-            //ArcMapManager.Instance.AddNewToken(this);
-            ArcFactory.Instance.AddNewArc(ArcMapManager.Instance.selectedUnitoken);
-        }
         // Click, Drag and Release
         if (Input.GetMouseButtonDown(0) && hoveredOverToken != null){
             isDraging = true;
