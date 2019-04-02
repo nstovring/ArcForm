@@ -37,7 +37,7 @@ public class CodeTester : MonoBehaviour
         mousePos.x = currentEvent.mousePosition.x;
         mousePos.y = mCamera.pixelHeight - currentEvent.mousePosition.y;
 
-        point = mCamera.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, mCamera.nearClipPlane));
+        point = mCamera.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, mCamera.nearClipPlane + 10));
         //point = mCamera.ScreenToWorldPoint(Input.mousePosition);
 
         

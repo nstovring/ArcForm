@@ -10,6 +10,8 @@ public class Mouselistener : MonoBehaviour
     bool isDraging;
     public static Mouselistener Instance;
 
+    public static Vector3 mousePositionInSpace;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,11 +25,7 @@ public class Mouselistener : MonoBehaviour
     void Update()
     {
         // Mouseposition and vector3 storage
-        Vector3 mouseWorldPos = mCamera.ScreenToWorldPoint(Input.mousePosition);
-        float h = mouseWorldPos.x;
-        float v = mouseWorldPos.y;
-        Vector3 mouseDelta = new Vector3(h,v,0);
-        Debug.Log(mouseDelta);
+       
 
         // Click, Drag and Release
         if (Input.GetMouseButton(0) && hoveredOverToken != null){
@@ -48,7 +46,7 @@ public class Mouselistener : MonoBehaviour
         if (Input.GetMouseButtonUp(0)){
             if(hoveredStore != null){
                 
-                ArcFactory.Instance.AddNewArc(hoveredStore, "Test", TokenFactory.Instance.AddNewToken(mouseDelta));
+                ArcFactory.Instance.AddNewArc(hoveredStore, "Test", TokenFactory.Instance.AddNewToken(mousePositionInSpace));
                 hoveredStore = null;
             }
 
@@ -93,5 +91,29 @@ public class Mouselistener : MonoBehaviour
     //    hoverIcon.gameObject.SetActive(state);
     //    return state;
     //}
+
+     void OnGUI(){
+        //Vector3 point = new Vector3();
+        Event   currentEvent = Event.current;
+        Vector2 mousePos = new Vector2();
+
+        // Get the mouse position from Event.
+        // Note that the y position from Event is inverted.
+        mousePos.x = currentEvent.mousePosition.x;
+        mousePos.y = mCamera.pixelHeight - currentEvent.mousePosition.y;
+
+        mousePositionInSpace = mCamera.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, mCamera.nearClipPlane + 5));
+        //point = mCamera.ScreenToWorldPoint(Input.mousePosition);
+
+        
+
+        GUIStyle gsTest = new GUIStyle();
+        gsTest.normal.textColor = Color.black;
+        GUILayout.BeginArea(new Rect(20, 20, 250, 120),gsTest);
+        GUILayout.Label("Screen pixels: " + mCamera.pixelWidth + ":" + mCamera.pixelHeight, gsTest);
+        GUILayout.Label("Mouse position: " + mousePos, gsTest);
+        GUILayout.Label("World position: " + mousePositionInSpace.ToString("F3"), gsTest);
+        GUILayout.EndArea();
+    }
 
 }
