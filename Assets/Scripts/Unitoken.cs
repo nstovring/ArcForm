@@ -26,6 +26,8 @@ public class Unitoken : Fragment, ILabelable
 
     public unitoken myUnitokenStruct;
 
+    public bool isHoveredOver = false;
+    
     Camera mCamera;
     // Start is called before the first frame update
     void Start()
@@ -106,6 +108,7 @@ public class Unitoken : Fragment, ILabelable
     public bool isSelected;
     public bool SetHoverActive(bool state){
         hoverIcon.gameObject.SetActive(state);
+        isHoveredOver = (state);
         return state;
     }
 
