@@ -119,8 +119,8 @@ public class ArcMapManager : MonoBehaviour
                 float v = mouseWorldPos.y;
                 Vector3 mouseDelta = new Vector3(h,v,0);
 
-                //selectedUnitoken = tokenFactory.AddNewToken(mouseDelta);
-                //SelectUnitoken(selectedUnitoken);
+                selectedUnitoken = tokenFactory.AddNewToken(mouseDelta);
+                SelectUnitoken(selectedUnitoken);
                 Debug.Log(Input.mousePosition);
                 Debug.Log(mouseWorldPos);
 
