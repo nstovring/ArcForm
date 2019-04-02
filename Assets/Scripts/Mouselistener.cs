@@ -41,11 +41,11 @@ public class Mouselistener : MonoBehaviour
             }
         
         // Click, Drag and Release
-        if (Input.GetMouseButtonDown(0) && hoveredOverToken != null){
+        if (Input.GetMouseButtonDown(0) && hoveredOverToken != null){ //Store info from hover token
             isDraging = true;
             hoveredStore = hoveredOverToken;
         }
-        if (Input.GetMouseButtonDown(0) && hoveredOverToken == null){
+        if (Input.GetMouseButtonDown(0) && hoveredOverToken == null){ //StoreStart vector from empty space
             unitokenStartPosVector = new Vector3(mousePositionInSpace.x, mousePositionInSpace.y, 0);
             startVectorStored = true;
             isDraging = true;
@@ -65,8 +65,8 @@ public class Mouselistener : MonoBehaviour
     }
 
 
-    public void OnDraggedRelease(){
-            if(hoveredStore != null && startVectorStored==false && hoveredOverToken == null){
+    public void OnDraggedRelease(){ 
+            if(hoveredStore != null && startVectorStored==false && hoveredOverToken == null){ // Drag from existing Token to new
 
                 Vector3 temp = new Vector3(mousePositionInSpace.x, mousePositionInSpace.y, 0);
                 ArcFactory.Instance.AddNewArc(hoveredStore, "Test", TokenFactory.Instance.AddNewToken(temp));
@@ -80,6 +80,13 @@ public class Mouselistener : MonoBehaviour
                 startVectorStored = false;
                  
             }
+            if(hoveredStore != null && startVectorStored==false && hoveredOverToken != null){ // Drag from existing Token to another existing
+
+                ArcFactory.Instance.AddNewArc(hoveredStore, "Test", hoveredOverToken);
+                hoveredStore = null;
+
+            }
+
         isDraging = false;
     }
 
