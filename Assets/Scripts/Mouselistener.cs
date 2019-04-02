@@ -26,6 +26,24 @@ public class Mouselistener : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+        if(Input.GetMouseButtonUp(1)){
+                 Vector3 mouseWorldPos = mCamera.ScreenToWorldPoint(Input.mousePosition);
+                float h = mouseWorldPos.x;
+                float v = mouseWorldPos.y;
+                Vector3 mouseDelta = new Vector3(h,v,0);
+
+                ArcMapManager.Instance.selectedUnitoken = TokenFactory.Instance.AddNewToken(mouseDelta);
+                ArcMapManager.Instance.SelectUnitoken(ArcMapManager.Instance.selectedUnitoken);
+                Debug.Log(Input.mousePosition);
+                Debug.Log(mouseWorldPos);
+
+            }
+        
+        if(Input.GetKeyUp(KeyCode.Space) && ArcMapManager.Instance.selectedUnitoken != null){
+            //ArcMapManager.Instance.AddNewToken(this);
+            ArcFactory.Instance.AddNewArc(ArcMapManager.Instance.selectedUnitoken);
+        }
         // Click, Drag and Release
         if (Input.GetMouseButtonDown(0) && hoveredOverToken != null){
             isDraging = true;
@@ -39,30 +57,36 @@ public class Mouselistener : MonoBehaviour
 
         // Instantiate new Unitoken, 
         if (Input.GetMouseButtonUp(0)){ // Drag from Token to new Token
+            if(isDraging){
+                OnDraggedRelease();
+            }
+           
+          
+
+        }
+
+        
+    }
+
+
+    public void OnDraggedRelease(){
             if(hoveredStore != null && startVectorStored==false && hoveredOverToken == null){
+
                 Vector3 temp = new Vector3(mousePositionInSpace.x, mousePositionInSpace.y, 0);
                 ArcFactory.Instance.AddNewArc(hoveredStore, "Test", TokenFactory.Instance.AddNewToken(temp));
                 hoveredStore = null;
+
             }
-            if(startVectorStored == true && isDraging == true && hoveredOverToken != null){ // Drag from new Token to existing Token
+            if(startVectorStored == true && hoveredOverToken != null){ // Drag from new Token to existing Token
                 
                 ArcFactory.Instance.AddNewArc(TokenFactory.Instance.AddNewToken(unitokenStartPosVector), "Test", hoveredOverToken);
                 hoveredOverToken=null;
                 startVectorStored = false;
                  
             }
-            isDraging = false;
-
-        }
-
-        //if (Input.GetMouseButton(1))
-        //    Debug.Log("Pressed secondary button.");
-        
-        //if (Input.GetMouseButton(2))
-        //    Debug.Log("Pressed middle click.");
-
-        
+        isDraging = false;
     }
+
 
     //public void FollowMouse(Transform trs){
     //    Vector3 mouseWorldPos = mCamera.ScreenToWorldPoint(Input.mousePosition);
