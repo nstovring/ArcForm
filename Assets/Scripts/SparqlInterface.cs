@@ -19,9 +19,9 @@ public class SparqlInterface : MonoBehaviour
         Initialize();
         //StartLoading();
     }  
-    string testURI ="http://dbpedia.org/resource/The_Lord_of_the_Rings";
-    string testDataset ="http://dbpedia.org/data/Albert_Einstein.rdf";
-    string defaultResourceURI ="<http://dbpedia.org/resource/Barack_Obama>";
+//    string testURI ="http://dbpedia.org/resource/The_Lord_of_the_Rings";
+//    string testDataset ="http://dbpedia.org/data/Albert_Einstein.rdf";
+ //   string defaultResourceURI ="<http://dbpedia.org/resource/Barack_Obama>";
     public List<predicate> myPredicates;
     public void Initialize(){
         subjects = new List<string>();
@@ -63,8 +63,6 @@ public class SparqlInterface : MonoBehaviour
         queryString.CommandText += "?record mo:track ?track . }";
          */
         
-        string strSELECT = "SELECT";
-        string strDISTINCT = "DISTINCT";
 
         queryString.CommandText = "SELECT DISTINCT ?property ?value WHERE {<"+resourceURI+"> ?property ?value . filter ( ?property in ( rdf:type) ) } LIMIT 5";
 

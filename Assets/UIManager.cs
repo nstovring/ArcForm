@@ -19,8 +19,7 @@ public class UIManager : MonoBehaviour
         if(infoBox == null)
             throw new UnassignedReferenceException();
     }
-    private bool searchBoxToggle = false;
-    private bool infoBoxToggle = false;
+//    private bool searchBoxToggle = false;
     public void ToggleSearchBox(bool state){
         searchBox.transform.gameObject.SetActive(state);
     }

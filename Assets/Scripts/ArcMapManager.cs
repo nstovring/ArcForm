@@ -25,9 +25,10 @@ public class ArcMapManager : MonoBehaviour
 
     public Arc selectedArc;
 
-    Camera mCamera;
+    public Camera mCamera;
 
     public bool FlattenMap = false;
+
 
     // Start is called before the first frame update
     void Start()
@@ -110,19 +111,21 @@ public class ArcMapManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(selectedUnitoken == null){
-            if(Input.GetMouseButtonUp(1)){
+
+
+          if(Input.GetMouseButtonUp(1)){
                  Vector3 mouseWorldPos = mCamera.ScreenToWorldPoint(Input.mousePosition);
                 float h = mouseWorldPos.x;
                 float v = mouseWorldPos.y;
                 Vector3 mouseDelta = new Vector3(h,v,0);
 
-                selectedUnitoken = tokenFactory.AddNewToken(mouseDelta);
-                SelectUnitoken(selectedUnitoken);
-                Debug.Log(mouseDelta);
-            }
-        }
+                //selectedUnitoken = tokenFactory.AddNewToken(mouseDelta);
+                //SelectUnitoken(selectedUnitoken);
+                Debug.Log(Input.mousePosition);
+                Debug.Log(mouseWorldPos);
 
+            }
+        
         if(Input.GetKeyUp(KeyCode.Space) && selectedUnitoken != null){
             //ArcMapManager.Instance.AddNewToken(this);
             arcFactory.AddNewArc(selectedUnitoken);
@@ -175,4 +178,6 @@ public class ArcMapManager : MonoBehaviour
     public void ToggleFlatten(){
         FlattenMap = !FlattenMap;
     }
+
+
 }
