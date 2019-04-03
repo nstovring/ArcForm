@@ -28,7 +28,11 @@ public class ConceptNetInterface : MonoBehaviour
      public JSONOBject myObject;    
      private void Processjson(string jsonString)
      {
+         
+         
          Debug.Log(jsonString);
+         
+         Deserialization.Instance.Can_deserialize_with_existing_structure(jsonString);
          JSONOBject newObject = JsonUtility.FromJson<JSONOBject>(jsonString);
          myObject = newObject;
          
