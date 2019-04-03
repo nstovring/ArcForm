@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Mouselistener : MonoBehaviour
 {
+    //ArcMapManager.Instance.SelectUnitoken(this);
     Camera mCamera;
     public Unitoken hoveredOverToken;
     Unitoken hoveredStore;
@@ -14,6 +15,17 @@ public class Mouselistener : MonoBehaviour
     public static Vector3 mousePositionInSpace;
     public Vector3 unitokenStartPosVector;
 
+    public Unitoken endPoint;
+    public bool LeftMouseButtonHeld(){
+        return Input.GetMouseButton(0);
+    }
+    public bool RightMouseButtonHeld(){
+        return Input.GetMouseButton(1);
+    }
+    public bool MiddleMouseButtonHeld(){
+        return Input.GetMouseButton(2);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,15 +33,22 @@ public class Mouselistener : MonoBehaviour
         Instance = this;
         Vector3 endPositionVector;
     }
-
     
     // Update is called once per frame
     void Update()
     {
-         Vector3 mouseWorldPos = mCamera.ScreenToWorldPoint(Input.mousePosition);
-                float h = mouseWorldPos.x;
-                float v = mouseWorldPos.y;
-                Vector3 mouseDelta = new Vector3(h,v,0);
+        Vector3 mouseWorldPos = mCamera.ScreenToWorldPoint(Input.mousePosition);
+        float h = mouseWorldPos.x;
+        float v = mouseWorldPos.y;
+        Vector3 mouseDelta = new Vector3(h,v,0);
+
+        CheckOnClick();
+        
+
+
+
+
+
         if(Input.GetMouseButtonUp(1)){
                 
 
@@ -39,13 +58,19 @@ public class Mouselistener : MonoBehaviour
                 Debug.Log(mouseWorldPos);
 
             }
-        
+        if (endPoint != null){
+            endPoint.transform.position = mouseDelta;
+        }
         // Click, Drag and Release
         if (Input.GetMouseButtonDown(0) && hoveredOverToken != null){ //Store info from hover token
-            isDraging = true;
+            endPoint = TokenFactory.Instance.AddNewToken(mouseDelta);
             hoveredStore = hoveredOverToken;
+            ArcFactory.Instance.AddNewArc(hoveredOverToken, "Test", endPoint);
+            isDraging = true;
+            
         }
         if (Input.GetMouseButtonDown(0) && hoveredOverToken == null){ //StoreStart vector from empty space
+
             unitokenStartPosVector = new Vector3(mousePositionInSpace.x, mousePositionInSpace.y, 0);
             startVectorStored = true;
             isDraging = true;
@@ -53,6 +78,7 @@ public class Mouselistener : MonoBehaviour
 
         // Instantiate new Unitoken, 
         if (Input.GetMouseButtonUp(0)){ // Drag from Token to new Token
+
             if(isDraging){
                 OnDraggedRelease();
             }
@@ -63,14 +89,40 @@ public class Mouselistener : MonoBehaviour
 
         
     }
+    public void MouseIsClicked(){
+        if(Input.GetMouseButtonDown(0)){ // LeftClick
 
+        }
+
+        if (Input.GetMouseButton(0))
+        print ("Pressed");
+        else
+        print ("Not pressed");
+
+
+    }
+
+    public void CheckOnClick(){
+        
+
+
+    }
+
+    public void DragFromBackground(){
+
+    }
+
+    public void DragFromToken(){
+
+    }
+
+    
 
     public void OnDraggedRelease(){ 
             if(hoveredStore != null && startVectorStored==false && hoveredOverToken == null){ // Drag from existing Token to new
-
-                Vector3 temp = new Vector3(mousePositionInSpace.x, mousePositionInSpace.y, 0);
-                ArcFactory.Instance.AddNewArc(hoveredStore, "Test", TokenFactory.Instance.AddNewToken(temp));
+                endPoint = null;
                 hoveredStore = null;
+
 
             }
             if(startVectorStored == true && hoveredOverToken != null){ // Drag from new Token to existing Token

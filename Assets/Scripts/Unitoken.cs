@@ -64,18 +64,18 @@ public class Unitoken : Fragment, ILabelable
     }
 
 
-    void OnMouseDown()
-    {
-        //Show options
-        //Request action from manager depending on clicked type
-        //Change label - Add labels
-        //Create new join arc
-        //
-   
-        ArcMapManager.Instance.SelectUnitoken(this);
-        ShowInputField();
-        
-    }
+    //void OnMouseDown()
+    //{
+    //    //Show options
+    //    //Request action from manager depending on clicked type
+    //    //Change label - Add labels
+    //    //Create new join arc
+    //    //
+    //
+    //    ArcMapManager.Instance.SelectUnitoken(this);
+    //    ShowInputField();
+    //    
+    //}
     void Update(){
        
     }
@@ -88,10 +88,7 @@ public class Unitoken : Fragment, ILabelable
     void OnMouseOver()
     {
         //If your mouse hovers over the GameObject with the script attached, output this message
-        if(Input.GetMouseButtonDown(0)){
-            ArcMapManager.Instance.SelectUnitoken(this);
-        }
-        
+             
         Mouselistener.Instance.hoveredOverToken = this;
         //Debug.Log("Mouse is over GameObject.");
         SetHoverActive(true);
