@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 
 using StructureContainer;
+using Xml2CSharp;
+
 public class SearchResultElement : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -12,7 +14,8 @@ public class SearchResultElement : MonoBehaviour
 
     public PredicateContainer predicateContainer;
     
-
+    public Classes classes;
+    public Categories categories;
     public string URI;
 
     public List<predicate> myPredicates;
@@ -25,7 +28,7 @@ public class SearchResultElement : MonoBehaviour
             throw new UnassignedReferenceException();
 
         elementButton.onClick.AddListener(delegate {
-            GetPredicates();
+            GetPredicates(this);
         });
         predicateContainer = SearchBox.Instance.predicateContainer;
         
@@ -35,6 +38,14 @@ public class SearchResultElement : MonoBehaviour
         Debug.Log(URI);
         myPredicates = SparqlInterface.Instance.GetPredicates(URI);
         predicateContainer.CreatePredicates(myPredicates);
+        predicateContainer.selectedSearchElement = this;
+        //foreach(Stru)
+    }
+
+    void GetPredicates(SearchResultElement element){
+        Debug.Log(URI);
+        myPredicates = SparqlInterface.Instance.GetPredicates(URI);
+        predicateContainer.CreatePredicates(element);
         predicateContainer.selectedSearchElement = this;
         //foreach(Stru)
     }

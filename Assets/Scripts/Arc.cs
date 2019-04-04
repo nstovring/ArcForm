@@ -201,7 +201,7 @@ public class Arc : Fragment, ILabelable
             source.transform.hasChanged = false;
             target.transform.hasChanged = false;
         }
-        if (target.transform.hasChanged)
+        if (source.transform.hasChanged)
         {
             RefreshArc();
             source.transform.hasChanged = false;
