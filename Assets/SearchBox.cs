@@ -42,11 +42,13 @@ public class SearchBox : MonoBehaviour
             //inputField.transform.gameObject.SetActive(false);
         });
     }
+    public Classes classes;
+    public Categories categories;
 
     public void Search(string searchTerm){
         List<Result> results =  Xml2CSharp.XMLParser.Instance.ReadLink(searchTerm);
         foreach(Result x in results){
-				AddSearchResult(x.Label, x.Description, x.URI);
+				AddSearchResult(x);
 		}
     }
 
@@ -59,21 +61,21 @@ public class SearchBox : MonoBehaviour
         
         searchResults.Clear();
     }
-
+    public void AddSearchResult(Result x)
+    {
+        SearchResultElement element = Instantiate(searchElementPrefab, Vector3.zero, Quaternion.identity, transform).GetComponent<SearchResultElement>();
+        element.elementText.text = x.Label;
+        element.URI = x.URI;
+        element.classes =x.Classes;
+        element.categories = x.Categories;
+        searchResults.Add(element);
+    }
     public void AddSearchResult(string label, string description, string uri)
     {
         SearchResultElement element = Instantiate(searchElementPrefab, Vector3.zero, Quaternion.identity, transform).GetComponent<SearchResultElement>();
         element.elementText.text = label;
         element.URI = uri;
         searchResults.Add(element);
-
-        //element.elementButton.onClick.AddListener(delegate{
-        //    //Create new token with text and uri
-        //    Unitoken token = ArcMapManager.Instance.tokenFactory.AddNewToken(label);
-        //    //token.
-        //    //Search for predicates
-        //    ClearResults();
-        //});
     }
     // Update is called once per frame
     void Update()
