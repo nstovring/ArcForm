@@ -1,21 +1,64 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Mouselistener : MonoBehaviour
 {
     //ArcMapManager.Instance.SelectUnitoken(this);
     Camera mCamera;
     public Unitoken hoveredOverToken;
+    public Arc hoveredOverArc;
     Unitoken hoveredStore;
+    
     public bool isDraging;
     public bool startVectorStored;
+    public bool consoleSingleMessage = false;
     public static Mouselistener Instance;
 
     public static Vector3 mousePositionInSpace;
     public Vector3 unitokenStartPosVector;
 
     public Unitoken endPoint;
+    public bool draggingFromBackground = false;
+    public bool draggingFromToken = false;
+    public bool draggingFromArk = false;
+
+    float clicked = 0;
+    float clicktime = 0;
+    float clickdelay = 0.5f;
+    float holdtime = 0f;
+
+    public bool DoubleClick(){
+        if (Input.GetMouseButton(0)){
+            clicked++;
+            if (clicked == 1) clicktime = Time.time;
+        }
+        if (clicked > 1 && Time.time - clicktime < clickdelay)
+        {
+            clicked = 0;
+            clicktime = 0;
+            return true;
+        }
+        else if (clicked > 2 || Time.time - clicktime > 1) clicked = 0;
+        return false;
+    }
+    public bool ClickAndHold(){
+        if(Input.GetMouseButton(0)){
+            holdtime += Time.deltaTime;
+        }
+        else{
+            holdtime = 0;
+            //Debug.Log("Resettet the counter");
+        
+        }
+        if(holdtime >= clickdelay){
+            //Debug.Log("I Am Working!");
+            return true;
+        }
+
+        return false;
+    }
     public bool LeftMouseButtonHeld(){
         return Input.GetMouseButton(0);
     }
@@ -41,8 +84,14 @@ public class Mouselistener : MonoBehaviour
         float h = mouseWorldPos.x;
         float v = mouseWorldPos.y;
         Vector3 mouseDelta = new Vector3(h,v,0);
+        CheckOnClick(); //Checks if clicked on background, Arc or Token
+        ClickAndHold(); //Checks if mouseIsHeld
+        DragFromBackground(); //Checks if dragging from background
+        DragFromToken(); //Checks if dragging from Token
+        DragFromArk(); //Checks if dragging from Arc
 
-        CheckOnClick();
+
+        OnDraggedRelease(); //Determines what is dragged and instatiated
         
 
 
@@ -89,36 +138,63 @@ public class Mouselistener : MonoBehaviour
 
         
     }
-    public void MouseIsClicked(){
-        if(Input.GetMouseButtonDown(0)){ // LeftClick
-
-        }
-
-        if (Input.GetMouseButton(0))
-        print ("Pressed");
-        else
-        print ("Not pressed");
-
-
-    }
+    
 
     public void CheckOnClick(){
         
-
-
+        if(Input.GetMouseButtonDown(0) == true){
+            
+            if(hoveredOverToken == null && hoveredOverArc == null){//clicked on background
+                Debug.Log("Clicked on background");
+                draggingFromBackground = true;
+            }
+            if(hoveredOverToken != null && hoveredOverArc == null){//clicked on Token
+                Debug.Log("Clicked on Token");
+                draggingFromToken = true;
+            }
+            if(hoveredOverToken == null && hoveredOverArc != null){//clicked on Arc
+                Debug.Log("Clicked on Arc");
+                draggingFromArk = true;
+            }
+        }
     }
 
     public void DragFromBackground(){
-
+        if(ClickAndHold() == true && draggingFromBackground == true){
+                Debug.Log("Dragging from background");
+                      
+        }       
     }
-
     public void DragFromToken(){
+        if(ClickAndHold() == true && draggingFromToken == true){
+            if(consoleSingleMessage == true){
+                Debug.Log("Dragging from Token");
+                consoleSingleMessage = false;
+                }           
+        }   
+    }
+    public void DragFromArk(){
+        if(ClickAndHold() == true && draggingFromArk == true){
+            if(consoleSingleMessage == true){
+                Debug.Log("Dragging from Ark");
+                consoleSingleMessage = false;
+                }           
+        }
+
 
     }
 
     
 
-    public void OnDraggedRelease(){ 
+    public void OnDraggedRelease(){
+            if(Input.GetMouseButtonUp(0) == true && draggingFromBackground == true){
+                Debug.Log("Not draging anymore");
+                draggingFromBackground = false;
+                consoleSingleMessage = true;
+                
+        
+            }
+
             if(hoveredStore != null && startVectorStored==false && hoveredOverToken == null){ // Drag from existing Token to new
                 endPoint = null;
                 hoveredStore = null;
@@ -138,10 +214,13 @@ public class Mouselistener : MonoBehaviour
                 hoveredStore = null;
 
             }
-
+        
         isDraging = false;
+        
+        draggingFromArk = false;
+        draggingFromToken = false;
     }
-
+    
 
     //public void FollowMouse(Transform trs){
     //    Vector3 mouseWorldPos = mCamera.ScreenToWorldPoint(Input.mousePosition);
