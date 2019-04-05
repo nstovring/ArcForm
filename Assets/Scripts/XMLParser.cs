@@ -40,7 +40,7 @@ namespace Xml2CSharp
 			result = (ArrayOfResult)serializer.Deserialize(reader);
 			reader.Close();
 			Debug.Log(result.Result.Count);
-
+			//result.Result.
 			return result.Result;
         }
     }
