@@ -82,4 +82,20 @@ public void Initialize(){
 
         //CreateJoinArc(source, newToken);
     }
+
+     public Unitoken AddNewToken(string Label, Vector3 offset){
+        //source.tokenRotation = (360.0f/(source.myArcs.Count + 1.0f));
+        //Vector3 rotationVector = new Vector3(Mathf.Sin(source.tokenRotation * Mathf.Deg2Rad), Mathf.Cos(source.tokenRotation * Mathf.Deg2Rad), 0);
+        ///Vector3 offset = rotationVector * ArcMapManager.Instance.mapScale;
+
+        Unitoken newToken = Instantiate(unitokenPrefab, Vector3.zero + offset, Quaternion.identity, transform.parent).GetComponent<Unitoken>();
+        newToken.transform.name = Label;
+        newToken.Initialize(Label, Vector3.zero, "Empty URI!");
+
+        ArcMapManager.Instance.AddToken(newToken);
+
+        return newToken;
+
+        //CreateJoinArc(source, newToken);
+    }
 }

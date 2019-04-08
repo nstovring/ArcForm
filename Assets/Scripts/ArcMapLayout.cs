@@ -13,6 +13,9 @@ public class ArcMapLayout : MonoBehaviour
 
     public List<Vector3> arcForceList;
 
+    public float minDistance = 0.1f;
+    public float maxDistance = 6.0f;
+
     void Start()
     {
         
@@ -87,7 +90,7 @@ public class ArcMapLayout : MonoBehaviour
                 Unitoken neighbour = unitokens[j];
                 float distance = Vector3.Distance(token.TransientPosition,neighbour.TransientPosition);
 
-                if(distance > 1 && distance < 6.0f){
+                if(distance > minDistance && distance < maxDistance){
                     Vector3 dir = (token.TransientPosition - neighbour.TransientPosition)/distance;
                     forces[i] += dir;
                 }
@@ -127,7 +130,7 @@ public class ArcMapLayout : MonoBehaviour
                 Arc neighbour = arcs[j];
                 float distance = Vector3.Distance(token.TransientPosition,neighbour.TransientPosition);
 
-                if(distance > 1 && distance < 6.0f){
+                if(distance > 0.1 && distance < 3.0f){
                     Vector3 dir = (token.TransientPosition - neighbour.TransientPosition)/distance;
                     forces[i] += dir;
                 }

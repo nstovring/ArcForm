@@ -161,11 +161,6 @@ public class SparqlInterface : MonoBehaviour
                     msg = "#" + cnt + ": " + r.ToString();
 
                     string targetLabel = r.ToString();
-                    //ArcMapSaver.unitoken target = new ArcMapSaver.unitoken();
-                    //target.Label =targetLabel;
-                    //Unitoken utarget = ArcMapManager.Instance.tokenFactory.AddNewToken(target);
-
-                    //ArcMapManager.Instance.arcFactory.AddNewArc(uSource,"HomePages known",utarget);
 
                     Debug.Log(msg);
                     //mSprqlResult.text += "\n" + msg;

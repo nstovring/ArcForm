@@ -3,13 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using StructureContainer;
 using UnityEngine.UI;
+using ConceptNetJsonHolder;
 
-public class PredicateHolder : MonoBehaviour
+public class PredicateToggle : MonoBehaviour
 {
     public predicate myPredicate;
 
     public Xml2CSharp.Class myClass;
     public Xml2CSharp.Category myCategory;
+
+    public Edge myEdge;
+
     public Toggle myToggle;
     public Text myText;
 
@@ -29,6 +33,13 @@ public class PredicateHolder : MonoBehaviour
         myCategory = x;
         myText.text = x.Label;
         Label = x.Label;
+    }
+
+
+     public void SetPredicate(Edge x){
+        myEdge = x;
+        myText.text =!string.IsNullOrWhiteSpace(x.SurfaceText) ? x.SurfaceText :  (x.Rel.Label +" " + x.End.Label).ToLower();
+        Label = myText.text;
     }
     
     
