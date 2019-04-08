@@ -27,7 +27,14 @@ public class Unitoken : Fragment, ILabelable
     public unitoken myUnitokenStruct;
 
     public bool isHoveredOver = false;
+
+    public bool stateUnitoken;
     
+    public bool isSoft = true;
+    public Transform softChild;
+
+    public Transform hardChild;
+
     Camera mCamera;
     // Start is called before the first frame update
     void Start()
@@ -77,7 +84,12 @@ public class Unitoken : Fragment, ILabelable
     //    
     //}
     void Update(){
-       
+       if(isSoft == false){//collider active and hoverOver is active.
+        transform.GetComponent<CircleCollider2D>().enabled = true;
+       }
+       else{//collider disabled and dragging is occuring
+        transform.GetComponent<CircleCollider2D>().enabled = false;
+       }
     }
 
     void OnMouseDrag()

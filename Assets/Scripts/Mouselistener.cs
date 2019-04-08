@@ -21,14 +21,17 @@ public class Mouselistener : MonoBehaviour
     public static Vector3 mousePositionInSpace;
     public Vector3 unitokenStartPosVector;
 
-    public Unitoken endPoint;
+    public Unitoken endPointUnitoken;
+    public Unitoken startPointUnitoken;
+
+    public Arc selectedArc;
     public bool draggingFromBackground = false;
     public bool draggingFromToken = false;
     public bool draggingFromArk = false;
 
     float clicked = 0;
     float clicktime = 0;
-    float clickdelay = 1.5f;
+    float clickdelay = 0.5f;
     float holdtime = 0f;
 
     public bool DoubleClick(){
@@ -63,7 +66,6 @@ public class Mouselistener : MonoBehaviour
     }
 
     public bool tokenSpawn;
-
     public bool arcSpawn;
 
     public bool LeftMouseButtonHeld(){
@@ -93,28 +95,18 @@ public class Mouselistener : MonoBehaviour
         mouseDelta = new Vector3(h,v,0);
         CheckOnClick(); //Checks if clicked on background, Arc or Token
         ClickAndHold(); //Checks if mouseIsHeld
-        //DragFromBackground(); //Checks if dragging from background
+        DragFromBackground(); //Checks if dragging from background
         DragFromToken(); //Checks if dragging from Token
-        //DragFromArk(); //Checks if dragging from Arc
+        DragFromArk(); //Checks if dragging from Arc
         OnDraggedRelease(); //Determines what is dragged and instatiated
         
     
-        if (endPoint != null){ // Makes sure the instance is updated until mouseRelease();
-            endPoint.transform.position = mouseDelta;
+        if (endPointUnitoken != null){ // Makes sure the instance is updated until mouseRelease();
+            endPointUnitoken.transform.position = mouseDelta;
         }
        
-        // Click, Drag and Release
-        //if (Input.GetMouseButtonDown(0) && hoveredOverToken != null){ //Store info from hover token
-        //    endPoint = TokenFactory.Instance.AddNewToken(mouseDelta);
-        //    hoveredStore = hoveredOverToken;
-        //    ArcFactory.Instance.AddNewArc(hoveredOverToken, "Test", endPoint);
-        //    isDraging = true;
-        //    
-        //}
-        
-
-        // Instantiate new Unitoken, 
-        if (Input.GetMouseButtonUp(0)){ // Drag from Token to new Token
+           
+        if (Input.GetMouseButtonUp(0)){ // DragReleaseOptions. Returns values and bools to null or false.
             if(isDraging){
                 OnDraggedRelease();
             }
@@ -142,7 +134,7 @@ public class Mouselistener : MonoBehaviour
                 Debug.Log("Clicked on background");
                 draggingFromBackground = true;
                 unitokenStartPosVector = new Vector3(mousePositionInSpace.x, mousePositionInSpace.y, 0);
-                //tokenSpawn = true;
+                tokenSpawn = true;
             }
             if(hoveredOverToken != null && hoveredOverArc == null){//clicked on Token
                 Debug.Log("Clicked on Token");
@@ -163,8 +155,16 @@ public class Mouselistener : MonoBehaviour
         if(ClickAndHold() == true && draggingFromBackground == true){
                 Debug.Log("Dragging from background");
                 //StoreStart vector from empty space
-                startVectorStored = true;
-                ArcFactory.Instance.AddNewArc(TokenFactory.Instance.AddNewToken(unitokenStartPosVector), "Test", hoveredOverToken);
+                if(tokenSpawn==true){
+                    
+                    endPointUnitoken = TokenFactory.Instance.AddNewToken(mouseDelta);
+                    startPointUnitoken = TokenFactory.Instance.AddNewToken(unitokenStartPosVector);
+                    selectedArc = ArcFactory.Instance.AddNewArc(startPointUnitoken, "Test", endPointUnitoken);
+                    
+                    startPointUnitoken.isSoft = false;
+                    tokenSpawn = false;
+                }
+                
                 isDraging = true;
         }       
     }
@@ -172,13 +172,12 @@ public class Mouselistener : MonoBehaviour
         if(ClickAndHold() == true && draggingFromToken == true){
                 Debug.Log("Dragging from Token");
                 if(tokenSpawn==true){
-                    endPoint = TokenFactory.Instance.AddNewToken(mouseDelta);
-                    ArcFactory.Instance.AddNewArc(hoveredStore, "Test", endPoint);
+                    endPointUnitoken = TokenFactory.Instance.AddNewToken(mouseDelta);
+
+                    selectedArc = ArcFactory.Instance.AddNewArc(hoveredStore, "Test", endPointUnitoken);
                     tokenSpawn = false;
                 }
-                
-                isDraging = true;
-                           
+                isDraging = true;              
         }   
     }
     public void DragFromArk(){
@@ -197,20 +196,20 @@ public class Mouselistener : MonoBehaviour
                 Debug.Log("Not draging from Background anymore");
                 draggingFromBackground = false;
                 consoleSingleMessage = true;
-
+                EndToken();
                 isDraging = false;    
-                draggingFromBackground = false;
+                draggingFromToken = false;
         
             }
 
             if(Input.GetMouseButtonUp(0) == true && draggingFromToken == true && isDraging == true){
                 Debug.Log("Not draging from Token anymore");
+                EndToken();//Checks whether endpoint is another Token or background.
                 draggingFromToken = false;
                 consoleSingleMessage = true;
-                endPoint = null;
+                endPointUnitoken = null;
+                
                 hoveredStore = null;
-
-
                 isDraging = false;    
                 draggingFromToken = false;
         
@@ -227,20 +226,31 @@ public class Mouselistener : MonoBehaviour
             //if(hoveredStore != null && startVectorStored==false && hoveredOverToken == null){ // Drag from existing Token to new
             //    endPoint = null;
             //    hoveredStore = null;
-//
-//
+            //
+            //
             //}
             
             //if(hoveredStore != null && startVectorStored==false && hoveredOverToken != null){ // Drag from existing Token to another existing
-//
+            //
             //    ArcFactory.Instance.AddNewArc(hoveredStore, "Test", hoveredOverToken);
             //    hoveredStore = null;
-//
-            //}
-        
-        
+            //
+            //}    
     }
-    
+    public void EndToken(){
+        if(hoveredOverToken != null){
+            UnitokenDelete(selectedArc.target);
+            selectedArc.target = hoveredOverToken;
+            
+
+            endPointUnitoken.isSoft = false;
+            endPointUnitoken = null;
+        }
+        if(hoveredOverToken == null){
+            endPointUnitoken.isSoft = false;
+            endPointUnitoken = null;
+        }
+    }
 
     public void FollowMouse(Transform trs){
         Vector3 mouseWorldPos = mCamera.ScreenToWorldPoint(Input.mousePosition);
@@ -250,6 +260,14 @@ public class Mouselistener : MonoBehaviour
         trs.position = mouseDelta;
     }
 
+    public void UnitokenDelete(Fragment deleteU){
+        
+        Destroy(deleteU.gameObject);
+        deleteU = null;
+        Debug.Log("Destroyed an Unitoken");
+
+
+        }
     //void OnMouseOver()
     //{
     //    //If your mouse hovers over the GameObject with the script attached, output this message

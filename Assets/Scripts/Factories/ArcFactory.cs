@@ -57,7 +57,7 @@ public class ArcFactory : MonoBehaviour
 
 
 
-    public void AddNewArc(Unitoken Source, string Predicate, Unitoken Target){
+    public Arc AddNewArc(Unitoken Source, string Predicate, Unitoken Target){
        //Unitoken target = AddNewToken();
        Unitoken source = Source;
        Unitoken target = Target;
@@ -73,6 +73,7 @@ public class ArcFactory : MonoBehaviour
        target.transform.parent = arc.transform;
        ArcMapManager.Instance.selectedUnitoken = target;
        Debug.Log("Creating arcs");
+       return arc;
    }
 
 
