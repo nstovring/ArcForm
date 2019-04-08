@@ -2213,11 +2213,14 @@ MonoBehaviour:
   isDraging: 0
   startVectorStored: 0
   consoleSingleMessage: 0
+  mouseDelta: {x: 0, y: 0, z: 0}
   unitokenStartPosVector: {x: 0, y: 0, z: 0}
   endPoint: {fileID: 0}
   draggingFromBackground: 0
   draggingFromToken: 0
   draggingFromArk: 0
+  tokenSpawn: 0
+  arcSpawn: 0
 --- !u!224 &1258930076 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5998761879267830433, guid: 50113eacb5750bb45893a7ecb4230634,
