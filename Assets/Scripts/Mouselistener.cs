@@ -27,7 +27,7 @@ public class Mouselistener : MonoBehaviour
     public Arc selectedArc;
     public bool draggingFromBackground = false;
     public bool draggingFromToken = false;
-    public bool draggingFromArk = false;
+    public bool draggingFromArc = false;
 
     float clicked = 0;
     float clicktime = 0;
@@ -97,7 +97,7 @@ public class Mouselistener : MonoBehaviour
         ClickAndHold(); //Checks if mouseIsHeld
         DragFromBackground(); //Checks if dragging from background
         DragFromToken(); //Checks if dragging from Token
-        DragFromArk(); //Checks if dragging from Arc
+        DragFromArc(); //Checks if dragging from Arc
         OnDraggedRelease(); //Determines what is dragged and instatiated
         
     
@@ -145,7 +145,7 @@ public class Mouselistener : MonoBehaviour
             }
             if(hoveredOverToken == null && hoveredOverArc != null){//clicked on Arc
                 Debug.Log("Clicked on Arc");
-                draggingFromArk = true;
+                draggingFromArc = true;
                 arcSpawn = true;
             }
         }
@@ -173,15 +173,14 @@ public class Mouselistener : MonoBehaviour
                 Debug.Log("Dragging from Token");
                 if(tokenSpawn==true){
                     endPointUnitoken = TokenFactory.Instance.AddNewToken(mouseDelta);
-
                     selectedArc = ArcFactory.Instance.AddNewArc(hoveredStore, "Test", endPointUnitoken);
                     tokenSpawn = false;
                 }
                 isDraging = true;              
         }   
     }
-    public void DragFromArk(){
-        if(ClickAndHold() == true && draggingFromArk == true){
+    public void DragFromArc(){
+        if(ClickAndHold() == true && draggingFromArc == true){
             if(consoleSingleMessage == true){
                 Debug.Log("Dragging from Ark");
                 consoleSingleMessage = false;
@@ -212,7 +211,6 @@ public class Mouselistener : MonoBehaviour
                 hoveredStore = null;
                 isDraging = false;    
                 draggingFromToken = false;
-        
             }
             
             //if(startVectorStored == true && hoveredOverToken != null){ // Drag from background New Token to existing Token
@@ -241,8 +239,6 @@ public class Mouselistener : MonoBehaviour
         if(hoveredOverToken != null){
             UnitokenDelete(selectedArc.target);
             selectedArc.target = hoveredOverToken;
-            
-
             endPointUnitoken.isSoft = false;
             endPointUnitoken = null;
         }
@@ -260,36 +256,12 @@ public class Mouselistener : MonoBehaviour
         trs.position = mouseDelta;
     }
 
-    public void UnitokenDelete(Fragment deleteU){
+    public void UnitokenDelete(Fragment deleteU){// Deleting the soft Token instantiated.
         
         Destroy(deleteU.gameObject);
         deleteU = null;
-        Debug.Log("Destroyed an Unitoken");
-
-
+        //Debug.Log("Destroyed an Unitoken");
         }
-    //void OnMouseOver()
-    //{
-    //    //If your mouse hovers over the GameObject with the script attached, output this message
-    //    if(Input.GetMouseButtonDown(0)){
-    //        ArcMapManager.Instance.SelectUnitoken(this);
-    //    }
-    //    //Debug.Log("Mouse is over GameObject.");
-    //    SetHoverActive(true);
-    //}
-
-    //void OnMouseExit()
-    //{
-    //    //The mouse is no longer hovering over the GameObject so output this message each frame
-    //    //Debug.Log("Mouse is no longer on GameObject.");
-    //    SetHoverActive(isSelected);
-    //}
-
-    //public bool isSelected;
-    //public bool SetHoverActive(bool state){
-    //    hoverIcon.gameObject.SetActive(state);
-    //    return state;
-    //}
 
      void OnGUI(){
         //Vector3 point = new Vector3();
@@ -302,9 +274,7 @@ public class Mouselistener : MonoBehaviour
         mousePos.y = mCamera.pixelHeight - currentEvent.mousePosition.y;
 
         mousePositionInSpace = mCamera.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, mCamera.nearClipPlane + 5));
-        //point = mCamera.ScreenToWorldPoint(Input.mousePosition);
-
-        
+        //point = mCamera.ScreenToWorldPoint(Input.mousePosition);  
 
         GUIStyle gsTest = new GUIStyle();
         gsTest.normal.textColor = Color.black;
