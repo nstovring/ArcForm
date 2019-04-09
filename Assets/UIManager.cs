@@ -9,8 +9,10 @@ public class UIManager : MonoBehaviour
     public static UIManager Instance;
      public TMP_InputField inputField;
 
-     public Transform searchBox;
+     //public Transform searchBoxTransform;
+     public SearchBox searchBox;
      public Transform infoBox;
+     
     void Start()
     {
         Instance = this;
@@ -42,6 +44,7 @@ public class UIManager : MonoBehaviour
         inputField.onEndEdit.AddListener(delegate{
             asker.SetLabel(inputField.text);
             inputField.transform.gameObject.SetActive(false);
+            
         });
 
     }
