@@ -72,7 +72,7 @@ public class ArcFactory : MonoBehaviour
        source.transform.parent = arc.transform;
        target.transform.parent = arc.transform;
        ArcMapManager.Instance.selectedUnitoken = target;
-       Debug.Log("Creating arcs");
+       //Debug.Log("Creating arcs");
        return arc;
    }
 
