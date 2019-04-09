@@ -345,7 +345,7 @@ GameObject:
   - component: {fileID: 5341252115030082458}
   - component: {fileID: 8990355258473337336}
   m_Layer: 0
-  m_Name: Unitoken 1
+  m_Name: Unitoken
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -385,21 +385,22 @@ MonoBehaviour:
   myArcs: []
   myType: 0
   TransientPosition: {x: 0, y: 0, z: 0}
-  AnchoredPosition: {x: 0, y: 0, z: 0}
   arcCount: 0
-  rotationVector: {x: 0, y: 0, z: 0}
   tokenRotation: 0
   myLabel: {fileID: 5341252114979647498}
   hoverIcon: {fileID: 4897982235629519853}
+  softChild: {fileID: 2100865915230264168}
+  hardChild: {fileID: 105072142153471232}
+  spriteRenderer: {fileID: 5341252115030082458}
   myUnitokenStruct:
     id: 0
     TransientPosition: {x: 0, y: 0, z: 0}
     Label: 
     URI: 
   isHoveredOver: 0
-  stateUnitoken: 0
-  softChild: {fileID: 2100865915230264168}
-  hardChild: {fileID: 105072142153471232}
+  isSoft: 1
+  myMapState: 0
+  myInteractState: 1
   isSelected: 0
 --- !u!212 &5341252115030082458
 SpriteRenderer:

@@ -3,52 +3,42 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-
+using FragmentResources;
 using StructureContainer;
 public class Unitoken : Fragment, ILabelable
 {
-    public Vector3 AnchoredPosition;
-    
     public int arcCount;
-    List<LineRenderer> lineList = new List<LineRenderer>();
 
-    public Vector3 rotationVector;
     public float tokenRotation;
 
     public TextMeshPro myLabel;
     public TextMeshPro MyLabel => myLabel;
 
-
-    public TMP_InputField InputField => UIManager.Instance.inputField;
-
-    public Transform getTransform { get => transform;}
     public Transform hoverIcon;
+    public Transform softChild;
 
+    public Transform hardChild;
+
+    public SpriteRenderer spriteRenderer;
     public unitoken myUnitokenStruct;
 
     public bool isHoveredOver = false;
 
-    public bool stateUnitoken;
-    
     public bool isSoft = true;
-    public Transform softChild;
 
-    public Transform hardChild;
+
+    public MapState myMapState = MapState.Preview;
+    public InteractState myInteractState = InteractState.Unselected;
 
     Camera mCamera;
     // Start is called before the first frame update
     void Start()
     {
-        //ArcMapManager.AddToken(this);
-
         mCamera = Camera.main;
 
         if(myArcs == null){
             myArcs = new List<Arc>();
         }
-//        if(myTargets == null){
-//            myTargets = new List<Unitoken>();
-        //}
     }
 
     public void Initialize(unitoken token){
@@ -70,20 +60,23 @@ public class Unitoken : Fragment, ILabelable
         mCamera = Camera.main;
     }
 
+    public void CheckMapState(){
 
-    //void OnMouseDown()
-    //{
-    //    //Show options
-    //    //Request action from manager depending on clicked type
-    //    //Change label - Add labels
-    //    //Create new join arc
-    //    //
-    //
-    //    ArcMapManager.Instance.SelectUnitoken(this);
-    //    ShowInputField();
-    //    
-    //}
+    }
+
+    public void CheckInteractState(){
+
+    }
+
+
     void Update(){
+        if(myMapState == MapState.Preview){
+            spriteRenderer.color = new Color(1,1,1,0.5f);
+        }else{
+            spriteRenderer.color = new Color(1,1,1,1);
+
+        }
+        
        if(isSoft == false){//collider active and hoverOver is active.
         transform.GetComponent<CircleCollider2D>().enabled = true;
        }
@@ -122,7 +115,6 @@ public class Unitoken : Fragment, ILabelable
     }
 
    
-
     public virtual void ShowInputField()
     {
         UIManager.Instance.ShowInputField(transform.position, this);

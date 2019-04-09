@@ -104,7 +104,7 @@ public class Arc : Fragment, ILabelable
     }
 
     Vector3[] InitializeLine(){
-                myLine = new GameObject().AddComponent<LineRenderer>();
+                myLine =  GetComponent<LineRenderer>();
                 Vector3[] points = new Vector3[2];
 
 
@@ -121,7 +121,7 @@ public class Arc : Fragment, ILabelable
                 myLine.material = lineMaterial;
                 myLine.startColor = Color.black;
                 myLine.endColor = Color.black;
-                myLine.startWidth = 0.2f;
+                myLine.startWidth = 0.0f;
                 myLine.endWidth = 0.2f;
                 myLine.transform.name = "JoinArcLine";
                 myLine.transform.parent = transform;

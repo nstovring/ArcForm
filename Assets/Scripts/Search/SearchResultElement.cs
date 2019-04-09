@@ -15,7 +15,9 @@ public class SearchResultElement : MonoBehaviour
 
     public ToggleBox toggleBox;
     
+    [SerializeField]
     public Result XMLResult;
+    [SerializeField]
     public Concept Concept;
     public string URI;
 
@@ -29,8 +31,14 @@ public class SearchResultElement : MonoBehaviour
             throw new UnassignedReferenceException();
 
         elementButton.onClick.AddListener(delegate {
+            Unitoken token = TokenFactory.Instance.AddNewToken(elementText.text, Vector3.zero);
+
             Debug.Log("Finding Predicates for this search element");
-            SearchBox.Instance.GetPredicates(this);
+            SearchEngine.Instance.GetRelationsForSearchElement(this, token);
+            
+
+            SearchEngine.Instance.ClearFuzzyResults();
+            //SearchEngine.Instance.GetPredicates(this);
         });
         //toggleBox = SearchBox.Instance.toggleBox;
     }

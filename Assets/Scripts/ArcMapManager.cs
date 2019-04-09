@@ -8,25 +8,34 @@ using TMPro;
 public class ArcMapManager : MonoBehaviour
 {
     //This class is responsible for creating Tokens, Arcs and Thoughts
-
+    [Header("Managers")]
     public static ArcMapManager Instance;
     private TokenFactory tokenFactory;
     private ArcFactory arcFactory;
     private ArcMapLayout arcMapLayout;
+    [Header("Elements")]
     public List<Unitoken> unitokens;
     public List<Arc> Arcs;
 
+    [Header("Prefabs")]
     public Transform unitokenPrefab;
     public Transform joinArcPrefab;
    
-
+    [Header("Settings")]
     public float linePadding = 0.2f;
     public float mapScale = 2.0f;
+    public float zoomScale = 1;
+    public int minZoom = 5;
+    public int maxZoom = 50;
 
+    [Header("Refs")]
     public Arc selectedArc;
+    public Unitoken focusedToken;
+    public Unitoken selectedUnitoken;
 
     public Camera mCamera;
 
+    [Header("Booleans")]
     public bool FlattenMap = false;
 
 
@@ -77,7 +86,6 @@ public class ArcMapManager : MonoBehaviour
         tokenFactory.AddNewToken();
     }
    
-    public Unitoken selectedUnitoken;
     public void SelectUnitoken(Unitoken selected){
         //Deselect
         if(selectedUnitoken != null){
@@ -90,16 +98,6 @@ public class ArcMapManager : MonoBehaviour
         selectedUnitoken.SetHoverActive(true);
         selectedUnitoken.isSelected = true;
     }
-    //public void MoveUnitoken(){
-    //    if(selectedUnitoken != null){
-    //        FollowMouse(selectedUnitoken.transform);
-    //        if(Input.GetMouseButtonUp(0)){
-    //            selectedUnitoken = null;
-    //        }
-    //    }
-    //}
-
- 
 
     // Update is called once per frame
     void Update()
@@ -114,13 +112,23 @@ public class ArcMapManager : MonoBehaviour
         }
     }
 
-    public float zoomScale = 1;
+    public void RemoveToken(Unitoken token){
+        unitokens.Remove(token);
+        Destroy(token.transform.gameObject);
+    }
 
+    public void RemoveArc(Arc arc){
+        Arcs.Remove(arc);
+        Destroy(arc);
+    }
+ 
     public void MoveMap(){
         float h = Input.GetAxis("Horizontal");
         float v = Input.GetAxis("Vertical");
         float z = Input.mouseScrollDelta.y * zoomScale;
-        Vector3 mouseDelta = new Vector3(h,v,z);
+        float zoomFactor = Mathf.Clamp( mCamera.orthographicSize - z , minZoom, maxZoom);
+        Vector3 mouseDelta = new Vector3(h,v,0);
+        mCamera.orthographicSize = zoomFactor;
         mCamera.transform.position += mouseDelta;
     }
 

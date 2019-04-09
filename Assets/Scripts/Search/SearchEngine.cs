@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using ConceptNetJsonHolder;
 using UnityEngine;
@@ -9,6 +10,9 @@ public class SearchEngine : MonoBehaviour
 {
     [Header("Test Settings")]
     public string testString = "Einstein";
+    public int searchLimit = 10;
+
+    public Unitoken focusedUnitoken;
 
     [Header("Search Refs")]
     public SearchBox searchBox;
@@ -21,8 +25,14 @@ public class SearchEngine : MonoBehaviour
     [Header("Results")]
     public List<SearchResultElement> fuzzySearchResults;
     public SearchResultElement selectedSearchResultElement;
-    
 
+    //Static References
+    public static SearchEngine Instance;
+    
+    public void Start(){
+        Instance = this;
+        FocusedTokenRelations = new List<Relation>();
+    }
     public void TEST1(){
         GetFuzzySearchResults(testString);
     }
@@ -30,8 +40,32 @@ public class SearchEngine : MonoBehaviour
     public void TEST2(){
         string searchableLabel = fuzzySearchResults[0].XMLResult.Label;
         Debug.Log(searchableLabel);
-        GetConceptRelations(searchableLabel, 10);
+        GetConceptRelations(searchableLabel, searchLimit);
     }
+
+    internal void GetRelationsForSearchElement(SearchResultElement searchResultElement, Unitoken source)
+    {
+        focusedUnitoken = source;
+        
+        if(searchResultElement.Concept != null){
+            ReceiveConceptAndFillToggle(searchResultElement.Concept);
+        }else{
+            GetConceptRelations(searchResultElement.elementText.text, searchLimit);
+        }
+
+        if(searchResultElement.XMLResult != null){
+            ReceiveDBPediaXMLResultsAndFillToggle(searchResultElement.XMLResult);
+        }
+
+        //Create preview from results
+        Debug.Log("Received relations for " + searchResultElement.elementText.text);
+        //throw new NotImplementedException();
+    }
+
+
+   
+
+
     //Get user input from search input field
     public void GetFuzzySearchResults(string search){
         fuzzySearchResults = FuzzySearcher.FuzzySearch(search, fuzzySearchResultPrefab, transform);
@@ -42,22 +76,29 @@ public class SearchEngine : MonoBehaviour
     }
 
     public void GetConceptRelations(string subject, int limit){
-        ConceptNetInterface.GetRelations(subject, this, limit);
+        ConceptNetInterface.GetConceptRelations(subject, this, limit);
+    }
+    
+    List<Relation> FocusedTokenRelations;
+     public struct Relation{
+        public string source;
+        public string relations;
+        public string target;
     }
 
-    public void GetDBPediaRelations(){
+    public void ReceiveConceptAndFillToggle(Concept concept){
+        ArcPreviewFactory.Instance.GeneratePreviewFromConcept(focusedUnitoken, concept);
 
-    }
-
-    public void ReceiveConcept(Concept concept){
         Debug.Log("Received Relations for "+ concept.Edges.Length);
         FillToggleBox(concept, ToggleBoxes[0]);
     }
 
-    public void ReceiveDBPediaXMLResults(Result result){
-        Debug.Log("Received Relations for "+ result.Description);
-        FillToggleBox(result.Classes, ToggleBoxes[1]);
-        FillToggleBox(result.Categories, ToggleBoxes[2]);
+    public void ReceiveDBPediaXMLResultsAndFillToggle(Result result){
+        ArcPreviewFactory.Instance.GeneratePreviewFromXML(focusedUnitoken, result);
+
+        Debug.Log("Received XML Relations for "+ result.Label);
+        //FillToggleBox(result.Classes, ToggleBoxes[1]);
+        //FillToggleBox(result.Categories, ToggleBoxes[2]);
     }
 
     public void FillToggleBox(Concept concept, ToggleBox toggleBox){

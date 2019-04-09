@@ -4,8 +4,15 @@ using UnityEngine;
 using StructureContainer;
 using System;
 
+namespace FragmentResources{
+  public enum MapState {Preview, Locked};
+  public enum InteractState{Selected, Unselected};
+
+}
 public class TokenFactory : MonoBehaviour
 {
+  
+
     public Transform unitokenPrefab;
     private Camera mCamera;
 

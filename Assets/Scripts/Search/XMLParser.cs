@@ -15,7 +15,7 @@ namespace Xml2CSharp
     public class XMLParser : MonoBehaviour
     {
 		public static XMLParser Instance;
-        string testPath = "http://lookup.dbpedia.org/api/search.asmx/PrefixSearch?QueryClass=person&MaxHits=5&QueryString=";
+        string testPath = "http://lookup.dbpedia.org/api/search.asmx/PrefixSearch?MaxHits=5&QueryString=";
 		string searchString = "nicolaus";
 		public List<string> Elements;
 		public List<string> Text;
@@ -39,8 +39,6 @@ namespace Xml2CSharp
 			XmlSerializer serializer = new XmlSerializer(typeof(ArrayOfResult));
 			result = (ArrayOfResult)serializer.Deserialize(reader);
 			reader.Close();
-			Debug.Log(result.Result.Count);
-			//result.Result.
 			return result.Result;
         }
     }

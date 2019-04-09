@@ -7,11 +7,9 @@ public class Mouselistener : MonoBehaviour
 {
     //ArcMapManager.Instance.SelectUnitoken(this);
     Camera mCamera;
-    public Unitoken hoveredOverToken;
-    public Arc hoveredOverArc;
-    Unitoken hoveredStore;
-    
-    public bool isDraging;
+
+
+
     public bool startVectorStored;
     public bool consoleSingleMessage = false;
 
@@ -21,14 +19,20 @@ public class Mouselistener : MonoBehaviour
     public static Vector3 mousePositionInSpace;
     public Vector3 unitokenStartPosVector;
 
+    [Header("Temporary Fragments")]
+    public Unitoken hoveredOverToken;
+    public Unitoken hoveredStore;
+    public Arc hoveredOverArc;
     public Unitoken endPointUnitoken;
     public Unitoken startPointUnitoken;
 
     public Arc selectedArc;
+    [Header("Drag booleans")]
+    public bool isDraging;
     public bool draggingFromBackground = false;
     public bool draggingFromToken = false;
     public bool draggingFromArc = false;
-
+    [Header("Delay floats")]
     float clicked = 0;
     float clicktime = 0;
     float clickdelay = 0.5f;
@@ -89,10 +93,10 @@ public class Mouselistener : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 mouseWorldPos = mCamera.ScreenToWorldPoint(Input.mousePosition);
-        float h = mouseWorldPos.x;
-        float v = mouseWorldPos.y;
-        mouseDelta = new Vector3(h,v,0);
+        //Vector3 mouseWorldPos = mCamera.ScreenToWorldPoint(Input.mousePosition);
+        //f/loat h = mouseWorldPos.x;
+       // float v = mouseWorldPos.y;
+        mousePositionInSpace = new Vector3(mousePositionInSpace.x,mousePositionInSpace.y,0);
         CheckOnClick(); //Checks if clicked on background, Arc or Token
         ClickAndHold(); //Checks if mouseIsHeld
         DragFromBackground(); //Checks if dragging from background
@@ -102,7 +106,7 @@ public class Mouselistener : MonoBehaviour
         
     
         if (endPointUnitoken != null){ // Makes sure the instance is updated until mouseRelease();
-            endPointUnitoken.transform.position = mouseDelta;
+            endPointUnitoken.transform.position = mousePositionInSpace;
         }
        
            
@@ -114,16 +118,11 @@ public class Mouselistener : MonoBehaviour
 
         if(Input.GetMouseButtonUp(1)){
         
-                ArcMapManager.Instance.selectedUnitoken = TokenFactory.Instance.AddNewToken(mouseDelta);
+                ArcMapManager.Instance.selectedUnitoken = TokenFactory.Instance.AddNewToken(mousePositionInSpace);
                 ArcMapManager.Instance.SelectUnitoken(ArcMapManager.Instance.selectedUnitoken);
                 Debug.Log(Input.mousePosition);
-                Debug.Log(mouseWorldPos);
-        
-            }
-        
-        
-
-        
+                Debug.Log(mousePositionInSpace);
+        }
     }
     
     public void CheckOnClick(){
@@ -157,7 +156,7 @@ public class Mouselistener : MonoBehaviour
                 //StoreStart vector from empty space
                 if(tokenSpawn==true){
                     
-                    endPointUnitoken = TokenFactory.Instance.AddNewToken(mouseDelta);
+                    endPointUnitoken = TokenFactory.Instance.AddNewToken(mousePositionInSpace);
                     startPointUnitoken = TokenFactory.Instance.AddNewToken(unitokenStartPosVector);
                     selectedArc = ArcFactory.Instance.AddNewArc(startPointUnitoken, "Test", endPointUnitoken);
                     
@@ -172,7 +171,7 @@ public class Mouselistener : MonoBehaviour
         if(ClickAndHold() == true && draggingFromToken == true){
                 Debug.Log("Dragging from Token");
                 if(tokenSpawn==true){
-                    endPointUnitoken = TokenFactory.Instance.AddNewToken(mouseDelta);
+                    endPointUnitoken = TokenFactory.Instance.AddNewToken(mousePositionInSpace);
                     selectedArc = ArcFactory.Instance.AddNewArc(hoveredStore, "Test", endPointUnitoken);
                     tokenSpawn = false;
                 }
@@ -186,8 +185,6 @@ public class Mouselistener : MonoBehaviour
                 consoleSingleMessage = false;
                 }           
         }
-
-
     }
 
     public void OnDraggedRelease(){
@@ -252,14 +249,14 @@ public class Mouselistener : MonoBehaviour
         Vector3 mouseWorldPos = mCamera.ScreenToWorldPoint(Input.mousePosition);
         float h = mouseWorldPos.x;
         float v = mouseWorldPos.y;
-        Vector3 mouseDelta = new Vector3(h,v,0);
-        trs.position = mouseDelta;
+        Vector3 mousePositionInSpace = new Vector3(h,v,0);
+        trs.position = mousePositionInSpace;
     }
 
     public void UnitokenDelete(Fragment deleteU){// Deleting the soft Token instantiated.
-        
-        Destroy(deleteU.gameObject);
-        deleteU = null;
+        ArcMapManager.Instance.RemoveToken((Unitoken)deleteU);
+        //Destroy(deleteU.gameObject);
+        //deleteU = null;
         //Debug.Log("Destroyed an Unitoken");
         }
 

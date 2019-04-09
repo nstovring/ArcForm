@@ -16,17 +16,18 @@ public class ConceptNetInterface : MonoBehaviour
     }
 
     public static string[] relationURIs = {"/r/RelatedTo", "/r/CapableOf", "/r/HasProperty", "/r/dbpedia/knownFor"};
-    public static string ConceptNetRequestBuilder(string subject, int requestLimit){
-         string limit = "limit=" + requestLimit;
-         string relationUri = relationURIs[3];
-         string test = "http://api.conceptnet.io/query?start=/c/en/"+subject.Replace(" ", "_").ToLower()+"&rel="+relationUri+"&"+limit;
+ 
+
+     public static string ConceptNetRequestBuilder(string subject, int requestLimit){
+         string limit = "&"+"limit=" + requestLimit;
+         string relationUri = "";//"&rel=" + relationURIs[0] + "&rel=" + relationURIs[1] + "&rel=" + relationURIs[3];
+         string test = "http://api.conceptnet.io/query?start=/c/en/"+subject.Replace(" ", "_").ToLower()+relationUri+limit;
 
          return test;
 
      }
 
-    public static void GetRelations(string subject, SearchEngine asker, int requestLimit){
-        //mySubject = subject;
+    public static void GetConceptRelations(string subject, SearchEngine asker, int requestLimit){
         string request = ConceptNetRequestBuilder(subject, requestLimit);
         asker.StartCoroutine(ProcessRequest(request, asker));
      }
@@ -40,7 +41,7 @@ public class ConceptNetInterface : MonoBehaviour
         }
         else {
             Concept concept = DeSerializeJSON(myWr.downloadHandler.text);
-            asker.ReceiveConcept(concept);
+            asker.ReceiveConceptAndFillToggle(concept);
         }  
      }
 
