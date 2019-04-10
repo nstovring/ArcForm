@@ -10,7 +10,7 @@ using UnityEngine.Assertions;
 
 namespace ConceptNetJsonHolder
 {
- 
+
 public partial class Concept
     {
         [JsonProperty("@context")]

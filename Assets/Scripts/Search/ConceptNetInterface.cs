@@ -15,8 +15,8 @@ public class ConceptNetInterface : MonoBehaviour
         Instance = this;
     }
 
-    public static string[] relationURIs = {"/r/RelatedTo", "/r/CapableOf", "/r/HasProperty", "/r/dbpedia/knownFor"};
- 
+    public static string[] relationURIs = {"/r/RelatedTo", "/r/ExternalURL", "/r/FormOf", "/r/IsA", "/r/PartOf", "/r/HasA" , "/r/UsedFor", "/r/CapableOf", "/r/AtLocation", "/r/Causes", "/r/HasSubevent", "/r/HasFirstSubevent", "/r/HasLastSubevent", "/r/HasPrerequisite", "/r/HasProperty", "/r/MotivatedByGoal", "/r/ObstructedBy", "/r/Desires", "/r/CreatedBy", "/r/Synonym", "/r/Antonym", "/r/DistinctFrom", "/r/DerivedFrom", "/r/SymbolOf", "/r/DefinedAs", "/r/Entails", "/r/MannerOf", "/r/LocatedNear", "/r/HasContext", "/r/SimilarTo", "/r/EtymologicallyRelatedTo", "/r/EtymologicallyDerivedFrom", "/r/CausesDesire", "/r/MadeOf", "/r/ReceivesAction", "/r/InstanceOf"};
+    Dictionary<string, string> ConceptNetRelations = new Dictionary<string, string>();
 
      public static string ConceptNetRequestBuilder(string subject, int requestLimit){
          string limit = "&"+"limit=" + requestLimit;

@@ -35,7 +35,7 @@ public class Arc : Fragment, ILabelable
 
     public virtual void ShowInputField()
     {
-        UIManager.Instance.ShowInputField(TransientPosition, this);
+        //UIManager.Instance.ShowInputField(TransientPosition, this);
     }
     public virtual void SetLabel(string label)
     {
@@ -212,19 +212,20 @@ public class Arc : Fragment, ILabelable
     // Update is called once per frame
     void Update()
     {
-        if(source != null && target != null)
-            CheckHasChanged();
+        RefreshArc();
+        //if(source != null && target != null)
+            //CheckHasChanged();
        
     }
 
     void CheckHasChanged(){
-         if (target.transform.hasChanged)
+         if (target != null && target.transform.hasChanged)
         {
             RefreshArc();
             source.transform.hasChanged = false;
             target.transform.hasChanged = false;
         }
-        if (source.transform.hasChanged)
+        if (source != null && source.transform.hasChanged)
         {
             RefreshArc();
             source.transform.hasChanged = false;

@@ -273,13 +273,13 @@ public class Mouselistener : MonoBehaviour
         mousePositionInSpace = mCamera.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, mCamera.nearClipPlane + 5));
         //point = mCamera.ScreenToWorldPoint(Input.mousePosition);  
 
-        GUIStyle gsTest = new GUIStyle();
-        gsTest.normal.textColor = Color.black;
-        GUILayout.BeginArea(new Rect(20, 20, 250, 120),gsTest);
-        GUILayout.Label("Screen pixels: " + mCamera.pixelWidth + ":" + mCamera.pixelHeight, gsTest);
-        GUILayout.Label("Mouse position: " + mousePos, gsTest);
-        GUILayout.Label("World position: " + mousePositionInSpace.ToString("F3"), gsTest);
-        GUILayout.EndArea();
+        //GUIStyle gsTest = new GUIStyle();
+        //gsTest.normal.textColor = Color.black;
+        //GUILayout.BeginArea(new Rect(20, 20, 250, 120),gsTest);
+        //GUILayout.Label("Screen pixels: " + mCamera.pixelWidth + ":" + mCamera.pixelHeight, gsTest);
+        //GUILayout.Label("Mouse position: " + mousePos, gsTest);
+        //GUILayout.Label("World position: " + mousePositionInSpace.ToString("F3"), gsTest);
+        //GUILayout.EndArea();
     }
 
 }

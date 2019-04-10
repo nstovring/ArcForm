@@ -117,7 +117,7 @@ public class Unitoken : Fragment, ILabelable
    
     public virtual void ShowInputField()
     {
-        UIManager.Instance.ShowInputField(transform.position, this);
+        //UIManager.Instance.ShowInputField(transform.position, this);
     }
 
     public virtual void SetLabel(string label)
