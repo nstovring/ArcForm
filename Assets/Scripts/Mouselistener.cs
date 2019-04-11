@@ -233,6 +233,13 @@ public class Mouselistener : MonoBehaviour
             //}    
     }
     public void EndToken(){
+         if(hoveredOverArc != null){
+            UnitokenDelete(selectedArc.target);
+            selectedArc.target = hoveredOverArc;
+            endPointUnitoken.isSoft = false;
+            endPointUnitoken = null;
+            return;
+        }
         if(hoveredOverToken != null){
             UnitokenDelete(selectedArc.target);
             selectedArc.target = hoveredOverToken;
@@ -254,7 +261,7 @@ public class Mouselistener : MonoBehaviour
     }
 
     public void UnitokenDelete(Fragment deleteU){// Deleting the soft Token instantiated.
-        ArcMapManager.Instance.RemoveToken((Unitoken)deleteU);
+        ArcMapManager.Instance.DestroyToken((Unitoken)deleteU);
         //Destroy(deleteU.gameObject);
         //deleteU = null;
         //Debug.Log("Destroyed an Unitoken");

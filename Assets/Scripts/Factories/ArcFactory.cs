@@ -109,7 +109,7 @@ public class ArcFactory : MonoBehaviour
         Arc newJoinArc = Instantiate(joinArcPrefab, Vector3.zero, Quaternion.identity, transform.parent).GetComponent<Arc>();
         newJoinArc.Initialize(source,target);
 
-        ArcMapManager.Instance.AddArc(newJoinArc);
+        ArcMapManager.Instance.AddArcToList(newJoinArc);
         return newJoinArc;
     }
 

@@ -16,16 +16,6 @@ public class ArcMapLayout : MonoBehaviour
     public float minDistance = 0.1f;
     public float maxDistance = 6.0f;
 
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-    }
-
 
   public void AddFlattenForces(List<Unitoken> unitokens, List<Arc> arcs){
         Vector3[] tokenforces = GetUnitokenForceVectors(unitokens);
@@ -94,6 +84,8 @@ public class ArcMapLayout : MonoBehaviour
                     Vector3 dir = (token.TransientPosition - neighbour.TransientPosition)/distance;
                     forces[i] += dir;
                 }
+
+               
             }
             unitokenForceList.Add(forces[i]);
         }

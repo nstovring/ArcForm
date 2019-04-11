@@ -61,27 +61,38 @@ public class ArcMapManager : MonoBehaviour
     }
 
 
-    public bool AddToken(Unitoken token){
+    public bool AddTokenToList(Unitoken token){
         if(!unitokens.Contains(token)){
             token.id = unitokens.Count;
             unitokens.Add(token);
             return true;
         }else{
-            Debug.Log("Failed to add token");
+            Debug.Log("Failed to add token, token already in list");
             return false;
         }
     }
 
-    public bool AddArc(Arc arc){
+    public bool AddArcToList(Arc arc){
          if(!Arcs.Contains(arc)){
             arc.id = Arcs.Count;
             Arcs.Add(arc);
             return true;
         }else{
-            Debug.Log("Failed to add arc");
+            Debug.Log("Failed to add arc, arc already in list");
             return false;
         }
     }
+
+    public void DestroyToken(Unitoken token){
+        unitokens.Remove(token);
+        Destroy(token.transform.gameObject);
+    }
+
+    public void DestroyArc(Arc arc){
+        Arcs.Remove(arc);
+        Destroy(arc);
+    }
+ 
     public void OnClickAddNewToken(){
         tokenFactory.AddNewToken();
     }
@@ -102,8 +113,6 @@ public class ArcMapManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-
         //MoveUnitoken();
         MoveMap();
 
@@ -112,15 +121,6 @@ public class ArcMapManager : MonoBehaviour
         }
     }
 
-    public void RemoveToken(Unitoken token){
-        unitokens.Remove(token);
-        Destroy(token.transform.gameObject);
-    }
-
-    public void RemoveArc(Arc arc){
-        Arcs.Remove(arc);
-        Destroy(arc);
-    }
  
     public void MoveMap(){
         float h = Input.GetAxis("Horizontal");

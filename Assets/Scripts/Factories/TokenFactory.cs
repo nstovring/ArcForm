@@ -34,7 +34,7 @@ public void Initialize(){
           //throw new NotImplementedException();
         newToken.Initialize("Label", mouseDelta, "Empty URI!!");
 
-        ArcMapManager.Instance.AddToken(newToken);
+        ArcMapManager.Instance.AddTokenToList(newToken);
 
         return newToken;
     }
@@ -52,7 +52,7 @@ public void Initialize(){
         newToken.transform.name = "Unitoken";
         newToken.Initialize(token);
 
-        ArcMapManager.Instance.AddToken(newToken);
+        ArcMapManager.Instance.AddTokenToList(newToken);
 
         return newToken;
     }
@@ -70,7 +70,7 @@ public void Initialize(){
         newToken.transform.name = "Unitoken";
         newToken.Initialize(p.property, Vector3.zero,  p.URI);
 
-        ArcMapManager.Instance.AddToken(newToken);
+        ArcMapManager.Instance.AddTokenToList(newToken);
 
         return newToken;
     }
@@ -83,7 +83,7 @@ public void Initialize(){
         newToken.transform.name = "Unitoken";
         newToken.Initialize("Label", position, "Empty URI!");
 
-        ArcMapManager.Instance.AddToken(newToken);
+        ArcMapManager.Instance.AddTokenToList(newToken);
 
         return newToken;
 
@@ -99,7 +99,7 @@ public void Initialize(){
         newToken.transform.name = Label;
         newToken.Initialize(Label, Vector3.zero, "Empty URI!");
 
-        ArcMapManager.Instance.AddToken(newToken);
+        ArcMapManager.Instance.AddTokenToList(newToken);
 
         return newToken;
 

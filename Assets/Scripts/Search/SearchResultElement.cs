@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using StructureContainer;
 using Xml2CSharp;
 using ConceptNetJsonHolder;
+using System;
 
 public class SearchResultElement : MonoBehaviour
 {
@@ -30,17 +31,10 @@ public class SearchResultElement : MonoBehaviour
         if(elementText == null)
             throw new UnassignedReferenceException();
 
-        elementButton.onClick.AddListener(delegate {
-            Unitoken token = TokenFactory.Instance.AddNewToken(elementText.text, Vector3.zero);
+    }
 
-            Debug.Log("Finding Predicates for this search element");
-            SearchEngine.Instance.GetRelationsForSearchElement(this, token);
-            
-
-            SearchEngine.Instance.ClearFuzzyResults();
-            //SearchEngine.Instance.GetPredicates(this);
-        });
-        //toggleBox = SearchBox.Instance.toggleBox;
+    public void SetOnClickDelegate(Action myMethodName){
+         elementButton.onClick.AddListener(delegate {myMethodName();});
     }
 
     public void Initialize(){

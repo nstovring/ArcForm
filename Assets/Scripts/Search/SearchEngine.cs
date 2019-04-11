@@ -15,6 +15,7 @@ public class SearchEngine : MonoBehaviour
     public Unitoken focusedUnitoken;
 
     [Header("Search Refs")]
+    public Transform searchEngineCanvasTransform;
     public SearchBox searchBox;
     public List<ToggleBox> ToggleBoxes;
 
@@ -23,7 +24,7 @@ public class SearchEngine : MonoBehaviour
     public Transform fuzzySearchResultPrefab;
 
     [Header("Results")]
-    public List<SearchResultElement> fuzzySearchResults;
+    public List<SearchResultElement> InstantiatedResults;
     public SearchResultElement selectedSearchResultElement;
 
     //Static References
@@ -38,7 +39,7 @@ public class SearchEngine : MonoBehaviour
     }
 
     public void TEST2(){
-        string searchableLabel = fuzzySearchResults[0].XMLResult.Label;
+        string searchableLabel = InstantiatedResults[0].XMLResult.Label;
         Debug.Log(searchableLabel);
         GetConceptRelations(searchableLabel, searchLimit);
     }
@@ -59,20 +60,17 @@ public class SearchEngine : MonoBehaviour
 
         //Create preview from results
         Debug.Log("Received relations for " + searchResultElement.elementText.text);
-        //throw new NotImplementedException();
     }
-
-
-   
 
 
     //Get user input from search input field
     public void GetFuzzySearchResults(string search){
-        fuzzySearchResults = FuzzySearcher.FuzzySearch(search, fuzzySearchResultPrefab, transform);
+        List<Result> xmlResults = FuzzySearcher.FuzzySearch(search, fuzzySearchResultPrefab, transform);
+        InstantiatedResults = FuzzySearcher.ConvertResults(xmlResults, fuzzySearchResultPrefab, searchEngineCanvasTransform);
     }
 
     public void ClearFuzzyResults(){
-        FuzzySearcher.ClearResults();
+        FuzzySearcher.ClearFuzzyResults();
     }
 
     public void GetConceptRelations(string subject, int limit){
@@ -84,6 +82,11 @@ public class SearchEngine : MonoBehaviour
         public string source;
         public string relations;
         public string target;
+    }
+
+
+    public void CreatePreview(Concept concept){
+        ArcPreviewFactory.Instance.GeneratePreviewFromConcept(focusedUnitoken, concept);
     }
 
     public void ReceiveConceptAndFillToggle(Concept concept){
@@ -124,14 +127,14 @@ internal class FuzzySearcher
 {
     static List<Result> results;
     static List<SearchResultElement> fuzzySearchResults;
-     public static List<SearchResultElement> FuzzySearch(string testString, Transform fuzzySearchResultPrefab, Transform parent){
+     public static List<Result> FuzzySearch(string testString, Transform fuzzySearchResultPrefab, Transform parent){
         //Send fuzzy search request to DBpedia for Token
         //Return list of tokens
-        results = DBPediaXmlSearch(testString, fuzzySearchResultPrefab, parent);
-        fuzzySearchResults = ConvertResults(results,  fuzzySearchResultPrefab, parent);
-        return fuzzySearchResults;
+        results = DBPediaXmlSearch(testString, fuzzySearchResultPrefab);
+        //fuzzySearchResults = ConvertResults(results,  fuzzySearchResultPrefab, parent);
+        return results;
     }
-    public static List<Result> DBPediaXmlSearch(string x, Transform searchElementPrefab, Transform parent){
+    public static List<Result> DBPediaXmlSearch(string x, Transform searchElementPrefab){
         List<Result> results =  Xml2CSharp.XMLParser.Instance.ReadLink(x);
         return results;
     }
@@ -139,9 +142,13 @@ internal class FuzzySearcher
     public static List<SearchResultElement> ConvertResults (List<Result> edges, Transform searchElementPrefab, Transform parent){
 
         List<SearchResultElement> convertedResults = new List<SearchResultElement>();
+        fuzzySearchResults = ClearFuzzyResults();
+
         Debug.Log("Receiving Results" + edges.Count);
          foreach(Result x in edges){
-            convertedResults.Add(ConvertResult(x, searchElementPrefab, parent));
+            SearchResultElement result = ConvertResult(x, searchElementPrefab, parent);
+            convertedResults.Add(result);
+            fuzzySearchResults.Add(result);
 		}
         return convertedResults;
     }
@@ -150,18 +157,34 @@ internal class FuzzySearcher
         SearchResultElement element = Instantiate(prefab, Vector3.zero, Quaternion.identity, parent).GetComponent<SearchResultElement>();
         element.name = x.Label;
         element.XMLResult =x;
-        
+
+        Action del = delegate {
+            Unitoken token = TokenFactory.Instance.AddNewToken(x.Label, Vector3.zero);
+            Debug.Log("Created Token from Fuzz");
+            token.isSoft = false;
+
+            Debug.Log("Finding Predicates for this search element");
+            SearchEngine.Instance.GetRelationsForSearchElement(element, token);
+            Debug.Log("Got Relations");
+            SearchEngine.Instance.ClearFuzzyResults();
+        };
+
+        element.SetOnClickDelegate(del);
         element.Initialize();
         return element;
     }
 
-     public static void ClearResults(){
+     public static List<SearchResultElement> ClearFuzzyResults(){
+        if(fuzzySearchResults == null){
+            fuzzySearchResults = new List<SearchResultElement>();
+        }
         if(fuzzySearchResults.Count > 0){
             foreach(SearchResultElement x in fuzzySearchResults){
 				Destroy(x.gameObject);
 		    }
+            fuzzySearchResults.Clear();
         }
-        fuzzySearchResults.Clear();
+        return fuzzySearchResults;
     }
 
 
