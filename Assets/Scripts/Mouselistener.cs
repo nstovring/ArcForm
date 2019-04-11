@@ -137,6 +137,7 @@ public class Mouselistener : MonoBehaviour
             }
             if(hoveredOverToken != null && hoveredOverArc == null){//clicked on Token
                 Debug.Log("Clicked on Token");
+                TestQuery();
                 draggingFromToken = true;
                 hoveredStore = hoveredOverToken;
                 tokenSpawn = true;
@@ -148,6 +149,10 @@ public class Mouselistener : MonoBehaviour
                 arcSpawn = true;
             }
         }
+    }
+
+    public void TestQuery(){
+        SearchEngine.Instance.GetConceptRelations(hoveredOverToken, 10);
     }
 
     public void DragFromBackground(){

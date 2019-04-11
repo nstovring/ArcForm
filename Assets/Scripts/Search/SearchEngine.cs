@@ -76,6 +76,13 @@ public class SearchEngine : MonoBehaviour
     public void GetConceptRelations(string subject, int limit){
         ConceptNetInterface.GetConceptRelations(subject, this, limit);
     }
+
+    public void GetConceptRelations(Unitoken subject, int limit){
+        focusedUnitoken = subject;
+        ConceptNetInterface.GetConceptRelations(subject.myLabel.text, this, limit);
+    }
+
+    
     
     List<Relation> FocusedTokenRelations;
      public struct Relation{

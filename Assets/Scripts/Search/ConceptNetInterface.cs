@@ -32,6 +32,7 @@ public class ConceptNetInterface : MonoBehaviour
         asker.StartCoroutine(ProcessRequest(request, asker));
      }
 
+
     public static IEnumerator ProcessRequest(string url, SearchEngine asker)
      {
          UnityWebRequest myWr = UnityWebRequest.Get(url);

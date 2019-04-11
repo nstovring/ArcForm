@@ -71,6 +71,7 @@ public class ArcPreviewFactory : MonoBehaviour
 
             Vector3 rngVector = new Vector3(Random.Range(-2.0f, 2.0f),Random.Range(-2.0f, 2.0f));
             Unitoken target  = TokenFactory.Instance.AddNewToken(x.End.Label, core.transform.position + rngVector);
+            target.isSoft = false;
             Arc arc = ArcFactory.Instance.AddNewArc(core, "", target);
         }
         yield return new WaitForSeconds(0.5f);
