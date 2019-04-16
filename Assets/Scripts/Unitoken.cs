@@ -5,6 +5,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using FragmentResources;
 using StructureContainer;
+using System;
+
 public class Unitoken : Fragment, ILabelable
 {
     public int arcCount;
@@ -30,6 +32,13 @@ public class Unitoken : Fragment, ILabelable
     public MapState myMapState = MapState.Preview;
     public InteractState myInteractState = InteractState.Unselected;
 
+    public enum UnitokenState {Loaded, Preview, Placed, Removed}
+    public enum UnitokenVisibility {Invisible, SemiVisible, Opaque}
+
+    public List<ArcCollection> Arcbranches;
+
+    UnitokenState unitokenState;
+    UnitokenVisibility unitokenVisibility;
     Camera mCamera;
     // Start is called before the first frame update
     void Start()
@@ -39,6 +48,7 @@ public class Unitoken : Fragment, ILabelable
         if(myArcs == null){
             myArcs = new List<Arc>();
         }
+        Arcbranches = new List<ArcCollection>();
     }
 
     public void Initialize(unitoken token){
@@ -60,23 +70,65 @@ public class Unitoken : Fragment, ILabelable
         mCamera = Camera.main;
     }
 
-    public void CheckMapState(){
-
+    public void SetVisibility(UnitokenVisibility visibility){
+         switch(visibility){
+            case UnitokenVisibility.Invisible:
+            spriteRenderer.color = new Color(1,1,1,0f);
+            break;
+            case UnitokenVisibility.Opaque:
+            spriteRenderer.color = new Color(1,1,1,1);
+            break;
+            case UnitokenVisibility.SemiVisible:
+            spriteRenderer.color = new Color(1,1,1,0.5f);
+            break;
+        }
+        unitokenVisibility = visibility;
     }
 
-    public void CheckInteractState(){
-
+    public void SetState(UnitokenState state){
+        switch(state){
+            case UnitokenState.Loaded:
+            SetVisibility(UnitokenVisibility.Invisible);
+            break;
+            case UnitokenState.Placed:
+            SetVisibility(UnitokenVisibility.Opaque);
+            break;
+            case UnitokenState.Preview:
+            SetVisibility(UnitokenVisibility.SemiVisible);
+            break;
+            case UnitokenState.Removed:
+            SetVisibility(UnitokenVisibility.Invisible);
+            break;        
+        }
+        unitokenState = state;
     }
 
+    void UpdateVisibility(){
+        switch(unitokenVisibility){
+            case UnitokenVisibility.Invisible:
+            spriteRenderer.color = new Color(1,1,1,0f);
+            break;
+            case UnitokenVisibility.Opaque:
+            spriteRenderer.color = new Color(1,1,1,1);
+            break;
+            case UnitokenVisibility.SemiVisible:
+            spriteRenderer.color = new Color(1,1,1,0.5f);
+            break;
+        }
+    }
+
+    internal void SetSprite(Sprite collectionIconSprite)
+    {
+        spriteRenderer.sprite = collectionIconSprite;
+    }
+
+    internal void AddBranch(ArcCollection subBranch)
+    {
+        Arcbranches.Add(subBranch);
+    }
 
     void Update(){
-        if(myMapState == MapState.Preview){
-            spriteRenderer.color = new Color(1,1,1,0.5f);
-        }else{
-            spriteRenderer.color = new Color(1,1,1,1);
-
-        }
-        
+      
        if(isSoft == false){//collider active and hoverOver is active.
         transform.GetComponent<CircleCollider2D>().enabled = true;
        }

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
+
 [RequireComponent(typeof(ArcMapLayout))]
 [RequireComponent(typeof(ArcFactory))]
 [RequireComponent(typeof(TokenFactory))]
@@ -37,6 +39,7 @@ public class ArcMapManager : MonoBehaviour
 
     [Header("Booleans")]
     public bool FlattenMap = false;
+    public bool AutoMoveCamera = false;
 
 
     // Start is called before the first frame update
@@ -70,6 +73,11 @@ public class ArcMapManager : MonoBehaviour
             Debug.Log("Failed to add token, token already in list");
             return false;
         }
+    }
+
+    internal void SetFocusedToken(Unitoken newCore)
+    {
+        focusedToken = newCore;
     }
 
     public bool AddArcToList(Arc arc){
@@ -118,6 +126,23 @@ public class ArcMapManager : MonoBehaviour
 
         if(unitokens != null && unitokens.Count > 0){
             UpdateMap();
+        }
+        if(AutoMoveCamera)
+            MoveCamera();
+    }
+
+    void MoveCamera(){
+        if(focusedToken != null){
+            Vector3 centerOffset = mCamera.ScreenToWorldPoint(new Vector3(Screen.width/2, Screen.height/2,0))-(focusedToken.transform.position);
+            Vector3 center = mCamera.ScreenToWorldPoint(new Vector3(Screen.width/2, Screen.height/2,0));
+            Vector3 focusedTokenPos = focusedToken.transform.position;
+            Debug.DrawLine( new Vector3(Screen.width/2, Screen.height/2,0), mCamera.WorldToScreenPoint(focusedToken.transform.position));
+            centerOffset.z = 0;
+            focusedTokenPos.z = 0;
+            float distance = Vector3.Distance(focusedTokenPos, center);
+            if(distance > 0.1f){
+                mCamera.transform.position -= centerOffset * Time.deltaTime;
+            }
         }
     }
 

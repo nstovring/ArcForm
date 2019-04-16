@@ -29,9 +29,9 @@ namespace StructureContainer
 
         public bool HasURI(){
             if(string.IsNullOrWhiteSpace(URI))
-            return false;
+                return false;
             else
-            return true;
+                return true;
         }
 
     }

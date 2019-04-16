@@ -93,18 +93,18 @@ public class SearchEngine : MonoBehaviour
 
 
     public void CreatePreview(Concept concept){
-        ArcPreviewFactory.Instance.GeneratePreviewFromConcept(focusedUnitoken, concept);
+        ArcCollectionFactory.Instance.GeneratePreviewFromConcept(focusedUnitoken, concept);
     }
 
     public void ReceiveConceptAndFillToggle(Concept concept){
-        ArcPreviewFactory.Instance.GeneratePreviewFromConcept(focusedUnitoken, concept);
+        ArcCollectionFactory.Instance.GeneratePreviewFromConcept(focusedUnitoken, concept);
 
         Debug.Log("Received Relations for "+ concept.Edges.Length);
         FillToggleBox(concept, ToggleBoxes[0]);
     }
 
     public void ReceiveDBPediaXMLResultsAndFillToggle(Result result){
-        ArcPreviewFactory.Instance.GeneratePreviewFromXML(focusedUnitoken, result);
+        ArcCollectionFactory.Instance.GeneratePreviewFromXML(focusedUnitoken, result);
 
         Debug.Log("Received XML Relations for "+ result.Label);
         //FillToggleBox(result.Classes, ToggleBoxes[1]);

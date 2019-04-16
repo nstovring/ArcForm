@@ -152,7 +152,7 @@ public class Mouselistener : MonoBehaviour
     }
 
     public void TestQuery(){
-        SearchEngine.Instance.GetConceptRelations(hoveredOverToken, 10);
+        SearchEngine.Instance.GetConceptRelations(hoveredOverToken, SearchEngine.Instance.searchLimit);
     }
 
     public void DragFromBackground(){
