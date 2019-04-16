@@ -28,9 +28,11 @@ public class ButtonToggle : MonoBehaviour
     {
         toggled = !toggled;
         if(toggled == true){
-            //animator.GetParameter(4) = true;
+            animator.SetBool("Toggled", true);
+            
         }
         if(toggled != true){
+            animator.SetBool("Toggled", false);
         }
         //Output this to console when Button1 or Button3 is clicked
         Debug.Log("You have clicked the button!");
