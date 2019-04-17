@@ -14,7 +14,7 @@ public class ArcCollectionToggleMenu : MonoBehaviour
     public static Dictionary<string, ArcCollectionItem> PropertyDictionary;
 
     public static string[] relationURIs = {"/r/RelatedTo", "/r/ExternalURL", "/r/FormOf", "/r/IsA", "/r/PartOf", "/r/HasA" , "/r/UsedFor", "/r/CapableOf", "/r/AtLocation", "/r/Causes", "/r/HasSubevent", "/r/HasFirstSubevent", "/r/HasLastSubevent", "/r/HasPrerequisite", "/r/HasProperty", "/r/MotivatedByGoal", "/r/ObstructedBy", "/r/Desires", "/r/CreatedBy", "/r/Synonym", "/r/Antonym", "/r/DistinctFrom", "/r/DerivedFrom", "/r/SymbolOf", "/r/DefinedAs", "/r/Entails", "/r/MannerOf", "/r/LocatedNear", "/r/HasContext", "/r/SimilarTo", "/r/EtymologicallyRelatedTo", "/r/EtymologicallyDerivedFrom", "/r/CausesDesire", "/r/MadeOf", "/r/ReceivesAction", "/r/InstanceOf"};
-
+    public static string[] relationsNaming = {"is related to ","External URL ","form of ","is a ","part of ","has a ","used for ","capable of ","at location ","causes ","has subevent ","has first subevent ","has last subevent ","has prerequisite ","has property ","motivated by goal ","obstructed by ","desires ","created by ","synonym ","antonym ","distinct from ","derived from ","symbol of ","defined as ","entails ","manner of ","located near ","has context ","similar to ","etymologically related to ","etymologically derived from ","causes desire ","made of ","receives action ","instance of "};
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +24,7 @@ public class ArcCollectionToggleMenu : MonoBehaviour
 
         int count = 0;
 
-        foreach(string x in relationURIs){
+        foreach(string x in relationsNaming){
             ArcCollectionItem y = Instantiate(propertyMenuButton, Vector3.zero, Quaternion.identity, canvasTransform);
             y.SetProperty(x);
             y.isActive = false;
