@@ -22,8 +22,8 @@ public class ArcMapFilter : MonoBehaviour
         //Check if label is within toggled array
         for(int i = 0; i < relations.Length; i++){
         string edgeUnitokenLabel = relations[i];
-        bool state = PropertyMenu.Instance.Filter[i];
-        ConceptNetProperty c = PropertyMenu.Instance.GetProperty(edgeUnitokenLabel);
+        bool state = ArcCollectionToggleMenu.Instance.Filter[i];
+        ArcCollectionItem c = ArcCollectionToggleMenu.Instance.GetProperty(edgeUnitokenLabel);
             if(state){
                 //Debug.Log("")
                 toggledCategories += edgeUnitokenLabel +": ";

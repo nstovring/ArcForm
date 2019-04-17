@@ -30,14 +30,14 @@ public class ArcCollectionFactory : MonoBehaviour
      
     }
 
-    public IEnumerator GenerateClasses(Unitoken core, Result result){
-        foreach(Category x in result.Categories.Category){
-            Vector3 rngVector = new Vector3(Random.Range(-2.0f, 2.0f),Random.Range(-2.0f, 2.0f));
-            Unitoken target  = TokenFactory.Instance.AddNewToken(x.Label, core.transform.position + rngVector);
-            Arc arc = ArcFactory.Instance.AddNewArc(core, "in category", target);
-            yield return new WaitForSeconds(0.1f);
-        }
-    }
+   // public IEnumerator GenerateClasses(Unitoken core, Result result){
+   //     foreach(Category x in result.Categories.Category){
+   //         Vector3 rngVector = new Vector3(Random.Range(-2.0f, 2.0f),Random.Range(-2.0f, 2.0f));
+   //         Unitoken target  = TokenFactory.Instance.AddNewToken(x.Label, core.transform.position + rngVector);
+   //         Arc arc = ArcFactory.Instance.AddNewArc(core, "in category", target);
+   //         yield return new WaitForSeconds(0.1f);
+   //     }
+   // }
 
   
 
@@ -58,7 +58,7 @@ public class ArcCollectionFactory : MonoBehaviour
                 string edgeUnitokenLabel = relations[count];
 
                 //Check if label is within toggled array
-                ConceptNetProperty c = PropertyMenu.Instance.GetProperty(edgeUnitokenLabel);
+                ArcCollectionItem c = ArcCollectionToggleMenu.Instance.GetProperty(edgeUnitokenLabel);
 
                 Unitoken.UnitokenState state = !c.isActive ? Unitoken.UnitokenState.Preview : Unitoken.UnitokenState.Loaded;
 
