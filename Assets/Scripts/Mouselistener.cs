@@ -8,8 +8,8 @@ public class Mouselistener : MonoBehaviour
     //ArcMapManager.Instance.SelectUnitoken(this);
     Camera mCamera;
 
-
-
+    [Header("Settings")]
+    public bool editingEnabled = false;
     public bool startVectorStored;
     public bool consoleSingleMessage = false;
 
@@ -93,16 +93,17 @@ public class Mouselistener : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Vector3 mouseWorldPos = mCamera.ScreenToWorldPoint(Input.mousePosition);
-        //f/loat h = mouseWorldPos.x;
-       // float v = mouseWorldPos.y;
         mousePositionInSpace = new Vector3(mousePositionInSpace.x,mousePositionInSpace.y,0);
         CheckOnClick(); //Checks if clicked on background, Arc or Token
-        ClickAndHold(); //Checks if mouseIsHeld
-        DragFromBackground(); //Checks if dragging from background
-        DragFromToken(); //Checks if dragging from Token
-        DragFromArc(); //Checks if dragging from Arc
-        OnDraggedRelease(); //Determines what is dragged and instatiated
+
+        if(editingEnabled){
+            ClickAndHold(); //Checks if mouseIsHeld
+            DragFromBackground(); //Checks if dragging from background
+            DragFromToken(); //Checks if dragging from Token
+            DragFromArc(); //Checks if dragging from Arc
+            OnDraggedRelease(); //Determines what is dragged and instatiated
+        }
+      
         
     
         if (endPointUnitoken != null){ // Makes sure the instance is updated until mouseRelease();
@@ -127,7 +128,7 @@ public class Mouselistener : MonoBehaviour
     
     public void CheckOnClick(){
         
-        if(Input.GetMouseButtonDown(0) == true){
+        if(Input.GetMouseButtonDown(0)){
             
             if(hoveredOverToken == null && hoveredOverArc == null){//clicked on background
                 Debug.Log("Clicked on background");
@@ -136,7 +137,9 @@ public class Mouselistener : MonoBehaviour
                 tokenSpawn = true;
             }
             if(hoveredOverToken != null && hoveredOverArc == null){//clicked on Token
-                Debug.Log("Clicked on Token");
+                Debug.Log("Left Clicked on Token");
+
+                ArcMapManager.Instance.SetFocusedToken(hoveredOverToken);
                 TestQuery();
                 draggingFromToken = true;
                 hoveredStore = hoveredOverToken;
@@ -149,6 +152,18 @@ public class Mouselistener : MonoBehaviour
                 arcSpawn = true;
             }
         }
+
+         if(Input.GetMouseButtonDown(1)){
+              if(hoveredOverToken != null && hoveredOverArc == null){//clicked on Token
+                Debug.Log("Right Clicked on Token");
+
+                TestQuery();
+                draggingFromToken = true;
+                hoveredStore = hoveredOverToken;
+                tokenSpawn = true;
+
+            }
+         }
     }
 
     public void TestQuery(){

@@ -112,7 +112,8 @@ public class SearchEngine : MonoBehaviour
     }
 
     public void FillToggleBox(Concept concept, ToggleBox toggleBox){
-        toggleBox.CreatePredicates(concept);
+        //toggleBox.CreatePredicates(concept);
+        
     }
 
     public void FillToggleBox(Classes classes, ToggleBox toggleBox){
@@ -169,6 +170,7 @@ internal class FuzzySearcher
             Unitoken token = TokenFactory.Instance.AddNewToken(x.Label, Vector3.zero);
             Debug.Log("Created Token from Fuzz");
             token.isSoft = false;
+            ArcMapManager.Instance.SetFocusedToken(token);
 
             Debug.Log("Finding Predicates for this search element");
             SearchEngine.Instance.GetRelationsForSearchElement(element, token);

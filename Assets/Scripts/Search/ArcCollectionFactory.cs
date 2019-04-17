@@ -55,28 +55,31 @@ public class ArcCollectionFactory : MonoBehaviour
         int count = 0;
         foreach(List<Edge> edgelist in ConceptEdges){
             if(edgelist.Count > 0){
-                string edgeUnitokenLabel = relations[count];
+                string relation = relations[count];
 
                 //Check if label is within toggled array
-                ArcCollectionItem c = ArcCollectionToggleMenu.Instance.GetProperty(edgeUnitokenLabel);
+                ArcCollectionItem arcCollectionItem = ArcCollectionToggleMenu.GetArcCollectionItem(relation);
 
-                Unitoken.UnitokenState state = !c.isActive ? Unitoken.UnitokenState.Preview : Unitoken.UnitokenState.Loaded;
+                Unitoken.UnitokenState state = !arcCollectionItem.isActive ? Unitoken.UnitokenState.Preview : Unitoken.UnitokenState.Loaded;
 
-                Unitoken newCore  = TokenFactory.Instance.AddNewToken(edgeUnitokenLabel, core.transform.position + rngVector());
-                newCore.SetState(state);
-                newCore.SetSprite(collectionIconSprite);
-                ArcMapManager.Instance.SetFocusedToken(newCore);
-
-                Arc arc = ArcFactory.Instance.AddNewArc(core,"", newCore);
+                arcCollectionItem.Fill(edgelist);
 
 
-                ArcCollection subBranch = new ArcCollection();
-                subBranch.SetCore(newCore);
-                foreach(Edge edge in edgelist){
-                    subBranch.AddEdge(edge);
-                }
-
-                coreCollection.AddConnection(subBranch);
+                //Unitoken newCore  = TokenFactory.Instance.AddNewToken(edgeUnitokenLabel, core.transform.position + rngVector());
+                //newCore.SetState(state);
+                //newCore.SetSprite(collectionIconSprite);
+                //ArcMapManager.Instance.SetFocusedToken(newCore);
+//
+                //Arc arc = ArcFactory.Instance.AddNewArc(core,"", newCore);
+//
+//
+                //ArcCollection subBranch = new ArcCollection();
+                //subBranch.SetCore(newCore);
+                //foreach(Edge edge in edgelist){
+                //    subBranch.AddEdge(edge);
+                //}
+//
+                //coreCollection.AddConnection(subBranch);
                 //yield return StartCoroutine(SpawnEdges(edgelist, newCore, edgeUnitokenLabel, state));
                 yield return new WaitForSeconds(0.1f);
             }
@@ -86,7 +89,7 @@ public class ArcCollectionFactory : MonoBehaviour
         }
     }
 
-    Vector3 rngVector(){
+    public static Vector3 rngVector(){
         return new Vector3(Random.Range(-2.0f, 2.0f),Random.Range(-2.0f, 2.0f));
     }
 

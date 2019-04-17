@@ -22,19 +22,20 @@ public class ArcCollectionToggleMenu : MonoBehaviour
         ConceptNetPropertyList = new List<ArcCollectionItem>();
         PropertyDictionary = new Dictionary<string, ArcCollectionItem>();
 
-        int count = 0;
+        for(int i = 0; i < relationURIs.Length; i++){
+            ArcCollectionItem arcCollectionItem = Instantiate(propertyMenuButton, Vector3.zero, Quaternion.identity, canvasTransform);
+            string label = relationsNaming[i];
+            string key = relationURIs[i];
 
-        foreach(string x in relationsNaming){
-            ArcCollectionItem y = Instantiate(propertyMenuButton, Vector3.zero, Quaternion.identity, canvasTransform);
-            y.SetProperty(x);
-            y.isActive = false;
-            y.index = count;
-            ConceptNetPropertyList.Add(y);
-            PropertyDictionary.Add(x, y);
-
-            count++;
+            arcCollectionItem.SetProperty(label);
+            arcCollectionItem.isActive = false;
+            arcCollectionItem.index = i;
+            ConceptNetPropertyList.Add(arcCollectionItem);
+            PropertyDictionary.Add(key, arcCollectionItem);
         }
     }
+
+   
 
     public bool[] Filter = new bool[ConceptNetInterface.relationURIs.Length];
     public bool[] SetFilter(bool state, int index){
@@ -43,30 +44,27 @@ public class ArcCollectionToggleMenu : MonoBehaviour
     }
 
      public bool[] SetFilter(int index, bool isActive){
-        //ConceptNetProperty c = GetProperty(key);
         bool state = isActive;
 
         Filter[index] = state;
-//        Debug.Log("Toggled State for: " + key + " : " + isActive + " In PropertyMenu");
 
         return Filter;
     }
 
-    //public bool GetFilter(string key){
-
-    //}
 
 
     public void SelectProperty(string property, bool isSelected){
-        GetProperty(property).isActive = isSelected;
+        GetArcCollectionItem(property).isActive = isSelected;
     }
 
-
-    public ArcCollectionItem GetProperty(string property){
-        ArcCollectionItem p;
-        PropertyDictionary.TryGetValue(property, out p);
-        return p;
+    public static ArcCollectionItem GetArcCollectionItem(string key){
+        ArcCollectionItem val;
+        if(!PropertyDictionary.TryGetValue(key, out val)){
+            throw new KeyNotFoundException();
+        }
+        return val;
     }
+    
 
     // Update is called once per frame
     void Update()

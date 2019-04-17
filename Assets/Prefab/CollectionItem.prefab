@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 2206822107955861359}
   - component: {fileID: 2206822107955861358}
   - component: {fileID: 2206822107955861353}
-  - component: {fileID: 5236234850581354853}
   - component: {fileID: 6866964719593091126}
   - component: {fileID: 1982037294451987074}
   m_Layer: 5
@@ -156,23 +155,6 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
---- !u!114 &5236234850581354853
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2206822107955861356}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2d9a1c5d1b9b6149af80a06976e040e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  propertyType: 
-  isActive: 0
-  textField: {fileID: 2206822108421660817}
-  button: {fileID: 2206822107955861358}
-  index: 0
 --- !u!95 &6866964719593091126
 Animator:
   serializedVersion: 3
@@ -423,9 +405,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   propertyType: 
   isActive: 0
+  subMenuIsActive: 0
   textField: {fileID: 3567484364713592746}
-  button: {fileID: 3567484364793065557}
+  togglebutton: {fileID: 3567484364793065557}
+  toggleSubMenuButton: {fileID: 2206822107955861358}
   index: 0
+  toggleSubMenuTextField: {fileID: 2206822108421660817}
+  subItems: []
 --- !u!1 &3567484364713592748
 GameObject:
   m_ObjectHideFlags: 0
@@ -518,7 +504,6 @@ GameObject:
   - component: {fileID: 3567484364793065556}
   - component: {fileID: 3567484364793065557}
   - component: {fileID: 3567484364793065554}
-  - component: {fileID: 7460391975873429086}
   - component: {fileID: 8101458017201706765}
   - component: {fileID: 3793131807446349241}
   m_Layer: 5
@@ -661,23 +646,6 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
---- !u!114 &7460391975873429086
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3567484364793065559}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2d9a1c5d1b9b6149af80a06976e040e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  propertyType: 
-  isActive: 0
-  textField: {fileID: 3567484364713592746}
-  button: {fileID: 3567484364793065557}
-  index: 0
 --- !u!95 &8101458017201706765
 Animator:
   serializedVersion: 3
