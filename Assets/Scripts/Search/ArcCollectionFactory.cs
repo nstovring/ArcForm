@@ -4,9 +4,11 @@ using ConceptNetJsonHolder;
 using UnityEngine;
 using Xml2CSharp;
 
-public class ArcPreviewFactory : MonoBehaviour
+public class ArcCollectionFactory : MonoBehaviour
 {
-    public static ArcPreviewFactory Instance;
+    public static ArcCollectionFactory Instance;
+    public Sprite collectionIconSprite;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -37,43 +39,68 @@ public class ArcPreviewFactory : MonoBehaviour
         }
     }
 
+  
+
+
     public IEnumerator GenerateEdges(Unitoken core, Concept concept){
         List<List<Edge>> ConceptEdges = CountEdgePropertyTypes(concept);
         string[] relations = ConceptNetInterface.relationURIs;
-        Debug.Log(ConceptEdges.Count);
+
+        //Give core a branch
+        ArcCollection coreCollection = new ArcCollection();
+        coreCollection.Initialize();
+        core.AddCollection(coreCollection);
+        
 
         int count = 0;
         foreach(List<Edge> edgelist in ConceptEdges){
-            //Debug.Log(edgelist.Count);
             if(edgelist.Count > 0){
-                Vector3 rngVector = new Vector3(Random.Range(-2.0f, 2.0f),Random.Range(-2.0f, 2.0f));
                 string edgeUnitokenLabel = relations[count];
-                string type = relations[count];
-                Unitoken newCore  = TokenFactory.Instance.AddNewToken(edgeUnitokenLabel, core.transform.position + rngVector);
+
+                //Check if label is within toggled array
+                ConceptNetProperty c = PropertyMenu.Instance.GetProperty(edgeUnitokenLabel);
+
+                Unitoken.UnitokenState state = !c.isActive ? Unitoken.UnitokenState.Preview : Unitoken.UnitokenState.Loaded;
+
+                Unitoken newCore  = TokenFactory.Instance.AddNewToken(edgeUnitokenLabel, core.transform.position + rngVector());
+                newCore.SetState(state);
+                newCore.SetSprite(collectionIconSprite);
+                ArcMapManager.Instance.SetFocusedToken(newCore);
+
                 Arc arc = ArcFactory.Instance.AddNewArc(core,"", newCore);
-                yield return new WaitForSeconds(3f);
 
-                yield return StartCoroutine(SpawnEdges(edgelist, newCore, type));
 
-                   
+                ArcCollection subBranch = new ArcCollection();
+                subBranch.SetCore(newCore);
+                foreach(Edge edge in edgelist){
+                    subBranch.AddEdge(edge);
+                }
 
+                coreCollection.AddConnection(subBranch);
+                //yield return StartCoroutine(SpawnEdges(edgelist, newCore, edgeUnitokenLabel, state));
+                yield return new WaitForSeconds(0.1f);
             }
 
             count ++;
-
             yield return new WaitForSeconds(0.1f);
         }
-        yield return new WaitForSeconds(0.1f);
     }
 
-    IEnumerator SpawnEdges(List<Edge> edgelist, Unitoken core, string type){
+    Vector3 rngVector(){
+        return new Vector3(Random.Range(-2.0f, 2.0f),Random.Range(-2.0f, 2.0f));
+    }
+
+ 
+
+    IEnumerator SpawnEdges(List<Edge> edgelist, Unitoken core, string type, Unitoken.UnitokenState state){
         foreach(Edge x in edgelist){
 
-            Vector3 rngVector = new Vector3(Random.Range(-2.0f, 2.0f),Random.Range(-2.0f, 2.0f));
-            Unitoken target  = TokenFactory.Instance.AddNewToken(x.End.Label, core.transform.position + rngVector);
+            Unitoken target  = TokenFactory.Instance.AddNewToken(x.End.Label, core.transform.position + rngVector());
+            target.SetState(state);
+            target.isSoft = false;
             Arc arc = ArcFactory.Instance.AddNewArc(core, "", target);
         }
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1.5f);
     }
 
     public List<List<Edge>> ConceptEdges;
@@ -93,7 +120,7 @@ public class ArcPreviewFactory : MonoBehaviour
             for(int i = 0; i< count.Length; i++){
                 string type = relations[i];
                 if(x.Id.Contains(type)){
-                    Debug.Log(x.Id);
+                    //Debug.Log(x.Id);
                     ConceptEdges[i].Add(x);
                 }
             }
@@ -106,9 +133,5 @@ public class ArcPreviewFactory : MonoBehaviour
         return null;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+ 
 }

@@ -135,7 +135,8 @@ MonoBehaviour:
   propertyType: 
   isActive: 0
   textField: {fileID: 1672266682262336760}
-  button: {fileID: 0}
+  button: {fileID: 1672266682069659751}
+  index: 0
 --- !u!114 &1390003322
 MonoBehaviour:
   m_ObjectHideFlags: 0

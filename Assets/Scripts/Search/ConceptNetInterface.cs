@@ -29,8 +29,10 @@ public class ConceptNetInterface : MonoBehaviour
 
     public static void GetConceptRelations(string subject, SearchEngine asker, int requestLimit){
         string request = ConceptNetRequestBuilder(subject, requestLimit);
+        Debug.Log("Concept Net Request : " +request);
         asker.StartCoroutine(ProcessRequest(request, asker));
      }
+
 
     public static IEnumerator ProcessRequest(string url, SearchEngine asker)
      {

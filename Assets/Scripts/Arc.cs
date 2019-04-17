@@ -110,7 +110,7 @@ public class Arc : Fragment, ILabelable
 
                 points[0] = source.transform.position;
                 points[1] = target.transform.position;
-
+                center =  points[1] + (points[0] - points[1])/2.0f;
                
 
                 
@@ -205,7 +205,7 @@ public class Arc : Fragment, ILabelable
 
         if(typeof(Arc) == target.GetType()){
             Arc arcSource = (Arc) target;
-            points[1] = arcSource.source.TransientPosition + ((arcSource.target.TransientPosition - arcSource.source.TransientPosition)/2.0f) ;
+            points[1] = arcSource.center;
 
         }else{
             points[1] = target.transform.position;
@@ -215,6 +215,7 @@ public class Arc : Fragment, ILabelable
         points[0] += sourceToTarg * ArcMapManager.Instance.linePadding;
         points[1] -= sourceToTarg * ArcMapManager.Instance.linePadding;
 
+        center =  points[1] + ( points[0] - points[1])/2.0f;
         
         myLine.SetPositions(points);
         UpdateCollider(points);
