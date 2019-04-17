@@ -7,7 +7,7 @@ using Xml2CSharp;
 public class ArcCollectionFactory : MonoBehaviour
 {
     public static ArcCollectionFactory Instance;
-
+    public Sprite collectionIconSprite;
     
     // Start is called before the first frame update
     void Start()
@@ -47,9 +47,9 @@ public class ArcCollectionFactory : MonoBehaviour
         string[] relations = ConceptNetInterface.relationURIs;
 
         //Give core a branch
-        ArcCollection coreBranch = new ArcCollection();
-        coreBranch.Initialize();
-        core.AddBranch(coreBranch);
+        ArcCollection coreCollection = new ArcCollection();
+        coreCollection.Initialize();
+        core.AddCollection(coreCollection);
         
 
         int count = 0;
@@ -76,7 +76,7 @@ public class ArcCollectionFactory : MonoBehaviour
                     subBranch.AddEdge(edge);
                 }
 
-                coreBranch.AddBranch(subBranch);
+                coreCollection.AddConnection(subBranch);
                 //yield return StartCoroutine(SpawnEdges(edgelist, newCore, edgeUnitokenLabel, state));
                 yield return new WaitForSeconds(0.1f);
             }
@@ -90,7 +90,7 @@ public class ArcCollectionFactory : MonoBehaviour
         return new Vector3(Random.Range(-2.0f, 2.0f),Random.Range(-2.0f, 2.0f));
     }
 
-    public Sprite collectionIconSprite;
+ 
 
     IEnumerator SpawnEdges(List<Edge> edgelist, Unitoken core, string type, Unitoken.UnitokenState state){
         foreach(Edge x in edgelist){
@@ -133,43 +133,5 @@ public class ArcCollectionFactory : MonoBehaviour
         return null;
     }
 
-    string toggledCategories;
-
-    public void Update(){
-        toggledCategories = "";
-        string[] relations = ConceptNetInterface.relationURIs;
-
-
-        //Check if label is within toggled array
-        for(int i = 0; i < relations.Length; i++){
-        string edgeUnitokenLabel = relations[i];
-        bool state = PropertyMenu.Instance.Filter[i];
-        ConceptNetProperty c = PropertyMenu.Instance.GetProperty(edgeUnitokenLabel);
-            if(state){
-                //Debug.Log("")
-                toggledCategories += edgeUnitokenLabel +": ";
-            }
-        }
-
-    }
-    // Update is called once per frame
-    void OnGUI(){
-        //Vector3 point = new Vector3();
-        Event   currentEvent = Event.current;
-        Vector2 mousePos = new Vector2();
-
-        // Get the mouse position from Event.
-        // Note that the y position from Event is inverted.
-        //mousePos.x = currentEvent.mousePosition.x;
-        //mousePos.y = mCamera.pixelHeight - currentEvent.mousePosition.y;
-
-        //mousePositionInSpace = mCamera.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, mCamera.nearClipPlane + 5));
-        //point = mCamera.ScreenToWorldPoint(Input.mousePosition);  
-        
-        GUIStyle gsTest = new GUIStyle();
-        gsTest.normal.textColor = Color.black;
-        GUILayout.BeginArea(new Rect(20, 20, 450, 120),gsTest);
-        GUILayout.Label("Toggled categories: " +toggledCategories, gsTest);
-        GUILayout.EndArea();
-    }
+ 
 }

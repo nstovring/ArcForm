@@ -122,7 +122,7 @@ public class Unitoken : Fragment, ILabelable
         spriteRenderer.sprite = collectionIconSprite;
     }
 
-    internal void AddBranch(ArcCollection subBranch)
+    internal void AddCollection(ArcCollection subBranch)
     {
         Arcbranches.Add(subBranch);
     }
