@@ -27,6 +27,7 @@ public class ArcCollectionItem : MonoBehaviour
     }
 
     void Start(){
+        subItems = new List<ArcCollectionSubItem>();
         toggleSubMenuTextField.text = 0.ToString();
 
         togglebutton.onClick.AddListener(delegate{

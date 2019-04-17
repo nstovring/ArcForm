@@ -26,6 +26,10 @@ public class UIFactory : MonoBehaviour
 
     internal void AddSubItem(List<ArcCollectionSubItem> y)
     {
+        if(subItems == null)
+        subItems = new List<ArcCollectionSubItem>();
+
+
         foreach(ArcCollectionSubItem x in y){
             ArcCollectionSubItem z = Instantiate(subItemPrefab, Vector3.zero, Quaternion.identity, ArcCollectionSubMenuLayout);
             z.Refresh(x);
@@ -40,6 +44,7 @@ public class UIFactory : MonoBehaviour
 
     internal void Clear()
     {
+        if(subItems != null)
         foreach(ArcCollectionSubItem x in subItems){
             Destroy(x.gameObject);
         }
