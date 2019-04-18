@@ -41,7 +41,7 @@ public class SearchEngine : MonoBehaviour
     public void TEST2(){
         string searchableLabel = InstantiatedResults[0].XMLResult.Label;
         Debug.Log(searchableLabel);
-        GetConceptRelations(searchableLabel, searchLimit);
+        GetConceptRelations(searchableLabel);
     }
 
     internal void GetRelationsForSearchElement(SearchResultElement searchResultElement, Unitoken source)
@@ -51,7 +51,7 @@ public class SearchEngine : MonoBehaviour
         if(searchResultElement.Concept != null){
             ReceiveConceptAndFillToggle(searchResultElement.Concept);
         }else{
-            GetConceptRelations(searchResultElement.elementText.text, searchLimit);
+            GetConceptRelations(focusedUnitoken);
         }
 
         if(searchResultElement.XMLResult != null){
@@ -73,13 +73,15 @@ public class SearchEngine : MonoBehaviour
         FuzzySearcher.ClearFuzzyResults();
     }
 
-    public void GetConceptRelations(string subject, int limit){
-        ConceptNetInterface.GetConceptRelations(subject, this, limit);
+    public void GetConceptRelations(string search)
+    {
+        focusedUnitoken = ArcMapManager.Instance.SetFocusedToken(TokenFactory.Instance.AddNewToken(search, Vector3.zero));
+        ConceptNetInterface.GetConceptRelations(search, this, searchLimit);
     }
 
-    public void GetConceptRelations(Unitoken subject, int limit){
+    public void GetConceptRelations(Unitoken subject){
         focusedUnitoken = subject;
-        ConceptNetInterface.GetConceptRelations(subject.myLabel.text, this, limit);
+        ConceptNetInterface.GetConceptRelations(subject.myLabel.text, this, searchLimit);
     }
 
     

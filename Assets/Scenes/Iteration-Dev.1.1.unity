@@ -2615,7 +2615,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -248.00003, y: 0.00005707338}
+  m_AnchoredPosition: {x: -247.9999, y: 0.00005707338}
   m_SizeDelta: {x: 243.34, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &691375127
@@ -6554,7 +6554,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 715938724}
-        m_MethodName: GetFuzzySearchResults
+        m_MethodName: GetConceptRelations
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

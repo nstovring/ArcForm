@@ -75,9 +75,10 @@ public class ArcMapManager : MonoBehaviour
         }
     }
 
-    internal void SetFocusedToken(Unitoken newCore)
+    internal Unitoken SetFocusedToken(Unitoken focus)
     {
-        focusedToken = newCore;
+        focusedToken = focus;
+        return focusedToken;
     }
 
     public bool AddArcToList(Arc arc){

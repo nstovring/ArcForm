@@ -24,6 +24,10 @@ public class ArcCollectionSubItem : MonoBehaviour{
     }
 
     public void PlaceOnMap(){
+        if (ArcMapManager.Instance.focusedToken == null)
+        {
+            throw new MissingReferenceException();
+        }
         Unitoken core = ArcMapManager.Instance.focusedToken;
         Unitoken target  = TokenFactory.Instance.AddNewToken(edge.End.Label, core.transform.position + ArcCollectionFactory.rngVector());
         //target.SetState(state);
