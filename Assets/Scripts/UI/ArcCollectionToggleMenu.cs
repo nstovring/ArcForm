@@ -1,6 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using ArcToolConstants;
+
+
 
 public class ArcCollectionToggleMenu : MonoBehaviour
 {
@@ -13,8 +16,6 @@ public class ArcCollectionToggleMenu : MonoBehaviour
     public static List<ArcCollectionItem> ConceptNetPropertyList;
     public static Dictionary<string, ArcCollectionItem> PropertyDictionary;
 
-    public static string[] relationURIs = {"/r/RelatedTo", "/r/ExternalURL", "/r/FormOf", "/r/IsA", "/r/PartOf", "/r/HasA" , "/r/UsedFor", "/r/CapableOf", "/r/AtLocation", "/r/Causes", "/r/HasSubevent", "/r/HasFirstSubevent", "/r/HasLastSubevent", "/r/HasPrerequisite", "/r/HasProperty", "/r/MotivatedByGoal", "/r/ObstructedBy", "/r/Desires", "/r/CreatedBy", "/r/Synonym", "/r/Antonym", "/r/DistinctFrom", "/r/DerivedFrom", "/r/SymbolOf", "/r/DefinedAs", "/r/Entails", "/r/MannerOf", "/r/LocatedNear", "/r/HasContext", "/r/SimilarTo", "/r/EtymologicallyRelatedTo", "/r/EtymologicallyDerivedFrom", "/r/CausesDesire", "/r/MadeOf", "/r/ReceivesAction", "/r/InstanceOf"};
-    public static string[] relationsNaming = {"is related to ","External URL ","form of ","is a ","part of ","has a ","used for ","capable of ","at location ","causes ","has subevent ","has first subevent ","has last subevent ","has prerequisite ","has property ","motivated by goal ","obstructed by ","desires ","created by ","synonym ","antonym ","distinct from ","derived from ","symbol of ","defined as ","entails ","manner of ","located near ","has context ","similar to ","etymologically related to ","etymologically derived from ","causes desire ","made of ","receives action ","instance of "};
     // Start is called before the first frame update
     void Start()
     {
@@ -22,10 +23,10 @@ public class ArcCollectionToggleMenu : MonoBehaviour
         ConceptNetPropertyList = new List<ArcCollectionItem>();
         PropertyDictionary = new Dictionary<string, ArcCollectionItem>();
 
-        for(int i = 0; i < relationURIs.Length; i++){
+        for(int i = 0; i < ArcToolConstants.StaticConstants.RelationURIs.Length; i++){
             ArcCollectionItem arcCollectionItem = Instantiate(propertyMenuButton, Vector3.zero, Quaternion.identity, canvasTransform);
-            string label = relationsNaming[i];
-            string key = relationURIs[i];
+            string label = ArcToolConstants.StaticConstants.relationsNaming[i];
+            string key = ArcToolConstants.StaticConstants.RelationURIs[i];
 
             arcCollectionItem.SetProperty(label);
             arcCollectionItem.isActive = false;

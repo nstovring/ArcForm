@@ -34,26 +34,41 @@ public class ArcFactory : MonoBehaviour
 
    }
 
+    public Arc AddNewArc(Fragment source, string label, Fragment target)
+    {
+        //Unitoken target = TokenFactory.Instance.AddNewToken();
+        Arc arc = CreateJoinArc(source, target);
+        arc.SetLabel(label);
+        //source.transform.parent = arc.transform;
+        //target.transform.parent = arc.transform;
+        ArcMapManager.Instance.selectedUnitoken = target;
+        Debug.Log("Added Fragment Connection");
+        return arc;
+        //Fragment frag = new GameObject("Fragment").AddComponent<Fragment>();
+        //frag.Initialize(arc);
 
-    public void AddNewArc(arc newArc){
-       //Unitoken target = AddNewToken();
-       Unitoken source = ArcMapManager.Instance.unitokens[newArc.source];
-       Unitoken target = ArcMapManager.Instance.unitokens[newArc.target];
-
-       Arc arc = CreateJoinArc(source,target);
-
-       arc.SetLabel(newArc.Label);
-
-       source.transform.parent = arc.transform;
-       target.transform.parent = arc.transform;
-       ArcMapManager.Instance.selectedUnitoken = target;
-       Debug.Log("Creating arcs");
+    }
 
 
-       //Fragment frag = new GameObject("Fragment").AddComponent<Fragment>();
-       //frag.Initialize(arc);
-
-   }
+   // public void AddNewArc(arc newArc){
+   //    //Unitoken target = AddNewToken();
+   //    Unitoken source = ArcMapManager.Instance.unitokens[newArc.source];
+   //    Unitoken target = ArcMapManager.Instance.unitokens[newArc.target];
+   //
+   //    Arc arc = CreateJoinArc(source,target);
+   //
+   //    arc.SetLabel(newArc.Label);
+   //
+   //    source.transform.parent = arc.transform;
+   //    target.transform.parent = arc.transform;
+   //    ArcMapManager.Instance.selectedUnitoken = target;
+   //    Debug.Log("Creating arcs");
+   //
+   //
+   //    //Fragment frag = new GameObject("Fragment").AddComponent<Fragment>();
+   //    //frag.Initialize(arc);
+   //
+   //}
 
 
 

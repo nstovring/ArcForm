@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using ConceptNetJsonHolder;
 using UnityEngine;
 using UnityEngine.UI;
+using ArcToolConstants;
 
 public class ArcCollectionItem : MonoBehaviour
 {
@@ -31,9 +32,7 @@ public class ArcCollectionItem : MonoBehaviour
         toggleSubMenuTextField.text = 0.ToString();
 
         togglebutton.onClick.AddListener(delegate{
-            isActive = !isActive;
-            ArcCollectionToggleMenu.Instance.SetFilter(index, isActive);
-
+            StartCoroutine(OnToggle());
             //UIFactory.Instance.AddSubItem(subItems);
 
             Debug.Log("Toggled State for: " + propertyType + " : " + isActive + " In Button");
@@ -43,13 +42,30 @@ public class ArcCollectionItem : MonoBehaviour
             subMenuIsActive = !subMenuIsActive;
             //ArcCollectionToggleMenu.Instance.SetFilter(index, isActive);
             if(subMenuIsActive){
-                UIFactory.Instance.AddSubItem(subItems);
+                UIFactory.Instance.AddItemToSubMenu(subItems, propertyType);
             }else{
                 UIFactory.Instance.Clear();
             }
 
             Debug.Log("Toggled SubMenu for: " + propertyType + " : " + isActive + " In Button");
         });
+    }
+
+    IEnumerator OnToggle()
+    {
+        isActive = !isActive;
+        if (isActive)
+        {
+            ArcCollectionToggleMenu.Instance.SetFilter(index, isActive);
+            ArcCollection cd =  ArcCollectionFactory.Instance.AddNewCollection(ArcMapManager.Instance.focusedToken, StaticConstants.RelationURIs[index], subItems);
+            ArcMapManager.Instance.unitokens.Add(cd);
+            ArcMapManager.Instance.SetFocusedCollection(cd);
+            yield return null;
+        }
+        else
+        {
+            ArcCollectionFactory.Instance.DestroyArcCollection(ArcMapManager.Instance.GetFocusedCollection());
+        }
     }
 
     internal void Fill(List<Edge> edgelist)

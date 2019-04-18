@@ -7,16 +7,13 @@ using FragmentResources;
 using StructureContainer;
 using System;
 
-public class Unitoken : Fragment, ILabelable
+public class Unitoken : Fragment
 {
     public int arcCount;
 
     public float tokenRotation;
 
-    public TextMeshPro myLabel;
-    public TextMeshPro MyLabel => myLabel;
 
-    public Transform hoverIcon;
     public Transform softChild;
 
     public Transform hardChild;
@@ -24,7 +21,6 @@ public class Unitoken : Fragment, ILabelable
     public SpriteRenderer spriteRenderer;
     public unitoken myUnitokenStruct;
 
-    public bool isHoveredOver = false;
 
     public bool isSoft = true;
 
@@ -35,7 +31,6 @@ public class Unitoken : Fragment, ILabelable
     public enum UnitokenState {Loaded, Preview, Placed, Removed}
     public enum UnitokenVisibility {Invisible, SemiVisible, Opaque}
 
-    public List<ArcCollection> Arcbranches;
 
     UnitokenState unitokenState;
     UnitokenVisibility unitokenVisibility;
@@ -48,7 +43,6 @@ public class Unitoken : Fragment, ILabelable
         if(myArcs == null){
             myArcs = new List<Arc>();
         }
-        Arcbranches = new List<ArcCollection>();
     }
 
     public void Initialize(unitoken token){
@@ -122,11 +116,6 @@ public class Unitoken : Fragment, ILabelable
         spriteRenderer.sprite = collectionIconSprite;
     }
 
-    internal void AddCollection(ArcCollection subBranch)
-    {
-        Arcbranches.Add(subBranch);
-    }
-
     void Update(){
       
        if(isSoft == false){//collider active and hoverOver is active.
@@ -159,21 +148,16 @@ public class Unitoken : Fragment, ILabelable
         Mouselistener.Instance.hoveredOverToken = null;
     }
 
-    public bool isSelected;
-    public bool SetHoverActive(bool state){
-        hoverIcon.gameObject.SetActive(state);
-        isHoveredOver = (state);
-        return state;
-    }
+
 
    
-    public virtual void ShowInputField()
+    public override void ShowInputField()
     {
         //UIManager.Instance.ShowInputField(transform.position, this);
     }
 
-    public virtual void SetLabel(string label)
+    public override void SetLabel(string label)
     {
-        MyLabel.text = label;
+        myLabel.text = label;
     }
 }

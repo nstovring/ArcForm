@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using StructureContainer;
+using System;
+
 public class ArcMapSaver : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -28,11 +30,12 @@ public class ArcMapSaver : MonoBehaviour
 
         foreach(arc x in arcs){
             //x.transform.position = x.TransientPosition;
-            ArcFactory.Instance.AddNewArc(x);
+            throw new NotImplementedException();
+            //ArcFactory.Instance.AddNewArc(x);
         }
     }
 
-    public static void SaveMap(List<Unitoken> unitokens, List<Arc> arcs){
+    public static void SaveMap(List<Fragment> unitokens, List<Arc> arcs){
         SaveUnitokens(unitokens);
         SaveArcs(arcs);
     }
@@ -76,14 +79,14 @@ public class ArcMapSaver : MonoBehaviour
         return loadedArcs;
     }
  
-    public static void SaveUnitokens(List<Unitoken> unitokens){
+    public static void SaveUnitokens(List<Fragment> unitokens){
         transientPositions = new Vector3[unitokens.Count-1];
         unitokenLabels = new string[unitokens.Count-1];
 
         for(int i = 0; i < unitokens.Count -1; i++){
-            Unitoken token = unitokens[i];
+            Unitoken token =(Unitoken) unitokens[i];
             transientPositions[i] = token.TransientPosition;
-            unitokenLabels[i] = token.MyLabel.text;
+            unitokenLabels[i] = token.myLabel.text;
         }
        PlayerPrefsX.SetVector3Array(keys[0], transientPositions);
        PlayerPrefsX.SetStringArray(keys[1], unitokenLabels);
@@ -103,7 +106,7 @@ public class ArcMapSaver : MonoBehaviour
         for(int i = 0; i < loadedTokens.Length; i++){
             unitoken newToken = new unitoken();
             newToken.Label = unitokenLabels[i];
-            newToken.TransientPosition = transientPositions[i] + new Vector3(0,0, Random.Range(-1.0f, 1.0f));
+            newToken.TransientPosition = transientPositions[i] + new Vector3(0,0, UnityEngine.Random.Range(-1.0f, 1.0f));
             //newToken.Initialize(unitokenLabels[i],transientPositions[i]);
 
             loadedTokens[i] = newToken;

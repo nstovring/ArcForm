@@ -94,27 +94,19 @@ public class SearchEngine : MonoBehaviour
     }
 
 
-    public void CreatePreview(Concept concept){
-        ArcCollectionFactory.Instance.GeneratePreviewFromConcept(focusedUnitoken, concept);
-    }
-
+  
     public void ReceiveConceptAndFillToggle(Concept concept){
-        ArcCollectionFactory.Instance.GeneratePreviewFromConcept(focusedUnitoken, concept);
-
+        StartCoroutine(UIFactory.Instance.GenerateEdgesInMenu(ArcMapManager.Instance.focusedToken, concept));
         Debug.Log("Received Relations for "+ concept.Edges.Length);
         FillToggleBox(concept, ToggleBoxes[0]);
     }
 
     public void ReceiveDBPediaXMLResultsAndFillToggle(Result result){
-        ArcCollectionFactory.Instance.GeneratePreviewFromXML(focusedUnitoken, result);
-
-        Debug.Log("Received XML Relations for "+ result.Label);
-        //FillToggleBox(result.Classes, ToggleBoxes[1]);
-        //FillToggleBox(result.Categories, ToggleBoxes[2]);
+        throw new NotImplementedException();
+        //Debug.Log("Received XML Relations for "+ result.Label);
     }
 
     public void FillToggleBox(Concept concept, ToggleBox toggleBox){
-        //toggleBox.CreatePredicates(concept);
         
     }
 

@@ -16,8 +16,9 @@ public class ArcMapManager : MonoBehaviour
     private ArcFactory arcFactory;
     private ArcMapLayout arcMapLayout;
     [Header("Elements")]
-    public List<Unitoken> unitokens;
+    public List<Fragment> unitokens;
     public List<Arc> Arcs;
+    public List<ArcCollection> ArcCollections;
 
     [Header("Prefabs")]
     public Transform unitokenPrefab;
@@ -33,7 +34,8 @@ public class ArcMapManager : MonoBehaviour
     [Header("Refs")]
     public Arc selectedArc;
     public Unitoken focusedToken;
-    public Unitoken selectedUnitoken;
+    public Fragment selectedUnitoken;
+    public ArcCollection selectedArcCollection;
 
     public Camera mCamera;
 
@@ -46,7 +48,7 @@ public class ArcMapManager : MonoBehaviour
     void Start()
     {
         Instance = this;
-        unitokens = new List<Unitoken>();
+        unitokens = new List<Fragment>();
         Arcs = new List<Arc>();
 
         if(arcMapLayout == null)
@@ -81,6 +83,17 @@ public class ArcMapManager : MonoBehaviour
         return focusedToken;
     }
 
+    internal ArcCollection GetFocusedCollection()
+    {
+        return selectedArcCollection;
+    }
+
+    internal ArcCollection SetFocusedCollection(ArcCollection focus)
+    {
+        selectedArcCollection = focus;
+        return selectedArcCollection;
+    }
+
     public bool AddArcToList(Arc arc){
          if(!Arcs.Contains(arc)){
             arc.id = Arcs.Count;
@@ -106,7 +119,7 @@ public class ArcMapManager : MonoBehaviour
         tokenFactory.AddNewToken();
     }
    
-    public void SelectUnitoken(Unitoken selected){
+    public void SelectUnitoken(Fragment selected){
         //Deselect
         if(selectedUnitoken != null){
             selectedUnitoken.SetHoverActive(false);

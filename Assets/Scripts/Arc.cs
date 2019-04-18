@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class Arc : Fragment, ILabelable
+public class Arc : Fragment
 {
-    public TextMeshPro myLabel;
-    public TextMeshPro MyLabel { get => myLabel;}
+    //public TextMeshPro MyLabel { get => myLabel;}
 
 
     public Material lineMaterial;
@@ -33,16 +32,16 @@ public class Arc : Fragment, ILabelable
         myType = Type.Arc;
     }
 
-    public virtual void ShowInputField()
+    public override void ShowInputField()
     {
         //UIManager.Instance.ShowInputField(TransientPosition, this);
     }
-    public virtual void SetLabel(string label)
+    public override void SetLabel(string label)
     {
-        if(MyLabel == null){
-            throw new System.NotImplementedException();
+        if(myLabel == null){
+            throw new MissingReferenceException();
         }
-        MyLabel.text = label;
+        myLabel.text = label;
     }
 
     public string Collapse(){
@@ -160,26 +159,20 @@ public class Arc : Fragment, ILabelable
         //Change Label
         //Request inputfield from Arcmapmanager
     }
-    public Transform hoverIcon;
-    public bool isHoveredOver = false;
-    public bool SetHoverActive(bool state){
-        hoverIcon.gameObject.SetActive(state);
-        isHoveredOver = (state);
-        return state;
-    }
+  
     void OnMouseOver()
     {
         //If your mouse hovers over the GameObject with the script attached, output this message
              
         Mouselistener.Instance.hoveredOverArc = this;
-        Debug.Log("Mouse is over GameObject.");
+        //Debug.Log("Mouse is over GameObject.");
         SetHoverActive(true);
     }
 
     void OnMouseExit()
     {
         //The mouse is no longer hovering over the GameObject so output this message each frame
-        Debug.Log("Mouse is no longer on GameObject.");
+        //Debug.Log("Mouse is no longer on GameObject.");
         SetHoverActive(false);
         Mouselistener.Instance.hoveredOverArc = null;
     }

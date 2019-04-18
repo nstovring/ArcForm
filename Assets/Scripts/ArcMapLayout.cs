@@ -17,7 +17,7 @@ public class ArcMapLayout : MonoBehaviour
     public float maxDistance = 6.0f;
 
 
-  public void AddFlattenForces(List<Unitoken> unitokens, List<Arc> arcs){
+  public void AddFlattenForces(List<Fragment> unitokens, List<Arc> arcs){
         Vector3[] tokenforces = GetUnitokenForceVectors(unitokens);
         Vector3[] arcforces = GetArcForceVectors(arcs);
         Vector3[] flattenForces = GetFlattenForceVectors(unitokens);
@@ -45,7 +45,7 @@ public class ArcMapLayout : MonoBehaviour
         }
     }
 
-    public void AddForces(List<Unitoken> unitokens, List<Arc> arcs){
+    public void AddForces(List<Fragment> unitokens, List<Arc> arcs){
         Vector3[] tokenforces = GetUnitokenForceVectors(unitokens);
         Vector3[] arcforces = GetArcForceVectors(arcs);
 
@@ -71,31 +71,39 @@ public class ArcMapLayout : MonoBehaviour
     }
 
 
-    public Vector3[] GetUnitokenForceVectors(List<Unitoken> unitokens){
+    public Vector3[] GetUnitokenForceVectors(List<Fragment> unitokens){
         Vector3[] forces = new Vector3[unitokens.Count];
         unitokenForceList = new List<Vector3>();
         for(int i = 0; i < unitokens.Count; i++){
-            Unitoken token = unitokens[i];
-            for(int j = 0; j < unitokens.Count; j++ ){
-                Unitoken neighbour = unitokens[j];
-                float distance = Vector3.Distance(token.TransientPosition,neighbour.TransientPosition);
+            Fragment token = unitokens[i];
+            //if (token.myArcs != null && token.myArcs.Count > 0 && token.myArcs[0].source != token)
+            //{
+            //    float distanceToSource = Vector3.Distance(token.TransientPosition, token.myArcs[0].source.TransientPosition);
+            //    //Vector3 dirToSource = (token.TransientPosition - token.myArcs[0].source.TransientPosition) / distanceToSource;
+            //    if (distanceToSource > maxDistance)
+            //    {
+            //        Vector3 dirToSource = (token.TransientPosition - token.myArcs[0].source.TransientPosition);
+            //        forces[i] -= dirToSource;
+            //    }
+            //}
 
-                if(distance > minDistance && distance < maxDistance){
-                    Vector3 dir = (token.TransientPosition - neighbour.TransientPosition)/distance;
+            for (int j = 0; j < unitokens.Count; j++ ){
+                Fragment neighbour = unitokens[j];
+                float distanceTonNeighbour = Vector3.Distance(token.TransientPosition,neighbour.TransientPosition);
+                if (distanceTonNeighbour > minDistance && distanceTonNeighbour < maxDistance){
+                    Vector3 dir = (token.TransientPosition - neighbour.TransientPosition)/distanceTonNeighbour;
                     forces[i] += dir;
                 }
-
-               
             }
             unitokenForceList.Add(forces[i]);
         }
         return forces;
     }
-    public Vector3[] GetFlattenForceVectors(List<Unitoken> unitokens){
+    public Vector3[] GetFlattenForceVectors(List<Fragment> unitokens){
         Vector3[] forces = new Vector3[unitokens.Count];
         flattenForceList = new List<Vector3>();
         for(int i = 0; i < unitokens.Count; i++){
-            Unitoken token = unitokens[i];
+            Fragment token = unitokens[i];
 
             Vector3 transientPos = token.TransientPosition;
             Vector3 flattenedPos =  new Vector3(transientPos.x,transientPos.y,0);
