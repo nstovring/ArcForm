@@ -19,6 +19,7 @@ public class ArcCollectionItem : MonoBehaviour
     public int index;
 
     public Text toggleSubMenuTextField;
+    public ArcCollection myArcCollection;
 
     public List<ArcCollectionSubItem> subItems;
 
@@ -58,13 +59,15 @@ public class ArcCollectionItem : MonoBehaviour
         {
             ArcCollectionToggleMenu.Instance.SetFilter(index, isActive);
             ArcCollection cd =  ArcCollectionFactory.Instance.AddNewCollection(ArcMapManager.Instance.focusedToken, StaticConstants.RelationURIs[index], subItems);
+            myArcCollection = cd;
             ArcMapManager.Instance.unitokens.Add(cd);
             ArcMapManager.Instance.SetFocusedCollection(cd);
             yield return null;
         }
         else
         {
-            ArcCollectionFactory.Instance.DestroyArcCollection(ArcMapManager.Instance.GetFocusedCollection());
+            ArcCollectionFactory.Instance.DestroyArcCollection(myArcCollection);
+            myArcCollection = null;
         }
     }
 

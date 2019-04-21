@@ -17,7 +17,7 @@ public class ArcMapLayout : MonoBehaviour
     public float maxDistance = 6.0f;
 
 
-  public void AddFlattenForces(List<Fragment> unitokens, List<Arc> arcs){
+  public void AddFlattenForces(List<Fragment> unitokens, List<Fragment> arcs){
         Vector3[] tokenforces = GetUnitokenForceVectors(unitokens);
         Vector3[] arcforces = GetArcForceVectors(arcs);
         Vector3[] flattenForces = GetFlattenForceVectors(unitokens);
@@ -32,8 +32,10 @@ public class ArcMapLayout : MonoBehaviour
         }
 
         for(int i = 0; i < arcforces.Length; i++){
-            Fragment source = arcs[i].source;
-            Fragment target = arcs[i].target;
+            Arc a = (Arc)arcs[i];
+            Fragment source = a.source;
+            Fragment target = a.target;
+
             source.transform.position +=  arcforces[i] * Time.deltaTime * 0.5f;
             source.TransientPosition = source.transform.position;
 
@@ -45,7 +47,7 @@ public class ArcMapLayout : MonoBehaviour
         }
     }
 
-    public void AddForces(List<Fragment> unitokens, List<Arc> arcs){
+    public void AddForces(List<Fragment> unitokens, List<Fragment> arcs){
         Vector3[] tokenforces = GetUnitokenForceVectors(unitokens);
         Vector3[] arcforces = GetArcForceVectors(arcs);
 
@@ -57,8 +59,9 @@ public class ArcMapLayout : MonoBehaviour
         }
 
         for(int i = 0; i < arcforces.Length; i++){
-            Fragment source = arcs[i].source;
-            Fragment target = arcs[i].target;
+            Arc a = (Arc)arcs[i];
+            Fragment source = a.source;
+            Fragment target = a.target;
             source.transform.position +=  arcforces[i] * Time.deltaTime * 0.5f;
             source.TransientPosition = source.transform.position;
 
@@ -121,17 +124,17 @@ public class ArcMapLayout : MonoBehaviour
 
    
 
-    public Vector3[] GetArcForceVectors(List<Arc> arcs){
+    public Vector3[] GetArcForceVectors(List<Fragment> arcs){
         Vector3[] forces = new Vector3[arcs.Count];
         arcForceList = new List<Vector3>();
         for(int i = 0; i < arcs.Count; i++){
-            Arc token = arcs[i];
+            Arc arc = (Arc) arcs[i];
             for(int j = 0; j < arcs.Count; j++ ){
-                Arc neighbour = arcs[j];
-                float distance = Vector3.Distance(token.TransientPosition,neighbour.TransientPosition);
+                Arc neighbour = (Arc) arcs[j];
+                float distance = Vector3.Distance(arc.TransientPosition,neighbour.TransientPosition);
 
                 if(distance > 0.1 && distance < 3.0f){
-                    Vector3 dir = (token.TransientPosition - neighbour.TransientPosition)/distance;
+                    Vector3 dir = (arc.TransientPosition - neighbour.TransientPosition)/distance;
                     forces[i] += dir;
                 }
             }

@@ -23,14 +23,16 @@ public class ArcCollectionToggleMenu : MonoBehaviour
         ConceptNetPropertyList = new List<ArcCollectionItem>();
         PropertyDictionary = new Dictionary<string, ArcCollectionItem>();
 
-        for(int i = 0; i < ArcToolConstants.StaticConstants.RelationURIs.Length; i++){
+        for(int i = 0; i < StaticConstants.RelationURIs.Length; i++){
             ArcCollectionItem arcCollectionItem = Instantiate(propertyMenuButton, Vector3.zero, Quaternion.identity, canvasTransform);
-            string label = ArcToolConstants.StaticConstants.relationsNaming[i];
-            string key = ArcToolConstants.StaticConstants.RelationURIs[i];
+            string label = StaticConstants.relationsNaming[i];
+            string key = StaticConstants.RelationURIs[i];
 
-            arcCollectionItem.SetProperty(label);
+            arcCollectionItem.SetProperty(key);
             arcCollectionItem.isActive = false;
             arcCollectionItem.index = i;
+            arcCollectionItem.transform.name = label + " Toggle";
+
             ConceptNetPropertyList.Add(arcCollectionItem);
             PropertyDictionary.Add(key, arcCollectionItem);
         }
@@ -58,14 +60,24 @@ public class ArcCollectionToggleMenu : MonoBehaviour
         GetArcCollectionItem(property).isActive = isSelected;
     }
 
-    public static ArcCollectionItem GetArcCollectionItem(string key){
+    public ArcCollectionItem GetArcCollectionItem(string key){
         ArcCollectionItem val;
         if(!PropertyDictionary.TryGetValue(key, out val)){
             throw new KeyNotFoundException();
         }
         return val;
     }
-    
+
+    public ArcCollectionItem GetArcCollectionItem(ArcCollectionSubItem subItem)
+    {
+        ArcCollectionItem val;
+        if (!PropertyDictionary.TryGetValue(subItem.mytopic, out val))
+        {
+            throw new KeyNotFoundException();
+        }
+        return val;
+    }
+
 
     // Update is called once per frame
     void Update()

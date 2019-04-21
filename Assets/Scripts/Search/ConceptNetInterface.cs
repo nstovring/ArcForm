@@ -29,7 +29,7 @@ public class ConceptNetInterface : MonoBehaviour
 
     public static void GetConceptRelations(string subject, SearchEngine asker, int requestLimit){
         string request = ConceptNetRequestBuilder(subject, requestLimit);
-        Debug.Log("Concept Net Request : " +request);
+        //Debug.Log("Concept Net Request : " +request);
         asker.StartCoroutine(ProcessRequest(request, asker));
      }
 
@@ -50,7 +50,7 @@ public class ConceptNetInterface : MonoBehaviour
      public static Concept DeSerializeJSON(string jsonString)
      {
          
-         Debug.Log(jsonString);
+         //Debug.Log(jsonString);
          
          var json = JObject.Parse(jsonString);
 

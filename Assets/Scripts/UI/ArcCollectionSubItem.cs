@@ -4,13 +4,18 @@ using UnityEngine;
 using ConceptNetJsonHolder;
 using UnityEngine.UI;
 using ArcToolConstants;
+using System;
+
 public class ArcCollectionSubItem : MonoBehaviour{
     public Text text;
     public Button button;
     public Fragment myCore;
+    public Fragment myUnitoken;
+    public Fragment myArc;
     public string mytopic;
     string label;
     public Edge edge;
+    public bool isActive = false;
   
     public ArcCollectionSubItem(Edge x)
     {
@@ -27,13 +32,7 @@ public class ArcCollectionSubItem : MonoBehaviour{
 
     public void PlaceOnMap(Fragment core)
     {
-        //if (ArcMapManager.Instance.focusedToken == null)
-        //{
-        //    throw new MissingReferenceException();
-        //}
-        //Unitoken core = ArcMapManager.Instance.focusedToken;
         Unitoken target  = TokenFactory.Instance.AddNewToken(edge.End.Label, core.transform.position + StaticConstants.rngVector());
-        //target.SetState(state);
         target.isSoft = false;
         Arc arc = ArcFactory.Instance.AddNewArc(core, "", target);
     }
@@ -42,17 +41,57 @@ public class ArcCollectionSubItem : MonoBehaviour{
     {
         myCore = core;
     }
-   
 
     void Start(){
         text.text = label;
 
         button.onClick.AddListener(delegate{
-            if (myCore == null)
+            isActive = !isActive;
+            //Get Related ArcCollection item
+            ArcCollectionItem aci = ArcCollectionToggleMenu.Instance.GetArcCollectionItem(this);
+            if (isActive)
             {
-                throw new MissingReferenceException();
+                //If ArcCollection item .MyCollectionArc == Null
+                if(aci.myArcCollection == null)
+                {
+                    // Add new Collection and add this item
+                    aci.myArcCollection = ArcCollectionFactory.Instance.AddNewCollection(ArcMapManager.Instance.GetFocusedToken(), mytopic, this);
+                }
+                else //Else Add to current collection
+                {
+                    aci.myArcCollection.AddToCollection(this);
+                }
+
+            }else
+            {
+               //if this is final subitem present in collection destroy the entire collection
+               // else destroy my arc
+               //if (aci.myArcCollection == null)
+               //{
+               //    // Add new Collection and add this item
+               //    aci.myArcCollection = ArcCollectionFactory.Instance.AddNewCollection(ArcMapManager.Instance.GetFocusedToken(), mytopic, this);
+               //}
+               //else //Else Add to current collection
+               //{
+               //    aci.myArcCollection.AddToCollection(this);
+               //}
+               //ArcCollectionFactory.Instance.RemoveFromCollection(ArcMapManager.Instance.GetFocusedCollection(), this);
             }
-            PlaceOnMap(myCore);
+           
         });
+    }
+
+    internal void SetConnections(Unitoken target, Arc arc, ArcCollection ac)
+    {
+        myArc = arc;
+        myCore = ac;
+        myUnitoken = target;
+    }
+    internal void ClearConnections()
+    {
+        ArcMapManager.Instance.DestroyFragment(myArc);
+        myArc = null;
+        myCore = null;
+        myUnitoken = null;
     }
 }

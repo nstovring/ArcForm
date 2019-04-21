@@ -17,8 +17,8 @@ public class ArcMapManager : MonoBehaviour
     private ArcMapLayout arcMapLayout;
     [Header("Elements")]
     public List<Fragment> unitokens;
-    public List<Arc> Arcs;
-    public List<ArcCollection> ArcCollections;
+    public List<Fragment> Arcs;
+    public List<Fragment> ArcCollections;
 
     [Header("Prefabs")]
     public Transform unitokenPrefab;
@@ -49,7 +49,7 @@ public class ArcMapManager : MonoBehaviour
     {
         Instance = this;
         unitokens = new List<Fragment>();
-        Arcs = new List<Arc>();
+        Arcs = new List<Fragment>();
 
         if(arcMapLayout == null)
             arcMapLayout = GetComponent<ArcMapLayout>();
@@ -65,6 +65,10 @@ public class ArcMapManager : MonoBehaviour
         mCamera = Camera.main;
     }
 
+    internal Unitoken GetFocusedToken()
+    {
+        return focusedToken;
+    }
 
     public bool AddTokenToList(Unitoken token){
         if(!unitokens.Contains(token)){
@@ -105,16 +109,48 @@ public class ArcMapManager : MonoBehaviour
         }
     }
 
-    public void DestroyToken(Unitoken token){
+    public void DestroyToken(Fragment token){
         unitokens.Remove(token);
         Destroy(token.transform.gameObject);
     }
 
     public void DestroyArc(Arc arc){
         Arcs.Remove(arc);
-        Destroy(arc);
+
+        //DestroyToken(arc.source);
+        DestroyToken(arc.target);
+
+        Destroy(arc.gameObject);
     }
- 
+
+    public void DestroyCollection(Fragment ac)
+    {
+        ArcCollections.Remove(ac);
+        foreach(Arc a in ac.myArcs)
+        {
+            DestroyArc(a);
+        }
+        Destroy(ac.gameObject);
+    }
+
+    public void DestroyFragment(Fragment f)
+    {
+        if(f is Unitoken)
+        {
+            DestroyToken((Unitoken)f);
+        }
+        else if (f is Arc)
+        {
+            DestroyArc((Arc)f);
+        }
+        else if(f is ArcCollection)
+        {
+            DestroyCollection((ArcCollection)f);
+        }
+    }
+
+
+
     public void OnClickAddNewToken(){
         tokenFactory.AddNewToken();
     }

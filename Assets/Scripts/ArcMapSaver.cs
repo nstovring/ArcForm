@@ -35,17 +35,17 @@ public class ArcMapSaver : MonoBehaviour
         }
     }
 
-    public static void SaveMap(List<Fragment> unitokens, List<Arc> arcs){
+    public static void SaveMap(List<Fragment> unitokens, List<Fragment> arcs){
         SaveUnitokens(unitokens);
         SaveArcs(arcs);
     }
-    public static void SaveArcs(List<Arc> arcs){
+    public static void SaveArcs(List<Fragment> arcs){
         arcLabels = new string[arcs.Count-1];
         sources = new int[arcs.Count-1];
         targets = new int[arcs.Count-1];
 
         for(int i = 0; i < arcs.Count -1; i++){
-            Arc arc = arcs[i];
+            Arc arc = (Arc) arcs[i];
             sources[i] = arc.source.id;
             targets[i] = arc.target.id;
             arcLabels[i] = arc.myLabel.text;

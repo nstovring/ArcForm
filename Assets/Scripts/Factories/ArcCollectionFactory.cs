@@ -15,26 +15,42 @@ public class ArcCollectionFactory : MonoBehaviour
 
     public ArcCollection AddNewCollection(Unitoken source, string topic, List<ArcCollectionSubItem> subItems)
     {
+        //Create Collection token
         ArcCollection ac = Instantiate(collectionPrefab, source.transform.position + StaticConstants.rngVector(), Quaternion.identity).GetComponent<ArcCollection>();
         ac.SetLabel(topic);
 
+        //Add items to collection
         foreach(ArcCollectionSubItem x in subItems)
         {
-            Unitoken target = TokenFactory.Instance.AddNewToken(x.edge.End.Label, ac.transform.position + StaticConstants.rngVector());
-            Arc arc = ArcFactory.Instance.AddNewArc(ac, " ", target);
-            arc.SetLabel(" ");
-
-            target.transform.parent = arc.transform;
-            arc.transform.parent = ac.transform;
-
-            ac.myArcs.Add(arc);
+            ac.AddToCollection(x);
         }
 
+        //Link Collection to source
         Arc a = ArcFactory.Instance.AddNewArc(source, " ", ac);
         a.transform.parent = ac.transform;
 
         return ac;
     }
+
+
+    public ArcCollection AddNewCollection(Unitoken source, string topic, ArcCollectionSubItem subItem)
+    {
+        //Create Collection token
+        ArcCollection ac = Instantiate(collectionPrefab, source.transform.position + StaticConstants.rngVector(), Quaternion.identity).GetComponent<ArcCollection>();
+        ac.SetLabel(topic);
+
+        //Add items to collection
+        ac.AddToCollection(subItem);
+
+        //Link Collection to source
+        Arc a = ArcFactory.Instance.AddNewArc(source, " ", ac);
+        a.transform.parent = ac.transform;
+
+        return ac;
+    }
+
+
+   
 
     internal IEnumerator PlaceCollectionOnMap(string topic, List<ArcCollectionSubItem> subItems)
     {
@@ -43,6 +59,7 @@ public class ArcCollectionFactory : MonoBehaviour
 
     internal void DestroyArcCollection(ArcCollection myArcCollection)
     {
-        throw new NotImplementedException();
+        ArcMapManager.Instance.DestroyCollection(myArcCollection);
+        //throw new NotImplementedException();
     }
 }
