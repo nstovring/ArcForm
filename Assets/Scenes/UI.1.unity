@@ -1411,6 +1411,7 @@ GameObject:
   - component: {fileID: 461101029}
   - component: {fileID: 461101028}
   - component: {fileID: 461101027}
+  - component: {fileID: 461101030}
   m_Layer: 5
   m_Name: SubMenuTitle
   m_TagString: Untagged
@@ -1500,6 +1501,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 461101025}
   m_CullTransparentMesh: 0
+--- !u!114 &461101030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 461101025}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d006dd73dba4a3408796684f96cd99d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  propertyType: 
+  textField: {fileID: 63200166}
 --- !u!1 &492953855
 GameObject:
   m_ObjectHideFlags: 0
@@ -2264,8 +2279,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: ba90fe8dc7ca59d4792488117ace31e3, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -4787,6 +4802,7 @@ GameObject:
   - component: {fileID: 1078305626}
   - component: {fileID: 1078305625}
   - component: {fileID: 1078305628}
+  - component: {fileID: 1078305629}
   m_Layer: 5
   m_Name: ArcCollectionToggleMenu
   m_TagString: Untagged
@@ -4902,6 +4918,19 @@ MonoBehaviour:
   propertyMenuButton: {fileID: 3567484364625835392, guid: d969ed28a6110964ca7f20e7657222cc,
     type: 3}
   Filter: 000000000000000000000000000000000000000000000000000000000000000000000000
+--- !u!114 &1078305629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1078305623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7363956382f123144a2af4cadef303d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arcSubItemMenu: {fileID: 0}
 --- !u!224 &1105539051
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7533,6 +7562,11 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3567484364793065558, guid: d969ed28a6110964ca7f20e7657222cc,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2206822107955861357, guid: d969ed28a6110964ca7f20e7657222cc,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -7551,6 +7585,11 @@ PrefabInstance:
     - target: {fileID: 2206822107955861357, guid: d969ed28a6110964ca7f20e7657222cc,
         type: 3}
       propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3567484364625835395, guid: d969ed28a6110964ca7f20e7657222cc,
+        type: 3}
+      propertyPath: m_IgnoreLayout
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
