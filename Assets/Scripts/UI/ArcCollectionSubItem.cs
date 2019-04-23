@@ -5,14 +5,16 @@ using ConceptNetJsonHolder;
 using UnityEngine.UI;
 using ArcToolConstants;
 using System;
+using StructureContainer;
 
 public class ArcCollectionSubItem : MonoBehaviour{
     public Text text;
     public Button button;
+    public ButtonToggle buttonToggle;
     public Fragment myCore;
     public Fragment myUnitoken;
     public Fragment myArc;
-    public string mytopic;
+    public string key;
     string label;
     public Edge edge;
     public bool isActive = false;
@@ -27,7 +29,15 @@ public class ArcCollectionSubItem : MonoBehaviour{
         this.edge = x.edge;
         this.label = x.label;
         text.text = label;
-        mytopic = topic;
+        key = topic;
+    }
+
+    public void Refresh(Relation x, string topic)
+    {
+        //this.edge = x.edge;
+        this.label = x.Label;
+        text.text = label;
+        key = topic;
     }
 
     public void PlaceOnMap(Fragment core)
@@ -44,6 +54,7 @@ public class ArcCollectionSubItem : MonoBehaviour{
 
     void Start(){
         text.text = label;
+        
 
         button.onClick.AddListener(delegate{
             isActive = !isActive;
@@ -55,7 +66,7 @@ public class ArcCollectionSubItem : MonoBehaviour{
                 if(aci.myArcCollection == null)
                 {
                     // Add new Collection and add this item
-                    aci.myArcCollection = ArcCollectionFactory.Instance.AddNewCollection(ArcMapManager.Instance.GetFocusedToken(), mytopic, this);
+                    aci.myArcCollection = ArcCollectionFactory.Instance.AddNewCollection(ArcMapManager.Instance.GetFocusedToken(), key, this);
                 }
                 else //Else Add to current collection
                 {
@@ -79,6 +90,11 @@ public class ArcCollectionSubItem : MonoBehaviour{
             }
            
         });
+    }
+
+    public void SetActive(bool active)
+    {
+        isActive = active;
     }
 
     internal void SetConnections(Unitoken target, Arc arc, ArcCollection ac)

@@ -71,7 +71,7 @@ public class ArcCollectionToggleMenu : MonoBehaviour
     public ArcCollectionItem GetArcCollectionItem(ArcCollectionSubItem subItem)
     {
         ArcCollectionItem val;
-        if (!PropertyDictionary.TryGetValue(subItem.mytopic, out val))
+        if (!PropertyDictionary.TryGetValue(subItem.key, out val))
         {
             throw new KeyNotFoundException();
         }

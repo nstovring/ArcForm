@@ -49,7 +49,7 @@ public class SearchEngine : MonoBehaviour
         focusedUnitoken = source;
         
         if(searchResultElement.Concept != null){
-            ReceiveConceptAndFillToggle(searchResultElement.Concept);
+            ReceiveConcept(searchResultElement.Concept);
         }else{
             GetConceptRelations(focusedUnitoken);
         }
@@ -95,7 +95,7 @@ public class SearchEngine : MonoBehaviour
 
 
   
-    public void ReceiveConceptAndFillToggle(Concept concept){
+    public void ReceiveConcept(Concept concept){
         ArcToolUIManager.Instance.UpdatePropertyMenuFromConcept(ArcMapManager.Instance.focusedToken, concept);
         Debug.Log("Received Relations for "+ concept.Edges.Length);
         FillToggleBox(concept, ToggleBoxes[0]);

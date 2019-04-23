@@ -21,6 +21,8 @@ public class Unitoken : Fragment
     public SpriteRenderer spriteRenderer;
     public unitoken myUnitokenStruct;
 
+    public Dictionary<string, ArcCollection> myArcCollection;
+
 
     public bool isSoft = true;
 
@@ -39,8 +41,9 @@ public class Unitoken : Fragment
     void Start()
     {
         mCamera = Camera.main;
+        myArcCollection = new Dictionary<string, ArcCollection>();
 
-        if(myArcs == null){
+        if (myArcs == null){
             myArcs = new List<Arc>();
         }
     }
@@ -131,11 +134,18 @@ public class Unitoken : Fragment
         //FollowMouse();
     }
 
-    Dictionary<string, ArcToolUIManager.Property> myProperties;
+    public Dictionary<string, Property> myProperties;
 
-    internal void StoreProperties(Dictionary<string, ArcToolUIManager.Property> properties)
+    internal void StoreProperties(Dictionary<string, Property> properties)
     {
         myProperties = properties;
+    }
+
+    internal Property GetProperty(string key)
+    {
+        Property property;
+        myProperties.TryGetValue(key, out property);
+        return property;
     }
 
     void OnMouseOver()

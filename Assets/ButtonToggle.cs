@@ -33,6 +33,27 @@ public class ButtonToggle : MonoBehaviour
     {
 
     }
+
+    public void Toggle(bool state)
+    {
+        animator.SetBool("Toggled", true);
+        if (state == true)
+        {
+            SubItemController.toggleCounter += 1;
+            SubItemController.CheckForToggle();
+            //subMenuTitle.GetComponent<SubMenuRename>().SetProperty(someName);
+
+        }
+        if (state != true)
+        {
+            animator.SetBool("Toggled", false);
+            SubItemController.toggleCounter -= 1;
+            Debug.Log(SubItemController.toggleCounter);
+            SubItemController.CheckForToggle();
+            //arcCollectionItem.SetProperty(someName);
+        }
+    }
+
     public void TaskOnClick()
     {
         toggled = !toggled;

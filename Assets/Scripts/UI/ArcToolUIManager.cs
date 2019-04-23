@@ -4,29 +4,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using StructureContainer;
+using System;
 
 public class ArcToolUIManager : MonoBehaviour
 {
     //Static Refs
-    public static string[] propertyURIs = { "/r/RelatedTo", "/r/ExternalURL", "/r/FormOf", "/r/IsA", "/r/PartOf", "/r/HasA", "/r/UsedFor", "/r/CapableOf", "/r/AtLocation", "/r/Causes", "/r/HasSubevent", "/r/HasFirstSubevent", "/r/HasLastSubevent", "/r/HasPrerequisite", "/r/HasProperty", "/r/MotivatedByGoal", "/r/ObstructedBy", "/r/Desires", "/r/CreatedBy", "/r/Synonym", "/r/Antonym", "/r/DistinctFrom", "/r/DerivedFrom", "/r/SymbolOf", "/r/DefinedAs", "/r/Entails", "/r/MannerOf", "/r/LocatedNear", "/r/HasContext", "/r/SimilarTo", "/r/EtymologicallyRelatedTo", "/r/EtymologicallyDerivedFrom", "/r/CausesDesire", "/r/MadeOf", "/r/ReceivesAction", "/r/InstanceOf" };
     public static ArcToolUIManager Instance;
-
-    //Structs
-    public struct Relation
-    {
-        public string Label;
-        public bool isActive;
-        public Unitoken token;
-    }
-
-    public struct Property
-    {
-        public string Label;
-        public bool isActive;
-        public List<Relation> Relations;
-    }
-
-   
 
     [Header("Scene References")]
     public Text PropertyMenuText;
@@ -63,6 +47,113 @@ public class ArcToolUIManager : MonoBehaviour
         InitializeToggleMenu();
     }
 
+ 
+       
+    internal void ToggleMenuItem(ArcCollectionItem arcCollectionItem)
+    {
+        Unitoken unitoken = ArcMapManager.Instance.GetFocusedToken();
+        //Check if property is active
+        Property property = unitoken.GetProperty(arcCollectionItem.key);
+        List<Relation> relations = property.Relations;
+        //if active instantiate arc collection
+        //else remove arc collection
+        if (arcCollectionItem.isActive == true)
+        {
+            property.isActive = true;
+            //Create sub buttons
+            List<ArcCollectionSubItem> subItems = CreateSubMenuButtons(property);
+            //Add collection to map
+            ArcCollection cd = ArcCollectionFactory.Instance.AddNewCollection(unitoken, StaticConstants.RelationURIs[arcCollectionItem.index], subItems);
+            //Set Property to active
+        }
+        else
+        {
+            property.isActive = false;
+            //Remove Sub Buttons
+            RemoveSubMenuButtons();
+            ArcCollection cd;
+
+            unitoken.myArcCollection.TryGetValue(arcCollectionItem.key, out cd);
+            unitoken.myArcCollection.Remove(arcCollectionItem.key);
+
+            ArcCollectionFactory.Instance.DestroyArcCollection(cd);
+
+        }
+    }
+
+    internal void ToggleSubMenu(ArcCollectionItem arcCollectionItem)
+    {
+        bool toggleSubMenu = arcCollectionItem.subMenuIsActive;
+        Unitoken unitoken = ArcMapManager.Instance.GetFocusedToken();
+        Property property = unitoken.GetProperty(arcCollectionItem.key);
+        if (toggleSubMenu)
+        {
+            List<ArcCollectionSubItem> subItems = CreateSubMenuButtons(property);
+        }
+        else
+        {
+            RemoveSubMenuButtons();
+        }
+    }
+
+
+    internal List<ArcCollectionSubItem> CreateSubMenuButtons(Property property)
+    {
+        List<ArcCollectionSubItem> subItems = new List<ArcCollectionSubItem>();
+        foreach (Relation rel in property.Relations)
+        {
+            ArcCollectionSubItem item = Instantiate(PropertySubMenuButton, PropertySubMenu).GetComponent<ArcCollectionSubItem>();
+            item.Refresh(rel, property.Label);
+            item.isActive = rel.isActive;
+            //item.buttonToggle.toggled = rel.isActive;
+            item.buttonToggle.TaskOnClick();
+            subItems.Add(item);
+        }
+        return subItems;
+    }
+
+    public Relation GetRelation(ArcCollectionSubItem acsi)
+    {
+        Unitoken unitoken = ArcMapManager.Instance.GetFocusedToken();
+        Property property = unitoken.GetProperty(acsi.key);
+        string label = acsi.text.text;
+
+        Relation rel = new Relation();
+        //Find relation
+        foreach(Relation r in property.Relations)
+        {
+            if(r.Label == label)
+            {
+                rel = r;
+            }
+        }
+
+        return rel;
+    }
+
+   // internal List<ArcCollectionSubItem> CreateSubMenuButtons(Property property, bool active)
+   // {
+   //     List<ArcCollectionSubItem> subItems = new List<ArcCollectionSubItem>();
+   //     foreach (Relation rel in property.Relations)
+   //     {
+   //         rel.SetActive(active);
+   //         ArcCollectionSubItem item = Instantiate(PropertySubMenuButton, PropertySubMenu).GetComponent<ArcCollectionSubItem>();
+   //         item.Refresh(rel, property.Label);
+   //         item.isActive = rel.isActive;
+   //         item.buttonToggle.TaskOnClick();
+   //         subItems.Add(item);
+   //     }
+   //     return subItems;
+   // }
+
+    internal void RemoveSubMenuButtons()
+    {
+        foreach (Transform child in PropertySubMenu)
+        {
+            Destroy(child.gameObject);
+        }
+    }
+
     public void InitializeToggleMenu()
     {
         for (int i = 0; i < StaticConstants.RelationURIs.Length; i++)
@@ -80,6 +171,20 @@ public class ArcToolUIManager : MonoBehaviour
         }
     }
 
+    public void UpdatePropertyMenuFromUnitoken(Unitoken unitoken)
+    {
+        if (unitoken.myProperties == null)
+        {
+            //Get Properties
+            SearchEngine.Instance.GetConceptRelations(unitoken);
+        }
+        else
+        {
+            UpdatePropertyMenuFromProperties(unitoken.myProperties);
+        }
+    }
+
+
     public void UpdatePropertyMenuFromConcept(Unitoken unitoken, Concept concept)
     {
 
@@ -89,45 +194,31 @@ public class ArcToolUIManager : MonoBehaviour
         //Update every Collection item count
         Properties = GeneratePropertiesContainerFromConcept(concept);
 
-        foreach(string x in StaticConstants.RelationURIs)
-        {
-            string key = x;
-            Property property;
-            ArcCollectionItem collectionItem;
-
-            Properties.TryGetValue(key,out property);
-            PropertyMenuItems.TryGetValue(key, out collectionItem);
-
-            int relationCount = property.Relations.Count;
-            collectionItem.subItemCount.text = relationCount.ToString();
-            //Update Menu Item from property
-            
-        }
+        //Update property menu
+        UpdatePropertyMenuFromProperties(Properties);
 
         //Store Current Properties in unitoken
         unitoken.StoreProperties(Properties);
     }
 
-    public void ToggleProperty(ArcCollectionItem key)
+    public void UpdatePropertyMenuFromProperties(Dictionary<string, Property> properties)
     {
+        foreach (string x in StaticConstants.RelationURIs)
+        {
+            string key = x;
+            Property property;
+            ArcCollectionItem collectionItem;
+
+            properties.TryGetValue(key, out property);
+            PropertyMenuItems.TryGetValue(key, out collectionItem);
+
+            int relationCount = property.Relations.Count;
+            collectionItem.subItemCount.text = relationCount.ToString();
+            //Update Menu Item from property
+
+        }
 
     }
-
-    public void ToggleSubProperty(ArcCollectionSubItem item)
-    {
-
-    }
-
-    public void UpdateToggleMenuWithProperties(List<Property> properties)
-    {
-
-    }
-
-    public void UpdateUnitokenWithProperties(Unitoken u, List<Property> properties)
-    {
-
-    }
-
 
     public Dictionary<string, Property> GeneratePropertiesContainerFromConcept(Concept concept)
     {

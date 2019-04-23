@@ -28,7 +28,7 @@ public class ArcCollection : Fragment
 
     public ArcCollection AddToCollection(ArcCollectionSubItem item)
     {
-        Unitoken target = TokenFactory.Instance.AddNewToken(item.edge.End.Label, transform.position + StaticConstants.rngVector());
+        Unitoken target = TokenFactory.Instance.AddNewToken(item.text.text, transform.position + StaticConstants.rngVector());
         Arc arc = ArcFactory.Instance.AddNewArc(this, " ", target);
         arc.SetLabel(" ");
 
@@ -42,12 +42,12 @@ public class ArcCollection : Fragment
         return this;
     }
 
-    public ArcCollection RemoveFromCollection(ArcCollection ac, ArcCollectionSubItem item)
+    public ArcCollection RemoveFromCollection(ArcCollectionSubItem item)
     {
-        ac.myArcs.Remove((Arc)item.myArc);
+        myArcs.Remove((Arc)item.myArc);
         item.ClearConnections();
 
-        return ac;
+        return this;
     }
 
 }

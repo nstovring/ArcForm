@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using ArcToolConstants;
+using StructureContainer;
+
 public class ArcCollectionFactory : MonoBehaviour
 {
     public Transform collectionPrefab;
@@ -28,7 +30,9 @@ public class ArcCollectionFactory : MonoBehaviour
         //Link Collection to source
         Arc a = ArcFactory.Instance.AddNewArc(source, " ", ac);
         a.transform.parent = ac.transform;
-
+        source.myArcCollection.Add(topic,ac);
+        ArcMapManager.Instance.unitokens.Add(ac);
+        ArcMapManager.Instance.SetFocusedCollection(ac);
         return ac;
     }
 
@@ -61,5 +65,11 @@ public class ArcCollectionFactory : MonoBehaviour
     {
         ArcMapManager.Instance.DestroyCollection(myArcCollection);
         //throw new NotImplementedException();
+    }
+
+    internal void DestroyArcCollection(Unitoken unitoken, Property property)
+    {
+        //Find specific ArcCollection 
+        throw new NotImplementedException();
     }
 }

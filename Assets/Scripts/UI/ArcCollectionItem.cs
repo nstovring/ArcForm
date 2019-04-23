@@ -5,10 +5,10 @@ using ConceptNetJsonHolder;
 using UnityEngine;
 using UnityEngine.UI;
 using ArcToolConstants;
-
+using StructureContainer;
 public class ArcCollectionItem : MonoBehaviour
 {
-    public string propertyType;
+    public string key;
 
     public bool isActive;
     public bool subMenuIsActive = false;
@@ -24,7 +24,7 @@ public class ArcCollectionItem : MonoBehaviour
     public List<ArcCollectionSubItem> subItems;
 
     public void SetProperty(string p, string label){
-        propertyType = p;
+        key = p;
         textField.text = label;
     }
 
@@ -33,43 +33,22 @@ public class ArcCollectionItem : MonoBehaviour
         subItemCount.text = 0.ToString();
 
         togglebutton.onClick.AddListener(delegate{
-            StartCoroutine(OnToggle());
-            //UIFactory.Instance.AddSubItem(subItems);
+            isActive = !isActive;
 
-            Debug.Log("Toggled State for: " + propertyType + " : " + isActive + " In Button");
+            ArcToolUIManager.Instance.ToggleMenuItem(this);
+
+            Debug.Log("Toggled State for: " + key + " : " + isActive + " In Button");
         });
 
          toggleSubMenuButton.onClick.AddListener(delegate{
-            subMenuIsActive = !subMenuIsActive;
-            //ArcCollectionToggleMenu.Instance.SetFilter(index, isActive);
-            if(subMenuIsActive){
-                //UIFactory.Instance.AddItemToSubMenu(subItems, propertyType);
-            }else{
-                //UIFactory.Instance.Clear();
-            }
+             subMenuIsActive = !subMenuIsActive;
 
-            Debug.Log("Toggled SubMenu for: " + propertyType + " : " + isActive + " In Button");
+             ArcToolUIManager.Instance.ToggleSubMenu(this);
+
+             Debug.Log("Toggled SubMenu for: " + key + " : " + subMenuIsActive + " In Button");
         });
     }
 
-    IEnumerator OnToggle()
-    {
-        isActive = !isActive;
-        if (isActive)
-        {
-            ArcCollectionToggleMenu.Instance.SetFilter(index, isActive);
-            ArcCollection cd =  ArcCollectionFactory.Instance.AddNewCollection(ArcMapManager.Instance.focusedToken, StaticConstants.RelationURIs[index], subItems);
-            myArcCollection = cd;
-            ArcMapManager.Instance.unitokens.Add(cd);
-            ArcMapManager.Instance.SetFocusedCollection(cd);
-            yield return null;
-        }
-        else
-        {
-            ArcCollectionFactory.Instance.DestroyArcCollection(myArcCollection);
-            myArcCollection = null;
-        }
-    }
 
     internal void Fill(List<Edge> edgelist)
     {

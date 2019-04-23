@@ -43,7 +43,7 @@ public class ConceptNetInterface : MonoBehaviour
         }
         else {
             Concept concept = DeSerializeJSON(myWr.downloadHandler.text);
-            asker.ReceiveConceptAndFillToggle(concept);
+            asker.ReceiveConcept(concept);
         }  
      }
 
