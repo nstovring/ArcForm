@@ -1415,6 +1415,7 @@ GameObject:
   - component: {fileID: 461101029}
   - component: {fileID: 461101028}
   - component: {fileID: 461101027}
+  - component: {fileID: 461101030}
   m_Layer: 5
   m_Name: SubMenuTitle
   m_TagString: Untagged
@@ -1439,7 +1440,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: 27.31}
+  m_AnchoredPosition: {x: 0, y: 30}
   m_SizeDelta: {x: 196.97, y: 30}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &461101027
@@ -1504,6 +1505,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 461101025}
   m_CullTransparentMesh: 0
+--- !u!114 &461101030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 461101025}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d006dd73dba4a3408796684f96cd99d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  propertyType: 
+  textField: {fileID: 63200166}
 --- !u!1 &492953855
 GameObject:
   m_ObjectHideFlags: 0
@@ -2144,8 +2159,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: 27.31}
-  m_SizeDelta: {x: 243.5, y: 29}
+  m_AnchoredPosition: {x: 0, y: 30}
+  m_SizeDelta: {x: 245, y: 30}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &538192237
 MonoBehaviour:
@@ -2268,8 +2283,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: ba90fe8dc7ca59d4792488117ace31e3, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -2613,10 +2628,10 @@ RectTransform:
   m_Father: {fileID: 569798121}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -193.25677, y: 0.00005707338}
-  m_SizeDelta: {x: 243.34, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 245, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &691375127
 MonoBehaviour:
@@ -2961,7 +2976,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 20, y: 0}
+  m_SizeDelta: {x: 15, y: 0}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &723277280
 MonoBehaviour:
@@ -3087,7 +3102,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 20}
+  m_SizeDelta: {x: 0, y: 15}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &731183235
 MonoBehaviour:
@@ -3413,7 +3428,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 241.9, y: -27}
+  m_AnchoredPosition: {x: 245, y: -30}
   m_SizeDelta: {x: 197.1, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &843714234
@@ -3436,8 +3451,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: ba90fe8dc7ca59d4792488117ace31e3, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -4687,6 +4702,7 @@ GameObject:
   - component: {fileID: 1078305626}
   - component: {fileID: 1078305625}
   - component: {fileID: 1078305628}
+  - component: {fileID: 1078305629}
   m_Layer: 5
   m_Name: ArcCollectionToggleMenu
   m_TagString: Untagged
@@ -4714,7 +4730,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: -27}
+  m_AnchoredPosition: {x: 0, y: -30}
   m_SizeDelta: {x: 260, y: 484.2}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1078305625
@@ -4802,6 +4818,19 @@ MonoBehaviour:
   propertyMenuButton: {fileID: 3567484364625835392, guid: d969ed28a6110964ca7f20e7657222cc,
     type: 3}
   Filter: 000000000000000000000000000000000000000000000000000000000000000000000000
+--- !u!114 &1078305629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1078305623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7363956382f123144a2af4cadef303d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arcSubItemMenu: {fileID: 0}
 --- !u!224 &1105539051
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5350,7 +5379,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.0000061214655}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1498589964
@@ -5451,8 +5480,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: ba90fe8dc7ca59d4792488117ace31e3, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -7004,7 +7033,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1679088265}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.5416796
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -7427,6 +7456,11 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3567484364793065558, guid: d969ed28a6110964ca7f20e7657222cc,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2206822107955861357, guid: d969ed28a6110964ca7f20e7657222cc,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -7445,6 +7479,11 @@ PrefabInstance:
     - target: {fileID: 2206822107955861357, guid: d969ed28a6110964ca7f20e7657222cc,
         type: 3}
       propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3567484364625835395, guid: d969ed28a6110964ca7f20e7657222cc,
+        type: 3}
+      propertyPath: m_IgnoreLayout
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -7579,6 +7618,17 @@ PrefabInstance:
     - target: {fileID: 8488813113410819350, guid: 91907e85d3fd7ec4c80b4392dabbb538,
         type: 3}
       propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2466230415646980929, guid: 77efe37271e409149a1c454ebe7e65ae,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ba90fe8dc7ca59d4792488117ace31e3,
+        type: 3}
+    - target: {fileID: 2466230415646980929, guid: 77efe37271e409149a1c454ebe7e65ae,
+        type: 3}
+      propertyPath: m_Type
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
