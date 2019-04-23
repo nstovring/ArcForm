@@ -28,7 +28,7 @@ public class ArcCollectionToggleMenu : MonoBehaviour
             string label = StaticConstants.relationsNaming[i];
             string key = StaticConstants.RelationURIs[i];
 
-            arcCollectionItem.SetProperty(key);
+            arcCollectionItem.SetProperty(key, label);
             arcCollectionItem.isActive = false;
             arcCollectionItem.index = i;
             arcCollectionItem.transform.name = label + " Toggle";

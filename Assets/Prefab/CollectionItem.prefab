@@ -188,6 +188,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   toggled: 0
   animator: {fileID: 6866964719593091126}
+  arcCollectionItem: {fileID: 0}
 --- !u!1 &2206822108421660823
 GameObject:
   m_ObjectHideFlags: 0
@@ -410,7 +411,8 @@ MonoBehaviour:
   togglebutton: {fileID: 3567484364793065557}
   toggleSubMenuButton: {fileID: 2206822107955861358}
   index: 0
-  toggleSubMenuTextField: {fileID: 2206822108421660817}
+  subItemCount: {fileID: 2206822108421660817}
+  myArcCollection: {fileID: 0}
   subItems: []
 --- !u!1 &3567484364713592748
 GameObject:
@@ -679,3 +681,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   toggled: 0
   animator: {fileID: 8101458017201706765}
+  arcCollectionItem: {fileID: 0}

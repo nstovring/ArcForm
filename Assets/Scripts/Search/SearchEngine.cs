@@ -96,7 +96,7 @@ public class SearchEngine : MonoBehaviour
 
   
     public void ReceiveConceptAndFillToggle(Concept concept){
-        StartCoroutine(UIFactory.Instance.GenerateEdgesInMenu(ArcMapManager.Instance.focusedToken, concept));
+        ArcToolUIManager.Instance.UpdatePropertyMenuFromConcept(ArcMapManager.Instance.focusedToken, concept);
         Debug.Log("Received Relations for "+ concept.Edges.Length);
         FillToggleBox(concept, ToggleBoxes[0]);
     }

@@ -18,19 +18,19 @@ public class ArcCollectionItem : MonoBehaviour
     public Button toggleSubMenuButton;
     public int index;
 
-    public Text toggleSubMenuTextField;
+    public Text subItemCount;
     public ArcCollection myArcCollection;
 
     public List<ArcCollectionSubItem> subItems;
 
-    public void SetProperty(string p){
+    public void SetProperty(string p, string label){
         propertyType = p;
-        textField.text = p;
+        textField.text = label;
     }
 
     void Start(){
         subItems = new List<ArcCollectionSubItem>();
-        toggleSubMenuTextField.text = 0.ToString();
+        subItemCount.text = 0.ToString();
 
         togglebutton.onClick.AddListener(delegate{
             StartCoroutine(OnToggle());
@@ -43,9 +43,9 @@ public class ArcCollectionItem : MonoBehaviour
             subMenuIsActive = !subMenuIsActive;
             //ArcCollectionToggleMenu.Instance.SetFilter(index, isActive);
             if(subMenuIsActive){
-                UIFactory.Instance.AddItemToSubMenu(subItems, propertyType);
+                //UIFactory.Instance.AddItemToSubMenu(subItems, propertyType);
             }else{
-                UIFactory.Instance.Clear();
+                //UIFactory.Instance.Clear();
             }
 
             Debug.Log("Toggled SubMenu for: " + propertyType + " : " + isActive + " In Button");
@@ -80,7 +80,7 @@ public class ArcCollectionItem : MonoBehaviour
         foreach(Edge x in edgelist){
             ArcCollectionSubItem y = new ArcCollectionSubItem(x);
             subItems.Add(y);
-            toggleSubMenuTextField.text = count++.ToString();
+            subItemCount.text = count++.ToString();
             //UIFactory.Instance.AddSubItem(y);
             Debug.Log("SubItem: " + x + " Added");
         }

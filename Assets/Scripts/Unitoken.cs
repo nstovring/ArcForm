@@ -131,6 +131,13 @@ public class Unitoken : Fragment
         //FollowMouse();
     }
 
+    Dictionary<string, ArcToolUIManager.Property> myProperties;
+
+    internal void StoreProperties(Dictionary<string, ArcToolUIManager.Property> properties)
+    {
+        myProperties = properties;
+    }
+
     void OnMouseOver()
     {
         //If your mouse hovers over the GameObject with the script attached, output this message
