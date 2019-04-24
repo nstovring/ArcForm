@@ -7,6 +7,7 @@ using System;
 [RequireComponent(typeof(ArcMapLayout))]
 [RequireComponent(typeof(ArcFactory))]
 [RequireComponent(typeof(TokenFactory))]
+[RequireComponent(typeof(ArcCollectionFactory))]
 public class ArcMapManager : MonoBehaviour
 {
     //This class is responsible for creating Tokens, Arcs and Thoughts
@@ -111,6 +112,7 @@ public class ArcMapManager : MonoBehaviour
 
     public void DestroyToken(Fragment token){
         unitokens.Remove(token);
+        if(token != null)
         Destroy(token.transform.gameObject);
     }
 

@@ -167,6 +167,7 @@ public class Mouselistener : MonoBehaviour
     }
 
     public void TestQuery(){
+        ArcToolUIManager.ArcUIUtility.ClearMenu();
         SearchEngine.Instance.GetConceptRelations(hoveredOverToken);
     }
 

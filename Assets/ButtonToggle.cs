@@ -7,7 +7,7 @@ public class ButtonToggle : MonoBehaviour
     public bool toggled;
     public Animator animator;
     private Button button;
-    public ArcCollectionItem arcCollectionItem;
+    public ArcMenuItem arcCollectionItem;
     //public string someName;
     //public GameObject subMenuTitle = GameObject.Find("SubMenuTitle");
 
@@ -36,10 +36,11 @@ public class ButtonToggle : MonoBehaviour
 
     public void Toggle(bool state)
     {
-        animator.SetBool("Toggled", true);
         if (state == true)
         {
-            SubItemController.toggleCounter += 1;
+            animator.SetBool("Toggled", true);
+            //SubItemController.toggleCounter += 1;
+            //Debug.Log(SubItemController.toggleCounter);
             SubItemController.CheckForToggle();
             //subMenuTitle.GetComponent<SubMenuRename>().SetProperty(someName);
 
@@ -47,11 +48,12 @@ public class ButtonToggle : MonoBehaviour
         if (state != true)
         {
             animator.SetBool("Toggled", false);
-            SubItemController.toggleCounter -= 1;
-            Debug.Log(SubItemController.toggleCounter);
+            //SubItemController.toggleCounter -= 1;
+            //Debug.Log(SubItemController.toggleCounter);
             SubItemController.CheckForToggle();
             //arcCollectionItem.SetProperty(someName);
         }
+        toggled = state;
     }
 
     public void TaskOnClick()
@@ -59,16 +61,16 @@ public class ButtonToggle : MonoBehaviour
         toggled = !toggled;
         if(toggled == true){
             animator.SetBool("Toggled", true);
-            SubItemController.toggleCounter += 1;
-            Debug.Log(SubItemController.toggleCounter);
+            //SubItemController.toggleCounter += 1;
+            //Debug.Log(SubItemController.toggleCounter);
             SubItemController.CheckForToggle();
             //subMenuTitle.GetComponent<SubMenuRename>().SetProperty(someName);
             
         }
         if(toggled != true){
             animator.SetBool("Toggled", false);
-            SubItemController.toggleCounter -= 1;
-            Debug.Log(SubItemController.toggleCounter);
+            //SubItemController.toggleCounter -= 1;
+            //Debug.Log(SubItemController.toggleCounter);
             SubItemController.CheckForToggle();
             //arcCollectionItem.SetProperty(someName);
         }

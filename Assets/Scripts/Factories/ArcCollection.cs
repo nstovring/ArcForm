@@ -15,10 +15,10 @@ public class ArcCollection : Fragment
         }
     }
 
-    public ArcCollection AddToCollection(List<ArcCollectionSubItem> subItems)
+    public ArcCollection AddToCollection(List<ArcMenuSubItem> subItems)
     {
         //Add items to collection
-        foreach (ArcCollectionSubItem x in subItems)
+        foreach (ArcMenuSubItem x in subItems)
         {
             AddToCollection(x);
         }
@@ -26,14 +26,14 @@ public class ArcCollection : Fragment
     }
 
 
-    public ArcCollection AddToCollection(ArcCollectionSubItem item)
+    public ArcCollection AddToCollection(ArcMenuSubItem item)
     {
         Unitoken target = TokenFactory.Instance.AddNewToken(item.text.text, transform.position + StaticConstants.rngVector());
         Arc arc = ArcFactory.Instance.AddNewArc(this, " ", target);
         arc.SetLabel(" ");
 
         item.SetConnections(target, arc, this);
-
+        target.isSoft = false;
         target.transform.parent = arc.transform;
         arc.transform.parent = transform;
 
@@ -42,7 +42,7 @@ public class ArcCollection : Fragment
         return this;
     }
 
-    public ArcCollection RemoveFromCollection(ArcCollectionSubItem item)
+    public ArcCollection RemoveFromCollection(ArcMenuSubItem item)
     {
         myArcs.Remove((Arc)item.myArc);
         item.ClearConnections();

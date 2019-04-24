@@ -80,11 +80,10 @@ public class SearchEngine : MonoBehaviour
     }
 
     public void GetConceptRelations(Unitoken subject){
+        ArcMapManager.Instance.SetFocusedToken(subject);
         focusedUnitoken = subject;
         ConceptNetInterface.GetConceptRelations(subject.myLabel.text, this, searchLimit);
     }
-
-    
     
     List<Relation> FocusedTokenRelations;
      public struct Relation{
@@ -118,12 +117,9 @@ public class SearchEngine : MonoBehaviour
         toggleBox.CreatePredicates(category);
     }
 
-
     public void ClearToggleBox(ToggleBox toggleBox){
         toggleBox.ClearBox();
     }
-
-    
 
 internal class FuzzySearcher
 {
@@ -189,14 +185,6 @@ internal class FuzzySearcher
         }
         return fuzzySearchResults;
     }
-
-
-    
 }
-
-internal class ConceptNETFinder{
-
-}
-
 
 }

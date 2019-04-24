@@ -68,11 +68,13 @@ namespace StructureContainer
     {
         public string Label;
         public bool isActive;
+        public bool isLocked;
         public Unitoken token;
 
-        public void SetActive(bool active)
+        public void SetActive(bool active, bool locked)
         {
             isActive = active;
+            isLocked = locked;
         }
     }
 

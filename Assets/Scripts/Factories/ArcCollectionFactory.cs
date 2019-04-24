@@ -15,14 +15,14 @@ public class ArcCollectionFactory : MonoBehaviour
         Instance = this;
     }
 
-    public ArcCollection AddNewCollection(Unitoken source, string topic, List<ArcCollectionSubItem> subItems)
+    public ArcCollection AddNewCollection(Unitoken source, string topic, List<ArcMenuSubItem> subItems)
     {
         //Create Collection token
         ArcCollection ac = Instantiate(collectionPrefab, source.transform.position + StaticConstants.rngVector(), Quaternion.identity).GetComponent<ArcCollection>();
         ac.SetLabel(topic);
 
         //Add items to collection
-        foreach(ArcCollectionSubItem x in subItems)
+        foreach(ArcMenuSubItem x in subItems)
         {
             ac.AddToCollection(x);
         }
@@ -30,14 +30,14 @@ public class ArcCollectionFactory : MonoBehaviour
         //Link Collection to source
         Arc a = ArcFactory.Instance.AddNewArc(source, " ", ac);
         a.transform.parent = ac.transform;
-        source.myArcCollection.Add(topic,ac);
+        
         ArcMapManager.Instance.unitokens.Add(ac);
         ArcMapManager.Instance.SetFocusedCollection(ac);
         return ac;
     }
 
 
-    public ArcCollection AddNewCollection(Unitoken source, string topic, ArcCollectionSubItem subItem)
+    public ArcCollection AddNewCollection(Unitoken source, string topic, ArcMenuSubItem subItem)
     {
         //Create Collection token
         ArcCollection ac = Instantiate(collectionPrefab, source.transform.position + StaticConstants.rngVector(), Quaternion.identity).GetComponent<ArcCollection>();
@@ -53,23 +53,18 @@ public class ArcCollectionFactory : MonoBehaviour
         return ac;
     }
 
-
    
 
-    internal IEnumerator PlaceCollectionOnMap(string topic, List<ArcCollectionSubItem> subItems)
+    internal IEnumerator PlaceCollectionOnMap(string topic, List<ArcMenuSubItem> subItems)
     {
         throw new NotImplementedException();
     }
 
     internal void DestroyArcCollection(ArcCollection myArcCollection)
     {
+        ArcMapManager.Instance.unitokens.Remove(myArcCollection);
         ArcMapManager.Instance.DestroyCollection(myArcCollection);
+        
         //throw new NotImplementedException();
-    }
-
-    internal void DestroyArcCollection(Unitoken unitoken, Property property)
-    {
-        //Find specific ArcCollection 
-        throw new NotImplementedException();
     }
 }

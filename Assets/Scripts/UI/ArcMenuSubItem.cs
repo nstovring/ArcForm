@@ -7,7 +7,7 @@ using ArcToolConstants;
 using System;
 using StructureContainer;
 
-public class ArcCollectionSubItem : MonoBehaviour{
+public class ArcMenuSubItem : MonoBehaviour{
     public Text text;
     public Button button;
     public ButtonToggle buttonToggle;
@@ -18,14 +18,16 @@ public class ArcCollectionSubItem : MonoBehaviour{
     string label;
     public Edge edge;
     public bool isActive = false;
-  
-    public ArcCollectionSubItem(Edge x)
+
+    public ArcMenuItem arcCollectionItem;
+
+    public ArcMenuSubItem(Edge x)
     {
         this.edge = x;
         this.label = x.End.Label;
     }
 
-    public void Refresh(ArcCollectionSubItem x, string topic){
+    public void Refresh(ArcMenuSubItem x, string topic){
         this.edge = x.edge;
         this.label = x.label;
         text.text = label;
@@ -58,39 +60,10 @@ public class ArcCollectionSubItem : MonoBehaviour{
 
         button.onClick.AddListener(delegate{
             isActive = !isActive;
-            //Get Related ArcCollection item
-            ArcCollectionItem aci = ArcCollectionToggleMenu.Instance.GetArcCollectionItem(this);
-            if (isActive)
-            {
-                //If ArcCollection item .MyCollectionArc == Null
-                if(aci.myArcCollection == null)
-                {
-                    // Add new Collection and add this item
-                    aci.myArcCollection = ArcCollectionFactory.Instance.AddNewCollection(ArcMapManager.Instance.GetFocusedToken(), key, this);
-                }
-                else //Else Add to current collection
-                {
-                    aci.myArcCollection.AddToCollection(this);
-                }
-
-            }else
-            {
-               //if this is final subitem present in collection destroy the entire collection
-               // else destroy my arc
-               //if (aci.myArcCollection == null)
-               //{
-               //    // Add new Collection and add this item
-               //    aci.myArcCollection = ArcCollectionFactory.Instance.AddNewCollection(ArcMapManager.Instance.GetFocusedToken(), mytopic, this);
-               //}
-               //else //Else Add to current collection
-               //{
-               //    aci.myArcCollection.AddToCollection(this);
-               //}
-               //ArcCollectionFactory.Instance.RemoveFromCollection(ArcMapManager.Instance.GetFocusedCollection(), this);
-            }
-           
+            ArcToolUIManager.Instance.ToggleSubMenuItem(this);
         });
     }
+
 
     public void SetActive(bool active)
     {

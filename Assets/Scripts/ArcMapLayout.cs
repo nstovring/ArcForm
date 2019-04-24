@@ -62,11 +62,17 @@ public class ArcMapLayout : MonoBehaviour
             Arc a = (Arc)arcs[i];
             Fragment source = a.source;
             Fragment target = a.target;
-            source.transform.position +=  arcforces[i] * Time.deltaTime * 0.5f;
-            source.TransientPosition = source.transform.position;
+            if (target != null)
+            {
+                source.transform.position += arcforces[i] * Time.deltaTime * 0.5f;
+                source.TransientPosition = source.transform.position;
+            }
 
-            target.transform.position +=  arcforces[i] * Time.deltaTime * 0.5f;
-            target.TransientPosition = target.transform.position;
+            if(target != null)
+            {
+                target.transform.position += arcforces[i] * Time.deltaTime * 0.5f;
+                target.TransientPosition = target.transform.position;
+            }
 
             Debug.DrawRay(arcs[i].TransientPosition, arcforces[i], Color.blue);
             //Debug.DrawRay(Vector3.zero, forces[i] * 10, Color.red);
