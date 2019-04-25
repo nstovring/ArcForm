@@ -64,12 +64,13 @@ public class ArcMenuSubItem : MonoBehaviour{
             SetActive(!isActive);
             //Property focus = ArcMapManager.Instance.GetFocusedToken().GetProperty(key);
             //Find relation
-            int count = 0;
             //Get Unitoken Connected unitoken
             Unitoken focus = ArcMapManager.Instance.GetFocusedToken();
             ArcToolUIManager.ArcDataUtility.SetRelation(ArcMapManager.Instance.GetFocusedToken(), key, label, isActive);
             ArcToolUIManager.ArcUIUtility.UpdatePropertyMenuFromUnitoken(focus);
             ArcToolUIManager.Instance.ToggleSubMenuItem(this);
+
+            arcCollectionItem.myButtonToggle.ToggleEdited(!isActive);
         });
     }
 
@@ -77,7 +78,7 @@ public class ArcMenuSubItem : MonoBehaviour{
     public void SetActive(bool active)
     {
         isActive = active;
-        buttonToggle.Toggle(active);
+        buttonToggle.TogglePressed(active);
     }
 
     internal void SetConnections(Unitoken target, Arc arc, ArcCollection ac)

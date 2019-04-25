@@ -8,9 +8,6 @@ public class ButtonToggle : MonoBehaviour
     public Animator animator;
     private Button button;
     public ArcMenuItem arcCollectionItem;
-    //public string someName;
-    //public GameObject subMenuTitle = GameObject.Find("SubMenuTitle");
-
 
 
     void Start()
@@ -21,20 +18,33 @@ public class ButtonToggle : MonoBehaviour
         if(button == null){
         button = GetComponent<Button>();
         }
-        //if(arcCollectionItem == null){
-        //arcCollectionItem = GetComponent<ArcCollectionItem>();
-        //}
-        //someName = arcCollectionItem.textField.text;
-        
     }
 
-    // Update is called once per frame
-    void Update()
+    public bool edited;
+
+    public void ToggleEdited(bool state)
     {
+        if (state == true)
+        {
+            animator.SetBool("Edited", true);
+            //SubItemController.toggleCounter += 1;
+            //Debug.Log(SubItemController.toggleCounter);
+            SubItemController.CheckForToggle();
+            //subMenuTitle.GetComponent<SubMenuRename>().SetProperty(someName);
 
+        }
+        if (state != true)
+        {
+            animator.SetBool("Edited", false);
+            //SubItemController.toggleCounter -= 1;
+            //Debug.Log(SubItemController.toggleCounter);
+            SubItemController.CheckForToggle();
+            //arcCollectionItem.SetProperty(someName);
+        }
+        edited = state;
     }
 
-    public void Toggle(bool state)
+    public void TogglePressed(bool state)
     {
         if (state == true)
         {

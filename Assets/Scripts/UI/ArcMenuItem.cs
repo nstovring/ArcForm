@@ -23,6 +23,8 @@ public class ArcMenuItem : MonoBehaviour
 
     public List<ArcMenuSubItem> subItems;
 
+    public ButtonToggle myButtonToggle;
+
     public void SetProperty(string p, string label){
         key = p;
         textField.text = label;
@@ -34,7 +36,7 @@ public class ArcMenuItem : MonoBehaviour
 
         togglebutton.onClick.AddListener(delegate{
             textToggleIsActive = !textToggleIsActive;
-
+            myButtonToggle.TogglePressed(textToggleIsActive);
             ArcToolUIManager.Instance.ToggleMenuItem(this, textToggleIsActive, numToggleIsActive);
 
             Debug.Log("Toggled State for: " + key + " : " + textToggleIsActive + " In Button");
@@ -42,6 +44,7 @@ public class ArcMenuItem : MonoBehaviour
 
          toggleSubMenuButton.onClick.AddListener(delegate{
              textToggleIsActive = !textToggleIsActive;
+             myButtonToggle.TogglePressed(textToggleIsActive);
 
              ArcToolUIManager.Instance.ToggleMenuItem(this, textToggleIsActive, numToggleIsActive);
 

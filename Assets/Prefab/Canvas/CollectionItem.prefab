@@ -189,6 +189,7 @@ MonoBehaviour:
   toggled: 0
   animator: {fileID: 66977490818025281}
   arcCollectionItem: {fileID: 0}
+  edited: 0
 --- !u!1 &4684195134838413280
 GameObject:
   m_ObjectHideFlags: 0
@@ -405,8 +406,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: 
-  isActive: 0
-  subMenuIsActive: 0
+  textToggleIsActive: 0
+  numToggleIsActive: 0
   textField: {fileID: 7936450348851933405}
   togglebutton: {fileID: 7936450349460326178}
   toggleSubMenuButton: {fileID: 4684195133844594713}
@@ -414,6 +415,7 @@ MonoBehaviour:
   subItemCount: {fileID: 4684195134838413286}
   myArcCollection: {fileID: 0}
   subItems: []
+  myButtonToggle: {fileID: 7710803456562856654}
 --- !u!1 &7936450348851933403
 GameObject:
   m_ObjectHideFlags: 0
@@ -614,18 +616,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7936450349460326179}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7710803456562856654}
-        m_MethodName: TaskOnClick
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &7936450349460326181
@@ -682,3 +673,4 @@ MonoBehaviour:
   toggled: 0
   animator: {fileID: 3445120190819852410}
   arcCollectionItem: {fileID: 0}
+  edited: 0

@@ -32,7 +32,7 @@ public class ArcCollectionToggleMenu : MonoBehaviour
             arcCollectionItem.textToggleIsActive = false;
             arcCollectionItem.index = i;
             arcCollectionItem.transform.name = label + " Toggle";
-
+            arcCollectionItem.key = key;
             ConceptNetPropertyList.Add(arcCollectionItem);
             PropertyDictionary.Add(key, arcCollectionItem);
         }

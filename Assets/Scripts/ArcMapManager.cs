@@ -262,17 +262,6 @@ public class ArcMapManager : MonoBehaviour
                 }
             }
         }
-        //Vector3 point = new Vector3();
-        //Event currentEvent = Event.current;
-        //Vector2 mousePos = new Vector2();
-
-        // Get the mouse position from Event.
-        // Note that the y position from Event is inverted.
-       ///mousePos.x = currentEvent.mousePosition.x;
-        //mousePos.y = mCamera.pixelHeight - currentEvent.mousePosition.y;
-
-        //mousePositionInSpace = mCamera.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, mCamera.nearClipPlane + 5));
-        //point = mCamera.ScreenToWorldPoint(Input.mousePosition);  
 
         GUIStyle gsTest = new GUIStyle();
         gsTest.normal.textColor = Color.black;
@@ -281,9 +270,35 @@ public class ArcMapManager : MonoBehaviour
         {
             GUILayout.Label(x, gsTest);
         }
-        //GUILayout.Label("Screen pixels: " + mCamera.pixelWidth + ":" + mCamera.pixelHeight, gsTest);
-        //GUILayout.Label("Mouse position: " + mousePos, gsTest);
-        //GUILayout.Label("World position: " + mousePositionInSpace.ToString("F3"), gsTest);
+        GUILayout.EndArea();
+
+
+
+        debugString = new List<string>();
+        if (focusedToken != null && focusedToken.myPropertiesFromConceptNet != null)
+        {
+            Dictionary<string, ArcMenuItem> PropertyMenuItems = ArcToolUIManager.ArcDataUtility.PropertyMenuItems;
+            Dictionary<string, Property> focusedProperties = focusedToken.myPropertiesFromConceptNet;
+
+            foreach (string x in StaticConstants.RelationURIs)
+            {
+                ArcMenuItem p;
+                Property f;
+                focusedProperties.TryGetValue(x, out f);
+                PropertyMenuItems.TryGetValue(x, out p);
+                if (f.Relations != null && f.Relations.Count > 0)
+                {
+                    string debugLine = p.key + " : " + p.myButtonToggle.toggled + " : " + p.myButtonToggle.edited;
+                    debugString.Add(debugLine);
+                }
+            }
+        }
+        gsTest.normal.textColor = Color.black;
+        GUILayout.BeginArea(new Rect(Screen.width / 2  + 250, 0, 500, 1000), gsTest);
+        foreach (string x in debugString)
+        {
+            GUILayout.Label(x, gsTest);
+        }
         GUILayout.EndArea();
     }
 
