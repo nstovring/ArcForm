@@ -32,6 +32,7 @@ public class Fragment : MonoBehaviour
     public bool isHoveredOver = false;
     public bool SetHoverActive(bool state)
     {
+        if(hoverIcon != null) 
         hoverIcon.gameObject.SetActive(state);
         isHoveredOver = (state);
         return state;
