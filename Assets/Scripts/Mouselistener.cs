@@ -181,7 +181,7 @@ public class Mouselistener : MonoBehaviour
                     startPointUnitoken = TokenFactory.Instance.AddNewToken(unitokenStartPosVector);
                     selectedArc = ArcFactory.Instance.AddNewArc(startPointUnitoken, "Test", endPointUnitoken);
                     
-                    startPointUnitoken.isSoft = false;
+                    startPointUnitoken.isActive = false;
                     tokenSpawn = false;
                 }
                 
@@ -257,18 +257,18 @@ public class Mouselistener : MonoBehaviour
          if(hoveredOverArc != null){
             UnitokenDelete(selectedArc.target);
             selectedArc.target = hoveredOverArc;
-            endPointUnitoken.isSoft = false;
+            endPointUnitoken.isActive = false;
             endPointUnitoken = null;
             return;
         }
         if(hoveredOverToken != null){
             UnitokenDelete(selectedArc.target);
             selectedArc.target = hoveredOverToken;
-            endPointUnitoken.isSoft = false;
+            endPointUnitoken.isActive = false;
             endPointUnitoken = null;
         }
         if(hoveredOverToken == null){
-            endPointUnitoken.isSoft = false;
+            endPointUnitoken.isActive = false;
             endPointUnitoken = null;
         }
     }
@@ -288,26 +288,6 @@ public class Mouselistener : MonoBehaviour
         //Debug.Log("Destroyed an Unitoken");
         }
 
-     void OnGUI(){
-        //Vector3 point = new Vector3();
-        Event   currentEvent = Event.current;
-        Vector2 mousePos = new Vector2();
-
-        // Get the mouse position from Event.
-        // Note that the y position from Event is inverted.
-        mousePos.x = currentEvent.mousePosition.x;
-        mousePos.y = mCamera.pixelHeight - currentEvent.mousePosition.y;
-
-        mousePositionInSpace = mCamera.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, mCamera.nearClipPlane + 5));
-        //point = mCamera.ScreenToWorldPoint(Input.mousePosition);  
-
-        GUIStyle gsTest = new GUIStyle();
-        gsTest.normal.textColor = Color.black;
-        GUILayout.BeginArea(new Rect(20, 20, 250, 120),gsTest);
-        GUILayout.Label("Screen pixels: " + mCamera.pixelWidth + ":" + mCamera.pixelHeight, gsTest);
-        GUILayout.Label("Mouse position: " + mousePos, gsTest);
-        GUILayout.Label("World position: " + mousePositionInSpace.ToString("F3"), gsTest);
-        GUILayout.EndArea();
-    }
+     
 
 }

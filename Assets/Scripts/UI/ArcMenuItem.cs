@@ -30,7 +30,7 @@ public class ArcMenuItem : MonoBehaviour
 
     void Start(){
         subItems = new List<ArcMenuSubItem>();
-        subItemCount.text = 0.ToString();
+        //subItemCount.text = 0.ToString();
 
         togglebutton.onClick.AddListener(delegate{
             textToggleIsActive = !textToggleIsActive;

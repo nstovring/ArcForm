@@ -21,10 +21,11 @@ public class Unitoken : Fragment
     public SpriteRenderer spriteRenderer;
     public unitoken myUnitokenStruct;
 
-    public Dictionary<string, ArcCollection> myArcCollection;
+    public Dictionary<string, Property> myPropertiesFromConceptNet;
 
+    public Dictionary<string, ArcCollection> myArcCollections;
 
-    public bool isSoft = true;
+    public bool isActive = true;
 
 
     public MapState myMapState = MapState.Preview;
@@ -41,8 +42,8 @@ public class Unitoken : Fragment
     void Start()
     {
         mCamera = Camera.main;
-        myArcCollection = new Dictionary<string, ArcCollection>();
-
+        myArcCollections = new Dictionary<string, ArcCollection>();
+        myPropertiesFromConceptNet = new Dictionary<string, Property>();
         if (myArcs == null){
             myArcs = new List<Arc>();
         }
@@ -121,7 +122,7 @@ public class Unitoken : Fragment
 
     void Update(){
       
-       if(isSoft == false){//collider active and hoverOver is active.
+       if(isActive == false){//collider active and hoverOver is active.
         transform.GetComponent<CircleCollider2D>().enabled = true;
        }
        else{//collider disabled and dragging is occuring
@@ -129,22 +130,31 @@ public class Unitoken : Fragment
        }
     }
 
+    public bool SetActive(bool state)
+    {
+        return isActive = state;
+    }
+
+    public void UpdateUI()
+    {
+
+    }
+
     void OnMouseDrag()
     {
         //FollowMouse();
     }
 
-    public Dictionary<string, Property> myProperties;
 
     internal void StoreProperties(Dictionary<string, Property> properties)
     {
-        myProperties = properties;
+        myPropertiesFromConceptNet = properties;
     }
 
     internal Property GetProperty(string key)
     {
         Property property;
-        myProperties.TryGetValue(key, out property);
+        myPropertiesFromConceptNet.TryGetValue(key, out property);
         return property;
     }
 

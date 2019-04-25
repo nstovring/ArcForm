@@ -14,8 +14,10 @@ public class ArcMenuSubItem : MonoBehaviour{
     public Fragment myCore;
     public Fragment myUnitoken;
     public Fragment myArc;
+
     public string key;
     string label;
+
     public Edge edge;
     public bool isActive = false;
 
@@ -45,7 +47,7 @@ public class ArcMenuSubItem : MonoBehaviour{
     public void PlaceOnMap(Fragment core)
     {
         Unitoken target  = TokenFactory.Instance.AddNewToken(edge.End.Label, core.transform.position + StaticConstants.rngVector());
-        target.isSoft = false;
+        target.isActive = false;
         Arc arc = ArcFactory.Instance.AddNewArc(core, "", target);
     }
 
@@ -59,7 +61,14 @@ public class ArcMenuSubItem : MonoBehaviour{
         
 
         button.onClick.AddListener(delegate{
-            isActive = !isActive;
+            SetActive(!isActive);
+            //Property focus = ArcMapManager.Instance.GetFocusedToken().GetProperty(key);
+            //Find relation
+            int count = 0;
+            //Get Unitoken Connected unitoken
+            Unitoken focus = ArcMapManager.Instance.GetFocusedToken();
+            ArcToolUIManager.ArcDataUtility.SetRelation(ArcMapManager.Instance.GetFocusedToken(), key, label, isActive);
+            ArcToolUIManager.ArcUIUtility.UpdatePropertyMenuFromUnitoken(focus);
             ArcToolUIManager.Instance.ToggleSubMenuItem(this);
         });
     }
@@ -68,6 +77,7 @@ public class ArcMenuSubItem : MonoBehaviour{
     public void SetActive(bool active)
     {
         isActive = active;
+        buttonToggle.Toggle(active);
     }
 
     internal void SetConnections(Unitoken target, Arc arc, ArcCollection ac)

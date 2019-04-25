@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System;
+using StructureContainer;
+using ArcToolConstants;
 
 [RequireComponent(typeof(ArcMapLayout))]
 [RequireComponent(typeof(ArcFactory))]
@@ -240,7 +242,50 @@ public class ArcMapManager : MonoBehaviour
         FlattenMap = !FlattenMap;
     }
 
-  
+    void OnGUI()
+    {
+        List<string> debugString = new List<string>();
+        if(focusedToken != null && focusedToken.myPropertiesFromConceptNet != null)
+        {
+            Dictionary<string, Property> focusedProperties = focusedToken.myPropertiesFromConceptNet;
+            foreach(string x in StaticConstants.RelationURIs)
+            {
+                Property p;
+                focusedProperties.TryGetValue(x, out p);
+                if(p.Relations != null && p.Relations.Count > 0)
+                {
+                    foreach(Relation r in p.Relations)
+                    {
+                        string debugLine = p.Label +" : " + r.Label + " : " + r.isActive;
+                        debugString.Add(debugLine);
+                    }
+                }
+            }
+        }
+        //Vector3 point = new Vector3();
+        //Event currentEvent = Event.current;
+        //Vector2 mousePos = new Vector2();
+
+        // Get the mouse position from Event.
+        // Note that the y position from Event is inverted.
+       ///mousePos.x = currentEvent.mousePosition.x;
+        //mousePos.y = mCamera.pixelHeight - currentEvent.mousePosition.y;
+
+        //mousePositionInSpace = mCamera.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, mCamera.nearClipPlane + 5));
+        //point = mCamera.ScreenToWorldPoint(Input.mousePosition);  
+
+        GUIStyle gsTest = new GUIStyle();
+        gsTest.normal.textColor = Color.black;
+        GUILayout.BeginArea(new Rect(Screen.width/2, 0, 500, 500), gsTest);
+        foreach(string x in debugString)
+        {
+            GUILayout.Label(x, gsTest);
+        }
+        //GUILayout.Label("Screen pixels: " + mCamera.pixelWidth + ":" + mCamera.pixelHeight, gsTest);
+        //GUILayout.Label("Mouse position: " + mousePos, gsTest);
+        //GUILayout.Label("World position: " + mousePositionInSpace.ToString("F3"), gsTest);
+        GUILayout.EndArea();
+    }
 
 
 }

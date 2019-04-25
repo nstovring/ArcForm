@@ -32,7 +32,6 @@ public class SearchEngine : MonoBehaviour
     
     public void Start(){
         Instance = this;
-        FocusedTokenRelations = new List<Relation>();
     }
     public void TEST1(){
         GetFuzzySearchResults(testString);
@@ -85,14 +84,6 @@ public class SearchEngine : MonoBehaviour
         ConceptNetInterface.GetConceptRelations(subject.myLabel.text, this, searchLimit);
     }
     
-    List<Relation> FocusedTokenRelations;
-     public struct Relation{
-        public string source;
-        public string relations;
-        public string target;
-    }
-
-
   
     public void ReceiveConcept(Concept concept){
         ArcToolUIManager.Instance.UpdatePropertyMenuFromConcept(ArcMapManager.Instance.focusedToken, concept);
@@ -159,7 +150,7 @@ internal class FuzzySearcher
         Action del = delegate {
             Unitoken token = TokenFactory.Instance.AddNewToken(x.Label, Vector3.zero);
             Debug.Log("Created Token from Fuzz");
-            token.isSoft = false;
+            token.isActive = false;
             ArcMapManager.Instance.SetFocusedToken(token);
 
             Debug.Log("Finding Predicates for this search element");
