@@ -10,7 +10,7 @@ public class SearchEngine : MonoBehaviour
 {
     [Header("Test Settings")]
     public string testString = "Einstein";
-    public int searchLimit = 10;
+    public int searchLimit = 20;
 
     public Unitoken focusedUnitoken;
 

@@ -67,8 +67,10 @@ public class ArcToolUIManager : MonoBehaviour
                 item.buttonToggle.TogglePressed(rel.isActive);
                 subItems.Add(item);
 
-                SubItemController.Instance.arcSubItemMenu.SetActive(true);
+                
             }
+
+            SubItemController.Instance.arcSubItemMenu.SetActive(true);
         }
         else
         {
@@ -112,37 +114,40 @@ public class ArcToolUIManager : MonoBehaviour
         ArcCollectionFactory.Instance.DestroyArcCollection(ac);
     }
 
-    internal void ToggleSubMenuItem(ArcMenuSubItem arcCollectionSubItem)
+    internal void ToggleSubMenuItem(ArcMenuSubItem arcMenuSubitem)
     {
         //Get specific relation and set it to toggle state
         Unitoken focusedToken = ArcMapManager.Instance.GetFocusedToken();
-        string key = arcCollectionSubItem.key;
-        bool active = arcCollectionSubItem.isActive;
+        string key = arcMenuSubitem.key;
+        //bool active = arcMenuSubitem.isActive;
         Property selectedProperty = focusedToken.GetProperty(key);
-
+        
         ArcCollection ac;
         bool arcCollectionExists = focusedToken.myArcCollections.TryGetValue(key, out ac);
         //focusedToken.myArcCollection.Remove(key);
 
-        Relation r = ArcDataUtility.GetRelation(arcCollectionSubItem);
+        Relation r = ArcDataUtility.GetRelation(arcMenuSubitem);
 
-        r.SetActive(active, true);
-
+        //r.SetActive(active, true);
+        bool active = r.isActive;
         if (active)
         {
             if(ac == null)
             {
-                ac = ArcCollectionFactory.Instance.AddNewCollection(focusedToken, key, arcCollectionSubItem);
+                ac = ArcCollectionFactory.Instance.AddNewCollection(focusedToken, key, arcMenuSubitem);
                 focusedToken.myArcCollections.Add(key, ac);
             }
             else
             {
-                ac.AddToCollection(arcCollectionSubItem);
+                ac.AddToCollection(arcMenuSubitem);
             }
+
+            r.SetActive(active,true);
         }
         else
         {
-            ac.RemoveFromCollection(arcCollectionSubItem);
+            r.SetActive(active, true);
+            ac.RemoveFromCollection(arcMenuSubitem);
 
             if (ac.myArcs.Count < 1) {
                 focusedToken.myArcCollections.Remove(key);

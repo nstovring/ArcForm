@@ -24,8 +24,11 @@ public class ArcCollectionFactory : MonoBehaviour
         //Add items to collection
         foreach(ArcMenuSubItem x in subItems)
         {
-            x.SetActive(true);
-            ac.AddToCollection(x);
+            if (x.isActive)
+            {
+                x.SetActive(true);
+                ac.AddToCollection(x);
+            }
         }
 
         //Link Collection to source
