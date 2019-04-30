@@ -58,6 +58,8 @@ public class SearchEngine : MonoBehaviour
             ReceiveDBPediaXMLResultsAndFillToggle(searchResultElement.XMLResult);
         }
 
+        OnEndEdit();
+
         //Create preview from results
         Debug.Log("Received relations for " + searchResultElement.elementText.text);
     }
@@ -79,7 +81,7 @@ public class SearchEngine : MonoBehaviour
         focusedUnitoken.isInactive = false;
         focusedUnitoken = ArcMapManager.Instance.SetFocusedToken(focusedUnitoken);
         ConceptNetInterface.GetConceptRelations(search, this, searchLimit);
-        OnEndEdit();
+        //OnEndEdit();
     }
 
     public void GetConceptRelations(Unitoken subject){
@@ -114,7 +116,7 @@ public class SearchEngine : MonoBehaviour
     }
 
     public void ReceiveDBPediaXMLResultsAndFillToggle(Result result){
-        throw new NotImplementedException();
+        //throw new NotImplementedException();
         //Debug.Log("Received XML Relations for "+ result.Label);
     }
 

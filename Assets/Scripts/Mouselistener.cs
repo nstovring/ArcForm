@@ -169,6 +169,7 @@ public class Mouselistener : MonoBehaviour
 
     public void TestQuery(){
         ArcToolUIManager.ArcUIUtility.ClearMenu();
+        ArcMapManager.Instance.autoMoveInterrupt = false;
         //ArcToolUIManager.ArcUIUtility.CreateSubMenu();
         if (hoveredOverToken.myPropertiesFromConceptNet != null)
         {
@@ -177,9 +178,9 @@ public class Mouselistener : MonoBehaviour
         else
         {
             SearchEngine.Instance.GetConceptRelations(hoveredOverToken);
-
-            SubItemController.Instance.arcSubItemMenu.SetActive(false);
         }
+
+        SubItemController.Instance.arcSubItemMenu.SetActive(false);
     }
 
     public void DragFromBackground(){
