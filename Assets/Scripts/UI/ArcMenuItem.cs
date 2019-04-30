@@ -39,6 +39,7 @@ public class ArcMenuItem : MonoBehaviour
             myButtonToggle.TogglePressed(textToggleIsActive);
             ArcToolUIManager.Instance.ToggleMenuItem(this, textToggleIsActive, numToggleIsActive);
 
+            DataLogger.Instance.LogToggle(this);
             //Debug.Log("Toggled State for: " + key + " : " + textToggleIsActive + " In Button");
         });
 
@@ -48,8 +49,9 @@ public class ArcMenuItem : MonoBehaviour
 
              ArcToolUIManager.Instance.ToggleMenuItem(this, textToggleIsActive, numToggleIsActive);
 
+             DataLogger.Instance.LogToggle(this);
              //Debug.Log("Toggled SubMenu for: " + key + " : " + numToggleIsActive + " In Button");
-        });
+         });
     }
 
     void Update()
@@ -82,7 +84,6 @@ public class ArcMenuItem : MonoBehaviour
 
     public bool hasActiveSubItem()
     {
-        bool b;
         foreach(ArcMenuSubItem item in subItems)
         {
             if (item.isActive)
