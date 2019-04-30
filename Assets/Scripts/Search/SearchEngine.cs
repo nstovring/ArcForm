@@ -18,6 +18,7 @@ public class SearchEngine : MonoBehaviour
     public Transform searchEngineCanvasTransform;
     public SearchBox searchBox;
     public List<ToggleBox> ToggleBoxes;
+    public Animator searchBoxAnimator;
 
 
     [Header("Prefabs")]
@@ -78,7 +79,7 @@ public class SearchEngine : MonoBehaviour
         focusedUnitoken.isInactive = false;
         focusedUnitoken = ArcMapManager.Instance.SetFocusedToken(focusedUnitoken);
         ConceptNetInterface.GetConceptRelations(search, this, searchLimit);
-        //OnEndEdit();
+        OnEndEdit();
     }
 
     public void GetConceptRelations(Unitoken subject){
@@ -91,13 +92,17 @@ public class SearchEngine : MonoBehaviour
     bool centered = true;
     void OnEndEdit()
     {
+        
+        RectTransform rt = transform as RectTransform;
+        if (rt == null)
+        {
+            rt = transform.gameObject.AddComponent<RectTransform>(); // Add a RectTransform if it does not exist
+        }
+
         if (centered)
         {
+            searchBoxAnimator.SetBool("centered", false);
             centered = false;
-            rt.anchorMin = new Vector2(0.5f, 0);
-            rt.anchorMax = new Vector2(0.5f, 0);
-            rt.pivot = new Vector2(0.5f, 0);
-            rt.position = Vector3.zero;
         }
     }
 

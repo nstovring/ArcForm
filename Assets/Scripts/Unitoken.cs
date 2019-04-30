@@ -43,7 +43,7 @@ public class Unitoken : Fragment
     {
         mCamera = Camera.main;
         myArcCollections = new Dictionary<string, ArcCollection>();
-        myPropertiesFromConceptNet = new Dictionary<string, Property>();
+        //myPropertiesFromConceptNet = new Dictionary<string, Property>();
         if (myArcs == null){
             myArcs = new List<Arc>();
         }

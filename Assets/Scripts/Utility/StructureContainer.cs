@@ -80,7 +80,7 @@ namespace StructureContainer
 
     public struct Property
     {
-        public string Label;
+        public string Key;
         public bool isActive;
         public List<Relation> Relations;
     }

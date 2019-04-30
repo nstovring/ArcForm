@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using ArcToolConstants;
 using StructureContainer;
+using System.Linq;
 
 public class ArcCollectionFactory : MonoBehaviour
 {
@@ -19,7 +20,7 @@ public class ArcCollectionFactory : MonoBehaviour
     {
         //Create Collection token
         ArcCollection ac = Instantiate(collectionPrefab, source.transform.position + StaticConstants.rngVector(), Quaternion.identity).GetComponent<ArcCollection>();
-        ac.SetLabel(topic);
+        ac.SetLabel(StaticConstants.KeyToLabel[topic]);
 
         //Add items to collection
         foreach(ArcMenuSubItem x in subItems)
@@ -66,6 +67,10 @@ public class ArcCollectionFactory : MonoBehaviour
 
     internal void DestroyArcCollection(ArcCollection myArcCollection)
     {
+        //if(myArcCollection.myArcs.Any(arc => arc.target.myArcs.Any(a => a.target == typeof(ArcCollection))))){
+        //
+        //}
+        //myArcCollection.DestroyConnections();
         ArcMapManager.Instance.unitokens.Remove(myArcCollection);
         ArcMapManager.Instance.DestroyCollection(myArcCollection);
         

@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using StructureContainer;
 using System;
+using System.Linq;
 
 public class ArcToolUIManager : MonoBehaviour
 {
@@ -61,7 +62,7 @@ public class ArcToolUIManager : MonoBehaviour
             foreach (Relation rel in property.Relations)
             {
                 ArcMenuSubItem item = Instantiate(ArcUIUtility.PropertySubMenuButtonPrefab, PropertySubMenu).GetComponent<ArcMenuSubItem>();
-                item.Refresh(rel, property.Label);
+                item.Refresh(rel, property.Key);
                 item.arcCollectionItem = arcCollectionItem;
                 item.SetActive(rel.isActive);
                 item.buttonToggle.TogglePressed(rel.isActive);
@@ -87,7 +88,7 @@ public class ArcToolUIManager : MonoBehaviour
         string key = arcCollectionItem.key;
         Property selectedProperty = focusedToken.GetProperty(key);
         
-        PropertySubMenuText.text = selectedProperty.Label;
+        PropertySubMenuText.text = StaticConstants.KeyToLabel[selectedProperty.Key];
         
         
         ArcCollection ac;
@@ -249,7 +250,7 @@ public class ArcToolUIManager : MonoBehaviour
             {
                 Property p = new Property
                 {
-                    Label = x,
+                    Key = x,
                     isActive = false,
                     Relations = new List<Relation>()
                 };
@@ -311,7 +312,7 @@ public class ArcToolUIManager : MonoBehaviour
 
             if(property.Relations == null)
             {
-                throw new Exception("ERROR : " + property.Label + " : " + "Has No Relations");
+                throw new Exception("ERROR : " + property.Key + " : " + "Has No Relations");
             }
             //Find relation
             foreach (Relation r in property.Relations)
@@ -407,7 +408,7 @@ public class ArcToolUIManager : MonoBehaviour
             foreach (Relation rel in property.Relations)
             {
                 ArcMenuSubItem item = Instantiate(PropertySubMenuButtonPrefab, PropertySubMenu).GetComponent<ArcMenuSubItem>();
-                item.Refresh(rel, property.Label);
+                item.Refresh(rel, property.Key);
                 item.arcCollectionItem = arcCollectionItem;
                 item.SetActive(rel.isActive);
 
@@ -449,6 +450,7 @@ public class ArcToolUIManager : MonoBehaviour
 
             //Update title in menu to label of unitoken
             PropertyMenuText.text = unitoken.myLabel.text;
+            
 
             //Update every Collection item count
             Dictionary<string, Property> Properties = ArcDataUtility.GeneratePropertiesContainerFromConcept(concept);
@@ -460,8 +462,11 @@ public class ArcToolUIManager : MonoBehaviour
             unitoken.StoreProperties(Properties);
         }
 
-        public static void UpdatePropertyMenuFromProperties( Dictionary<string, Property> properties)
+        public static void UpdatePropertyMenuFromProperties(Dictionary<string, Property> properties)
         {
+            //Update title in menu to label of unitoken
+            PropertyMenuText.text = ArcMapManager.Instance.GetFocusedToken().myLabel.text;
+
             foreach (string x in StaticConstants.RelationURIs)
             {
                 string key = x;
@@ -480,6 +485,16 @@ public class ArcToolUIManager : MonoBehaviour
                 {
                     collectionItem.transform.gameObject.SetActive(true);
                 }
+                //Check if any relation is deactivated and then turn it purple
+                if(property.Relations.Any(rel => !rel.isActive))
+                {
+                    collectionItem.myButtonToggle.edited = true;
+                }
+                else
+                {
+                    collectionItem.myButtonToggle.edited = false;
+                }
+
                 collectionItem.subItemCount.text = relationCount.ToString();
             }
 

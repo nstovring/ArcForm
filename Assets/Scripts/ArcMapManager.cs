@@ -116,6 +116,25 @@ public class ArcMapManager : MonoBehaviour
 
     public void DestroyToken(Fragment token){
         unitokens.Remove(token);
+
+        //if(token.my != null)
+        //{
+        //
+        //}
+        Unitoken t = (Unitoken)token;
+        if(t.myArcCollections != null && t.myArcCollections.Count > 0)
+        {
+            foreach(string x in StaticConstants.RelationURIs)
+            {
+                ArcCollection ac;
+                bool exists = t.myArcCollections.TryGetValue(x,out ac);
+                if (exists)
+                {
+                    DestroyCollection(t.myArcCollections[x]);
+                }
+            }
+        }
+
         if(token != null)
         Destroy(token.transform.gameObject);
     }
@@ -132,6 +151,10 @@ public class ArcMapManager : MonoBehaviour
     public void DestroyCollection(Fragment ac)
     {
         ArcCollections.Remove(ac);
+        if (unitokens.Contains(ac))
+        {
+            unitokens.Remove(ac);
+        }
         foreach(Arc a in ac.myArcs)
         {
             DestroyArc(a);
@@ -264,7 +287,7 @@ public class ArcMapManager : MonoBehaviour
                 {
                     foreach(Relation r in p.Relations)
                     {
-                        debugLine = p.Label +" : " + r.Label + " : " + r.isActive;
+                        debugLine = p.Key +" : " + r.Label + " : " + r.isActive;
                         debugString.Add(debugLine);
                     }
                 }

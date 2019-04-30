@@ -32,6 +32,7 @@ public class Mouselistener : MonoBehaviour
     public bool draggingFromBackground = false;
     public bool draggingFromToken = false;
     public bool draggingFromArc = false;
+    public bool rightClickInstantiate = false;
     [Header("Delay floats")]
     float clicked = 0;
     float clicktime = 0;
@@ -117,7 +118,7 @@ public class Mouselistener : MonoBehaviour
             }
         }
 
-        if(Input.GetMouseButtonUp(1)){
+        if(Input.GetMouseButtonUp(1) && rightClickInstantiate   ){
         
                 ArcMapManager.Instance.selectedUnitoken = TokenFactory.Instance.AddNewToken(mousePositionInSpace);
                 ArcMapManager.Instance.SelectUnitoken(ArcMapManager.Instance.selectedUnitoken);
@@ -168,7 +169,17 @@ public class Mouselistener : MonoBehaviour
 
     public void TestQuery(){
         ArcToolUIManager.ArcUIUtility.ClearMenu();
-        SearchEngine.Instance.GetConceptRelations(hoveredOverToken);
+        //ArcToolUIManager.ArcUIUtility.CreateSubMenu();
+        if (hoveredOverToken.myPropertiesFromConceptNet != null)
+        {
+            ArcToolUIManager.ArcUIUtility.UpdatePropertyMenuFromProperties(hoveredOverToken.myPropertiesFromConceptNet);
+        }
+        else
+        {
+            SearchEngine.Instance.GetConceptRelations(hoveredOverToken);
+
+            SubItemController.Instance.arcSubItemMenu.SetActive(false);
+        }
     }
 
     public void DragFromBackground(){

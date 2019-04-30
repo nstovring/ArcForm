@@ -52,6 +52,18 @@ public class ArcMenuItem : MonoBehaviour
         });
     }
 
+    void Update()
+    {
+        if (myButtonToggle.edited)
+        {
+            myButtonToggle.animator.SetBool("Edited", true);
+        }
+        else
+        {
+            myButtonToggle.animator.SetBool("Edited", false);
+        }
+    }
+
 
     internal void Fill(List<Edge> edgelist)
     {
