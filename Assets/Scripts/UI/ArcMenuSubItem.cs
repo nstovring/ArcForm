@@ -70,7 +70,9 @@ public class ArcMenuSubItem : MonoBehaviour{
             ArcToolUIManager.ArcUIUtility.UpdatePropertyMenuFromUnitoken(focus);
             ArcToolUIManager.Instance.ToggleSubMenuItem(this);
 
-            //arcCollectionItem.myButtonToggle.ToggleEdited(!isActive);
+            DataLogger.Instance.LogToggle(this);
+
+            arcCollectionItem.myButtonToggle.ToggleEdited(!isActive);
         });
     }
 
