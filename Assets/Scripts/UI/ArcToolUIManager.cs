@@ -490,6 +490,11 @@ public class ArcToolUIManager : MonoBehaviour
                 {
                     collectionItem.myButtonToggle.edited = true;
                 }
+                else if (property.Relations.All(rel => rel.isActive))
+                {
+                    collectionItem.myButtonToggle.toggled = true;
+                    collectionItem.myButtonToggle.edited = false;
+                }
                 else
                 {
                     collectionItem.myButtonToggle.edited = false;

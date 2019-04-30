@@ -210,8 +210,11 @@ public class ArcMapManager : MonoBehaviour
             MoveCamera();
     }
 
+    public bool autoMoveInterrupt = false;
+    public float autoMoveCameraSpeed = 2.0f;
     void MoveCamera(){
-        if(focusedToken != null){
+        if(focusedToken != null && !autoMoveInterrupt)
+        {
             Vector3 centerOffset = mCamera.ScreenToWorldPoint(new Vector3(Screen.width/2, Screen.height/2,0))-(focusedToken.transform.position);
             Vector3 center = mCamera.ScreenToWorldPoint(new Vector3(Screen.width/2, Screen.height/2,0));
             Vector3 focusedTokenPos = focusedToken.transform.position;
@@ -220,7 +223,7 @@ public class ArcMapManager : MonoBehaviour
             focusedTokenPos.z = 0;
             float distance = Vector3.Distance(focusedTokenPos, center);
             if(distance > 0.1f){
-                mCamera.transform.position -= centerOffset * Time.deltaTime;
+                mCamera.transform.position -= centerOffset * Time.deltaTime * autoMoveCameraSpeed;
             }
         }
     }
@@ -229,6 +232,12 @@ public class ArcMapManager : MonoBehaviour
     public void MoveMap(){
         float h = Input.GetAxis("Horizontal");
         float v = Input.GetAxis("Vertical");
+
+        if(Mathf.Abs(h) > 0.01f || Mathf.Abs(v) > 0.01f)
+        {
+            autoMoveInterrupt = true;
+        }
+
         float z = Input.mouseScrollDelta.y * zoomScale;
         float zoomFactor = Mathf.Clamp( mCamera.orthographicSize - z , minZoom, maxZoom);
         Vector3 mouseDelta = new Vector3(h,v,0);
