@@ -29,7 +29,7 @@ namespace ArcToolConstants
 
         public static Vector3 rngVector()
         {
-            return new Vector3(Random.RandomRange(-2.0f, 2.0f), Random.RandomRange(-2.0f, 2.0f), 0);
+            return new Vector3(Random.Range(-2.0f, 2.0f), Random.Range(-2.0f, 2.0f), 0);
         }
     }
 }

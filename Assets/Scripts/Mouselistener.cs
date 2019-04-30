@@ -140,6 +140,8 @@ public class Mouselistener : MonoBehaviour
             if(hoveredOverToken != null && hoveredOverArc == null){//clicked on Token
                 Debug.Log("Left Clicked on Token");
 
+                DataLogger.Instance.LogSelection(hoveredOverToken);
+
                 ArcMapManager.Instance.SetFocusedToken(hoveredOverToken);
                 TestQuery();
                 draggingFromToken = true;

@@ -10,10 +10,9 @@ public class DataLogger : MonoBehaviour
     public string ParticipantNr;
 
     [Header("Timers")]
-    public static float TestTime;
-    public static float TaskTime;
-    public static float ActionTime;
-    public static float InstructionTime;
+    public float TestTime;
+    public float ActionTime;
+    public float InstructionTime;
 
     [Header("Booleans")]
     public bool LoggingTestTime;
@@ -81,6 +80,10 @@ public class DataLogger : MonoBehaviour
 
         public bool FindRelation()
         {
+            if (ArcMapManager.Instance.ArcCollections.Any(x => x.myLabel.text == focusedLabel))
+            {
+                return true;
+            }
             return false;
         }
 
@@ -102,7 +105,8 @@ public class DataLogger : MonoBehaviour
 
     private void Update()
     {
-        TaskTime += Time.deltaTime;
+        TestTime += Time.deltaTime;
+        ActionTime += Time.deltaTime;
     }
     public void WriteTaskToFile(Task task)
     {
@@ -124,35 +128,39 @@ public class DataLogger : MonoBehaviour
     public void LogAction(string Action)
     {
         string log;
-        log = Action + " , " + TestTime + " , " + currentTask.TaskTime + " , " + " , " + ActionTime + " , " + currentTask.taskNum;
+        log = Action + " , " + TestTime + " , " + currentTask.TaskTime + " , " + ActionTime + " , " + currentTask.taskNum;
         currentTask.LoggedActions.Add(log);
         AppendFile(testPath, log);
+        ActionTime = 0;
     }
     public void LogSelection(Unitoken token)
     {
         string log;
         string Action = "Selected Token : " + token.myLabel.text;
-        log = Action +" , " + TestTime + " , " + TaskTime +" , " + " , " + ActionTime;
+        log = Action +" , " + TestTime + " , " + currentTask.TaskTime + " , " + ActionTime;
         currentTask.LoggedActions.Add(log);
         AppendFile(testPath, log);
+        ActionTime = 0;
     }
 
     public void LogToggle(ArcMenuItem ami)
     {
         string log;
         string Action = "Toggled Menu Item : " + ami.textField.text + " : " + ami.myButtonToggle.toggled;
-        log = Action + " , " + TestTime + " , " + TaskTime + " , " + " , " + ActionTime;
+        log = Action + " , " + TestTime + " , " + currentTask.TaskTime + " , " + ActionTime;
         currentTask.LoggedActions.Add(log);
         AppendFile(testPath, log);
+        ActionTime = 0;
     }
 
     public void LogToggle(ArcMenuSubItem amsi)
     {
         string log;
         string Action = "Toggled Sub Menu Item : " + amsi.text.text + " : " + amsi.isActive;
-        log = Action + " , " + TestTime + " , " + TaskTime + " , " + " , " + ActionTime;
+        log = Action + " , " + TestTime + " , " + currentTask.TaskTime + " , " + ActionTime;
         currentTask.LoggedActions.Add(log);
         AppendFile(testPath, log);
+        ActionTime = 0;
     }
 
     public IEnumerator EvalTask(Task task)

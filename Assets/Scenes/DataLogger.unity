@@ -2756,7 +2756,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -247.99973, y: 0.00005707338}
+  m_AnchoredPosition: {x: -247.99997, y: 0.00005707338}
   m_SizeDelta: {x: 243.34, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &691375127
@@ -7671,7 +7671,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1679088265}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.9999936
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -7912,7 +7912,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76146e8b61f61cb42a74e773632ae6c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ParticipantNr: 1
+  ParticipantNr: 999
+  TestTime: 0
+  ActionTime: 0
+  InstructionTime: 0
   LoggingTestTime: 0
   LoggingTaskTime: 0
   LogginActionTime: 0
@@ -7929,6 +7932,7 @@ MonoBehaviour:
     isCompleted: 0
     taskNum: 0
     TaskTime: 0
+    LoggedActions: []
   MyTasks:
   - title: 1
     description: "Search for \u201CDog\u201D and select \u201CDog\u201D."
@@ -7937,13 +7941,15 @@ MonoBehaviour:
     isCompleted: 0
     taskNum: 0
     TaskTime: 0
+    LoggedActions: []
   - title: 2
     description: "Find out what a Dog is \u201Ccapable of\u201D."
     type: 0
-    focusedLabel: r/Capable of
+    focusedLabel: 'capable of '
     isCompleted: 0
     taskNum: 0
     TaskTime: 0
+    LoggedActions: []
   - title: 
     description: 
     type: 0
@@ -7951,6 +7957,7 @@ MonoBehaviour:
     isCompleted: 0
     taskNum: 0
     TaskTime: 0
+    LoggedActions: []
   - title: 
     description: 
     type: 0
@@ -7958,6 +7965,7 @@ MonoBehaviour:
     isCompleted: 0
     taskNum: 0
     TaskTime: 0
+    LoggedActions: []
   - title: 
     description: 
     type: 0
@@ -7965,6 +7973,7 @@ MonoBehaviour:
     isCompleted: 0
     taskNum: 0
     TaskTime: 0
+    LoggedActions: []
   - title: 
     description: 
     type: 0
@@ -7972,6 +7981,7 @@ MonoBehaviour:
     isCompleted: 0
     taskNum: 0
     TaskTime: 0
+    LoggedActions: []
   - title: 
     description: 
     type: 0
@@ -7979,6 +7989,7 @@ MonoBehaviour:
     isCompleted: 0
     taskNum: 0
     TaskTime: 0
+    LoggedActions: []
   - title: 
     description: 
     type: 0
@@ -7986,6 +7997,7 @@ MonoBehaviour:
     isCompleted: 0
     taskNum: 0
     TaskTime: 0
+    LoggedActions: []
   - title: 
     description: 
     type: 0
@@ -7993,6 +8005,8 @@ MonoBehaviour:
     isCompleted: 0
     taskNum: 0
     TaskTime: 0
+    LoggedActions: []
+  testPath: E:/GitHub/ArcForm/Assets/Data
 --- !u!4 &2075097921
 Transform:
   m_ObjectHideFlags: 0
