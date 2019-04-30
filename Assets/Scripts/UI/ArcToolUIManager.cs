@@ -40,7 +40,7 @@ public class ArcToolUIManager : MonoBehaviour
 
         ArcUIUtility.ClearMenu();
     }
-
+    public List<ArcMenuSubItem> subItems;
     internal void ToggleMenuItem(ArcMenuItem arcCollectionItem, bool numToggle, bool numToggleIsActive)
     {
         ArcUIUtility.RemoveSubMenuButtons();
@@ -55,7 +55,7 @@ public class ArcToolUIManager : MonoBehaviour
         //Getproperties
         Dictionary<string, Property> focusedProperties = ArcMapManager.Instance.GetFocusedToken().myPropertiesFromConceptNet;
         Property property = focusedProperties[arcCollectionItem.key];
-        List<ArcMenuSubItem> subItems = new List<ArcMenuSubItem>();
+        subItems = new List<ArcMenuSubItem>();
 
         if (numToggle)
         {

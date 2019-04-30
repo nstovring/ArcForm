@@ -59,7 +59,7 @@ public class SearchEngine : MonoBehaviour
         }
 
         OnEndEdit();
-
+        DataLogger.Instance.LogAction("Searched for +" + searchResultElement.elementText.text);
         //Create preview from results
         Debug.Log("Received relations for " + searchResultElement.elementText.text);
     }

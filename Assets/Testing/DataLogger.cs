@@ -75,6 +75,20 @@ public class DataLogger : MonoBehaviour
 
         public bool IsolateToken()
         {
+            if (ArcToolUIManager.Instance.subItems != null && ArcToolUIManager.Instance.subItems.Count > 0)
+            {
+                foreach (ArcMenuSubItem item in ArcToolUIManager.Instance.subItems)
+                {
+                    if (item.text.text != focusedLabel)
+                    {
+                        if (item.isActive)
+                            return false;
+                    }
+                }
+
+                return true;
+            }
+
             return false;
         }
 
@@ -89,6 +103,14 @@ public class DataLogger : MonoBehaviour
 
         public bool IsolateRelation()
         {
+            if(ArcMapManager.Instance.unitokens.Count == 1)
+            {
+                if(ArcMapManager.Instance.unitokens[0].myLabel.text == focusedLabel)
+                {
+                    return true;
+                }
+            }
+
             return false;
         }
 
@@ -119,6 +141,7 @@ public class DataLogger : MonoBehaviour
 
     public void StartCurrentTaskTest()
     {
+        ActionTime = 0;
         //currentTask = MyTasks[TaskCount];
         currentTask.taskNum = TaskCount;
         StartCoroutine(EvalTask(currentTask));
@@ -137,7 +160,7 @@ public class DataLogger : MonoBehaviour
     {
         string log;
         string Action = "Selected Token : " + token.myLabel.text;
-        log = Action +" , " + TestTime + " , " + currentTask.TaskTime + " , " + ActionTime;
+        log = Action +" , " + TestTime + " , " + currentTask.TaskTime + " , " + ActionTime + " , " + currentTask.taskNum;
         currentTask.LoggedActions.Add(log);
         AppendFile(testPath, log);
         ActionTime = 0;
@@ -147,7 +170,7 @@ public class DataLogger : MonoBehaviour
     {
         string log;
         string Action = "Toggled Menu Item : " + ami.textField.text + " : " + ami.myButtonToggle.toggled;
-        log = Action + " , " + TestTime + " , " + currentTask.TaskTime + " , " + ActionTime;
+        log = Action + " , " + TestTime + " , " + currentTask.TaskTime + " , " + ActionTime + " , " + currentTask.taskNum;
         currentTask.LoggedActions.Add(log);
         AppendFile(testPath, log);
         ActionTime = 0;
@@ -157,7 +180,7 @@ public class DataLogger : MonoBehaviour
     {
         string log;
         string Action = "Toggled Sub Menu Item : " + amsi.text.text + " : " + amsi.isActive;
-        log = Action + " , " + TestTime + " , " + currentTask.TaskTime + " , " + ActionTime;
+        log = Action + " , " + TestTime + " , " + currentTask.TaskTime + " , " + ActionTime + " , " + currentTask.taskNum;
         currentTask.LoggedActions.Add(log);
         AppendFile(testPath, log);
         ActionTime = 0;
@@ -186,6 +209,9 @@ public class DataLogger : MonoBehaviour
         }
         else
         {
+            testPanel.transform.gameObject.SetActive(true);
+            testPanelTitle.text = "The End";
+            testPanelText.text = "Thank you for participating in this test";
             Debug.Log("End Test");
         }
     }
