@@ -45,7 +45,7 @@ public class ArcMapManager : MonoBehaviour
     [Header("Booleans")]
     public bool FlattenMap = false;
     public bool AutoMoveCamera = false;
-
+    public bool debugCollection = true;
 
     // Start is called before the first frame update
     void Start()
@@ -62,6 +62,8 @@ public class ArcMapManager : MonoBehaviour
 
         if(arcFactory == null)
             arcFactory = GetComponent<ArcFactory>();
+
+        StaticConstants.IntializeDictionaries();
 
         tokenFactory.Initialize();
         arcFactory.Initialize();
@@ -244,11 +246,17 @@ public class ArcMapManager : MonoBehaviour
 
     void OnGUI()
     {
+        if (!debugCollection)
+            return;
+
+
         List<string> debugString = new List<string>();
         if(focusedToken != null && focusedToken.myPropertiesFromConceptNet != null)
         {
             Dictionary<string, Property> focusedProperties = focusedToken.myPropertiesFromConceptNet;
-            foreach(string x in StaticConstants.RelationURIs)
+            string debugLine = "p.Label" + " : " + "r.Label" + " : " + "r.isActive";
+            debugString.Add(debugLine);
+            foreach (string x in StaticConstants.RelationURIs)
             {
                 Property p;
                 focusedProperties.TryGetValue(x, out p);
@@ -256,7 +264,7 @@ public class ArcMapManager : MonoBehaviour
                 {
                     foreach(Relation r in p.Relations)
                     {
-                        string debugLine = p.Label +" : " + r.Label + " : " + r.isActive;
+                        debugLine = p.Label +" : " + r.Label + " : " + r.isActive;
                         debugString.Add(debugLine);
                     }
                 }
@@ -265,7 +273,7 @@ public class ArcMapManager : MonoBehaviour
 
         GUIStyle gsTest = new GUIStyle();
         gsTest.normal.textColor = Color.black;
-        GUILayout.BeginArea(new Rect(Screen.width/2, 0, 500, 500), gsTest);
+        GUILayout.BeginArea(new Rect(Screen.width - 250, Screen.height - 600, 500, 400), gsTest);
         foreach(string x in debugString)
         {
             GUILayout.Label(x, gsTest);
@@ -280,6 +288,9 @@ public class ArcMapManager : MonoBehaviour
             Dictionary<string, ArcMenuItem> PropertyMenuItems = ArcToolUIManager.ArcDataUtility.PropertyMenuItems;
             Dictionary<string, Property> focusedProperties = focusedToken.myPropertiesFromConceptNet;
 
+            string debugLine = "p.key" + " : " + "p.myButtonToggle"+ " : " + "edited";
+            debugString.Add(debugLine);
+
             foreach (string x in StaticConstants.RelationURIs)
             {
                 ArcMenuItem p;
@@ -288,13 +299,13 @@ public class ArcMapManager : MonoBehaviour
                 PropertyMenuItems.TryGetValue(x, out p);
                 if (f.Relations != null && f.Relations.Count > 0)
                 {
-                    string debugLine = p.key + " : " + p.myButtonToggle.toggled + " : " + p.myButtonToggle.edited;
+                    debugLine = p.key + " : " + p.myButtonToggle.toggled + " : " + p.myButtonToggle.edited;
                     debugString.Add(debugLine);
                 }
             }
         }
         gsTest.normal.textColor = Color.black;
-        GUILayout.BeginArea(new Rect(Screen.width / 2  + 250, 0, 500, 1000), gsTest);
+        GUILayout.BeginArea(new Rect(Screen.width  - 250, Screen.height - 250, 250, 250), gsTest);
         foreach (string x in debugString)
         {
             GUILayout.Label(x, gsTest);

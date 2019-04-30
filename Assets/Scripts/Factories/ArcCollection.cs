@@ -33,7 +33,7 @@ public class ArcCollection : Fragment
         arc.SetLabel(" ");
 
         item.SetConnections(target, arc, this);
-        target.isActive = false;
+        target.isInactive = false;
         target.transform.parent = arc.transform;
         arc.transform.parent = transform;
 

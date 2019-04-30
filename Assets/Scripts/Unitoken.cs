@@ -25,7 +25,7 @@ public class Unitoken : Fragment
 
     public Dictionary<string, ArcCollection> myArcCollections;
 
-    public bool isActive = true;
+    public bool isInactive = true;
 
 
     public MapState myMapState = MapState.Preview;
@@ -122,7 +122,7 @@ public class Unitoken : Fragment
 
     void Update(){
       
-       if(isActive == false){//collider active and hoverOver is active.
+       if(isInactive == false){//collider active and hoverOver is active.
         transform.GetComponent<CircleCollider2D>().enabled = true;
        }
        else{//collider disabled and dragging is occuring
@@ -132,7 +132,7 @@ public class Unitoken : Fragment
 
     public bool SetActive(bool state)
     {
-        return isActive = state;
+        return isInactive = state;
     }
 
     public void UpdateUI()

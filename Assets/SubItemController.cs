@@ -6,10 +6,13 @@ public class SubItemController : MonoBehaviour
 {
     public static int toggleCounter = 0;
     public GameObject arcSubItemMenu;
-        
+
+    public static SubItemController Instance { get; internal set; }
+
     // Start is called before the first frame update
     void Start()
     {
+        Instance = this;
         if(arcSubItemMenu == null){
         arcSubItemMenu = GameObject.Find("ArcCollectionSubItemMenu");
         }
@@ -19,7 +22,7 @@ public class SubItemController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ToggleSubMenu(); //hides ArcCollectionSubItemMenu gameobject set active
+        //ToggleSubMenu(); //hides ArcCollectionSubItemMenu gameobject set active
         
     }
 

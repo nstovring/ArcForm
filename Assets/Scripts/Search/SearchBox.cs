@@ -20,6 +20,9 @@ public class SearchBox : MonoBehaviour
 
     [Header("Search Variables")]
     public List<SearchResultElement> searchResults;
+
+    [Header("UI Positioning")]
+    bool centered = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -44,10 +47,26 @@ public class SearchBox : MonoBehaviour
         searchField.onEndEdit.RemoveAllListeners();
 
         searchField.onEndEdit.AddListener(delegate{
-            ClearResults();
-            Search(searchField.text,myCurrentSearchType);
+            OnEndEdit();
             //inputField.transform.gameObject.SetActive(false);
         });
+    }
+
+    void OnEndEdit()
+    {
+        ClearResults();
+        Search(searchField.text, myCurrentSearchType);
+        searchField.DeactivateInputField();
+
+        if (centered)
+        {
+            centered = false;
+            RectTransform rt = GetComponent<RectTransform>();
+            rt.anchorMin = new Vector2(0.5f, 0);
+            rt.anchorMax = new Vector2(0.5f, 0);    
+            rt.pivot = new Vector2(0.5f, 0);
+            rt.position = Vector3.zero;
+        }
     }
 
     public enum SearchType {dbPediaXML,dbPediaQuery, conceptNet}

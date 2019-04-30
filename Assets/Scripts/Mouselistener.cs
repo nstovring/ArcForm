@@ -181,7 +181,7 @@ public class Mouselistener : MonoBehaviour
                     startPointUnitoken = TokenFactory.Instance.AddNewToken(unitokenStartPosVector);
                     selectedArc = ArcFactory.Instance.AddNewArc(startPointUnitoken, "Test", endPointUnitoken);
                     
-                    startPointUnitoken.isActive = false;
+                    startPointUnitoken.isInactive = false;
                     tokenSpawn = false;
                 }
                 
@@ -257,18 +257,18 @@ public class Mouselistener : MonoBehaviour
          if(hoveredOverArc != null){
             UnitokenDelete(selectedArc.target);
             selectedArc.target = hoveredOverArc;
-            endPointUnitoken.isActive = false;
+            endPointUnitoken.isInactive = false;
             endPointUnitoken = null;
             return;
         }
         if(hoveredOverToken != null){
             UnitokenDelete(selectedArc.target);
             selectedArc.target = hoveredOverToken;
-            endPointUnitoken.isActive = false;
+            endPointUnitoken.isInactive = false;
             endPointUnitoken = null;
         }
         if(hoveredOverToken == null){
-            endPointUnitoken.isActive = false;
+            endPointUnitoken.isInactive = false;
             endPointUnitoken = null;
         }
     }
@@ -283,9 +283,6 @@ public class Mouselistener : MonoBehaviour
 
     public void UnitokenDelete(Fragment deleteU){// Deleting the soft Token instantiated.
         ArcMapManager.Instance.DestroyToken((Unitoken)deleteU);
-        //Destroy(deleteU.gameObject);
-        //deleteU = null;
-        //Debug.Log("Destroyed an Unitoken");
         }
 
      

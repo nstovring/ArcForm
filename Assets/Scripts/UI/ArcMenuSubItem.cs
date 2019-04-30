@@ -47,7 +47,7 @@ public class ArcMenuSubItem : MonoBehaviour{
     public void PlaceOnMap(Fragment core)
     {
         Unitoken target  = TokenFactory.Instance.AddNewToken(edge.End.Label, core.transform.position + StaticConstants.rngVector());
-        target.isActive = false;
+        target.isInactive = false;
         Arc arc = ArcFactory.Instance.AddNewArc(core, "", target);
     }
 
@@ -74,6 +74,22 @@ public class ArcMenuSubItem : MonoBehaviour{
         });
     }
 
+    private void Update()
+    {
+        CheckButtonToggleState();
+    }
+
+    private void CheckButtonToggleState()
+    {
+        if (buttonToggle.toggled)
+        {
+            buttonToggle.animator.SetBool("Toggled", true);
+        }
+        else
+        {
+            buttonToggle.animator.SetBool("Toggled", false);
+        }
+    }
 
     public void SetActive(bool active)
     {

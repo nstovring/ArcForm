@@ -39,7 +39,7 @@ public class ArcMenuItem : MonoBehaviour
             myButtonToggle.TogglePressed(textToggleIsActive);
             ArcToolUIManager.Instance.ToggleMenuItem(this, textToggleIsActive, numToggleIsActive);
 
-            Debug.Log("Toggled State for: " + key + " : " + textToggleIsActive + " In Button");
+            //Debug.Log("Toggled State for: " + key + " : " + textToggleIsActive + " In Button");
         });
 
          toggleSubMenuButton.onClick.AddListener(delegate{
@@ -48,7 +48,7 @@ public class ArcMenuItem : MonoBehaviour
 
              ArcToolUIManager.Instance.ToggleMenuItem(this, textToggleIsActive, numToggleIsActive);
 
-             Debug.Log("Toggled SubMenu for: " + key + " : " + numToggleIsActive + " In Button");
+             //Debug.Log("Toggled SubMenu for: " + key + " : " + numToggleIsActive + " In Button");
         });
     }
 

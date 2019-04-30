@@ -74,8 +74,11 @@ public class SearchEngine : MonoBehaviour
 
     public void GetConceptRelations(string search)
     {
-        focusedUnitoken = ArcMapManager.Instance.SetFocusedToken(TokenFactory.Instance.AddNewToken(search, Vector3.zero));
+        focusedUnitoken = TokenFactory.Instance.AddNewToken(search, Vector3.zero);
+        focusedUnitoken.isInactive = false;
+        focusedUnitoken = ArcMapManager.Instance.SetFocusedToken(focusedUnitoken);
         ConceptNetInterface.GetConceptRelations(search, this, searchLimit);
+        //OnEndEdit();
     }
 
     public void GetConceptRelations(Unitoken subject){
@@ -83,8 +86,22 @@ public class SearchEngine : MonoBehaviour
         focusedUnitoken = subject;
         ConceptNetInterface.GetConceptRelations(subject.myLabel.text, this, searchLimit);
     }
-    
-  
+
+    public RectTransform rt;
+    bool centered = true;
+    void OnEndEdit()
+    {
+        if (centered)
+        {
+            centered = false;
+            rt.anchorMin = new Vector2(0.5f, 0);
+            rt.anchorMax = new Vector2(0.5f, 0);
+            rt.pivot = new Vector2(0.5f, 0);
+            rt.position = Vector3.zero;
+        }
+    }
+
+
     public void ReceiveConcept(Concept concept){
         ArcToolUIManager.Instance.UpdatePropertyMenuFromConcept(ArcMapManager.Instance.focusedToken, concept);
         Debug.Log("Received Relations for "+ concept.Edges.Length);
@@ -150,7 +167,7 @@ internal class FuzzySearcher
         Action del = delegate {
             Unitoken token = TokenFactory.Instance.AddNewToken(x.Label, Vector3.zero);
             Debug.Log("Created Token from Fuzz");
-            token.isActive = false;
+            token.isInactive = false;
             ArcMapManager.Instance.SetFocusedToken(token);
 
             Debug.Log("Finding Predicates for this search element");
