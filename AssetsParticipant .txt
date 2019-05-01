@@ -1,0 +1,86 @@
+Task : 1 : Started , 0 , 0 , 0 , 1 , 0
+Task : 1 : Completed , 46.90982 , 46.90956 , 46.90982 , 1 , 1
+Task : 2 : Started , 62.69325 , 0 , 0 , 2 , 0
+Searched for +Hello world program , 80.03001 , 17.35286 , 17.33587 , 2 , 1
+Selected Token : Hello world program , 82.33276 , 19.65551 , 2.302668 , 2 , 2
+Task : 2 : Completed , 88.01215 , 25.31799 , 5.679178 , 2 , 3
+Selected Token : Hello world program , 6302.96 , 0 , 6214.95 , 1 , 0
+Task : 3 : Started , 6309.905 , 0 , 0 , 3 , 1
+Selected Token : Hello world program , 6311.539 , 1.651576 , 1.634823 , 3 , 2
+Searched for +Dog , 6326.35 , 16.49218 , 14.8406 , 3 , 3
+Selected Token : Dog , 6327.456 , 17.60032 , 1.108158 , 3 , 4
+Selected Token : Dog , 6329.085 , 19.23255 , 1.632237 , 3 , 5
+Selected Token : Dog , 6329.833 , 19.97939 , 0.7468328 , 3 , 6
+Searched for +New Scientist , 6341.828 , 31.99214 , 12.01283 , 3 , 7
+Selected Token : New Scientist , 6342.984 , 33.15115 , 1.159024 , 3 , 8
+Selected Token : New Scientist , 6343.584 , 33.75281 , 0.6016617 , 3 , 9
+Selected Token : New Scientist , 6344.225 , 34.39358 , 0.6407858 , 3 , 10
+Task : 1 : Started , 0 , 0 , 0 , 1 , 0
+Searched for +Killer whale , 19.27622 , 19.29326 , 19.27622 , 1 , 1
+Selected Token : Killer whale , 20.06929 , 20.08633 , 0.7930701 , 1 , 2
+Task : 1 : Started , 0 , 0 , 0 , 1 , 0
+Searched for +Cat , 2.628318 , 2.644984 , 2.628318 , 1 , 1
+Toggled Menu Item : at location  : True , 5.46649 , 5.483156 , 2.838173 , 1 , 2
+Toggled Sub Menu Item : a bed : False , 128.0277 , 128.0444 , 122.561 , 1 , 3
+Toggled Sub Menu Item : the windowsill : False , 128.6062 , 128.6229 , 0.5786081 , 1 , 4
+Toggled Sub Menu Item : a bed : True , 128.9079 , 128.9246 , 0.3017233 , 1 , 5
+Toggled Sub Menu Item : my lap : False , 129.3126 , 129.3292 , 0.4046489 , 1 , 6
+Toggled Sub Menu Item : my lap : True , 129.6837 , 129.7004 , 0.3711755 , 1 , 7
+Toggled Sub Menu Item : a bed : False , 130.0548 , 130.0715 , 0.3711709 , 1 , 8
+Toggled Sub Menu Item : my lap : False , 130.4397 , 130.4564 , 0.3849279 , 1 , 9
+Toggled Sub Menu Item : a chair : False , 131.1445 , 131.1612 , 0.7048603 , 1 , 10
+Toggled Sub Menu Item : a table : False , 131.5323 , 131.5489 , 0.3878222 , 1 , 11
+Selected Token : a vet , 135.3515 , 135.3682 , 3.819638 , 1 , 12
+Selected Token : Cat , 138.6335 , 138.6501 , 3.282251 , 1 , 13
+Toggled Menu Item : at location  : False , 139.6661 , 139.6828 , 1.032726 , 1 , 14
+Toggled Menu Item : at location  : True , 140.4057 , 140.4223 , 0.7396954 , 1 , 15
+Toggled Sub Menu Item : my lap : True , 142.0073 , 142.024 , 1.601768 , 1 , 16
+Toggled Sub Menu Item : a vet : False , 142.6154 , 142.6321 , 0.608124 , 1 , 17
+Selected Token : my lap , 143.8091 , 143.8258 , 1.193901 , 1 , 18
+Selected Token : Cat , 145.2729 , 145.2896 , 1.464017 , 1 , 19
+Toggled Menu Item : at location  : False , 146.3718 , 146.3884 , 1.09899 , 1 , 20
+Toggled Menu Item : at location  : True , 146.9087 , 146.9254 , 0.5369833 , 1 , 21
+Toggled Sub Menu Item : my lap : False , 148.2354 , 148.2521 , 1.326906 , 1 , 22
+Toggled Sub Menu Item : a bed : True , 148.7745 , 148.7912 , 0.5391558 , 1 , 23
+Selected Token : a bed , 150.3936 , 150.4103 , 1.619277 , 1 , 24
+Selected Token : a bed , 151.7121 , 151.7288 , 1.318547 , 1 , 25
+Selected Token : Cat , 307.2785 , 307.2951 , 155.5861 , 1 , 26
+Toggled Menu Item : at location  : False , 309.5769 , 309.5936 , 2.298707 , 1 , 27
+Toggled Menu Item : capable of  : True , 309.981 , 309.9977 , 0.404116 , 1 , 28
+Toggled Menu Item : at location  : True , 337.0972 , 337.1139 , 27.12015 , 1 , 29
+Toggled Menu Item : at location  : False , 337.6281 , 337.6448 , 0.5310423 , 1 , 30
+Toggled Menu Item : at location  : True , 338.1008 , 338.1174 , 0.4726843 , 1 , 31
+Toggled Sub Menu Item : a bed : False , 339.3319 , 339.3485 , 1.231312 , 1 , 32
+Toggled Sub Menu Item : the windowsill : True , 339.7526 , 339.7693 , 0.4208245 , 1 , 33
+Toggled Sub Menu Item : my lap : True , 340.9496 , 340.9662 , 1.197218 , 1 , 34
+Toggled Sub Menu Item : a bed : True , 341.3849 , 341.4016 , 0.4354362 , 1 , 35
+Selected Token : drink water , 341.79 , 341.8066 , 0.4050965 , 1 , 36
+Selected Token : my lap , 349.3118 , 349.3285 , 7.523009 , 1 , 37
+Selected Token : a bed , 350.4009 , 350.4176 , 1.089327 , 1 , 38
+Selected Token : the windowsill , 351.2251 , 351.2417 , 0.8242474 , 1 , 39
+Selected Token : the windowsill , 351.9822 , 351.9989 , 0.7572249 , 1 , 40
+Selected Token : Cat , 353.6609 , 353.6776 , 1.679034 , 1 , 41
+Toggled Menu Item : has property  : True , 354.9346 , 354.9513 , 1.273889 , 1 , 42
+Toggled Menu Item : has property  : False , 355.815 , 355.8317 , 0.8805461 , 1 , 43
+Toggled Menu Item : has property  : True , 356.4712 , 356.4879 , 0.6562757 , 1 , 44
+Toggled Menu Item : has property  : False , 356.8769 , 356.8936 , 0.4057561 , 1 , 45
+Toggled Menu Item : at location  : False , 632.0276 , 632.0443 , 275.1819 , 1 , 46
+Toggled Menu Item : at location  : True , 632.7012 , 632.7178 , 0.6735857 , 1 , 47
+Toggled Sub Menu Item : a vet : True , 634.6279 , 634.6446 , 1.927253 , 1 , 48
+Toggled Sub Menu Item : a chair : True , 635.0168 , 635.0335 , 0.3888913 , 1 , 49
+Toggled Sub Menu Item : a table : True , 635.4195 , 635.4362 , 0.4027608 , 1 , 50
+Selected Token : the windowsill , 636.618 , 636.6346 , 1.19851 , 1 , 51
+Selected Token : a table , 638.2308 , 638.2475 , 1.613108 , 1 , 52
+Selected Token : a vet , 638.9876 , 639.0043 , 0.7568156 , 1 , 53
+Selected Token : a chair , 640.9691 , 640.9858 , 1.981756 , 1 , 54
+Selected Token : a bed , 641.554 , 641.5706 , 0.5850377 , 1 , 55
+Selected Token : my lap , 642.2439 , 642.2606 , 0.6898518 , 1 , 56
+Task : 1 : Started , 0 , 0 , 0 , 1 , 0
+Task : 1 : Completed , 1.662789 , 1.663134 , 1.662789 , 1 , 1
+Task : 2 : Started , 27.27542 , 0 , 0 , 2 , 0
+Searched for +Red panda , 30.64076 , 3.382054 , 3.365361 , 2 , 1
+Selected Token : Red panda , 31.30656 , 4.047854 , 0.6658008 , 2 , 2
+Task : 1 : Started , 0 , 0 , 0 , 1 , 0
+Searched for +Cult , 13.60027 , 13.6172 , 13.60027 , 1 , 1
+Selected Token : Cult , 15.31906 , 15.33599 , 1.718788 , 1 , 2
+Toggled Menu Item : is related to  : True , 20.33389 , 20.35082 , 5.014874 , 1 , 3
