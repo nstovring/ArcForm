@@ -160,11 +160,11 @@ public class DataLogger : MonoBehaviour
         ActionTime += Time.deltaTime;
         ParticipantNr = testPanelInput.text;
 
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.F1))
         {
             currentTask.isCompleted = true;
         }
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.F2))
         {
             SceneManager.LoadScene(0);
         }
