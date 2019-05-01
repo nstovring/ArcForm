@@ -39,6 +39,15 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Base
+    uniqueID: 3749496627
+    locked: 0
+  - name: ButtonLayer
+    uniqueID: 1343727721
+    locked: 0
+  - name: TextLayer
+    uniqueID: 353778569
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

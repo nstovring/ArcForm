@@ -119,10 +119,10 @@ public class Unitoken : Fragment
     void Update(){
       
        if(isSoft == false){//collider active and hoverOver is active.
-        transform.GetComponent<CircleCollider2D>().enabled = true;
+        transform.GetComponent<CapsuleCollider2D>().enabled = true;
        }
        else{//collider disabled and dragging is occuring
-        transform.GetComponent<CircleCollider2D>().enabled = false;
+        transform.GetComponent<CapsuleCollider2D>().enabled = false;
        }
     }
 

@@ -34,7 +34,7 @@ public class ActionGroupAnimate : MonoBehaviour
         mySpriteRenderer.color = startColor;
         iTween.ColorTo(gameObject, alphaTo, 0.2f);
         iTween.ScaleTo(gameObject, scaleEnd, 0.3f);
-        iTween.MoveFrom(gameObject, iTween.Hash("path", iTweenPath.GetPath(pathName),"time", 1, "easetype", iTween.EaseType.easeOutQuint));
+        iTween.MoveFrom(gameObject, iTween.Hash("path", iTweenPath.GetPath(pathName),"time", 1, "easetype", iTween.EaseType.easeOutCubic));
         StartCoroutine(wait());
         
     }
@@ -43,7 +43,7 @@ public class ActionGroupAnimate : MonoBehaviour
         
         iTween.ColorTo(gameObject, alphaFrom, 0.2f);
         iTween.ScaleTo(gameObject, scaleIni, 0.3f);
-        iTween.MoveTo(gameObject, iTween.Hash("path", iTweenPath.GetPath(pathName),"time", 1, "easetype", iTween.EaseType.easeOutQuint));
+        iTween.MoveTo(gameObject, iTween.Hash("path", iTweenPath.GetPath(pathName),"time", 1, "easetype", iTween.EaseType.easeOutCirc));
 
 
     }
