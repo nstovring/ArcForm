@@ -155,10 +155,13 @@ public class ArcMapManager : MonoBehaviour
         {
             unitokens.Remove(ac);
         }
+
+        if(ac.myArcs != null)
         foreach(Arc a in ac.myArcs)
         {
             DestroyArc(a);
         }
+
         Destroy(ac.gameObject);
     }
 

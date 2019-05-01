@@ -1,0 +1,85 @@
+Searched for +Dog , 18.20556 , 9.824343 , 9.807693 , 0
+Toggled Menu Item : capable of  : True , 26.00407 , 2.759983 , 2.743035 , 1
+Toggled Menu Item : capable of  : False , 47.4145 , 24.17047 , 21.4105 , 1
+Toggled Menu Item : capable of  : True , 47.8046 , 24.56056 , 0.3900972 , 1
+Toggled Sub Menu Item : guide a blind person : False , 49.613 , 26.36895 , 1.8084 , 1
+Toggled Sub Menu Item : guide a blind person : True , 50.05746 , 26.81341 , 0.4444678 , 1
+Toggled Sub Menu Item : run : False , 50.59314 , 27.34909 , 0.5356835 , 1
+Toggled Sub Menu Item : run : True , 50.93857 , 27.69452 , 0.3454276 , 1
+Toggled Sub Menu Item : be a pet : False , 52.20803 , 28.96399 , 1.26948 , 1
+Toggled Sub Menu Item : be a pet : True , 52.55126 , 29.30721 , 0.3432243 , 1
+Toggled Sub Menu Item : guard your house : False , 52.88977 , 29.64573 , 0.338516 , 1
+Toggled Sub Menu Item : guard your house : True , 53.18198 , 29.93794 , 0.2922113 , 1
+Toggled Sub Menu Item : bark : False , 53.86975 , 30.6257 , 0.6877718 , 1
+Toggled Sub Menu Item : bark : True , 54.12469 , 30.88065 , 0.2549448 , 1
+Searched for +Dog , 3.339648 , 3.399648 , 3.299649 , 0
+Toggled Menu Item : capable of  : True , 5.650014 , 1.57583 , 1.559168 , 1
+Toggled Sub Menu Item : bark : False , 8.174649 , 1.075562 , 1.057978 , 2
+Toggled Sub Menu Item : guard your house : False , 8.543639 , 1.444552 , 0.3689902 , 2
+Toggled Sub Menu Item : be a pet : False , 9.043866 , 1.944781 , 0.5002291 , 2
+Toggled Sub Menu Item : guide a blind person : False , 9.744969 , 2.645888 , 0.7011063 , 2
+Toggled Menu Item : is a  : True , 12.57309 , 1.596414 , 1.579651 , 3
+Toggled Menu Item : is related to  : True , 22.75989 , 3.17966 , 3.162351 , 5
+Searched for +Dog , 3.875626 , 2.961298 , 2.944628 , 0
+Toggled Menu Item : capable of  : True , 6.473826 , 1.795539 , 1.778873 , 1
+Toggled Sub Menu Item : guide a blind person : False , 8.649917 , 0.9156238 , 0.8983434 , 2
+Toggled Sub Menu Item : be a pet : False , 9.121408 , 1.387118 , 0.4714944 , 2
+Toggled Sub Menu Item : guard your house : False , 9.428718 , 1.694429 , 0.3073102 , 2
+Toggled Sub Menu Item : bark : False , 9.803843 , 2.069557 , 0.3751283 , 2
+Toggled Menu Item : is a  : True , 12.48582 , 1.494122 , 1.477213 , 3
+Selected Token : pet , 21.39228 , 7.554745 , 7.538079 , 4
+Toggled Menu Item : is related to  : True , 30.57754 , 4.805585 , 4.78892 , 5
+Selected Token : animal , 39.50618 , 13.73427 , 8.928686 , 5
+Toggled Menu Item : desires  : True , 47.49345 , 5.596945 , 5.580026 , 6
+Toggled Menu Item : desires  : False , 57.13626 , 5.934654 , 5.917711 , 7
+Selected Token : pet , 62.53502 , 11.33345 , 5.398794 , 7
+Toggled Menu Item : is related to  : False , 64.956 , 13.7544 , 2.420961 , 7
+Selected Token : Dog , 68.313 , 17.1112 , 3.356811 , 7
+Toggled Menu Item : capable of  : False , 70.38478 , 19.18291 , 2.071721 , 7
+Toggled Menu Item : is a  : False , 72.34397 , 21.14197 , 1.959077 , 7
+Toggled Menu Item : distinct from  : True , 76.45113 , 1.949387 , 1.932468 , 8
+Selected Token : cat , 79.59239 , 5.090455 , 3.141064 , 8
+Toggled Menu Item : at location  : True , 83.64574 , 9.143615 , 4.053159 , 8
+Selected Token : Dog , 86.19186 , 11.68954 , 2.545934 , 8
+Toggled Menu Item : at location  : True , 88.952 , 14.44954 , 2.76 , 8
+Toggled Menu Item : at location  : False , 90.74682 , 16.24428 , 1.794742 , 8
+Toggled Menu Item : at location  : True , 91.06689 , 16.56433 , 0.3200556 , 8
+Toggled Menu Item : is a  : True , 99.11052 , 24.60752 , 8.043239 , 8
+Selected Token : cat , 100.5323 , 26.02926 , 1.421742 , 8
+Toggled Menu Item : has property  : True , 102.0651 , 27.56192 , 1.53267 , 8
+Toggled Menu Item : has a  : True , 103.9816 , 29.47837 , 1.916458 , 8
+Searched for +Dog , 6.477588 , 3.221035 , 3.204367 , 0
+Searched for +Dog , 2.742024 , 2.802024 , 2.702024 , 0
+Toggled Menu Item : capable of  : True , 4.930764 , 0.8190321 , 0.8023659 , 1
+Toggled Sub Menu Item : bark : False , 6.893156 , 0.8610159 , 0.8440544 , 2
+Toggled Sub Menu Item : guard your house : False , 7.218937 , 1.186797 , 0.3257813 , 2
+Toggled Sub Menu Item : be a pet : False , 7.604931 , 1.572791 , 0.385994 , 2
+Toggled Sub Menu Item : guide a blind person : False , 8.015688 , 1.983549 , 0.4107576 , 2
+Toggled Menu Item : is a  : True , 9.978189 , 1.275403 , 1.258406 , 3
+Selected Token : pet , 11.78808 , 0.9477654 , 0.9310982 , 4
+Toggled Menu Item : is related to  : True , 14.14496 , 0.9410727 , 0.9241127 , 5
+Selected Token : animal , 15.46529 , 2.261407 , 1.320335 , 5
+Toggled Menu Item : desires  : True , 18.9331 , 1.514385 , 1.497718 , 6
+Selected Token : Dog , 23.4347 , 3.432709 , 3.415791 , 7
+Toggled Menu Item : capable of  : False , 24.94979 , 4.947804 , 1.515096 , 7
+Toggled Menu Item : is a  : False , 26.79799 , 6.796018 , 1.848211 , 7
+Toggled Menu Item : at location  : True , 33.80114 , 4.503657 , 4.48699 , 8
+Toggled Menu Item : has a  : True , 34.36606 , 5.068583 , 0.5649263 , 8
+Toggled Menu Item : at location  : False , 36.9474 , 7.649934 , 2.581347 , 8
+Toggled Menu Item : at location  : True , 37.40167 , 8.104201 , 0.4542689 , 8
+Toggled Menu Item : has a  : False , 38.69624 , 9.398758 , 1.29456 , 8
+Toggled Menu Item : has a  : True , 39.15858 , 9.861108 , 0.462349 , 8
+Searched for +Dog , 2.507359 , 2.567358 , 2.467358 , 0
+Toggled Menu Item : capable of  : True , 4.307612 , 1.390758 , 1.290758 , 1
+Toggled Sub Menu Item : guide a blind person : False , 6.166817 , 1.018266 , 1.001401 , 2
+Toggled Sub Menu Item : be a pet : False , 6.714768 , 1.566219 , 0.5479525 , 2
+Toggled Sub Menu Item : guard your house : False , 7.04319 , 1.89464 , 0.3284218 , 2
+Toggled Sub Menu Item : bark : False , 7.335563 , 2.187015 , 0.2923745 , 2
+Toggled Menu Item : is a  : True , 8.820622 , 0.8544303 , 0.8377654 , 3
+Selected Token : pet , 12.06336 , 2.496789 , 2.480121 , 4
+Toggled Menu Item : is related to  : True , 13.89308 , 0.7281856 , 0.7111803 , 5
+Selected Token : animal , 15.99224 , 2.827349 , 2.099164 , 5
+Toggled Menu Item : desires  : True , 18.65256 , 1.247281 , 1.230314 , 6
+Selected Token : Dog , 20.88863 , 1.251754 , 1.235087 , 7
+Toggled Menu Item : is a  : False , 23.35958 , 3.722719 , 2.470965 , 7
+Toggled Menu Item : capable of  : False , 24.35737 , 4.720525 , 0.9978054 , 7
