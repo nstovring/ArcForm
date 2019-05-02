@@ -8043,7 +8043,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1679088265}
   m_Direction: 0
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.99998695
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -8311,7 +8311,7 @@ MonoBehaviour:
     LoggedActions: []
   MyTasks:
   - title: 1
-    description: "Search for \u201CDog\u201D and select \u201CDog\u201D."
+    description: "Create a \u201CDog\u201D token."
     type: 0
     focusedLabel: Dog
     key: 0
@@ -8320,7 +8320,7 @@ MonoBehaviour:
     TaskTime: 0
     LoggedActions: []
   - title: 2
-    description: "Find out what a Dog is \u201Ccapable of\u201D."
+    description: "What are a Dog\u2019s capabilities?"
     type: 0
     focusedLabel: 'capable of '
     key: 0
@@ -8338,7 +8338,7 @@ MonoBehaviour:
     TaskTime: 0
     LoggedActions: []
   - title: 4
-    description: "Add the \u201Cis a\u201D relationship for \u201CDog\u201D."
+    description: "Add the \u201Cis a\u201D relationship for the \u201CDog\u201D token."
     type: 0
     focusedLabel: 'is a '
     key: 0
@@ -8383,7 +8383,7 @@ MonoBehaviour:
     TaskTime: 0
     LoggedActions: []
   - title: 9
-    description: "Find out how \u201CCat\u201D is different from a \u201CDog\u201D. "
+    description: "Find out how \u201CCat\u201D is different from a \u201CDog\u201D."
     type: 5
     focusedLabel: 
     key: 32
