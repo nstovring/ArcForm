@@ -1,0 +1,6 @@
+Task : 1 : Started , 0 , 0 , 0 , 1 , 0
+Searched for +Cult , 4.081608 , 4.098628 , 4.081608 , 1 , 1
+Task : 1 : Completed , 4.175348 , 4.115294 , 0.09374049 , 1 , 2
+Selected Token : Cult , 8.603722 , 0 , 4.428378 , 1 , 0
+Task : 2 : Started , 8.722199 , 0 , 0 , 2 , 1
+Toggled Menu Item : is related to  : True , 10.98444 , 2.278911 , 2.262235 , 2 , 2

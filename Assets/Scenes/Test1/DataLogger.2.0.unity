@@ -2835,7 +2835,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -245.81183, y: 0.00005707338}
+  m_AnchoredPosition: {x: -241.94073, y: 0.00005707338}
   m_SizeDelta: {x: 243.34, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &691375127
@@ -7998,7 +7998,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1679088265}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.77750695
+  m_Size: 0.6732877
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -8266,82 +8266,84 @@ MonoBehaviour:
     LoggedActions: []
   MyTasks:
   - title: 1
-    description: "Search for \u201CDog\u201D and select \u201CDog\u201D."
+    description: "Create a \u201CCult\u201D token."
     type: 0
-    focusedLabel: Dog
+    focusedLabel: Cult
     key: 0
     isCompleted: 0
     taskNum: 0
     TaskTime: 0
     LoggedActions: []
   - title: 2
-    description: "Find out what a Dog is \u201Ccapable of\u201D."
+    description: "What is a \u201CCult\u201D related to?"
     type: 0
-    focusedLabel: 'capable of '
+    focusedLabel: is related to
     key: 0
     isCompleted: 0
     taskNum: 0
     TaskTime: 0
     LoggedActions: []
   - title: 3
-    description: "Edit your graph so it only has \u201Crun\u201D as a capability."
+    description: "Edit your graph so it only has \u201CLoyal\u201D as a relationship."
     type: 1
-    focusedLabel: run
+    focusedLabel: loyal
     key: 0
     isCompleted: 0
     taskNum: 0
     TaskTime: 0
     LoggedActions: []
   - title: 4
-    description: "Add the \u201Cis a\u201D relationship for \u201CDog\u201D."
+    description: "Add the \u201Csimilar to\u201D relationship for the \u201CLoyal\u201D
+      token."
     type: 0
-    focusedLabel: 'is a '
+    focusedLabel: similar to
     key: 0
     isCompleted: 0
     taskNum: 0
     TaskTime: 0
     LoggedActions: []
   - title: 5
-    description: "Select \u201Cpet\u201D."
+    description: "Select \u201CDoglike\u201D."
     type: 4
-    focusedLabel: pet
+    focusedLabel: doglike
     key: 0
     isCompleted: 0
     taskNum: 0
     TaskTime: 0
     LoggedActions: []
   - title: 6
-    description: "Add the \u201Crelated to\u201D relationship and select \u201CAnimal\u201D."
+    description: "Add the \u201Cis related to\u201D relationship and select \u201CDog\u201D. "
     type: 4
-    focusedLabel: animal
+    focusedLabel: dog
     key: 0
     isCompleted: 0
     taskNum: 0
     TaskTime: 0
     LoggedActions: []
   - title: 7
-    description: "Find out what an animal \u201Cdesires\u201D."
+    description: "Find out what a Dog \u201Cdesires\u201D. "
     type: 0
-    focusedLabel: 'desires '
+    focusedLabel: desires
     key: 0
     isCompleted: 0
     taskNum: 0
     TaskTime: 0
     LoggedActions: []
   - title: 8
-    description: "Remove everything but \u201CDog\u201D."
+    description: "Remove everything but \u201CCult\u201D. "
     type: 3
-    focusedLabel: Dog
+    focusedLabel: Cult
     key: 0
     isCompleted: 0
     taskNum: 0
     TaskTime: 0
     LoggedActions: []
   - title: 9
-    description: "Find out how \u201CCat\u201D is different from a \u201CDog\u201D. "
-    type: 5
-    focusedLabel: 
-    key: 32
+    description: "Create a network where \u201CCult\u201D leads to \u201CChurch\u201D
+      and select it"
+    type: 4
+    focusedLabel: church
+    key: 0
     isCompleted: 0
     taskNum: 0
     TaskTime: 0
