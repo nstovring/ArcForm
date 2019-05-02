@@ -1,0 +1,45 @@
+Task : 1 : Started , 0 , 0 , 0 , 1 , 0,0
+Searched for +Dog , 3.606259 , 3.622926 , 3.606259 , 1 , 1,0
+Task : 1 : Completed , 3.723116 , 3.639783 , 0.1168573 , 1 , 2,0
+Task : 2 : Started , 7.118681 , 0 , 0 , 2 , 0,0
+Toggled Menu Item : capable of  : True , 8.957298 , 1.856542 , 1.838618 , 2 , 1,0
+Task : 2 : Completed , 9.051136 , 1.873827 , 0.09383768 , 2 , 2,0
+Task : 3 : Started , 10.34304 , 0 , 0 , 3 , 0,0
+Toggled Sub Menu Item : bark : False , 11.50456 , 1.17819 , 1.161524 , 3 , 1,0
+Toggled Sub Menu Item : guard your house : False , 11.87428 , 1.547907 , 0.3697164 , 3 , 2,0
+Toggled Sub Menu Item : guide a blind person : False , 12.56483 , 2.238463 , 0.6905562 , 3 , 3,0
+Toggled Sub Menu Item : be a pet : False , 13.03608 , 2.709708 , 0.4712455 , 3 , 4,0
+Task : 3 : Completed , 13.06971 , 2.726658 , 0.03363669 , 3 , 5,0
+Task : 4 : Started , 13.97696 , 0 , 0 , 4 , 0,0
+Toggled Menu Item : is a  : True , 20.19267 , 6.232757 , 6.215739 , 4 , 1,0
+Task : 4 : Completed , 20.23125 , 6.249425 , 0.03857969 , 4 , 2,0
+Task : 5 : Started , 22.62448 , 0 , 0 , 5 , 0,0
+Task : 5 : Completed , 32.34488 , 9.720214 , 9.72043 , 5 , 1,0
+Task : 6 : Started , 33.67624 , 0 , 0 , 6 , 0,0
+Task : 6 : Completed , 33.67624 , 0 , 0 , 6 , 1,0
+Task : 6 : Started , 34.11605 , 0 , 0 , 7 , 2,0
+Task : 6 : Completed , 34.11605 , 0 , 0 , 7 , 3,0
+Task : 7 : Started , 34.60376 , 0 , 0 , 8 , 0,0
+Task : 7 : Completed , 35.09445 , 0.490498 , 0.4906927 , 8 , 1,0
+Task : 9 : Started , 35.60347 , 0 , 0 , 9 , 0,0
+Task : 9 : Completed , 36.17697 , 0.5735059 , 0.5735062 , 9 , 1,0
+Task : 1 : Started , 0 , 0 , 0 , 1 , 0,0
+Task : 1 : Started , 0 , 0 , 0 , 1 , 0,0
+Searched for +Dog , 10.81281 , 10.82971 , 10.81281 , 1 , 1,0
+Task : 1 : Completed , 10.92976 , 10.84666 , 0.1169525 , 1 , 2,0
+Task : 2 : Started , 12.02093 , 0 , 0 , 2 , 0,0
+Task : 2 : Completed , 20.21181 , 8.192457 , 8.190932 , 2 , 1,0
+Task : 3 : Started , 21.28568 , 0 , 0 , 3 , 0,0
+Task : 3 : Completed , 21.28568 , 0 , 0 , 3 , 1,0
+Task : 3 : Started , 22.60011 , 0 , 0 , 4 , 2,0
+Task : 3 : Completed , 22.60011 , 0 , 0 , 4 , 3,0
+Task : 4 : Started , 23.3085 , 0 , 0 , 5 , 0,0
+Task : 4 : Completed , 23.9818 , 0.672953 , 0.6732998 , 5 , 1,0
+Task : 6 : Started , 24.40268 , 0 , 0 , 6 , 0,0
+Task : 6 : Completed , 24.84049 , 0.4375049 , 0.4378217 , 6 , 1,0
+Task : 7 : Started , 25.17645 , 0 , 0 , 7 , 0,0
+Task : 7 : Completed , 25.66382 , 0.487575 , 0.4873786 , 7 , 1,0
+Task : 8 : Started , 26.02474 , 0 , 0 , 8 , 0,0
+Task : 8 : Completed , 26.0414 , 0.01666486 , 0.01666486 , 8 , 1,0
+Task : 9 : Started , 27.10169 , 0 , 0 , 9 , 0,0
+Task : 9 : Completed , 29.79387 , 2.692356 , 2.6922 , 9 , 1,0

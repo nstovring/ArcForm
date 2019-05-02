@@ -7,8 +7,8 @@ using UnityEngine.UI;
 
 public class DataLogger : MonoBehaviour
 {
-    public static DataLogger Instance;
     public string ParticipantNr;
+    public static DataLogger Instance;
 
     [Header("Timers")]
     public float TestTime;
@@ -21,6 +21,7 @@ public class DataLogger : MonoBehaviour
     public bool LogginActionTime;
     public bool LoggingInstructionTime;
     bool awaitParticipantNumber = true;
+    public bool isActive = true;
 
     [Header("Refs")]
     public Text testPanelTitle;
@@ -33,6 +34,9 @@ public class DataLogger : MonoBehaviour
     public int TaskCount = 0;
     public Task currentTask;
     public List<Task> MyTasks;
+
+    [Header("Scene")]
+    int sceneCount = 0;
 
 
     public string testPath = "E:/GitHub/ArcForm/Assets/Data/";
@@ -149,25 +153,44 @@ public class DataLogger : MonoBehaviour
         Instance = this;
         testPath = Application.dataPath;
         currentTask = MyTasks[TaskCount];
-        testPanelTitle.text = currentTask.title;
+        testPanelTitle.text = currentTask.title + " : TestNum " + ((int)SceneManager.GetActiveScene().buildIndex + 1);
         testPanelText.text = currentTask.description;
+    }
+
+    public void Reset()
+    {
+        
     }
 
     private void Update()
     {
+        //Complete Task
+        if (Input.GetKeyDown(KeyCode.F1))
+        {
+            if(currentTask != null)
+            currentTask.isCompleted = true;
+        }
+       
+        //Next Scene
+        if (Input.GetKeyDown(KeyCode.F2))
+        {
+            LoadScene();
+        }
+
+        //Restart Test
+        if (Input.GetKeyDown(KeyCode.F3))
+        {
+            SceneManager.LoadScene(0);
+        }
+
+        if (!isActive)
+            return;
         if(!awaitParticipantNumber)
             TestTime += Time.deltaTime;
         ActionTime += Time.deltaTime;
         ParticipantNr = testPanelInput.text;
 
-        if (Input.GetKeyDown(KeyCode.F1))
-        {
-            currentTask.isCompleted = true;
-        }
-        if (Input.GetKeyDown(KeyCode.F2))
-        {
-            SceneManager.LoadScene(0);
-        }
+       
     }
     public void WriteTaskToFile(Task task)
     {
@@ -245,24 +268,38 @@ public class DataLogger : MonoBehaviour
         {
             currentTask = MyTasks[TaskCount];
            
-            testPanelTitle.text = currentTask.title;
+            testPanelTitle.text = currentTask.title + " : Test " + ((int)SceneManager.GetActiveScene().buildIndex + 1); ;
             testPanelText.text = currentTask.description;
         }
         else
         {
-            testPanelTitle.text = "The End";
+            testPanelTitle.text = "The End of Test: " + ((int)SceneManager.GetActiveScene().buildIndex + 1); ;
             testPanelText.text = "Thank you for participating in this test";
             Debug.Log("End Test");
             yield return new WaitForSeconds(10.0f);
-            SceneManager.LoadScene(0);
 
+            LoadScene();
         }
 
         MovePanelToCenter();
     }
 
+    public void LoadScene()
+    {
+
+        if (SceneManager.GetActiveScene().buildIndex < SceneManager.sceneCount)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+        else
+        {
+            SceneManager.LoadScene(0);
+        }
+    }
+
     public void MovePanelToCorner()
     {
+        Mouselistener.Instance.isActive = true;
         backgroundImage.transform.gameObject.SetActive(false);
         testPanelbutton.transform.gameObject.SetActive(false);
         RectTransform rt = (RectTransform)testPanel.transform;
@@ -274,6 +311,7 @@ public class DataLogger : MonoBehaviour
 
     public void MovePanelToCenter()
     {
+        Mouselistener.Instance.isActive = false;
         backgroundImage.transform.gameObject.SetActive(true);
         testPanelbutton.transform.gameObject.SetActive(true);
         RectTransform rt = (RectTransform)testPanel.transform;
@@ -287,10 +325,13 @@ public class DataLogger : MonoBehaviour
 
     public void AppendFile(string path, string line)
     {
+        if (!isActive)
+            return;
+        int testIndex = SceneManager.GetActiveScene().buildIndex;
         using (System.IO.StreamWriter file =
-          new System.IO.StreamWriter(@"" + path + "Participant "+ParticipantNr+ ".txt", true))
+          new System.IO.StreamWriter(@"" + path + "Participant " + ParticipantNr + ".txt", true))
         {
-            file.WriteLine(line);
+            file.WriteLine(line + "," + testIndex);
         }
     }
 

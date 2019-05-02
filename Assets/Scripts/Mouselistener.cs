@@ -90,10 +90,13 @@ public class Mouselistener : MonoBehaviour
         Instance = this;
         
     }
-    
+
+    public bool isActive = true;
     // Update is called once per frame
     void Update()
     {
+        if (!isActive)
+            return;
         mousePositionInSpace = new Vector3(mousePositionInSpace.x,mousePositionInSpace.y,0);
         CheckOnClick(); //Checks if clicked on background, Arc or Token
 
