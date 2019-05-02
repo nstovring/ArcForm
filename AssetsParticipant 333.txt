@@ -43,3 +43,150 @@ Task : 8 : Started , 26.02474 , 0 , 0 , 8 , 0,0
 Task : 8 : Completed , 26.0414 , 0.01666486 , 0.01666486 , 8 , 1,0
 Task : 9 : Started , 27.10169 , 0 , 0 , 9 , 0,0
 Task : 9 : Completed , 29.79387 , 2.692356 , 2.6922 , 9 , 1,0
+Task : 1 : Started , 0 , 0 , 0 , 1 , 0,3
+Task : 1 : Started , 0 , 0 , 0 , 1 , 0,3
+Searched for +Arson , 16.87125 , 16.88792 , 16.87125 , 1 , 1,3
+Task : 1 : Completed , 16.98531 , 16.90495 , 0.1140628 , 1 , 2,3
+Task : 2 : Started , 17.85974 , 0 , 0 , 2 , 0,3
+Toggled Menu Item : is related to : True , 18.76865 , 0.9261709 , 0.9089247 , 2 , 1,3
+Task : 2 : Completed , 18.83724 , 0.9433952 , 0.06858735 , 2 , 2,3
+Task : 3 : Started , 20.2155 , 0 , 0 , 3 , 0,3
+Toggled Sub Menu Item : incendiarism : False , 21.91282 , 1.714327 , 1.697331 , 3 , 1,3
+Toggled Sub Menu Item : starting : False , 22.23494 , 2.036452 , 0.3221253 , 3 , 2,3
+Toggled Sub Menu Item : incendie : False , 22.53895 , 2.340466 , 0.3040133 , 3 , 3,3
+Task : 3 : Completed , 22.5855 , 2.357133 , 0.04655281 , 3 , 4,3
+Task : 4 : Started , 25.45861 , 0 , 0 , 4 , 0,3
+Task : 4 : Completed , 25.47528 , 0.01666644 , 0.01666644 , 4 , 1,3
+Task : 5 : Started , 26.29692 , 0 , 0 , 5 , 0,3
+Selected Token : Arson , 34.41952 , 8.139342 , 8.122677 , 5 , 1,3
+Selected Token : incendiary , 35.62198 , 9.341802 , 1.202464 , 5 , 2,3
+Toggled Menu Item : is related to : True , 38.75103 , 12.47089 , 3.129095 , 5 , 3,3
+Selected Token : incendiary , 56.0536 , 29.77359 , 17.30277 , 5 , 4,3
+Task : 1 : Started , 0 , 0 , 0 , 1 , 0,3
+Searched for +Arson , 5.971535 , 5.988201 , 5.971535 , 1 , 1,3
+Task : 1 : Completed , 6.087336 , 6.004868 , 0.1158007 , 1 , 2,3
+Task : 2 : Started , 40.4725 , 0 , 0 , 2 , 0,3
+Toggled Menu Item : is related to : True , 41.91014 , 1.454328 , 1.437661 , 2 , 1,3
+Task : 2 : Completed , 41.97097 , 1.470995 , 0.06082598 , 2 , 2,3
+Task : 3 : Started , 44.31641 , 0 , 0 , 3 , 0,3
+Toggled Sub Menu Item : incendiarism : False , 45.16085 , 0.8614358 , 0.8444493 , 3 , 1,3
+Toggled Sub Menu Item : incendie : False , 47.90545 , 3.606057 , 2.744623 , 3 , 2,3
+Toggled Sub Menu Item : incendie : True , 48.29548 , 3.996089 , 0.3900316 , 3 , 3,3
+Toggled Sub Menu Item : incendie : False , 48.78386 , 4.484462 , 0.4883725 , 3 , 4,3
+Toggled Sub Menu Item : starting : False , 49.18941 , 4.890017 , 0.4055551 , 3 , 5,3
+Task : 3 : Completed , 49.23465 , 4.906981 , 0.04524121 , 3 , 6,3
+Task : 4 : Started , 51.67333 , 0 , 0 , 4 , 0,3
+Task : 4 : Completed , 51.69033 , 0.01700264 , 0.01700264 , 4 , 1,3
+Task : 5 : Started , 59.98676 , 0 , 0 , 5 , 0,3
+Selected Token : incendiary , 60.79377 , 0.8240287 , 0.8070208 , 5 , 1,3
+Toggled Menu Item : is related to : True , 64.32804 , 4.358297 , 3.534268 , 5 , 2,3
+Selected Token : arsonist , 68.90338 , 8.933429 , 4.575134 , 5 , 3,3
+Task : 5 : Completed , 69.32867 , 9.333398 , 0.4252426 , 5 , 4,3
+Task : 6 : Started , 74.04178 , 0 , 0 , 6 , 0,3
+Selected Token : brandon , 93.00662 , 18.98058 , 18.96388 , 6 , 1,3
+Task : 1 : Started , 0 , 0 , 0 , 1 , 0,3
+Searched for +Arson , 4.124704 , 4.141585 , 4.124704 , 1 , 1,3
+Task : 1 : Completed , 4.241667 , 4.158547 , 0.1169627 , 1 , 2,3
+Task : 2 : Started , 5.726418 , 0 , 0 , 2 , 0,3
+Toggled Menu Item : is related to : True , 9.103414 , 3.393644 , 3.376994 , 2 , 1,3
+Task : 2 : Completed , 9.16315 , 3.410311 , 0.0597364 , 2 , 2,3
+Task : 3 : Started , 10.37708 , 0 , 0 , 3 , 0,3
+Toggled Sub Menu Item : incendiarism : False , 11.18247 , 0.8220538 , 0.8053877 , 3 , 1,3
+Toggled Sub Menu Item : starting : False , 11.55492 , 1.19451 , 0.3724557 , 3 , 2,3
+Toggled Sub Menu Item : incendie : False , 12.36277 , 2.002352 , 0.8078419 , 3 , 3,3
+Task : 3 : Completed , 12.39664 , 2.019324 , 0.03387333 , 3 , 4,3
+Task : 4 : Started , 13.12201 , 0 , 0 , 4 , 0,3
+Selected Token : incendiary , 14.03171 , 0.9267136 , 0.909694 , 4 , 1,3
+Toggled Menu Item : is related to : True , 18.16975 , 5.06478 , 4.138064 , 4 , 2,3
+Task : 4 : Completed , 18.24708 , 5.081585 , 0.07732965 , 4 , 3,3
+Task : 5 : Started , 20.68265 , 0 , 0 , 5 , 0,3
+Selected Token : arsonist , 26.57019 , 5.904251 , 5.887583 , 5 , 1,3
+Task : 5 : Completed , 26.9947 , 6.309829 , 0.4245181 , 5 , 2,3
+Task : 6 : Started , 29.41762 , 0 , 0 , 6 , 0,3
+Task : 1 : Started , 0 , 0 , 0 , 1 , 0,3
+Searched for +Arson , 4.194747 , 4.21163 , 4.194747 , 1 , 1,3
+Task : 1 : Completed , 4.311413 , 4.228297 , 0.1166664 , 1 , 2,3
+Task : 2 : Started , 4.815 , 0 , 0 , 2 , 0,3
+Toggled Menu Item : is related to : True , 5.974567 , 1.176594 , 1.159566 , 2 , 1,3
+Task : 2 : Completed , 6.036037 , 1.19326 , 0.06147032 , 2 , 2,3
+Task : 3 : Started , 7.392928 , 0 , 0 , 3 , 0,3
+Toggled Sub Menu Item : incendiarism : False , 8.282971 , 0.9067101 , 0.8900433 , 3 , 1,3
+Toggled Sub Menu Item : starting : False , 8.690836 , 1.314576 , 0.4078658 , 3 , 2,3
+Toggled Sub Menu Item : incendiary : False , 9.144651 , 1.768396 , 0.4538201 , 3 , 3,3
+Toggled Sub Menu Item : incendiary : True , 10.22023 , 2.843982 , 1.075586 , 3 , 4,3
+Toggled Sub Menu Item : incendie : False , 10.71802 , 3.341772 , 0.4977897 , 3 , 5,3
+Task : 3 : Completed , 10.75213 , 3.358712 , 0.03410918 , 3 , 6,3
+Task : 4 : Started , 12.32686 , 0 , 0 , 4 , 0,3
+Selected Token : incendiary , 14.04961 , 1.739712 , 1.722751 , 4 , 1,3
+Toggled Menu Item : is related to : True , 16.26258 , 3.952682 , 2.212972 , 4 , 2,3
+Task : 4 : Completed , 16.33686 , 3.969348 , 0.07428255 , 4 , 3,3
+Task : 5 : Started , 17.81741 , 0 , 0 , 5 , 0,3
+Selected Token : arsonist , 23.29756 , 5.497339 , 5.480181 , 5 , 1,3
+Task : 5 : Completed , 23.7734 , 5.952306 , 0.4758428 , 5 , 2,3
+Task : 6 : Started , 27.24166 , 0 , 0 , 6 , 0,3
+Toggled Menu Item : capable of : True , 28.34518 , 1.12049 , 1.103528 , 6 , 1,3
+Selected Token : burn a building , 33.47178 , 6.247142 , 5.126649 , 6 , 2,3
+Task : 6 : Completed , 33.86431 , 6.610109 , 0.3925299 , 6 , 3,3
+Task : 7 : Started , 37.76638 , 0 , 0 , 7 , 0,3
+Selected Token : arsonist , 43.75419 , 6.005266 , 5.987884 , 7 , 1,3
+Toggled Menu Item : is related to : True , 47.84067 , 10.09177 , 4.086501 , 7 , 2,3
+Task : 7 : Completed , 47.87951 , 10.10843 , 0.03884004 , 7 , 3,3
+Task : 8 : Started , 53.93032 , 0 , 0 , 8 , 0,3
+Selected Token : Arson , 61.4846 , 7.571037 , 7.55437 , 8 , 1,3
+Toggled Menu Item : is related to : False , 64.3107 , 10.39715 , 2.82612 , 8 , 2,3
+Task : 8 : Completed , 64.34403 , 10.41382 , 0.03333209 , 8 , 3,3
+Task : 9 : Started , 67.07191 , 0 , 0 , 9 , 0,3
+Toggled Menu Item : is related to : True , 78.01847 , 10.96248 , 10.94581 , 9 , 1,3
+Toggled Menu Item : is a : True , 82.71012 , 15.65379 , 4.691317 , 9 , 2,3
+Selected Token : criminal act , 86.18056 , 19.12391 , 3.470135 , 9 , 3,3
+Toggled Menu Item : is a : True , 89.60733 , 22.55041 , 3.426526 , 9 , 4,3
+Selected Token : illegal action , 96.38498 , 29.32755 , 6.777166 , 9 , 5,3
+Toggled Menu Item : is a : True , 98.64886 , 31.59137 , 2.26382 , 9 , 6,3
+Toggled Menu Item : is a : False , 101.1098 , 34.05213 , 2.46079 , 9 , 7,3
+Selected Token : dangerous activity , 102.176 , 35.11828 , 1.066146 , 9 , 8,3
+Toggled Menu Item : is a : True , 103.5022 , 36.44437 , 1.326097 , 9 , 9,3
+Toggled Menu Item : is a : False , 105.6284 , 38.57034 , 2.12599 , 9 , 10,3
+Selected Token : burning , 110.9576 , 43.8993 , 5.329009 , 9 , 11,3
+Toggled Menu Item : similar to : True , 112.9137 , 45.8553 , 1.956018 , 9 , 12,3
+Toggled Menu Item : similar to : False , 113.7919 , 46.73335 , 0.8780576 , 9 , 13,3
+Toggled Menu Item : synonym : True , 114.3984 , 47.33986 , 0.6065038 , 9 , 14,3
+Toggled Menu Item : synonym : False , 115.0065 , 47.94788 , 0.6080279 , 9 , 15,3
+Toggled Menu Item : capable of : True , 117.2997 , 50.24089 , 2.293027 , 9 , 16,3
+Toggled Menu Item : capable of : False , 118.1495 , 51.09064 , 0.8497562 , 9 , 17,3
+Toggled Menu Item : is a : True , 118.5853 , 51.52645 , 0.4358164 , 9 , 18,3
+Toggled Menu Item : is a : False , 120.0674 , 53.00837 , 1.481946 , 9 , 19,3
+Toggled Menu Item : is a : True , 120.6267 , 53.56762 , 0.5592422 , 9 , 20,3
+Toggled Menu Item : is a : False , 125.4662 , 58.40682 , 4.839253 , 9 , 21,3
+Toggled Menu Item : is related to : True , 126.3236 , 59.2641 , 0.8572944 , 9 , 22,3
+Toggled Menu Item : is related to : False , 127.113 , 60.05345 , 0.7893713 , 9 , 23,3
+Selected Token : Arson , 129.7533 , 62.69383 , 2.640411 , 9 , 24,3
+Toggled Menu Item : causes : True , 133.7752 , 66.71644 , 4.02239 , 9 , 25,3
+Toggled Menu Item : has property : True , 137.3202 , 70.26208 , 3.545425 , 9 , 26,3
+Selected Token : sad , 138.9615 , 71.90365 , 1.641468 , 9 , 27,3
+Toggled Menu Item : causes desire : True , 144.732 , 77.67522 , 5.771189 , 9 , 28,3
+Toggled Menu Item : causes desire : False , 145.9804 , 78.92383 , 1.248518 , 9 , 29,3
+Toggled Menu Item : similar to : True , 146.5357 , 79.47915 , 0.5553172 , 9 , 30,3
+Toggled Menu Item : similar to : False , 150.2933 , 83.2373 , 3.757951 , 9 , 31,3
+Toggled Menu Item : antonym : True , 151.5213 , 84.46558 , 1.228196 , 9 , 32,3
+Toggled Menu Item : antonym : False , 152.2215 , 85.16589 , 0.7002521 , 9 , 33,3
+Toggled Menu Item : synonym : True , 152.6615 , 85.60593 , 0.4399993 , 9 , 34,3
+Toggled Menu Item : synonym : False , 153.8736 , 86.81824 , 1.212233 , 9 , 35,3
+Toggled Menu Item : has subevent : True , 154.2266 , 87.17133 , 0.3530804 , 9 , 36,3
+Toggled Menu Item : has subevent : False , 156.8982 , 89.84345 , 2.671901 , 9 , 37,3
+Toggled Menu Item : causes : True , 157.6862 , 90.63168 , 0.788185 , 9 , 38,3
+Toggled Menu Item : causes : False , 158.4614 , 91.40708 , 0.7753276 , 9 , 39,3
+Toggled Menu Item : is a : True , 158.883 , 91.82872 , 0.4216025 , 9 , 40,3
+Toggled Menu Item : is related to : True , 159.9771 , 92.9231 , 1.094316 , 9 , 41,3
+Selected Token : sad , 181.2679 , 114.2171 , 21.29285 , 9 , 42,3
+Toggled Menu Item : is a : False , 188.027 , 120.9774 , 6.759875 , 9 , 43,3
+Toggled Menu Item : is a : True , 188.4987 , 121.4492 , 0.4717366 , 9 , 44,3
+Toggled Menu Item : is a : False , 189.414 , 122.3647 , 0.9154431 , 9 , 45,3
+Toggled Menu Item : is related to : False , 189.9186 , 122.8693 , 0.5046167 , 9 , 46,3
+Toggled Menu Item : is related to : True , 190.3213 , 123.2721 , 0.402802 , 9 , 47,3
+Toggled Menu Item : is related to : False , 192.6484 , 125.5996 , 2.327296 , 9 , 48,3
+Toggled Menu Item : synonym : True , 193.1532 , 126.1044 , 0.504823 , 9 , 49,3
+Toggled Menu Item : has subevent : True , 193.5174 , 126.4687 , 0.3642788 , 9 , 50,3
+Selected Token : crying , 202.1923 , 135.1439 , 8.675872 , 9 , 51,3
+Toggled Menu Item : part of : True , 206.1167 , 139.0683 , 3.924732 , 9 , 52,3
+Selected Token : life , 207.7996 , 140.7512 , 1.683018 , 9 , 53,3
+Task : 9 : Completed , 208.2647 , 141.1884 , 0.4651674 , 9 , 54,3

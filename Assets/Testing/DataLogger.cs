@@ -77,10 +77,22 @@ public class DataLogger : MonoBehaviour
             };
             return false;
         }
+
+        public bool twiceTask = false;
+
         public bool FindUnitoken()
         {
-            if(ArcMapManager.Instance.unitokens.Any(x => x.myLabel.text == focusedLabel))
+            if (ArcMapManager.Instance.unitokens.Any(x => x.myLabel.text == focusedLabel))
             {
+                if (!twiceTask)
+                {
+                    return true;
+                }
+                else
+                {
+                    Fragment y = ArcMapManager.Instance.unitokens.Find(j => j.myLabel.text == focusedLabel);
+                    y.myLabel.text = focusedLabel + " ";
+                }
                 return true;
             }
             return false;
@@ -153,7 +165,7 @@ public class DataLogger : MonoBehaviour
         Instance = this;
         testPath = Application.dataPath;
         currentTask = MyTasks[TaskCount];
-        testPanelTitle.text = currentTask.title + " : TestNum " + ((int)SceneManager.GetActiveScene().buildIndex + 1);
+        testPanelTitle.text = currentTask.title + " : TestNum " + ((int)SceneManager.GetActiveScene().buildIndex);
         testPanelText.text = currentTask.description;
     }
 
@@ -268,12 +280,12 @@ public class DataLogger : MonoBehaviour
         {
             currentTask = MyTasks[TaskCount];
            
-            testPanelTitle.text = currentTask.title + " : Test " + ((int)SceneManager.GetActiveScene().buildIndex + 1); ;
+            testPanelTitle.text = currentTask.title + " : Test " + ((int)SceneManager.GetActiveScene().buildIndex); ;
             testPanelText.text = currentTask.description;
         }
         else
         {
-            testPanelTitle.text = "The End of Test: " + ((int)SceneManager.GetActiveScene().buildIndex + 1); ;
+            testPanelTitle.text = "The End of Test: " + ((int)SceneManager.GetActiveScene().buildIndex); ;
             testPanelText.text = "Thank you for participating in this test";
             Debug.Log("End Test");
             yield return new WaitForSeconds(10.0f);
@@ -286,15 +298,16 @@ public class DataLogger : MonoBehaviour
 
     public void LoadScene()
     {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 
-        if (SceneManager.GetActiveScene().buildIndex < SceneManager.sceneCount)
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        }
-        else
-        {
-            SceneManager.LoadScene(0);
-        }
+        //if (SceneManager.GetActiveScene().buildIndex < SceneManager.sceneCount)
+        //{
+        //    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        //}
+        //else
+        //{
+        //    SceneManager.LoadScene(0);
+        //}
     }
 
     public void MovePanelToCorner()

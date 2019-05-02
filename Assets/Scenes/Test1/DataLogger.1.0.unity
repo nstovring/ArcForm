@@ -2836,7 +2836,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -248.00002, y: 0.00005707338}
+  m_AnchoredPosition: {x: -248, y: 0.00005707338}
   m_SizeDelta: {x: 243.34, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &691375127
@@ -8043,7 +8043,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1679088265}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.99998695
+  m_Size: 0.9997768
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -8292,6 +8292,7 @@ MonoBehaviour:
   LoggingTaskTime: 0
   LogginActionTime: 0
   LoggingInstructionTime: 0
+  isActive: 1
   testPanelTitle: {fileID: 1415543539}
   testPanelText: {fileID: 613528460}
   testPanelInput: {fileID: 1320717692}
@@ -8322,7 +8323,7 @@ MonoBehaviour:
   - title: 2
     description: "What are a Dog\u2019s capabilities?"
     type: 0
-    focusedLabel: 'capable of '
+    focusedLabel: capable of
     key: 0
     isCompleted: 0
     taskNum: 0
@@ -8340,7 +8341,7 @@ MonoBehaviour:
   - title: 4
     description: "Add the \u201Cis a\u201D relationship for the \u201CDog\u201D token."
     type: 0
-    focusedLabel: 'is a '
+    focusedLabel: is a
     key: 0
     isCompleted: 0
     taskNum: 0
@@ -8367,7 +8368,7 @@ MonoBehaviour:
   - title: 7
     description: "Find out what an animal \u201Cdesires\u201D."
     type: 0
-    focusedLabel: 'desires '
+    focusedLabel: desires
     key: 0
     isCompleted: 0
     taskNum: 0

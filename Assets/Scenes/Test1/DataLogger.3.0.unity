@@ -1364,6 +1364,7 @@ MonoBehaviour:
   rightClickInstantiate: 0
   tokenSpawn: 0
   arcSpawn: 0
+  isActive: 1
 --- !u!4 &383110653
 Transform:
   m_ObjectHideFlags: 0
@@ -2835,7 +2836,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -247.97942, y: 0.00005707338}
+  m_AnchoredPosition: {x: -248.00002, y: 0.00005707338}
   m_SizeDelta: {x: 243.34, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &691375127
@@ -7998,7 +7999,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1679088265}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.98239505
+  m_Size: 0.99874264
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -8247,6 +8248,7 @@ MonoBehaviour:
   LoggingTaskTime: 0
   LogginActionTime: 0
   LoggingInstructionTime: 0
+  isActive: 1
   testPanelTitle: {fileID: 1415543539}
   testPanelText: {fileID: 613528460}
   testPanelInput: {fileID: 1320717692}
@@ -8264,6 +8266,7 @@ MonoBehaviour:
     taskNum: 0
     TaskTime: 0
     LoggedActions: []
+    twiceTask: 0
   MyTasks:
   - title: 1
     description: "Create a \u201CArson\u201D token."
@@ -8274,6 +8277,7 @@ MonoBehaviour:
     taskNum: 0
     TaskTime: 0
     LoggedActions: []
+    twiceTask: 0
   - title: 2
     description: "What is a \u201CArson\u201D related to?"
     type: 0
@@ -8283,6 +8287,7 @@ MonoBehaviour:
     taskNum: 0
     TaskTime: 0
     LoggedActions: []
+    twiceTask: 1
   - title: 3
     description: "Edit your graph so it only has \u201Cincendiary\u201D as a relationship."
     type: 1
@@ -8292,6 +8297,7 @@ MonoBehaviour:
     taskNum: 0
     TaskTime: 0
     LoggedActions: []
+    twiceTask: 0
   - title: 4
     description: "Add the \u201Cis related to\u201D relationship for the \u201Cincendiary\u201D
       token."
@@ -8302,6 +8308,7 @@ MonoBehaviour:
     taskNum: 0
     TaskTime: 0
     LoggedActions: []
+    twiceTask: 0
   - title: 5
     description: "Select \u201Carsonist\u201D."
     type: 4
@@ -8311,6 +8318,7 @@ MonoBehaviour:
     taskNum: 0
     TaskTime: 0
     LoggedActions: []
+    twiceTask: 0
   - title: 6
     description: "Add the \u201Ccapable of\u201D relationship and select \u201Cburn
       a building\u201D."
@@ -8321,6 +8329,7 @@ MonoBehaviour:
     taskNum: 0
     TaskTime: 0
     LoggedActions: []
+    twiceTask: 0
   - title: 7
     description: "Select \u201Carsonist\u201D, add the \u201Cis related to\u201D relation
       and select \u201Cact\u201D."
@@ -8331,6 +8340,7 @@ MonoBehaviour:
     taskNum: 0
     TaskTime: 0
     LoggedActions: []
+    twiceTask: 0
   - title: 8
     description: Remove everything but Arson.
     type: 3
@@ -8340,6 +8350,7 @@ MonoBehaviour:
     taskNum: 0
     TaskTime: 0
     LoggedActions: []
+    twiceTask: 0
   - title: 9
     description: "Create a network where \u201CArson\u201D leads to \u201Ccrying is
       part of life\u201D and select \"life\""
@@ -8350,6 +8361,7 @@ MonoBehaviour:
     taskNum: 0
     TaskTime: 0
     LoggedActions: []
+    twiceTask: 0
   testPath: E:/GitHub/ArcForm/Assets/Data
   spaceInput: 0
 --- !u!4 &2075097921
