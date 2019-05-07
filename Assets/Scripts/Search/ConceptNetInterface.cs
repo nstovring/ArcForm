@@ -28,8 +28,9 @@ public class ConceptNetInterface : MonoBehaviour
      }
 
     public static void GetConceptRelations(string subject, SearchEngine asker, int requestLimit){
+        //requestLimit = SearchEngine.Instance.searchLimit
         string request = ConceptNetRequestBuilder(subject, requestLimit);
-        //Debug.Log("Concept Net Request : " +request);
+        Debug.Log("Concept Net Request : " +request +" Limit :" + requestLimit);
         asker.StartCoroutine(ProcessRequest(request, asker));
      }
 
@@ -43,7 +44,7 @@ public class ConceptNetInterface : MonoBehaviour
         }
         else {
             Concept concept = DeSerializeJSON(myWr.downloadHandler.text);
-            asker.ReceiveConceptAndFillToggle(concept);
+            asker.ReceiveConcept(concept);
         }  
      }
 

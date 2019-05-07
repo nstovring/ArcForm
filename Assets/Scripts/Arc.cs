@@ -76,8 +76,8 @@ public class Arc : Fragment
         
 //        source.SetTarget(target);
 //        target.AddSource(source);
-        source.myArcs.Add(this);
-        target.myArcs.Add(this);
+        //source.myArcs.Add(this);
+        //target.myArcs.Add(this);
 
         this.source = source;
         this.target = target;

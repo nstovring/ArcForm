@@ -53,16 +53,18 @@ MonoBehaviour:
   myType: 0
   TransientPosition: {x: 0, y: 0, z: 0}
   myLabel: {fileID: 4686617690231274628}
+  isSelected: 0
+  hoverIcon: {fileID: 2534857143355839381}
+  isHoveredOver: 0
   lineMaterial: {fileID: 2100000, guid: 003059e69d782064a827ed6f3613e778, type: 2}
   arrowSprite: {fileID: 2721634404002904048}
   myEdgeCollider: {fileID: 4895790722118960293}
   newDirection: {x: 0, y: 1, z: 0}
+  center: {x: 0, y: 0, z: 0}
   source: {fileID: 0}
   target: {fileID: 0}
   isLabelled: 0
   myPadding: 0
-  hoverIcon: {fileID: 2534857143355839381}
-  isHoveredOver: 0
 --- !u!68 &4895790722118960293
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -333,7 +335,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 8ce38d75cb50a0f41ba36365f43e13f1, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -491,7 +493,6 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_textAlignment: 258
-  m_isAlignmentEnumConverted: 1
   m_characterSpacing: 0
   m_wordSpacing: 0
   m_lineSpacing: 0
@@ -518,6 +519,7 @@ MonoBehaviour:
   m_verticalMapping: 0
   m_uvLineOffset: 0
   m_geometrySortingOrder: 0
+  m_VertexBufferAutoSizeReduction: 1
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
@@ -532,12 +534,9 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 0
-  m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 7102942953395689518}
   m_subTextObjects:

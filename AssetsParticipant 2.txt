@@ -1,0 +1,48 @@
+Task : 1 : Started , 0 , 0 , 0 , 1 , 0
+Searched for +Shark , 141.3944 , 141.411 , 141.3944 , 1 , 1
+Toggled Menu Item : at location  : True , 146.8218 , 146.8385 , 5.427862 , 1 , 2
+Toggled Sub Menu Item : any ocean : False , 206.7327 , 206.7493 , 59.91882 , 1 , 3
+Toggled Sub Menu Item : the pacific ocean : False , 207.3903 , 207.407 , 0.6577016 , 1 , 4
+Toggled Sub Menu Item : the Gulf of Mexico : False , 207.7441 , 207.7607 , 0.3537736 , 1 , 5
+Toggled Sub Menu Item : Sea World : False , 208.338 , 208.3547 , 0.5939639 , 1 , 6
+Toggled Sub Menu Item : a reef : False , 208.8754 , 208.892 , 0.5374254 , 1 , 7
+Toggled Sub Menu Item : Sea World : True , 209.3941 , 209.4107 , 0.5187955 , 1 , 8
+Toggled Sub Menu Item : a zoo : False , 209.9323 , 209.9489 , 0.5382864 , 1 , 9
+Toggled Sub Menu Item : the movie "Jaws" : False , 210.2531 , 210.2697 , 0.3207596 , 1 , 10
+Toggled Sub Menu Item : the movie "Jaws" : True , 210.5556 , 210.5722 , 0.3025641 , 1 , 11
+Toggled Sub Menu Item : the movie "Jaws" : False , 213.4939 , 213.5106 , 2.938761 , 1 , 12
+Toggled Sub Menu Item : a pool hall : False , 213.9783 , 213.995 , 0.4844957 , 1 , 13
+Toggled Sub Menu Item : a tank : False , 214.2657 , 214.2823 , 0.2873788 , 1 , 14
+Toggled Sub Menu Item : mediterranean sea : False , 214.6038 , 214.6205 , 0.3381979 , 1 , 15
+Toggled Sub Menu Item : salt water : False , 214.9572 , 214.9739 , 0.3534034 , 1 , 16
+Toggled Sub Menu Item : a movie : False , 215.3275 , 215.3442 , 0.3703433 , 1 , 17
+Toggled Sub Menu Item : a separate tank : False , 216.0334 , 216.0501 , 0.7059563 , 1 , 18
+Toggled Sub Menu Item : an ocean of the world : False , 216.4543 , 216.4709 , 0.4208585 , 1 , 19
+Selected Token : Sea World , 219.2454 , 219.2621 , 2.791546 , 1 , 20
+Selected Token : Sea World , 220.8112 , 220.8279 , 1.56606 , 1 , 21
+Selected Token : Shark , 222.6308 , 222.6474 , 1.819746 , 1 , 22
+Toggled Menu Item : at location  : False , 224.0935 , 224.1102 , 1.462921 , 1 , 23
+Toggled Menu Item : at location  : True , 224.9527 , 224.9694 , 0.8592869 , 1 , 24
+Toggled Sub Menu Item : a movie : True , 229.1009 , 229.1175 , 4.148704 , 1 , 25
+Selected Token : a movie , 230.9816 , 230.9983 , 1.881079 , 1 , 26
+Selected Token : Shark , 236.2738 , 236.2905 , 5.29269 , 1 , 27
+Toggled Menu Item : is a  : True , 238.1573 , 238.174 , 1.883711 , 1 , 28
+Toggled Sub Menu Item : expert : False , 239.8269 , 239.8436 , 1.669785 , 1 , 29
+Toggled Sub Menu Item : expert : True , 240.3499 , 240.3665 , 0.5229775 , 1 , 30
+Selected Token : expert , 242.4679 , 242.4845 , 2.11836 , 1 , 31
+Toggled Menu Item : capable of  : True , 245.9424 , 245.959 , 3.474962 , 1 , 32
+Toggled Menu Item : capable of  : False , 388.5003 , 388.517 , 142.5788 , 1 , 33
+Toggled Menu Item : External URL  : True , 390.2186 , 390.2353 , 1.718483 , 1 , 34
+Toggled Menu Item : External URL  : False , 392.0073 , 392.0239 , 1.788886 , 1 , 35
+Toggled Menu Item : is a  : True , 393.923 , 393.9397 , 1.915919 , 1 , 36
+Toggled Menu Item : is a  : False , 394.78 , 394.7967 , 0.8570951 , 1 , 37
+Toggled Menu Item : is a  : True , 398.81 , 398.8266 , 4.030305 , 1 , 38
+Toggled Menu Item : is a  : False , 402.2705 , 402.2871 , 3.460808 , 1 , 39
+Toggled Menu Item : antonym  : True , 404.0217 , 404.0383 , 1.751351 , 1 , 40
+Toggled Menu Item : antonym  : False , 405.7547 , 405.7713 , 1.733099 , 1 , 41
+Toggled Menu Item : synonym  : True , 406.3109 , 406.3275 , 0.5562527 , 1 , 42
+Toggled Menu Item : synonym  : False , 408.3814 , 408.398 , 2.070818 , 1 , 43
+Toggled Menu Item : at location  : True , 410.2666 , 410.2833 , 1.885434 , 1 , 44
+Toggled Menu Item : at location  : False , 411.3776 , 411.3942 , 1.111118 , 1 , 45
+Toggled Menu Item : at location  : True , 412.5685 , 412.5852 , 1.191101 , 1 , 46
+Selected Token : a field , 416.5504 , 416.567 , 3.982445 , 1 , 47

@@ -21,8 +21,11 @@ public class Unitoken : Fragment
     public SpriteRenderer spriteRenderer;
     public unitoken myUnitokenStruct;
 
+    public Dictionary<string, Property> myPropertiesFromConceptNet;
 
-    public bool isSoft = true;
+    public Dictionary<string, ArcCollection> myArcCollections;
+
+    public bool isInactive = true;
 
 
     public MapState myMapState = MapState.Preview;
@@ -39,8 +42,9 @@ public class Unitoken : Fragment
     void Start()
     {
         mCamera = Camera.main;
-
-        if(myArcs == null){
+        myArcCollections = new Dictionary<string, ArcCollection>();
+        //myPropertiesFromConceptNet = new Dictionary<string, Property>();
+        if (myArcs == null){
             myArcs = new List<Arc>();
         }
     }
@@ -118,17 +122,40 @@ public class Unitoken : Fragment
 
     void Update(){
       
-       if(isSoft == false){//collider active and hoverOver is active.
-        transform.GetComponent<CapsuleCollider2D>().enabled = true;
+       if(isInactive == false){//collider active and hoverOver is active.
+        transform.GetComponent<CircleCollider2D>().enabled = true;
        }
        else{//collider disabled and dragging is occuring
         transform.GetComponent<CapsuleCollider2D>().enabled = false;
        }
     }
 
+    public bool SetActive(bool state)
+    {
+        return isInactive = state;
+    }
+
+    public void UpdateUI()
+    {
+
+    }
+
     void OnMouseDrag()
     {
         //FollowMouse();
+    }
+
+
+    internal void StoreProperties(Dictionary<string, Property> properties)
+    {
+        myPropertiesFromConceptNet = properties;
+    }
+
+    internal Property GetProperty(string key)
+    {
+        Property property;
+        myPropertiesFromConceptNet.TryGetValue(key, out property);
+        return property;
     }
 
     void OnMouseOver()

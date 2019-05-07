@@ -33,6 +33,7 @@ public class Mouselistener : MonoBehaviour
     public bool draggingFromBackground = false;
     public bool draggingFromToken = false;
     public bool draggingFromArc = false;
+    public bool rightClickInstantiate = false;
     [Header("Delay floats")]
     float clicked = 0;
     float clicktime = 0;
@@ -90,10 +91,13 @@ public class Mouselistener : MonoBehaviour
         Instance = this;
         
     }
-    
+
+    public bool isActive = true;
     // Update is called once per frame
     void Update()
     {
+        if (!isActive)
+            return;
         mousePositionInSpace = new Vector3(mousePositionInSpace.x,mousePositionInSpace.y,0);
         CheckOnClick(); //Checks if clicked on background, Arc or Token
 
@@ -119,7 +123,7 @@ public class Mouselistener : MonoBehaviour
             }
         }
 
-        if(Input.GetMouseButtonUp(1)){
+        if(Input.GetMouseButtonUp(1) && rightClickInstantiate   ){
         
                 ArcMapManager.Instance.selectedUnitoken = TokenFactory.Instance.AddNewToken(mousePositionInSpace);
                 ArcMapManager.Instance.SelectUnitoken(ArcMapManager.Instance.selectedUnitoken);
@@ -140,6 +144,8 @@ public class Mouselistener : MonoBehaviour
             }
             if(hoveredOverToken != null && hoveredOverArc == null){//clicked on Token
                 Debug.Log("Left Clicked on Token");
+
+                DataLogger.Instance.LogSelection(hoveredOverToken);
 
                 ArcMapManager.Instance.SetFocusedToken(hoveredOverToken);
                 TestQuery();
@@ -169,7 +175,19 @@ public class Mouselistener : MonoBehaviour
     }
 
     public void TestQuery(){
-        SearchEngine.Instance.GetConceptRelations(hoveredOverToken);
+        ArcToolUIManager.ArcUIUtility.ClearMenu();
+        ArcMapManager.Instance.autoMoveInterrupt = false;
+        //ArcToolUIManager.ArcUIUtility.CreateSubMenu();
+        if (hoveredOverToken.myPropertiesFromConceptNet != null)
+        {
+            ArcToolUIManager.ArcUIUtility.UpdatePropertyMenuFromProperties(hoveredOverToken.myPropertiesFromConceptNet);
+        }
+        else
+        {
+            SearchEngine.Instance.GetConceptRelations(hoveredOverToken);
+        }
+
+        SubItemController.Instance.arcSubItemMenu.SetActive(false);
     }
 
     public void DragFromBackground(){
@@ -182,7 +200,7 @@ public class Mouselistener : MonoBehaviour
                     startPointUnitoken = TokenFactory.Instance.AddNewToken(unitokenStartPosVector);
                     selectedArc = ArcFactory.Instance.AddNewArc(startPointUnitoken, "Test", endPointUnitoken);
                     
-                    startPointUnitoken.isSoft = false;
+                    startPointUnitoken.isInactive = false;
                     tokenSpawn = false;
                 }
                 
@@ -258,18 +276,18 @@ public class Mouselistener : MonoBehaviour
          if(hoveredOverArc != null){
             UnitokenDelete(selectedArc.target);
             selectedArc.target = hoveredOverArc;
-            endPointUnitoken.isSoft = false;
+            endPointUnitoken.isInactive = false;
             endPointUnitoken = null;
             return;
         }
         if(hoveredOverToken != null){
             UnitokenDelete(selectedArc.target);
             selectedArc.target = hoveredOverToken;
-            endPointUnitoken.isSoft = false;
+            endPointUnitoken.isInactive = false;
             endPointUnitoken = null;
         }
         if(hoveredOverToken == null){
-            endPointUnitoken.isSoft = false;
+            endPointUnitoken.isInactive = false;
             endPointUnitoken = null;
         }
     }
@@ -284,31 +302,8 @@ public class Mouselistener : MonoBehaviour
 
     public void UnitokenDelete(Fragment deleteU){// Deleting the soft Token instantiated.
         ArcMapManager.Instance.DestroyToken((Unitoken)deleteU);
-        //Destroy(deleteU.gameObject);
-        //deleteU = null;
-        //Debug.Log("Destroyed an Unitoken");
         }
 
-     void OnGUI(){
-        //Vector3 point = new Vector3();
-        Event   currentEvent = Event.current;
-        Vector2 mousePos = new Vector2();
-
-        // Get the mouse position from Event.
-        // Note that the y position from Event is inverted.
-        mousePos.x = currentEvent.mousePosition.x;
-        mousePos.y = mCamera.pixelHeight - currentEvent.mousePosition.y;
-
-        mousePositionInSpace = mCamera.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, mCamera.nearClipPlane + 5));
-        //point = mCamera.ScreenToWorldPoint(Input.mousePosition);  
-
-        GUIStyle gsTest = new GUIStyle();
-        gsTest.normal.textColor = Color.black;
-        GUILayout.BeginArea(new Rect(20, 20, 250, 120),gsTest);
-        GUILayout.Label("Screen pixels: " + mCamera.pixelWidth + ":" + mCamera.pixelHeight, gsTest);
-        GUILayout.Label("Mouse position: " + mousePos, gsTest);
-        GUILayout.Label("World position: " + mousePositionInSpace.ToString("F3"), gsTest);
-        GUILayout.EndArea();
-    }
+     
 
 }

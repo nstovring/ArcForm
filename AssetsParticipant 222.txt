@@ -1,0 +1,20 @@
+Task : 1 : Started , 0 , 0 , 0 , 1 , 0
+Searched for +Dog , 7.904027 , 7.920694 , 7.904027 , 1 , 1
+Task : 1 : Completed , 8.021047 , 7.937713 , 0.1170192 , 1 , 2
+Task : 2 : Started , 14.11086 , 0 , 0 , 2 , 0
+Task : 2 : Completed , 24.02536 , 9.914531 , 9.914531 , 2 , 1
+Task : 3 : Started , 25.26589 , 0 , 0 , 3 , 0
+Task : 3 : Completed , 25.26589 , 0 , 0 , 3 , 1
+Task : 3 : Started , 25.80559 , 0 , 0 , 4 , 2
+Task : 3 : Completed , 25.80559 , 0 , 0 , 4 , 3
+Task : 4 : Started , 26.39348 , 0 , 0 , 5 , 0
+Task : 4 : Completed , 26.8327 , 0.4392298 , 0.439229 , 5 , 1
+Task : 6 : Started , 27.28292 , 0 , 0 , 6 , 0
+Task : 6 : Completed , 27.58555 , 0.3023292 , 0.3026282 , 6 , 1
+Task : 7 : Started , 28.00804 , 0 , 0 , 7 , 0
+Task : 7 : Completed , 28.54632 , 0.5379579 , 0.538285 , 7 , 1
+Task : 8 : Started , 28.98355 , 0 , 0 , 8 , 0
+Task : 8 : Completed , 29.00022 , 0.01666644 , 0.01666644 , 8 , 1
+Task : 9 : Started , 30.09377 , 0 , 0 , 9 , 0
+Task : 9 : Completed , 30.8667 , 0.7729223 , 0.7729243 , 9 , 1
+Task : 1 : Started , 0 , 0 , 0 , 1 , 0,1

@@ -1,0 +1,51 @@
+Toggled Menu Item : capable of  : True , 0 , 22,80245 ,  , 0
+Selected Token : bark , 0 , 49,53037 ,  , 0
+Searched for +Dog , 5,92659 , 4,888273 , 5,92659 , 0
+Toggled Menu Item : capable of  : True , 14,40326 , 4,25355 , 8,476661
+Toggled Sub Menu Item : bark : False , 23,73324 , 3,210789 , 9,329994
+Toggled Sub Menu Item : guard your house : False , 24,52753 , 4,005082 , 0,7942924
+Toggled Sub Menu Item : be a pet : False , 25,02116 , 4,498708 , 0,4936263
+Toggled Sub Menu Item : guide a blind person : False , 25,80423 , 5,281775 , 0,7830684
+Searched for +Dog , 5,942394 , 5,293046 , 5,276075 , 0
+Toggled Menu Item : capable of  : True , 13,98335 , 4,05545 , 4,038784
+Selected Token : guide a blind person , 47,23153 , 4,043843 , 4,027178
+Selected Token : Dog , 49,92817 , 6,740519 , 2,696674
+Toggled Menu Item : capable of  : False , 51,7693 , 8,581662 , 1,841142
+Toggled Menu Item : capable of  : True , 52,25683 , 9,069203 , 0,48754
+Toggled Sub Menu Item : run : False , 54,66995 , 11,48237 , 2,413161
+Toggled Sub Menu Item : run : True , 55,34395 , 12,15638 , 0,6740057
+Toggled Sub Menu Item : be a pet : False , 56,05228 , 12,86471 , 0,7083319
+Toggled Sub Menu Item : guard your house : False , 56,47287 , 13,28528 , 0,420572
+Toggled Sub Menu Item : bark : False , 56,85986 , 13,67228 , 0,3870056
+Toggled Sub Menu Item : guide a blind person : False , 57,53468 , 14,34713 , 0,6748396
+Searched for +Dog , 3,370549 , 3,064031 , 3,047364 , 0
+Toggled Menu Item : capable of  : True , 6,720226 , 2,078449 , 2,061457 , 1
+Toggled Sub Menu Item : be a pet : False , 10,28034 , 2,237333 , 2,220667 , 2
+Toggled Sub Menu Item : guard your house : False , 10,90885 , 2,865842 , 0,6285101 , 2
+Toggled Sub Menu Item : bark : False , 11,31438 , 3,271371 , 0,4055288 , 2
+Toggled Sub Menu Item : guide a blind person : False , 12,1068 , 4,063787 , 0,7924172 , 2
+Searched for +Dog , 3,328806 , 2,976549 , 2,959581 , 0
+Toggled Menu Item : capable of  : True , 6,448267 , 2,421623 , 2,404296 , 1
+Selected Token : Dog , 7,131196 , 0 , 0,6829283 , 0
+Toggled Menu Item : capable of  : False , 10,14149 , 2,9593 , 2,942297 , 2
+Toggled Menu Item : capable of  : True , 15,2837 , 2,619717 , 2,602701 , 3
+Searched for +Dog , 3,05755 , 2,902753 , 2,88564 , 0
+Toggled Menu Item : capable of  : True , 5,111648 , 1,706282 , 1,606282 , 1
+Toggled Sub Menu Item : bark : False , 49,72937 , 43,73362 , 43,71661 , 2
+Selected Token : Dog , 51,406 , 45,41024 , 1,676659 , 2
+Selected Token : Dog , 54,14927 , 48,15351 , 2,743311 , 2
+Toggled Menu Item : capable of  : False , 55,73016 , 49,7344 , 1,580885 , 2
+Searched for +Dog , 4,785172 , 3,886859 , 3,869875 , 0
+Toggled Menu Item : capable of  : True , 9,878152 , 4,135283 , 4,118617 , 1
+Toggled Sub Menu Item : bark : False , 12,79938 , 1,968827 , 1,952161 , 2
+Toggled Sub Menu Item : guard your house : False , 21,93336 , 11,10281 , 9,133983 , 2
+Toggled Sub Menu Item : be a pet : False , 23,74454 , 12,91399 , 1,811179 , 2
+Toggled Sub Menu Item : guide a blind person : False , 25,43807 , 14,60752 , 1,693532 , 2
+Searched for +Dog , 3,035802 , 2,932256 , 2,895803 , 0
+Toggled Menu Item : capable of  : True , 5,212341 , 1,475998 , 1,459331 , 1
+Toggled Sub Menu Item : bark : False , 8,922216 , 2,456248 , 2,439581 , 2
+Toggled Sub Menu Item : guard your house : False , 10,37578 , 3,90981 , 1,453562 , 2
+Toggled Sub Menu Item : be a pet : False , 12,7587 , 6,29273 , 2,38292 , 2
+Toggled Sub Menu Item : guide a blind person : False , 13,8386 , 7,372628 , 1,079898 , 2
+Searched for +Dog , 3,496165 , 3,069962 , 3,053002 , 0
+Toggled Menu Item : capable of  : True , 5,946932 , 1,635666 , 1,618998 , 1

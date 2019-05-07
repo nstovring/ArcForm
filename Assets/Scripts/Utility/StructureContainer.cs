@@ -63,4 +63,27 @@ namespace StructureContainer
     }
 
 
+    //Structs
+    public struct Relation
+    {
+        public string Label;
+        public bool isActive;
+        public bool isEdited;
+        public Unitoken token;
+
+        public void SetActive(bool active, bool locked)
+        {
+            isActive = active;
+            isEdited = locked;
+        }
+    }
+
+    public struct Property
+    {
+        public string Key;
+        public bool isActive;
+        public List<Relation> Relations;
+    }
+
+
 }

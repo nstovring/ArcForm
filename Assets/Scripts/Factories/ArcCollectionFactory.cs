@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using ArcToolConstants;
+using StructureContainer;
+using System.Linq;
+
 public class ArcCollectionFactory : MonoBehaviour
 {
     public Transform collectionPrefab;
@@ -13,27 +16,33 @@ public class ArcCollectionFactory : MonoBehaviour
         Instance = this;
     }
 
-    public ArcCollection AddNewCollection(Unitoken source, string topic, List<ArcCollectionSubItem> subItems)
+    public ArcCollection AddNewCollection(Unitoken source, string topic, List<ArcMenuSubItem> subItems)
     {
         //Create Collection token
         ArcCollection ac = Instantiate(collectionPrefab, source.transform.position + StaticConstants.rngVector(), Quaternion.identity).GetComponent<ArcCollection>();
-        ac.SetLabel(topic);
+        ac.SetLabel(StaticConstants.KeyToLabel[topic]);
 
         //Add items to collection
-        foreach(ArcCollectionSubItem x in subItems)
+        foreach(ArcMenuSubItem x in subItems)
         {
-            ac.AddToCollection(x);
+            if (x.isActive)
+            {
+                x.SetActive(true);
+                ac.AddToCollection(x);
+            }
         }
 
         //Link Collection to source
         Arc a = ArcFactory.Instance.AddNewArc(source, " ", ac);
         a.transform.parent = ac.transform;
-
+        
+        ArcMapManager.Instance.unitokens.Add(ac);
+        ArcMapManager.Instance.SetFocusedCollection(ac);
         return ac;
     }
 
 
-    public ArcCollection AddNewCollection(Unitoken source, string topic, ArcCollectionSubItem subItem)
+    public ArcCollection AddNewCollection(Unitoken source, string topic, ArcMenuSubItem subItem)
     {
         //Create Collection token
         ArcCollection ac = Instantiate(collectionPrefab, source.transform.position + StaticConstants.rngVector(), Quaternion.identity).GetComponent<ArcCollection>();
@@ -49,17 +58,22 @@ public class ArcCollectionFactory : MonoBehaviour
         return ac;
     }
 
-
    
 
-    internal IEnumerator PlaceCollectionOnMap(string topic, List<ArcCollectionSubItem> subItems)
+    internal IEnumerator PlaceCollectionOnMap(string topic, List<ArcMenuSubItem> subItems)
     {
         throw new NotImplementedException();
     }
 
     internal void DestroyArcCollection(ArcCollection myArcCollection)
     {
+        //if(myArcCollection.myArcs.Any(arc => arc.target.myArcs.Any(a => a.target == typeof(ArcCollection))))){
+        //
+        //}
+        //myArcCollection.DestroyConnections();
+        ArcMapManager.Instance.unitokens.Remove(myArcCollection);
         ArcMapManager.Instance.DestroyCollection(myArcCollection);
+        
         //throw new NotImplementedException();
     }
 }

@@ -10,7 +10,7 @@ public class SearchEngine : MonoBehaviour
 {
     [Header("Test Settings")]
     public string testString = "Einstein";
-    public int searchLimit = 10;
+    public int searchLimit = 20;
 
     public Unitoken focusedUnitoken;
 
@@ -18,6 +18,7 @@ public class SearchEngine : MonoBehaviour
     public Transform searchEngineCanvasTransform;
     public SearchBox searchBox;
     public List<ToggleBox> ToggleBoxes;
+    public Animator searchBoxAnimator;
 
 
     [Header("Prefabs")]
@@ -32,7 +33,6 @@ public class SearchEngine : MonoBehaviour
     
     public void Start(){
         Instance = this;
-        FocusedTokenRelations = new List<Relation>();
     }
     public void TEST1(){
         GetFuzzySearchResults(testString);
@@ -49,7 +49,7 @@ public class SearchEngine : MonoBehaviour
         focusedUnitoken = source;
         
         if(searchResultElement.Concept != null){
-            ReceiveConceptAndFillToggle(searchResultElement.Concept);
+            ReceiveConcept(searchResultElement.Concept);
         }else{
             GetConceptRelations(focusedUnitoken);
         }
@@ -58,6 +58,8 @@ public class SearchEngine : MonoBehaviour
             ReceiveDBPediaXMLResultsAndFillToggle(searchResultElement.XMLResult);
         }
 
+        OnEndEdit();
+        DataLogger.Instance.LogAction("Searched for +" + searchResultElement.elementText.text);
         //Create preview from results
         Debug.Log("Received relations for " + searchResultElement.elementText.text);
     }
@@ -75,34 +77,46 @@ public class SearchEngine : MonoBehaviour
 
     public void GetConceptRelations(string search)
     {
-        focusedUnitoken = ArcMapManager.Instance.SetFocusedToken(TokenFactory.Instance.AddNewToken(search, Vector3.zero));
+        focusedUnitoken = TokenFactory.Instance.AddNewToken(search, Vector3.zero);
+        focusedUnitoken.isInactive = false;
+        focusedUnitoken = ArcMapManager.Instance.SetFocusedToken(focusedUnitoken);
         ConceptNetInterface.GetConceptRelations(search, this, searchLimit);
+        //OnEndEdit();
     }
 
     public void GetConceptRelations(Unitoken subject){
+        ArcMapManager.Instance.SetFocusedToken(subject);
         focusedUnitoken = subject;
         ConceptNetInterface.GetConceptRelations(subject.myLabel.text, this, searchLimit);
     }
 
-    
-    
-    List<Relation> FocusedTokenRelations;
-     public struct Relation{
-        public string source;
-        public string relations;
-        public string target;
+    public RectTransform rt;
+    bool centered = true;
+    void OnEndEdit()
+    {
+        
+        RectTransform rt = transform as RectTransform;
+        if (rt == null)
+        {
+            rt = transform.gameObject.AddComponent<RectTransform>(); // Add a RectTransform if it does not exist
+        }
+
+        if (centered)
+        {
+            searchBoxAnimator.SetBool("centered", false);
+            centered = false;
+        }
     }
 
 
-  
-    public void ReceiveConceptAndFillToggle(Concept concept){
-        StartCoroutine(UIFactory.Instance.GenerateEdgesInMenu(ArcMapManager.Instance.focusedToken, concept));
+    public void ReceiveConcept(Concept concept){
+        ArcToolUIManager.Instance.UpdatePropertyMenuFromConcept(ArcMapManager.Instance.focusedToken, concept);
         Debug.Log("Received Relations for "+ concept.Edges.Length);
         FillToggleBox(concept, ToggleBoxes[0]);
     }
 
     public void ReceiveDBPediaXMLResultsAndFillToggle(Result result){
-        throw new NotImplementedException();
+        //throw new NotImplementedException();
         //Debug.Log("Received XML Relations for "+ result.Label);
     }
 
@@ -118,12 +132,9 @@ public class SearchEngine : MonoBehaviour
         toggleBox.CreatePredicates(category);
     }
 
-
     public void ClearToggleBox(ToggleBox toggleBox){
         toggleBox.ClearBox();
     }
-
-    
 
 internal class FuzzySearcher
 {
@@ -163,7 +174,7 @@ internal class FuzzySearcher
         Action del = delegate {
             Unitoken token = TokenFactory.Instance.AddNewToken(x.Label, Vector3.zero);
             Debug.Log("Created Token from Fuzz");
-            token.isSoft = false;
+            token.isInactive = false;
             ArcMapManager.Instance.SetFocusedToken(token);
 
             Debug.Log("Finding Predicates for this search element");
@@ -189,14 +200,6 @@ internal class FuzzySearcher
         }
         return fuzzySearchResults;
     }
-
-
-    
 }
-
-internal class ConceptNETFinder{
-
-}
-
 
 }

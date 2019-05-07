@@ -11,28 +11,28 @@ public class ArcCollectionToggleMenu : MonoBehaviour
 
     public Transform canvasTransform;
 
-    public ArcCollectionItem propertyMenuButton;
+    public ArcMenuItem propertyMenuButton;
 
-    public static List<ArcCollectionItem> ConceptNetPropertyList;
-    public static Dictionary<string, ArcCollectionItem> PropertyDictionary;
+    public static List<ArcMenuItem> ConceptNetPropertyList;
+    public static Dictionary<string, ArcMenuItem> PropertyDictionary;
 
     // Start is called before the first frame update
     void Start()
     {
         Instance = this;
-        ConceptNetPropertyList = new List<ArcCollectionItem>();
-        PropertyDictionary = new Dictionary<string, ArcCollectionItem>();
+        ConceptNetPropertyList = new List<ArcMenuItem>();
+        PropertyDictionary = new Dictionary<string, ArcMenuItem>();
 
         for(int i = 0; i < StaticConstants.RelationURIs.Length; i++){
-            ArcCollectionItem arcCollectionItem = Instantiate(propertyMenuButton, Vector3.zero, Quaternion.identity, canvasTransform);
+            ArcMenuItem arcCollectionItem = Instantiate(propertyMenuButton, Vector3.zero, Quaternion.identity, canvasTransform);
             string label = StaticConstants.relationsNaming[i];
             string key = StaticConstants.RelationURIs[i];
 
-            arcCollectionItem.SetProperty(key);
-            arcCollectionItem.isActive = false;
+            arcCollectionItem.SetProperty(key, label);
+            arcCollectionItem.textToggleIsActive = false;
             arcCollectionItem.index = i;
             arcCollectionItem.transform.name = label + " Toggle";
-
+            arcCollectionItem.key = key;
             ConceptNetPropertyList.Add(arcCollectionItem);
             PropertyDictionary.Add(key, arcCollectionItem);
         }
@@ -57,21 +57,21 @@ public class ArcCollectionToggleMenu : MonoBehaviour
 
 
     public void SelectProperty(string property, bool isSelected){
-        GetArcCollectionItem(property).isActive = isSelected;
+        GetArcCollectionItem(property).textToggleIsActive = isSelected;
     }
 
-    public ArcCollectionItem GetArcCollectionItem(string key){
-        ArcCollectionItem val;
+    public ArcMenuItem GetArcCollectionItem(string key){
+        ArcMenuItem val;
         if(!PropertyDictionary.TryGetValue(key, out val)){
             throw new KeyNotFoundException();
         }
         return val;
     }
 
-    public ArcCollectionItem GetArcCollectionItem(ArcCollectionSubItem subItem)
+    public ArcMenuItem GetArcCollectionItem(ArcMenuSubItem subItem)
     {
-        ArcCollectionItem val;
-        if (!PropertyDictionary.TryGetValue(subItem.mytopic, out val))
+        ArcMenuItem val;
+        if (!PropertyDictionary.TryGetValue(subItem.key, out val))
         {
             throw new KeyNotFoundException();
         }

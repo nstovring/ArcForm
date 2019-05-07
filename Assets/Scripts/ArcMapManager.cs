@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System;
+using StructureContainer;
+using ArcToolConstants;
 
 [RequireComponent(typeof(ArcMapLayout))]
 [RequireComponent(typeof(ArcFactory))]
 [RequireComponent(typeof(TokenFactory))]
+[RequireComponent(typeof(ArcCollectionFactory))]
 public class ArcMapManager : MonoBehaviour
 {
     //This class is responsible for creating Tokens, Arcs and Thoughts
@@ -42,7 +45,7 @@ public class ArcMapManager : MonoBehaviour
     [Header("Booleans")]
     public bool FlattenMap = false;
     public bool AutoMoveCamera = false;
-
+    public bool debugCollection = true;
 
     // Start is called before the first frame update
     void Start()
@@ -59,6 +62,8 @@ public class ArcMapManager : MonoBehaviour
 
         if(arcFactory == null)
             arcFactory = GetComponent<ArcFactory>();
+
+        StaticConstants.IntializeDictionaries();
 
         tokenFactory.Initialize();
         arcFactory.Initialize();
@@ -111,6 +116,26 @@ public class ArcMapManager : MonoBehaviour
 
     public void DestroyToken(Fragment token){
         unitokens.Remove(token);
+
+        //if(token.my != null)
+        //{
+        //
+        //}
+        Unitoken t = (Unitoken)token;
+        if(t.myArcCollections != null && t.myArcCollections.Count > 0)
+        {
+            foreach(string x in StaticConstants.RelationURIs)
+            {
+                ArcCollection ac;
+                bool exists = t.myArcCollections.TryGetValue(x,out ac);
+                if (exists)
+                {
+                    DestroyCollection(t.myArcCollections[x]);
+                }
+            }
+        }
+
+        if(token != null)
         Destroy(token.transform.gameObject);
     }
 
@@ -126,10 +151,17 @@ public class ArcMapManager : MonoBehaviour
     public void DestroyCollection(Fragment ac)
     {
         ArcCollections.Remove(ac);
+        if (unitokens.Contains(ac))
+        {
+            unitokens.Remove(ac);
+        }
+
+        if(ac.myArcs != null)
         foreach(Arc a in ac.myArcs)
         {
             DestroyArc(a);
         }
+
         Destroy(ac.gameObject);
     }
 
@@ -181,8 +213,11 @@ public class ArcMapManager : MonoBehaviour
             MoveCamera();
     }
 
+    public bool autoMoveInterrupt = false;
+    public float autoMoveCameraSpeed = 2.0f;
     void MoveCamera(){
-        if(focusedToken != null){
+        if(focusedToken != null && !autoMoveInterrupt)
+        {
             Vector3 centerOffset = mCamera.ScreenToWorldPoint(new Vector3(Screen.width/2, Screen.height/2,0))-(focusedToken.transform.position);
             Vector3 center = mCamera.ScreenToWorldPoint(new Vector3(Screen.width/2, Screen.height/2,0));
             Vector3 focusedTokenPos = focusedToken.transform.position;
@@ -191,7 +226,7 @@ public class ArcMapManager : MonoBehaviour
             focusedTokenPos.z = 0;
             float distance = Vector3.Distance(focusedTokenPos, center);
             if(distance > 0.1f){
-                mCamera.transform.position -= centerOffset * Time.deltaTime;
+                mCamera.transform.position -= centerOffset * Time.deltaTime * autoMoveCameraSpeed;
             }
         }
     }
@@ -200,6 +235,12 @@ public class ArcMapManager : MonoBehaviour
     public void MoveMap(){
         float h = Input.GetAxis("Horizontal");
         float v = Input.GetAxis("Vertical");
+
+        if(Mathf.Abs(h) > 0.01f || Mathf.Abs(v) > 0.01f)
+        {
+            autoMoveInterrupt = true;
+        }
+
         float z = Input.mouseScrollDelta.y * zoomScale;
         float zoomFactor = Mathf.Clamp( mCamera.orthographicSize - z , minZoom, maxZoom);
         Vector3 mouseDelta = new Vector3(h,v,0);
@@ -238,7 +279,74 @@ public class ArcMapManager : MonoBehaviour
         FlattenMap = !FlattenMap;
     }
 
-  
+    void OnGUI()
+    {
+        if (!debugCollection)
+            return;
+
+
+        List<string> debugString = new List<string>();
+        if(focusedToken != null && focusedToken.myPropertiesFromConceptNet != null)
+        {
+            Dictionary<string, Property> focusedProperties = focusedToken.myPropertiesFromConceptNet;
+            string debugLine = "p.Label" + " : " + "r.Label" + " : " + "r.isActive";
+            debugString.Add(debugLine);
+            foreach (string x in StaticConstants.RelationURIs)
+            {
+                Property p;
+                focusedProperties.TryGetValue(x, out p);
+                if(p.Relations != null && p.Relations.Count > 0)
+                {
+                    foreach(Relation r in p.Relations)
+                    {
+                        debugLine = p.Key +" : " + r.Label + " : " + r.isActive;
+                        debugString.Add(debugLine);
+                    }
+                }
+            }
+        }
+
+        GUIStyle gsTest = new GUIStyle();
+        gsTest.normal.textColor = Color.black;
+        GUILayout.BeginArea(new Rect(Screen.width - 250, Screen.height - 600, 500, 400), gsTest);
+        foreach(string x in debugString)
+        {
+            GUILayout.Label(x, gsTest);
+        }
+        GUILayout.EndArea();
+
+
+
+        debugString = new List<string>();
+        if (focusedToken != null && focusedToken.myPropertiesFromConceptNet != null)
+        {
+            Dictionary<string, ArcMenuItem> PropertyMenuItems = ArcToolUIManager.ArcDataUtility.PropertyMenuItems;
+            Dictionary<string, Property> focusedProperties = focusedToken.myPropertiesFromConceptNet;
+
+            string debugLine = "p.key" + " : " + "p.myButtonToggle"+ " : " + "edited";
+            debugString.Add(debugLine);
+
+            foreach (string x in StaticConstants.RelationURIs)
+            {
+                ArcMenuItem p;
+                Property f;
+                focusedProperties.TryGetValue(x, out f);
+                PropertyMenuItems.TryGetValue(x, out p);
+                if (f.Relations != null && f.Relations.Count > 0)
+                {
+                    debugLine = p.key + " : " + p.myButtonToggle.toggled + " : " + p.myButtonToggle.edited;
+                    debugString.Add(debugLine);
+                }
+            }
+        }
+        gsTest.normal.textColor = Color.black;
+        GUILayout.BeginArea(new Rect(Screen.width  - 250, Screen.height - 250, 250, 250), gsTest);
+        foreach (string x in debugString)
+        {
+            GUILayout.Label(x, gsTest);
+        }
+        GUILayout.EndArea();
+    }
 
 
 }

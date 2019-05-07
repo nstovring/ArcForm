@@ -23,7 +23,7 @@ public class ArcMapFilter : MonoBehaviour
         for(int i = 0; i < relations.Length; i++){
         string edgeUnitokenLabel = relations[i];
         bool state = ArcCollectionToggleMenu.Instance.Filter[i];
-        ArcCollectionItem c = ArcCollectionToggleMenu.Instance.GetArcCollectionItem(edgeUnitokenLabel);
+        ArcMenuItem c = ArcCollectionToggleMenu.Instance.GetArcCollectionItem(edgeUnitokenLabel);
             if(state){
                 //Debug.Log("")
                 toggledCategories += edgeUnitokenLabel +": ";

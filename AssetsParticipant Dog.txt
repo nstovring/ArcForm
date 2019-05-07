@@ -1,0 +1,13 @@
+Searched for +Dog , 10.34495 , 4.262128 , 4.245119 , 0
+Searched for +Dog , 8.162727 , 5.417116 , 5.400188 , 0
+Toggled Menu Item : capable of  : True , 12.24626 , 2.123752 , 2.1067 , 1
+Toggled Sub Menu Item : bark : False , 17.98741 , 2.05322 , 2.021432 , 2
+Toggled Sub Menu Item : guard your house : False , 18.28091 , 2.346727 , 0.2935067 , 2
+Toggled Sub Menu Item : be a pet : False , 19.21532 , 3.28114 , 0.9344131 , 2
+Toggled Sub Menu Item : guide a blind person : False , 19.92824 , 3.994067 , 0.7129269 , 2
+Searched for +Dog , 10.9399 , 7.498345 , 7.481679 , 0
+Toggled Menu Item : capable of  : True , 32.36495 , 1.602571 , 1.585926 , 1
+Toggled Sub Menu Item : guide a blind person : False , 35.25996 , 0.9447212 , 0.9141858 , 2
+Toggled Sub Menu Item : be a pet : False , 35.60913 , 1.293887 , 0.3491661 , 2
+Selected Token : guard your house , 35.88511 , 1.569877 , 0.2759893 , 2
+Task : 1 : Started , 4.441713 , 0 , 0 , 0

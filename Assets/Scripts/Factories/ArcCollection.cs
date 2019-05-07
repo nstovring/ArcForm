@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class ArcCollection : Fragment
@@ -15,10 +16,10 @@ public class ArcCollection : Fragment
         }
     }
 
-    public ArcCollection AddToCollection(List<ArcCollectionSubItem> subItems)
+    public ArcCollection AddToCollection(List<ArcMenuSubItem> subItems)
     {
         //Add items to collection
-        foreach (ArcCollectionSubItem x in subItems)
+        foreach (ArcMenuSubItem x in subItems)
         {
             AddToCollection(x);
         }
@@ -26,14 +27,14 @@ public class ArcCollection : Fragment
     }
 
 
-    public ArcCollection AddToCollection(ArcCollectionSubItem item)
+    public ArcCollection AddToCollection(ArcMenuSubItem item)
     {
-        Unitoken target = TokenFactory.Instance.AddNewToken(item.edge.End.Label, transform.position + StaticConstants.rngVector());
+        Unitoken target = TokenFactory.Instance.AddNewToken(item.text.text, transform.position + StaticConstants.rngVector());
         Arc arc = ArcFactory.Instance.AddNewArc(this, " ", target);
         arc.SetLabel(" ");
 
         item.SetConnections(target, arc, this);
-
+        target.isInactive = false;
         target.transform.parent = arc.transform;
         arc.transform.parent = transform;
 
@@ -42,12 +43,11 @@ public class ArcCollection : Fragment
         return this;
     }
 
-    public ArcCollection RemoveFromCollection(ArcCollection ac, ArcCollectionSubItem item)
+    public ArcCollection RemoveFromCollection(ArcMenuSubItem item)
     {
-        ac.myArcs.Remove((Arc)item.myArc);
+        myArcs.Remove((Arc)item.myArc);
         item.ClearConnections();
 
-        return ac;
+        return this;
     }
-
 }

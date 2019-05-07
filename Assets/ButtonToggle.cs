@@ -7,10 +7,7 @@ public class ButtonToggle : MonoBehaviour
     public bool toggled;
     public Animator animator;
     private Button button;
-    public ArcCollectionItem arcCollectionItem;
-    //public string someName;
-    //public GameObject subMenuTitle = GameObject.Find("SubMenuTitle");
-
+    public ArcMenuItem arcCollectionItem;
 
 
     void Start()
@@ -21,33 +18,69 @@ public class ButtonToggle : MonoBehaviour
         if(button == null){
         button = GetComponent<Button>();
         }
-        //if(arcCollectionItem == null){
-        //arcCollectionItem = GetComponent<ArcCollectionItem>();
-        //}
-        //someName = arcCollectionItem.textField.text;
-        
     }
 
-    // Update is called once per frame
-    void Update()
+    public bool edited;
+
+    public void ToggleEdited(bool state)
     {
+        if (state == true)
+        {
+            animator.SetBool("Edited", true);
+            //SubItemController.toggleCounter += 1;
+            //Debug.Log(SubItemController.toggleCounter);
+            SubItemController.CheckForToggle();
+            //subMenuTitle.GetComponent<SubMenuRename>().SetProperty(someName);
 
+        }
+        if (state != true)
+        {
+            animator.SetBool("Edited", false);
+            //SubItemController.toggleCounter -= 1;
+            //Debug.Log(SubItemController.toggleCounter);
+            SubItemController.CheckForToggle();
+            //arcCollectionItem.SetProperty(someName);
+        }
+        edited = state;
     }
+
+    public void TogglePressed(bool state)
+    {
+        if (state == true)
+        {
+            animator.SetBool("Toggled", true);
+            //SubItemController.toggleCounter += 1;
+            //Debug.Log(SubItemController.toggleCounter);
+            SubItemController.CheckForToggle();
+            //subMenuTitle.GetComponent<SubMenuRename>().SetProperty(someName);
+
+        }
+        if (state != true)
+        {
+            animator.SetBool("Toggled", false);
+            //SubItemController.toggleCounter -= 1;
+            //Debug.Log(SubItemController.toggleCounter);
+            SubItemController.CheckForToggle();
+            //arcCollectionItem.SetProperty(someName);
+        }
+        toggled = state;
+    }
+
     public void TaskOnClick()
     {
         toggled = !toggled;
         if(toggled == true){
             animator.SetBool("Toggled", true);
-            SubItemController.toggleCounter += 1;
-            Debug.Log(SubItemController.toggleCounter);
+            //SubItemController.toggleCounter += 1;
+            //Debug.Log(SubItemController.toggleCounter);
             SubItemController.CheckForToggle();
             //subMenuTitle.GetComponent<SubMenuRename>().SetProperty(someName);
             
         }
         if(toggled != true){
             animator.SetBool("Toggled", false);
-            SubItemController.toggleCounter -= 1;
-            Debug.Log(SubItemController.toggleCounter);
+            //SubItemController.toggleCounter -= 1;
+            //Debug.Log(SubItemController.toggleCounter);
             SubItemController.CheckForToggle();
             //arcCollectionItem.SetProperty(someName);
         }
