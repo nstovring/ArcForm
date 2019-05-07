@@ -6,24 +6,30 @@ using UnityEngine;
 using UnityEngine.UI;
 using ArcToolConstants;
 using StructureContainer;
+using System.Linq;
+
 public class ArcMenuItem : MonoBehaviour
 {
+    [Header("Settings")]
     public string key;
-
+    public int index;
     public bool textToggleIsActive;
     public bool numToggleIsActive;
+    public bool submenuEdited;
+    public ButtonStateHandler buttonStateHandler;
+   
 
+    [Header("UI Refs")]
     public Text textField;
     public Button togglebutton;
     public Button toggleSubMenuButton;
-    public int index;
-
+    public Image myButtonImage;
     public Text subItemCount;
+
+    [Header("Misc")]
     public ArcCollection myArcCollection;
-
     public List<ArcMenuSubItem> subItems;
-
-    public ButtonToggle myButtonToggle;
+    public List<Relation> relations;
 
     public void SetProperty(string p, string label){
         key = p;
@@ -32,39 +38,44 @@ public class ArcMenuItem : MonoBehaviour
 
     void Start(){
         subItems = new List<ArcMenuSubItem>();
-        //subItemCount.text = 0.ToString();
+        relations = new List<Relation>();
+        buttonStateHandler.SetToDefault();
 
         togglebutton.onClick.AddListener(delegate{
             textToggleIsActive = !textToggleIsActive;
-            myButtonToggle.TogglePressed(textToggleIsActive);
             ArcToolUIManager.Instance.ToggleMenuItem(this, textToggleIsActive, numToggleIsActive);
 
+
+
             DataLogger.Instance.LogToggle(this);
-            //Debug.Log("Toggled State for: " + key + " : " + textToggleIsActive + " In Button");
         });
 
-         toggleSubMenuButton.onClick.AddListener(delegate{
-             textToggleIsActive = !textToggleIsActive;
-             myButtonToggle.TogglePressed(textToggleIsActive);
-
-             ArcToolUIManager.Instance.ToggleMenuItem(this, textToggleIsActive, numToggleIsActive);
-
-             DataLogger.Instance.LogToggle(this);
-             //Debug.Log("Toggled SubMenu for: " + key + " : " + numToggleIsActive + " In Button");
-         });
+         //toggleSubMenuButton.onClick.AddListener(delegate{
+         //    textToggleIsActive = !textToggleIsActive;
+         //    ArcToolUIManager.Instance.ToggleMenuItem(this, textToggleIsActive, numToggleIsActive);
+         //
+         //    DataLogger.Instance.LogToggle(this);
+         //});
     }
 
-    void Update()
+    public void UpdateState()
     {
-        if (myButtonToggle.edited)
+
+    }
+
+    private void Update()
+    {
+        if(subItems != null)
         {
-            myButtonToggle.animator.SetBool("Edited", true);
-        }
-        else
-        {
-            myButtonToggle.animator.SetBool("Edited", false);
+            if(relations.Any(x => x.isActive == true))
+            {
+                buttonStateHandler.SetToEdited();
+            }
         }
     }
+
+
+
 
 
     internal void Fill(List<Edge> edgelist)

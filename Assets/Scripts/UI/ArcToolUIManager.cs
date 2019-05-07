@@ -48,8 +48,8 @@ public class ArcToolUIManager : MonoBehaviour
         foreach(string item in StaticConstants.RelationURIs)
         {
             ArcMenuItem aci = ArcDataUtility.PropertyMenuItems[item];
-            if(aci != arcCollectionItem)
-                aci.myButtonToggle.TogglePressed(false);
+            if(aci != arcCollectionItem && !aci.submenuEdited)
+                aci.buttonStateHandler.SetToDefault();
         }
 
         //Getproperties
@@ -59,31 +59,44 @@ public class ArcToolUIManager : MonoBehaviour
 
         if (numToggle)
         {
+
+            arcCollectionItem.buttonStateHandler.SetToSelected();
+            arcCollectionItem.submenuEdited = false;
+
             foreach (Relation rel in property.Relations)
             {
                 ArcMenuSubItem item = Instantiate(ArcUIUtility.PropertySubMenuButtonPrefab, PropertySubMenu).GetComponent<ArcMenuSubItem>();
                 item.Refresh(rel, property.Key);
                 item.arcCollectionItem = arcCollectionItem;
                 item.SetActive(rel.isActive);
-                item.buttonToggle.TogglePressed(rel.isActive);
-                subItems.Add(item);
 
-                
+                //Set Button toggle from property
+                if (item.isActive)
+                {
+                    item.buttonStateHandler.SetToSelected();
+                    arcCollectionItem.submenuEdited = true;
+                    //Item active and editing true
+                }
+                else
+                {
+                    item.buttonStateHandler.SetToDefault();
+                    //Item inactive
+                }
+
+
+                subItems.Add(item);
             }
 
             SubItemController.Instance.arcSubItemMenu.SetActive(true);
         }
         else
         {
+            arcCollectionItem.buttonStateHandler.SetToDefault();
             ArcUIUtility.RemoveSubMenuButtons();
             SubItemController.Instance.arcSubItemMenu.SetActive(false);
         }
-        //SetRelationsToState(property.Relations, true);
-      
         //Foreach relation in property
   
-        //List<ArcMenuSubItem> arcMenuSubItems = ToggleSubMenu(arcCollectionItem, numToggle);
-        //
         Unitoken focusedToken = ArcMapManager.Instance.GetFocusedToken();
         string key = arcCollectionItem.key;
         Property selectedProperty = focusedToken.GetProperty(key);
@@ -96,7 +109,7 @@ public class ArcToolUIManager : MonoBehaviour
         //Get relation activeness
         if (numToggle && isCollectionActive == false)
         {
-            ac = ArcCollectionFactory.Instance.AddNewCollection(focusedToken, key, subItems);
+            ac = ArcCollectionFactory.Instance.AddNewCollection(focusedToken, key);
             focusedToken.myArcCollections.Add(key, ac);
         }
         else
@@ -133,6 +146,8 @@ public class ArcToolUIManager : MonoBehaviour
         bool active = r.isActive;
         if (active)
         {
+            arcMenuSubitem.buttonStateHandler.SetToSelected();
+
             if(ac == null)
             {
                 ac = ArcCollectionFactory.Instance.AddNewCollection(focusedToken, key, arcMenuSubitem);
@@ -147,6 +162,8 @@ public class ArcToolUIManager : MonoBehaviour
         }
         else
         {
+            arcMenuSubitem.buttonStateHandler.SetToDefault();
+
             r.SetActive(active, true);
             ac.RemoveFromCollection(arcMenuSubitem);
 
@@ -305,8 +322,6 @@ public class ArcToolUIManager : MonoBehaviour
         public static void SetRelation(Unitoken u, string key, string label, bool isActiveIn)
         {
             Property property = u.GetProperty(key);
-            //string label = acsi.text.text;
-            int count = 0;
 
             List<Relation> relations = new List<Relation>();
 
@@ -336,7 +351,7 @@ public class ArcToolUIManager : MonoBehaviour
             return new Relation
             {
                 Label = edge.End.Label,
-                isActive = true,
+                isActive = false,
                 token = null
             };
         }
@@ -486,18 +501,17 @@ public class ArcToolUIManager : MonoBehaviour
                     collectionItem.transform.gameObject.SetActive(true);
                 }
                 //Check if any relation is deactivated and then turn it purple
-                if(property.Relations.Any(rel => !rel.isActive))
+                if(property.Relations.Any(rel => rel.isActive))
                 {
-                    collectionItem.myButtonToggle.edited = true;
+                    //collectionItem.buttonStateHandler.SetToEdited();
                 }
-                else if (property.Relations.All(rel => rel.isActive))
+                else if (property.Relations.All(rel => !rel.isActive))
                 {
-                    collectionItem.myButtonToggle.toggled = true;
-                    collectionItem.myButtonToggle.edited = false;
+                    //collectionItem.buttonStateHandler.SetToDefault();
                 }
                 else
                 {
-                    collectionItem.myButtonToggle.edited = false;
+                    //collectionItem.buttonStateHandler.SetToSelected();
                 }
 
                 collectionItem.subItemCount.text = relationCount.ToString();

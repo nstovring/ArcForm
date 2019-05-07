@@ -334,7 +334,7 @@ public class ArcMapManager : MonoBehaviour
                 PropertyMenuItems.TryGetValue(x, out p);
                 if (f.Relations != null && f.Relations.Count > 0)
                 {
-                    debugLine = p.key + " : " + p.myButtonToggle.toggled + " : " + p.myButtonToggle.edited;
+                    debugLine = p.key + " : Toggle State :" + p.buttonStateHandler.myState.ToString("F");
                     debugString.Add(debugLine);
                 }
             }

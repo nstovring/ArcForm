@@ -10,18 +10,23 @@ using StructureContainer;
 public class ArcMenuSubItem : MonoBehaviour{
     public Text text;
     public Button button;
-    public ButtonToggle buttonToggle;
     public Fragment myCore;
     public Fragment myUnitoken;
     public Fragment myArc;
+
+    public ButtonStateHandler buttonStateHandler;   
 
     public string key;
     string label;
 
     public Edge edge;
-    public bool isActive = false;
+    public bool isActive = true;
 
     public ArcMenuItem arcCollectionItem;
+
+    public enum ToggleState { Default, Hover, Selected, Edited }
+
+    public ToggleState myState = ToggleState.Default;
 
     public ArcMenuSubItem(Edge x)
     {
@@ -71,32 +76,14 @@ public class ArcMenuSubItem : MonoBehaviour{
             ArcToolUIManager.Instance.ToggleSubMenuItem(this);
 
             DataLogger.Instance.LogToggle(this);
-
-            arcCollectionItem.myButtonToggle.ToggleEdited(!isActive);
         });
     }
 
-    private void Update()
-    {
-        CheckButtonToggleState();
-    }
-
-    private void CheckButtonToggleState()
-    {
-        if (buttonToggle.toggled)
-        {
-            buttonToggle.animator.SetBool("Toggled", true);
-        }
-        else
-        {
-            buttonToggle.animator.SetBool("Toggled", false);
-        }
-    }
+   
 
     public void SetActive(bool active)
     {
         isActive = active;
-        buttonToggle.TogglePressed(active);
     }
 
     internal void SetConnections(Unitoken target, Arc arc, ArcCollection ac)

@@ -58,7 +58,21 @@ public class ArcCollectionFactory : MonoBehaviour
         return ac;
     }
 
-   
+    internal ArcCollection AddNewCollection(Unitoken source, string topic)
+    {
+        //Create Collection token
+        ArcCollection ac = Instantiate(collectionPrefab, source.transform.position + StaticConstants.rngVector(), Quaternion.identity).GetComponent<ArcCollection>();
+        ac.SetLabel(topic);
+
+        //Add items to collection
+        //ac.AddToCollection(subItem);
+
+        //Link Collection to source
+        Arc a = ArcFactory.Instance.AddNewArc(source, " ", ac);
+        a.transform.parent = ac.transform;
+
+        return ac;
+    }
 
     internal IEnumerator PlaceCollectionOnMap(string topic, List<ArcMenuSubItem> subItems)
     {
@@ -76,4 +90,6 @@ public class ArcCollectionFactory : MonoBehaviour
         
         //throw new NotImplementedException();
     }
+
+ 
 }

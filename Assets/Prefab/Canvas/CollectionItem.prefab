@@ -13,8 +13,6 @@ GameObject:
   - component: {fileID: 4684195133844594712}
   - component: {fileID: 4684195133844594713}
   - component: {fileID: 4684195133844594718}
-  - component: {fileID: 66977490818025281}
-  - component: {fileID: 4908980497104283125}
   m_Layer: 5
   m_Name: SubItemsToggle + Count
   m_TagString: Untagged
@@ -97,7 +95,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 3
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -121,18 +119,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4684195133844594712}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &4684195133844594718
@@ -155,41 +142,6 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
---- !u!95 &66977490818025281
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4684195133844594715}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: fe3d3f4cdc100bc4297ffa2805dd3aa0, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &4908980497104283125
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4684195133844594715}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d514cb3bce5abf44f81aa9f07f737fde, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  toggled: 0
-  animator: {fileID: 66977490818025281}
-  arcCollectionItem: {fileID: 0}
-  edited: 0
 --- !u!1 &4684195134838413280
 GameObject:
   m_ObjectHideFlags: 0
@@ -279,7 +231,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7936450348755174130}
   - component: {fileID: 7936450348755174134}
-  - component: {fileID: 7936450348755174133}
   - component: {fileID: 7936450348755174132}
   - component: {fileID: 7936450348755174131}
   - component: {fileID: 7936450348755174135}
@@ -319,35 +270,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7936450348755174129}
   m_CullTransparentMesh: 0
---- !u!114 &7936450348755174133
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7936450348755174129}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: ba90fe8dc7ca59d4792488117ace31e3, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
 --- !u!114 &7936450348755174132
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -406,16 +328,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: 
+  index: 0
   textToggleIsActive: 0
   numToggleIsActive: 0
+  buttonStateHandler:
+    myState: 0
+    DefaultColor: {r: 0.19607845, g: 0.25882354, b: 0.3647059, a: 1}
+    SelectedColor: {r: 0, g: 0.5332718, b: 1, a: 0}
+    EditedColor: {r: 0.8962264, g: 0.07186722, b: 0.8109124, a: 0}
+    myButtonImage: {fileID: 7936450349460326179}
   textField: {fileID: 7936450348851933405}
   togglebutton: {fileID: 7936450349460326178}
   toggleSubMenuButton: {fileID: 4684195133844594713}
-  index: 0
+  myButtonImage: {fileID: 7936450349460326179}
   subItemCount: {fileID: 4684195134838413286}
   myArcCollection: {fileID: 0}
   subItems: []
-  myButtonToggle: {fileID: 7710803456562856654}
 --- !u!1 &7936450348851933403
 GameObject:
   m_ObjectHideFlags: 0
@@ -508,8 +436,6 @@ GameObject:
   - component: {fileID: 7936450349460326179}
   - component: {fileID: 7936450349460326178}
   - component: {fileID: 7936450349460326181}
-  - component: {fileID: 3445120190819852410}
-  - component: {fileID: 7710803456562856654}
   m_Layer: 5
   m_Name: CollectionItemToggle
   m_TagString: Untagged
@@ -558,7 +484,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.25882354, b: 0.3647059, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -592,12 +518,12 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 3
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0, g: 0.050980568, b: 0.5372549, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -639,38 +565,3 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
---- !u!95 &3445120190819852410
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7936450349460326176}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: fe3d3f4cdc100bc4297ffa2805dd3aa0, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &7710803456562856654
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7936450349460326176}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d514cb3bce5abf44f81aa9f07f737fde, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  toggled: 0
-  animator: {fileID: 3445120190819852410}
-  arcCollectionItem: {fileID: 0}
-  edited: 0

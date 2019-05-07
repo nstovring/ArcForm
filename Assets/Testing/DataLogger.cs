@@ -243,7 +243,7 @@ public class DataLogger : MonoBehaviour
     public void LogToggle(ArcMenuItem ami)
     {
         string log;
-        string Action = "Toggled Menu Item : " + ami.textField.text + " : " + ami.myButtonToggle.toggled;
+        string Action = "Toggled Menu Item : " + ami.textField.text + " : " + ami.buttonStateHandler.myState.ToString("F");
         log = Action + " , " + TestTime + " , " + currentTask.TaskTime + " , " + ActionTime + " , " + (currentTask.taskNum + 1) + " , " + currentTask.LoggedActions.Count;
         currentTask.LoggedActions.Add(log);
         AppendFile(testPath, log);

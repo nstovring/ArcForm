@@ -83,3 +83,7 @@ Toggled Menu Item : desires  : True , 18.65256 , 1.247281 , 1.230314 , 6
 Selected Token : Dog , 20.88863 , 1.251754 , 1.235087 , 7
 Toggled Menu Item : is a  : False , 23.35958 , 3.722719 , 2.470965 , 7
 Toggled Menu Item : capable of  : False , 24.35737 , 4.720525 , 0.9978054 , 7
+Task : 1 : Started , 0 , 0 , 0 , 1 , 0,4
+Searched for +Dog , 3.15909 , 3.176038 , 3.15909 , 1 , 1,4
+Task : 1 : Completed , 3.276046 , 3.192994 , 0.1169564 , 1 , 2,4
+Task : 2 : Started , 5.663185 , 0 , 0 , 2 , 0,4

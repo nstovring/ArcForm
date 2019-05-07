@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 2206822107955861358}
   - component: {fileID: 2206822107955861353}
   - component: {fileID: 6866964719593091126}
-  - component: {fileID: 1982037294451987074}
   m_Layer: 5
   m_Name: SubItemsToggle + Count
   m_TagString: Untagged
@@ -174,21 +173,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1982037294451987074
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2206822107955861356}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d514cb3bce5abf44f81aa9f07f737fde, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  toggled: 0
-  animator: {fileID: 6866964719593091126}
-  arcCollectionItem: {fileID: 0}
 --- !u!1 &2206822108421660823
 GameObject:
   m_ObjectHideFlags: 0
@@ -404,13 +388,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2d9a1c5d1b9b6149af80a06976e040e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  propertyType: 
-  isActive: 0
-  subMenuIsActive: 0
+  key: 
+  index: 0
+  textToggleIsActive: 0
+  numToggleIsActive: 0
+  myState: 0
+  DefaultColor: {r: 0, g: 0, b: 0, a: 0}
+  SelectedColor: {r: 0, g: 0, b: 0, a: 0}
+  HoverColor: {r: 0, g: 0, b: 0, a: 0}
   textField: {fileID: 3567484364713592746}
   togglebutton: {fileID: 3567484364793065557}
   toggleSubMenuButton: {fileID: 2206822107955861358}
-  index: 0
+  myButtonImage: {fileID: 0}
   subItemCount: {fileID: 2206822108421660817}
   myArcCollection: {fileID: 0}
   subItems: []
@@ -507,7 +496,6 @@ GameObject:
   - component: {fileID: 3567484364793065557}
   - component: {fileID: 3567484364793065554}
   - component: {fileID: 8101458017201706765}
-  - component: {fileID: 3793131807446349241}
   m_Layer: 5
   m_Name: CollectionItemToggle
   m_TagString: Untagged
@@ -614,18 +602,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3567484364793065556}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3793131807446349241}
-        m_MethodName: TaskOnClick
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &3567484364793065554
@@ -667,18 +644,3 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &3793131807446349241
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3567484364793065559}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d514cb3bce5abf44f81aa9f07f737fde, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  toggled: 0
-  animator: {fileID: 8101458017201706765}
-  arcCollectionItem: {fileID: 0}
