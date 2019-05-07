@@ -126,7 +126,7 @@ public class Unitoken : Fragment
         transform.GetComponent<CircleCollider2D>().enabled = true;
        }
        else{//collider disabled and dragging is occuring
-        transform.GetComponent<CircleCollider2D>().enabled = false;
+        transform.GetComponent<CapsuleCollider2D>().enabled = false;
        }
     }
 

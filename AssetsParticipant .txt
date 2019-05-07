@@ -496,3 +496,28 @@ Selected Token : crying , 81.8756 , 26.09085 , 2.256727 , 9 , 20
 Toggled Menu Item : part of : True , 84.15118 , 28.36632 , 2.275484 , 9 , 21
 Selected Token : life , 86.22576 , 30.4408 , 2.074495 , 9 , 22
 Task : 9 : Completed , 86.9002 , 31.09519 , 0.6743709 , 9 , 23
+Task : 1 : Started , 0 , 0 , 0 , 1 , 0,3
+Searched for +Cat , 6.212936 , 6.229602 , 6.212936 , 1 , 1,3
+Selected Token : Cat , 9.426764 , 9.443428 , 3.21383 , 1 , 2,3
+Toggled Menu Item : has property : True , 13.14961 , 13.16627 , 3.722844 , 1 , 3,3
+Toggled Menu Item : has property : False , 14.0409 , 14.05756 , 0.8912877 , 1 , 4,3
+Toggled Menu Item : is related to : True , 20.34513 , 20.36179 , 6.304235 , 1 , 5,3
+Toggled Menu Item : is related to : False , 21.66044 , 21.67711 , 1.315323 , 1 , 6,3
+Toggled Menu Item : is related to : True , 44.08928 , 44.10595 , 22.42888 , 1 , 7,3
+Selected Token : pet , 46.78247 , 46.79914 , 2.693195 , 1 , 8,3
+Toggled Menu Item : is related to : True , 51.67254 , 51.68921 , 4.890109 , 1 , 9,3
+Selected Token : dog , 55.65693 , 55.6736 , 3.984442 , 1 , 10,3
+Selected Token : Cat , 65.07571 , 65.09238 , 9.418857 , 1 , 11,3
+Task : 1 : Started , 0 , 0 , 0 , 1 , 0,3
+Searched for +Cat , 5.017789 , 5.034558 , 5.017789 , 1 , 1,3
+Selected Token : Cat , 32.1527 , 32.16947 , 27.13495 , 1 , 2,3
+Selected Token : Label , 37.04932 , 37.06609 , 4.896638 , 1 , 3,3
+Selected Token : Label , 38.09365 , 38.11042 , 1.044347 , 1 , 4,3
+Selected Token : Label , 39.10839 , 39.12516 , 1.014752 , 1 , 5,3
+Selected Token : Label , 39.3294 , 39.34617 , 0.2210058 , 1 , 6,3
+Selected Token : Label , 39.92091 , 39.93768 , 0.591512 , 1 , 7,3
+Selected Token : Label , 41.16685 , 41.18362 , 1.245951 , 1 , 8,3
+Selected Token : Label , 47.36421 , 47.38098 , 6.197372 , 1 , 9,3
+Selected Token : Label , 48.52778 , 48.54455 , 1.163577 , 1 , 10,3
+Selected Token : Label , 50.26609 , 50.28286 , 1.738318 , 1 , 11,3
+Selected Token : Label , 50.29973 , 50.3165 , 0.03364633 , 1 , 12,3
