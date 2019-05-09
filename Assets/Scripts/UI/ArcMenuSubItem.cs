@@ -6,8 +6,9 @@ using UnityEngine.UI;
 using ArcToolConstants;
 using System;
 using StructureContainer;
+using UnityEngine.EventSystems;
 
-public class ArcMenuSubItem : MonoBehaviour{
+public class ArcMenuSubItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler{
     public Text text;
     public Button button;
     public Fragment myCore;
@@ -90,12 +91,7 @@ public class ArcMenuSubItem : MonoBehaviour{
     }
 
 
-    public void SetColorToken(ColourBehaviour.ColorToken token)
-    {
-        buttonStateHandler.DefaultColor = token.Colors[0];
-        buttonStateHandler.SelectedColor = token.Colors[2];
-        buttonStateHandler.EditedColor = token.Colors[1];
-    }
+   
    
 
     public void SetActive(bool active)
@@ -115,5 +111,17 @@ public class ArcMenuSubItem : MonoBehaviour{
         myArc = null;
         myCore = null;
         myUnitoken = null;
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        //throw new NotImplementedException();
+        buttonStateHandler.SetToEdited();
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        if(!isActive)
+            buttonStateHandler.SetToDefault();
     }
 }

@@ -331,11 +331,12 @@ MonoBehaviour:
   index: 0
   textToggleIsActive: 0
   numToggleIsActive: 0
+  submenuEdited: 0
   buttonStateHandler:
     myState: 0
     DefaultColor: {r: 0.19607845, g: 0.25882354, b: 0.3647059, a: 1}
-    SelectedColor: {r: 0, g: 0.5332718, b: 1, a: 0}
-    EditedColor: {r: 0.8962264, g: 0.07186722, b: 0.8109124, a: 0}
+    SelectedColor: {r: 0, g: 0.5332718, b: 1, a: 1}
+    EditedColor: {r: 0.8962264, g: 0.07186722, b: 0.8109124, a: 1}
     myButtonImage: {fileID: 7936450349460326179}
   textField: {fileID: 7936450348851933405}
   togglebutton: {fileID: 7936450349460326178}

@@ -29,6 +29,11 @@ namespace ArcToolConstants
             }
         }
 
+        //public static Vector3 densityVector()
+        //{
+        //
+        //}
+
         public static Vector3 rngVector()
         {
             return new Vector3(rngFloat(), rngFloat(), 0);

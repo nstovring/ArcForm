@@ -43,7 +43,7 @@ public class ArcCollection : Fragment
 
     public ArcCollection AddToCollection(ArcMenuSubItem item)
     {
-        Unitoken target = TokenFactory.Instance.AddNewToken(item.text.text, transform.position + StaticConstants.rngVector());
+        Unitoken target = TokenFactory.Instance.AddNewToken(item.text.text, ArcMapManager.Instance.GetAwayVector(this));
         target.deleteButton.OnClicked += item.OnClick;
         Arc arc = ArcFactory.Instance.AddNewArc(this, " ", target);
         arc.SetLabel(" ");

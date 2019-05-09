@@ -74,11 +74,6 @@ public class Arc : Fragment
 
     public void SetTokens(Fragment source, Fragment target){
         
-//        source.SetTarget(target);
-//        target.AddSource(source);
-        //source.myArcs.Add(this);
-        //target.myArcs.Add(this);
-
         this.source = source;
         this.target = target;
     }
@@ -176,6 +171,8 @@ public class Arc : Fragment
         Mouselistener.Instance.hoveredOverArc = null;
     }
 
+    public float circlePadding1 = 0.8f;
+    public float circlePadding2 = 0.8f;
     public void RefreshArc(){
         //float distance = Vector3.Distance(target.TransientPosition, source.TransientPosition);
         //if(distance > 7){
@@ -198,10 +195,14 @@ public class Arc : Fragment
 
         Vector3 closestTargetVector;
         Vector3 closestSourceVector;
-        if(target.myCollider.GetType() == typeof(CircleCollider2D))
+        float targetPaddingOffset = 0;
+        float sourcePaddingOffset = 0;
+        if (target.myCollider.GetType() == typeof(CircleCollider2D))
         {
             closestTargetVector = target.TransientPosition;
-        }else
+            targetPaddingOffset = circlePadding1;
+        }
+        else
         {
             closestTargetVector = target.myCollider.ClosestPoint(source.TransientPosition);
         }
@@ -209,6 +210,7 @@ public class Arc : Fragment
         if (source.myCollider.GetType() == typeof(CircleCollider2D))
         {
             closestSourceVector = source.TransientPosition;
+            sourcePaddingOffset = circlePadding2;
         }
         else
         {
@@ -226,8 +228,8 @@ public class Arc : Fragment
         }
 
         Vector3 sourceToTarg = (points[1] - points[0]).normalized;
-        points[0] += sourceToTarg * ArcMapManager.Instance.linePadding;
-        points[1] -= sourceToTarg * ArcMapManager.Instance.linePadding;
+        points[0] += sourceToTarg * (ArcMapManager.Instance.linePadding + sourcePaddingOffset);
+        points[1] -= sourceToTarg * (ArcMapManager.Instance.linePadding + targetPaddingOffset);
 
         center =  points[1] + ( points[0] - points[1])/2.0f;
         

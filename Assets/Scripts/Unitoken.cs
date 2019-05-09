@@ -41,6 +41,9 @@ public class Unitoken : Fragment
     UnitokenVisibility unitokenVisibility;
     Camera mCamera;
 
+    public Color DefaultColor;
+    public Color HoverColor;
+
     public UnitokenDeleteButton deleteButton;
 
     // Start is called before the first frame update
@@ -179,9 +182,21 @@ public class Unitoken : Fragment
         Mouselistener.Instance.hoveredOverToken = null;
     }
 
+    public override bool SetHoverActive(bool state)
+    {
+        if (state)
+        {
+            spriteRenderer.color = HoverColor;
+        }
+        else
+        {
+            spriteRenderer.color = DefaultColor;
+        }
+        return base.SetHoverActive(state);
+    }
 
 
-   
+
     public override void ShowInputField()
     {
         //UIManager.Instance.ShowInputField(transform.position, this);

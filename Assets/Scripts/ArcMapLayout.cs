@@ -79,6 +79,27 @@ public class ArcMapLayout : MonoBehaviour
         }
     }
 
+    public Vector3 GetForceAwayFromHighDensity(Fragment source, List<Fragment> unitokens)
+    {
+        Fragment token = source;
+       
+        Vector3 forces = Vector3.zero;
+
+        for (int j = 0; j < unitokens.Count; j++)
+        {
+            Fragment neighbour = unitokens[j];
+            if(neighbour != token)
+            {
+                float distanceToNeighbour = Vector3.Distance(token.TransientPosition, neighbour.TransientPosition);
+                Vector3 dir = (token.TransientPosition - neighbour.TransientPosition) / distanceToNeighbour;
+                forces += dir;
+            }
+
+        }
+
+        return forces;
+    }
+
 
     public Vector3[] GetUnitokenForceVectors(List<Fragment> unitokens){
         Vector3[] forces = new Vector3[unitokens.Count];

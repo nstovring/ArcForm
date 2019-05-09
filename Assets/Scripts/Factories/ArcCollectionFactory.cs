@@ -19,7 +19,7 @@ public class ArcCollectionFactory : MonoBehaviour
     public ArcCollection AddNewCollection(Unitoken source, string topic, List<ArcMenuSubItem> subItems)
     {
         //Create Collection token
-        ArcCollection ac = Instantiate(collectionPrefab, source.transform.position + StaticConstants.rngVector(), Quaternion.identity).GetComponent<ArcCollection>();
+        ArcCollection ac = Instantiate(collectionPrefab, ArcMapManager.Instance.GetAwayVector(source), Quaternion.identity).GetComponent<ArcCollection>();
         ac.SetLabel(StaticConstants.KeyToLabel[topic]);
 
         //Add items to collection
@@ -45,7 +45,7 @@ public class ArcCollectionFactory : MonoBehaviour
     public ArcCollection AddNewCollection(Unitoken source, string topic, ArcMenuSubItem subItem)
     {
         //Create Collection token
-        ArcCollection ac = Instantiate(collectionPrefab, source.transform.position + StaticConstants.rngVector(), Quaternion.identity).GetComponent<ArcCollection>();
+        ArcCollection ac = Instantiate(collectionPrefab, ArcMapManager.Instance.GetAwayVector(source), Quaternion.identity).GetComponent<ArcCollection>();
         ac.SetLabel(StaticConstants.KeyToLabel[topic]);
 
         //Add items to collection
@@ -61,7 +61,8 @@ public class ArcCollectionFactory : MonoBehaviour
     internal ArcCollection AddNewCollection(Unitoken source, string topic)
     {
         //Create Collection token
-        ArcCollection ac = Instantiate(collectionPrefab, source.transform.position + StaticConstants.rngVector(), Quaternion.identity).GetComponent<ArcCollection>();
+        //ArcCollection ac = Instantiate(collectionPrefab, source.transform.position + StaticConstants.rngVector(), Quaternion.identity).GetComponent<ArcCollection>();
+        ArcCollection ac = Instantiate(collectionPrefab, ArcMapManager.Instance.GetAwayVector(source), Quaternion.identity).GetComponent<ArcCollection>();
         ac.SetLabel(StaticConstants.KeyToLabel[topic]);
 
         //Add items to collection

@@ -206,11 +206,34 @@ public class ArcMapManager : MonoBehaviour
         selectedUnitoken.isSelected = true;
     }
 
+    public Vector3 GetAwayVector(Fragment source)
+    {
+        Vector3 awayVector = Vector3.zero;
+        if (source != null && unitokens != null && unitokens.Count > 0)
+        {
+            awayVector = arcMapLayout.GetForceAwayFromHighDensity(focusedToken, unitokens) + StaticConstants.rngVector();
+            Debug.DrawRay(focusedToken.TransientPosition, awayVector, Color.green);
+        }
+
+        if(awayVector == Vector3.zero)
+        {
+            awayVector = StaticConstants.rngVector();
+        }
+
+        return awayVector;
+    }
+
     // Update is called once per frame
     void Update()
     {
         //MoveUnitoken();
         MoveMap();
+
+        //if(focusedToken != null && unitokens != null && unitokens.Count > 0)
+        //{
+        //    Vector3 awayVector = arcMapLayout.GetForceAwayFromHighDensity(focusedToken, unitokens);
+        //    Debug.DrawRay(focusedToken.TransientPosition, awayVector,Color.green);
+        //}
 
         if(unitokens != null && unitokens.Count > 0){
             UpdateMap();

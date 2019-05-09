@@ -364,10 +364,11 @@ MonoBehaviour:
   buttonStateHandler:
     myState: 0
     DefaultColor: {r: 0.18823531, g: 0.24705884, b: 0.34901962, a: 1}
-    SelectedColor: {r: 0, g: 0.550159, b: 1, a: 0}
-    EditedColor: {r: 0, g: 0, b: 0, a: 0}
+    SelectedColor: {r: 0, g: 0.550159, b: 1, a: 1}
+    EditedColor: {r: 0, g: 0, b: 0, a: 1}
     myButtonImage: {fileID: 689982465976166633}
   key: 
+  label: 
   isActive: 0
   arcCollectionItem: {fileID: 0}
   myState: 0

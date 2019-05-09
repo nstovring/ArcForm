@@ -33,7 +33,7 @@ public class Fragment : MonoBehaviour
     public bool isSelected;
     public Transform hoverIcon;
     public bool isHoveredOver = false;
-    public bool SetHoverActive(bool state)
+    public virtual bool SetHoverActive(bool state)
     {
         if(hoverIcon != null) 
         hoverIcon.gameObject.SetActive(state);

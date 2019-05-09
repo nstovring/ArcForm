@@ -15,6 +15,13 @@ public class ButtonStateHandler
     public Image myButtonImage;
     internal bool isSelected;
 
+    public void SetColorToken(ColourBehaviour.ColorToken token)
+    {
+        DefaultColor = token.Colors[0];
+        SelectedColor = token.Colors[2];
+        EditedColor = token.Colors[1];
+    }
+
     public void SetToEdited()
     {
         myButtonImage.CrossFadeColor(EditedColor, 0.1f, true, false);

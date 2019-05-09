@@ -95,7 +95,7 @@ public class ArcToolUIManager : MonoBehaviour
             item.Refresh(rel, property.Key);
             item.arcCollectionItem = arcCollectionItem;
             item.SetActive(rel.isActive);
-            item.SetColorToken(ColourBehaviour.Instance.ColorTokens[StaticConstants.KeyToIndex[property.Key]]);
+            item.buttonStateHandler.SetColorToken(ColourBehaviour.Instance.ColorTokens[StaticConstants.KeyToIndex[property.Key]]);
             item.buttonStateHandler.SetToDefault();
             //Set Button toggle from property
             if (item.isActive)
