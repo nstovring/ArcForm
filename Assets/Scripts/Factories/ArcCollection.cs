@@ -13,11 +13,13 @@ public class ArcCollection : Fragment
     {
         CollectionType = type;
         UpdateSpriteColor();
+        Debug.Log("Setting ColletionType : " + CollectionType);
     }
 
+    [ContextMenu("UpdateSpriteColor")]
     public void UpdateSpriteColor()
     {
-        spriteRend.color = ColourBehaviour.Instance.ColorTokens[CollectionType].Colors[3];
+        spriteRend.color = ColourBehaviour.Instance.ColorTokens[CollectionType].Colors[1];
     }
     // Start is called before the first frame update
     void Start()
@@ -42,6 +44,7 @@ public class ArcCollection : Fragment
     public ArcCollection AddToCollection(ArcMenuSubItem item)
     {
         Unitoken target = TokenFactory.Instance.AddNewToken(item.text.text, transform.position + StaticConstants.rngVector());
+        target.deleteButton.OnClicked += item.OnClick;
         Arc arc = ArcFactory.Instance.AddNewArc(this, " ", target);
         arc.SetLabel(" ");
 
@@ -55,11 +58,26 @@ public class ArcCollection : Fragment
         return this;
     }
 
+   
+
     public ArcCollection RemoveFromCollection(ArcMenuSubItem item)
     {
-        myArcs.Remove((Arc)item.myArc);
-        item.ClearConnections();
+        string label = item.label;
+        Arc temp = null;
+        foreach(Arc arc in myArcs)
+        {
+            if(arc.target.myLabel.text == label)
+            {
+                temp = arc;
+            }
+        }
 
+        if(temp != null)
+        {
+            myArcs.Remove(temp);
+            ArcMapManager.Instance.DestroyArc(temp);
+            item.ClearConnections();
+        }
         return this;
     }
 }

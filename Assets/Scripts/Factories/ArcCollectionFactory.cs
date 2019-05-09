@@ -46,7 +46,7 @@ public class ArcCollectionFactory : MonoBehaviour
     {
         //Create Collection token
         ArcCollection ac = Instantiate(collectionPrefab, source.transform.position + StaticConstants.rngVector(), Quaternion.identity).GetComponent<ArcCollection>();
-        ac.SetLabel(topic);
+        ac.SetLabel(StaticConstants.KeyToLabel[topic]);
 
         //Add items to collection
         ac.AddToCollection(subItem);
@@ -62,7 +62,7 @@ public class ArcCollectionFactory : MonoBehaviour
     {
         //Create Collection token
         ArcCollection ac = Instantiate(collectionPrefab, source.transform.position + StaticConstants.rngVector(), Quaternion.identity).GetComponent<ArcCollection>();
-        ac.SetLabel(topic);
+        ac.SetLabel(StaticConstants.KeyToLabel[topic]);
 
         //Add items to collection
         //ac.AddToCollection(subItem);

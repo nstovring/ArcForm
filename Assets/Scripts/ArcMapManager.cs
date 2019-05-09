@@ -143,9 +143,12 @@ public class ArcMapManager : MonoBehaviour
         Arcs.Remove(arc);
 
         //DestroyToken(arc.source);
-        DestroyToken(arc.target);
+        if (arc != null)
+        {
+            DestroyToken(arc.target);
 
-        Destroy(arc.gameObject);
+            Destroy(arc.gameObject);
+        }
     }
 
     public void DestroyCollection(Fragment ac)

@@ -95,7 +95,8 @@ public class ArcToolUIManager : MonoBehaviour
             item.Refresh(rel, property.Key);
             item.arcCollectionItem = arcCollectionItem;
             item.SetActive(rel.isActive);
-
+            item.SetColorToken(ColourBehaviour.Instance.ColorTokens[StaticConstants.KeyToIndex[property.Key]]);
+            item.buttonStateHandler.SetToDefault();
             //Set Button toggle from property
             if (item.isActive)
             {
@@ -189,6 +190,7 @@ public class ArcToolUIManager : MonoBehaviour
         
         ArcCollection ac;
         bool arcCollectionExists = focusedToken.myArcCollections.TryGetValue(key, out ac);
+        Debug.Log("Does Collection Exist? : " + arcCollectionExists);
         //focusedToken.myArcCollection.Remove(key);
 
         Relation r = ArcDataUtility.GetRelation(arcMenuSubitem);
@@ -202,6 +204,7 @@ public class ArcToolUIManager : MonoBehaviour
             if(ac == null)
             {
                 ac = ArcCollectionFactory.Instance.AddNewCollection(focusedToken, key, arcMenuSubitem);
+                ac.SetType(StaticConstants.KeyToIndex[key]);
                 focusedToken.myArcCollections.Add(key, ac);
             }
             else

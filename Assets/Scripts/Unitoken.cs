@@ -13,6 +13,8 @@ public class Unitoken : Fragment
 
     public float tokenRotation;
 
+    public delegate void ClickAction();
+    public event ClickAction OnClicked;
 
     public Transform softChild;
 
@@ -38,12 +40,14 @@ public class Unitoken : Fragment
     UnitokenState unitokenState;
     UnitokenVisibility unitokenVisibility;
     Camera mCamera;
+
+    public UnitokenDeleteButton deleteButton;
+
     // Start is called before the first frame update
     void Start()
     {
         mCamera = Camera.main;
         myArcCollections = new Dictionary<string, ArcCollection>();
-        //myPropertiesFromConceptNet = new Dictionary<string, Property>();
         if (myArcs == null){
             myArcs = new List<Arc>();
         }
@@ -123,7 +127,7 @@ public class Unitoken : Fragment
     void Update(){
       
        if(isInactive == false){//collider active and hoverOver is active.
-        transform.GetComponent<CircleCollider2D>().enabled = true;
+        transform.GetComponent<CapsuleCollider2D>().enabled = true;
        }
        else{//collider disabled and dragging is occuring
         transform.GetComponent<CapsuleCollider2D>().enabled = false;

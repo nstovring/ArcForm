@@ -17,7 +17,7 @@ public class ArcMenuSubItem : MonoBehaviour{
     public ButtonStateHandler buttonStateHandler;   
 
     public string key;
-    string label;
+    public string label;
 
     public Edge edge;
     public bool isActive = true;
@@ -66,24 +66,36 @@ public class ArcMenuSubItem : MonoBehaviour{
         
 
         button.onClick.AddListener(delegate{
-            SetActive(!isActive);
-            //Property focus = ArcMapManager.Instance.GetFocusedToken().GetProperty(key);
-            //Find relation
-            //Get Unitoken Connected unitoken
-            Unitoken focus = ArcMapManager.Instance.GetFocusedToken();
-            ArcToolUIManager.ArcDataUtility.SetRelation(ArcMapManager.Instance.GetFocusedToken(), key, label, isActive);
-            if (isActive)
-            {
-                //SetMenu Item To edited
-                arcCollectionItem.buttonStateHandler.SetToEdited();
-            }
-            ArcToolUIManager.ArcUIUtility.UpdatePropertyMenuFromUnitoken(focus);
-            ArcToolUIManager.Instance.ToggleSubMenuItem(this);
-
-            DataLogger.Instance.LogToggle(this);
+            OnClick();
         });
     }
 
+    public void OnClick()
+    {
+        SetActive(!isActive);
+        //Property focus = ArcMapManager.Instance.GetFocusedToken().GetProperty(key);
+        //Find relation
+        //Get Unitoken Connected unitoken
+        Unitoken focus = ArcMapManager.Instance.GetFocusedToken();
+        ArcToolUIManager.ArcDataUtility.SetRelation(ArcMapManager.Instance.GetFocusedToken(), key, label, isActive);
+        if (isActive)
+        {
+            //SetMenu Item To edited
+            arcCollectionItem.buttonStateHandler.SetToEdited();
+        }
+        ArcToolUIManager.ArcUIUtility.UpdatePropertyMenuFromUnitoken(focus);
+        ArcToolUIManager.Instance.ToggleSubMenuItem(this);
+
+        DataLogger.Instance.LogToggle(this);
+    }
+
+
+    public void SetColorToken(ColourBehaviour.ColorToken token)
+    {
+        buttonStateHandler.DefaultColor = token.Colors[0];
+        buttonStateHandler.SelectedColor = token.Colors[2];
+        buttonStateHandler.EditedColor = token.Colors[1];
+    }
    
 
     public void SetActive(bool active)

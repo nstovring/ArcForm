@@ -13,8 +13,11 @@ public class Fragment : MonoBehaviour
     public Type myType;
 
     public Vector3 TransientPosition;
+    public Collider2D myCollider;
 
     public TextMeshPro myLabel;
+
+
 
     // Start is called before the first frame update
     void Start()

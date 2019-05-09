@@ -85,47 +85,46 @@ public class Arc : Fragment
 
     public float myPadding;
     public void ShowArc(float padding){
-                
+        myPadding = padding;
+        Vector3[] points = InitializeLine();
 
-                myPadding = padding;
-                Vector3[] points = InitializeLine();
+        Vector3 sourceToTarg = (points[1] - points[0]).normalized;
 
-                Vector3 sourceToTarg = (points[1] - points[0]).normalized;
-                points[0] += sourceToTarg * padding;
-                points[1] -= sourceToTarg * padding;
+        Vector3 closestTargetVector;
+        Vector3 closestSourceVector;
+        //if (target.GetType() == typeof(Unitoken))
+        //{
+        closestTargetVector = target.myCollider.ClosestPoint(source.TransientPosition);
+        closestSourceVector = source.myCollider.ClosestPoint(target.TransientPosition);
 
-                UpdateArrowSprite(points[1], sourceToTarg);
-                //lineList.Add(line);
-                UpdateCollider(points);
-                SetTransientPosition();
-                UpdateLabelPosition(TransientPosition);
+        points[0] += closestTargetVector * padding;
+        points[1] -= closestSourceVector * padding;
 
+        UpdateArrowSprite(points[1], sourceToTarg);
+        //lineList.Add(line);
+        UpdateCollider(points);
+        SetTransientPosition();
+        UpdateLabelPosition(TransientPosition);
     }
 
     Vector3[] InitializeLine(){
-                myLine =  GetComponent<LineRenderer>();
-                Vector3[] points = new Vector3[2];
+        myLine =  GetComponent<LineRenderer>();
+        Vector3[] points = new Vector3[2];
 
+        points[0] = source.transform.position;
+        points[1] = target.transform.position;
+        center =  points[1] + (points[0] - points[1])/2.0f;
 
-                points[0] = source.transform.position;
-                points[1] = target.transform.position;
-                center =  points[1] + (points[0] - points[1])/2.0f;
-               
+        myLine.SetPositions(points);
+        //myLine.material = lineMaterial;
+        myLine.startColor = Color.black;
+        myLine.endColor = Color.black;
+        myLine.startWidth = 0.0f;
+        myLine.endWidth = 0.2f;
+        myLine.transform.name = "JoinArcLine";
+        myLine.transform.parent = transform;
 
-                
-                //Debug.Log(points[0] );
-                
-
-                myLine.SetPositions(points);
-                myLine.material = lineMaterial;
-                myLine.startColor = Color.black;
-                myLine.endColor = Color.black;
-                myLine.startWidth = 0.0f;
-                myLine.endWidth = 0.2f;
-                myLine.transform.name = "JoinArcLine";
-                myLine.transform.parent = transform;
-
-                return points;
+        return points;
     }
     public void UpdateArrowSprite(Vector3 pos, Vector3 dir){
         arrowSprite.position = pos;
@@ -178,11 +177,15 @@ public class Arc : Fragment
     }
 
     public void RefreshArc(){
-        float distance = Vector3.Distance(target.TransientPosition, source.TransientPosition);
-        if(distance > 7){
-            Vector3 dir = -(target.TransientPosition - source.TransientPosition)/distance;
-            source.transform.position-= dir* Time.deltaTime;
-            target.transform.position+= dir * Time.deltaTime;
+        //float distance = Vector3.Distance(target.TransientPosition, source.TransientPosition);
+        //if(distance > 7){
+        //    Vector3 dir = -(target.TransientPosition - source.TransientPosition)/distance;
+        //    source.transform.position-= dir* Time.deltaTime;
+        //    target.transform.position+= dir * Time.deltaTime;
+        //}
+        if(source.GetType() == typeof(ArcCollection))
+        {
+            myLine.startColor = ((ArcCollection)source).spriteRend.color;
         }
 
 
@@ -192,16 +195,34 @@ public class Arc : Fragment
         }else{
             myLine.GetPositions(points);
         }
-        
-        //center = 
-        points[0] = source.transform.position;
+
+        Vector3 closestTargetVector;
+        Vector3 closestSourceVector;
+        if(target.myCollider.GetType() == typeof(CircleCollider2D))
+        {
+            closestTargetVector = target.TransientPosition;
+        }else
+        {
+            closestTargetVector = target.myCollider.ClosestPoint(source.TransientPosition);
+        }
+
+        if (source.myCollider.GetType() == typeof(CircleCollider2D))
+        {
+            closestSourceVector = source.TransientPosition;
+        }
+        else
+        {
+            closestSourceVector = source.myCollider.ClosestPoint(target.TransientPosition);
+        }
+
+        points[0] = closestSourceVector;
 
         if(typeof(Arc) == target.GetType()){
-            Arc arcSource = (Arc) target;
+            Arc arcSource = (Arc)target;
             points[1] = arcSource.center;
 
         }else{
-            points[1] = target.transform.position;
+            points[1] = closestTargetVector;
         }
 
         Vector3 sourceToTarg = (points[1] - points[0]).normalized;
@@ -215,6 +236,18 @@ public class Arc : Fragment
         SetTransientPosition();
         UpdateLabelPosition(TransientPosition);
         UpdateArrowSprite(points[1], sourceToTarg);
+
+        DebugArc();
+    }
+
+    void DebugArc()
+    {
+        Vector3 closestTargetVector;
+        Vector3 closestSourceVector;
+        closestTargetVector = target.myCollider.ClosestPoint(source.TransientPosition);
+        closestSourceVector = source.myCollider.ClosestPoint(target.TransientPosition);
+        Debug.DrawLine(closestSourceVector, closestTargetVector);
+        //}
     }
 
     // Update is called once per frame

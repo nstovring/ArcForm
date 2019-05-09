@@ -12,16 +12,18 @@ namespace ArcToolConstants
 
         public static Dictionary<string, string> LabelToKey;
         public static Dictionary<string, string> KeyToLabel;
-
+        public static Dictionary<string, int> KeyToIndex;
         public static void IntializeDictionaries()
         {
             LabelToKey = new Dictionary<string, string>();
             KeyToLabel = new Dictionary<string, string>();
-
-            for(int i = 0; i < RelationURIs.Length; i++)
+            KeyToIndex = new Dictionary<string, int>();
+            for (int i = 0; i < RelationURIs.Length; i++)
             {
                 string key = RelationURIs[i];
                 string label = relationsNaming[i];
+                int index = i;
+                KeyToIndex.Add(key, index);
                 KeyToLabel.Add(key, label);
                 LabelToKey.Add(label, key);
             }
@@ -29,7 +31,17 @@ namespace ArcToolConstants
 
         public static Vector3 rngVector()
         {
-            return new Vector3(Random.Range(-2.0f, 2.0f), Random.Range(-2.0f, 2.0f), 0);
+            return new Vector3(rngFloat(), rngFloat(), 0);
+        }
+
+        public static float rngFloat()
+        {
+            return Random.Range(2.0f,4.0f) * GetRngSign();
+        }
+
+        public static float GetRngSign()
+        {
+            return Mathf.Sign(Random.Range(-2.0f, 2.0f));
         }
     }
 }
