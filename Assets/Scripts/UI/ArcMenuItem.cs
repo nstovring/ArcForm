@@ -43,19 +43,16 @@ public class ArcMenuItem : MonoBehaviour
 
         togglebutton.onClick.AddListener(delegate{
             textToggleIsActive = !textToggleIsActive;
-            ArcToolUIManager.Instance.ToggleMenuItem(this, textToggleIsActive, numToggleIsActive);
-
-
-
+            ArcToolUIManager.Instance.ToggleMenuItem(this, textToggleIsActive);
             DataLogger.Instance.LogToggle(this);
         });
 
-         //toggleSubMenuButton.onClick.AddListener(delegate{
-         //    textToggleIsActive = !textToggleIsActive;
-         //    ArcToolUIManager.Instance.ToggleMenuItem(this, textToggleIsActive, numToggleIsActive);
-         //
-         //    DataLogger.Instance.LogToggle(this);
-         //});
+         toggleSubMenuButton.onClick.AddListener(delegate{
+             //textToggleIsActive = !textToggleIsActive;
+             ArcToolUIManager.Instance.ToggleSubMenu(this);
+         
+             DataLogger.Instance.LogToggle(this);
+         });
     }
 
     public void UpdateState()
@@ -63,15 +60,15 @@ public class ArcMenuItem : MonoBehaviour
 
     }
 
-    private void Update()
+    void Update()
     {
-        if(subItems != null)
-        {
-            if(relations.Any(x => x.isActive == true))
-            {
-                buttonStateHandler.SetToEdited();
-            }
-        }
+        //if(relations != null)
+        //{
+        //    if(relations.Any(x => x.isActive == true))
+        //    {
+        //        buttonStateHandler.SetToEdited();
+        //    }
+        //}
     }
 
 

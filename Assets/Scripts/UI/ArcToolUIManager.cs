@@ -41,64 +41,105 @@ public class ArcToolUIManager : MonoBehaviour
         ArcUIUtility.ClearMenu();
     }
     public List<ArcMenuSubItem> subItems;
-    internal void ToggleMenuItem(ArcMenuItem arcCollectionItem, bool numToggle, bool numToggleIsActive)
+
+    public void ResetSubMenu(ArcMenuItem arcCollectionItem)
     {
         ArcUIUtility.RemoveSubMenuButtons();
 
-        foreach(string item in StaticConstants.RelationURIs)
+        foreach (string item in StaticConstants.RelationURIs)
         {
             ArcMenuItem aci = ArcDataUtility.PropertyMenuItems[item];
-            if(aci != arcCollectionItem && !aci.submenuEdited)
+            if (aci != arcCollectionItem && !aci.submenuEdited)
+            {
+                aci.textToggleIsActive = false;
                 aci.buttonStateHandler.SetToDefault();
+            }
         }
+    }
 
+    public void ToggleSubMenu(ArcMenuItem arcCollectionItem)
+    {
+        ToggleSubMenu(arcCollectionItem, !subMenuIsActive);
+    }
+
+    public void ToggleSubMenu(ArcMenuItem arcMenuItem, bool toggle)
+    {
+        if (toggle)
+        {
+            SetFocusedArcMenuItem(arcMenuItem);
+            RefreshSubMenu(arcMenuItem);
+        }
+        else
+        {
+            arcMenuItem.buttonStateHandler.SetToDefault();
+            ArcUIUtility.RemoveSubMenuButtons();
+            SubItemController.Instance.arcSubItemMenu.SetActive(false);
+        }
+        subMenuIsActive = toggle;
+    }
+
+    public void RefreshSubMenu(ArcMenuItem arcCollectionItem)
+    {
+        ResetSubMenu(arcCollectionItem);
         //Getproperties
         Dictionary<string, Property> focusedProperties = ArcMapManager.Instance.GetFocusedToken().myPropertiesFromConceptNet;
         Property property = focusedProperties[arcCollectionItem.key];
         subItems = new List<ArcMenuSubItem>();
 
-        if (numToggle)
+        arcCollectionItem.buttonStateHandler.SetToSelected();
+        arcCollectionItem.submenuEdited = false;
+        arcCollectionItem.relations = property.Relations;
+        foreach (Relation rel in property.Relations)
         {
+            ArcMenuSubItem item = Instantiate(ArcUIUtility.PropertySubMenuButtonPrefab, PropertySubMenu).GetComponent<ArcMenuSubItem>();
+            item.Refresh(rel, property.Key);
+            item.arcCollectionItem = arcCollectionItem;
+            item.SetActive(rel.isActive);
 
-            arcCollectionItem.buttonStateHandler.SetToSelected();
-            arcCollectionItem.submenuEdited = false;
-
-            foreach (Relation rel in property.Relations)
+            //Set Button toggle from property
+            if (item.isActive)
             {
-                ArcMenuSubItem item = Instantiate(ArcUIUtility.PropertySubMenuButtonPrefab, PropertySubMenu).GetComponent<ArcMenuSubItem>();
-                item.Refresh(rel, property.Key);
-                item.arcCollectionItem = arcCollectionItem;
-                item.SetActive(rel.isActive);
-
-                //Set Button toggle from property
-                if (item.isActive)
-                {
-                    item.buttonStateHandler.SetToSelected();
-                    arcCollectionItem.submenuEdited = true;
-                    //Item active and editing true
-                }
-                else
-                {
-                    item.buttonStateHandler.SetToDefault();
-                    //Item inactive
-                }
-
-
-                subItems.Add(item);
+                item.buttonStateHandler.SetToSelected();
+                arcCollectionItem.submenuEdited = true;
+                arcCollectionItem.buttonStateHandler.SetToEdited();
+                //Item active and editing true
             }
+            else
+            {
+                item.buttonStateHandler.SetToDefault();
+            }
+            subItems.Add(item);
+        }
 
-            SubItemController.Instance.arcSubItemMenu.SetActive(true);
+        SubItemController.Instance.arcSubItemMenu.SetActive(true);
+    }
+
+    private ArcMenuItem focusedMenuItem;
+    void SetFocusedArcMenuItem(ArcMenuItem arcMenuItem)
+    {
+        focusedMenuItem = arcMenuItem;
+    }
+
+    ArcMenuItem GetFocusedMenuItem()
+    {
+        return focusedMenuItem;
+    }
+
+
+    internal void ToggleMenuItem(ArcMenuItem arcMenuItem, bool numToggle)
+    {
+        if (!subMenuIsActive)
+        {
+            ToggleSubMenu(arcMenuItem, numToggle);
         }
         else
         {
-            arcCollectionItem.buttonStateHandler.SetToDefault();
-            ArcUIUtility.RemoveSubMenuButtons();
-            SubItemController.Instance.arcSubItemMenu.SetActive(false);
+            RefreshSubMenu(arcMenuItem);
         }
         //Foreach relation in property
-  
+
         Unitoken focusedToken = ArcMapManager.Instance.GetFocusedToken();
-        string key = arcCollectionItem.key;
+        string key = arcMenuItem.key;
         Property selectedProperty = focusedToken.GetProperty(key);
         
         PropertySubMenuText.text = StaticConstants.KeyToLabel[selectedProperty.Key];
@@ -109,15 +150,24 @@ public class ArcToolUIManager : MonoBehaviour
         //Get relation activeness
         if (numToggle && isCollectionActive == false)
         {
-            ac = ArcCollectionFactory.Instance.AddNewCollection(focusedToken, key);
-            focusedToken.myArcCollections.Add(key, ac);
+            List<ArcMenuSubItem> activeSubItems = new List<ArcMenuSubItem>();
+            foreach(ArcMenuSubItem x in subItems)
+            {
+                if (x.isActive)
+                    activeSubItems.Add(x);
+            }
+            if (activeSubItems.Count > 0)
+            {
+                ac = ArcCollectionFactory.Instance.AddNewCollection(focusedToken, key, activeSubItems);
+                focusedToken.myArcCollections.Add(key, ac);
+            }
         }
-        else
-        {
-            focusedToken.myArcCollections.TryGetValue(key, out ac);
-            focusedToken.myArcCollections.Remove(key);
-            ArcCollectionFactory.Instance.DestroyArcCollection(ac);
-        }
+        //else if(GetFocusedMenuItem() == arcMenuItem)
+        //{
+        //    focusedToken.myArcCollections.TryGetValue(key, out ac);
+        //    focusedToken.myArcCollections.Remove(key);
+        //    ArcCollectionFactory.Instance.DestroyArcCollection(ac);
+        //}
     }
 
     void DestroyCollection(Unitoken unitoken, string key)
@@ -187,46 +237,6 @@ public class ArcToolUIManager : MonoBehaviour
         return ActiveArcMenuItem;
     }
 
-    internal List<ArcMenuSubItem> ToggleSubMenu(ArcMenuItem arcCollectionItem, bool numToggle)
-    {
-        //ArcMenuItem amI = GetActiveArcMenuItem();
-        //if(amI != null)
-        //{
-        //    amI.myButtonToggle.TogglePressed(false);
-        //    SetActiveArcMenuItem(arcCollectionItem);
-        //}
-        //else
-        //{
-        //    SetActiveArcMenuItem(arcCollectionItem);
-        //}
-
-        Unitoken focusedToken = ArcMapManager.Instance.GetFocusedToken();
-        string key = arcCollectionItem.key;
-        bool buttonActive = numToggle;
-        subMenuIsActive = !subMenuIsActive;
-        Property selectedProperty = focusedToken.GetProperty(key);
-
-        //ArcUIUtility.UpdatePropertyMenuFromProperties(focusedToken.myPropertiesFromConceptNet);
-        if (buttonActive)
-        {
-        
-            foreach (Relation rel in selectedProperty.Relations)
-            {
-                if(!rel.isEdited)
-                  ArcToolUIManager.ArcDataUtility.SetRelation(ArcMapManager.Instance.GetFocusedToken(), key, rel.Label, buttonActive);
-            }
-            selectedProperty = focusedToken.GetProperty(key);
-            return ArcUIUtility.CreateSubMenuButtons(arcCollectionItem, selectedProperty);
-        }
-        else
-        {
-            foreach (Relation rel in selectedProperty.Relations)
-            {
-                ArcToolUIManager.ArcDataUtility.SetRelation(ArcMapManager.Instance.GetFocusedToken(), key, rel.Label, buttonActive);
-            }
-            return ArcUIUtility.RemoveSubMenuButtons();
-        }
-    }
 
     internal void UpdatePropertyMenuFromConcept(Unitoken focusedToken, Concept concept)
     {

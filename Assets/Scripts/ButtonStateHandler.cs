@@ -13,6 +13,8 @@ public class ButtonStateHandler
     public Color EditedColor;
 
     public Image myButtonImage;
+    internal bool isSelected;
+
     public void SetToEdited()
     {
         myButtonImage.CrossFadeColor(EditedColor, 0.1f, true, false);
@@ -23,12 +25,14 @@ public class ButtonStateHandler
     {
         myButtonImage.CrossFadeColor(SelectedColor, 0.1f, true, false);
         myState = ToggleState.Selected;
+        isSelected = true;
     }
 
     public void SetToDefault()
     {
         myButtonImage.CrossFadeColor(DefaultColor, 0.1f, true, false);
         myState = ToggleState.Default;
+        isSelected = false;
     }
 }
 
