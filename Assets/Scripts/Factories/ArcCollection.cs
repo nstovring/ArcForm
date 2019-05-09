@@ -7,6 +7,18 @@ using UnityEngine;
 
 public class ArcCollection : Fragment
 {
+    public int CollectionType;
+    public SpriteRenderer spriteRend;
+    public void SetType(int type)
+    {
+        CollectionType = type;
+        UpdateSpriteColor();
+    }
+
+    public void UpdateSpriteColor()
+    {
+        spriteRend.color = ColourBehaviour.Instance.ColorTokens[CollectionType].Colors[3];
+    }
     // Start is called before the first frame update
     void Start()
     {

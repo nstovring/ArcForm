@@ -38,8 +38,10 @@ public class ColourBehaviour : MonoBehaviour
     }
     }
     }
+
+    public static ColourBehaviour Instance;
     void Start(){
-  
+        Instance = this;
     }
     
     

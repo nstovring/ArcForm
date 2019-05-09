@@ -57,6 +57,8 @@ MonoBehaviour:
   isSelected: 0
   hoverIcon: {fileID: 0}
   isHoveredOver: 0
+  CollectionType: 0
+  spriteRend: {fileID: 0}
 --- !u!212 &1175629219147043652
 SpriteRenderer:
   m_ObjectHideFlags: 0

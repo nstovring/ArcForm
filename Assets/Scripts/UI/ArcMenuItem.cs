@@ -30,6 +30,8 @@ public class ArcMenuItem : MonoBehaviour
     public ArcCollection myArcCollection;
     public List<ArcMenuSubItem> subItems;
     public List<Relation> relations;
+    [Range(0, 2)]
+    int ColorRange = 0;
 
     public void SetProperty(string p, string label){
         key = p;
@@ -55,6 +57,11 @@ public class ArcMenuItem : MonoBehaviour
          });
     }
 
+    public void Initialize()
+    {
+        toggleSubMenuButton.image.color = ColourBehaviour.Instance.ColorTokens[index].Colors[ColorRange];
+    }
+
     public void UpdateState()
     {
 
@@ -62,6 +69,8 @@ public class ArcMenuItem : MonoBehaviour
 
     void Update()
     {
+
+        toggleSubMenuButton.image.color = ColourBehaviour.Instance.ColorTokens[index].Colors[ColorRange];
         //if(relations != null)
         //{
         //    if(relations.Any(x => x.isActive == true))
