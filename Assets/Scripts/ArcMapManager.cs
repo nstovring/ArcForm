@@ -156,6 +156,9 @@ public class ArcMapManager : MonoBehaviour
             unitokens.Remove(ac);
         }
 
+        if (ac == null)
+            return;
+
         if(ac.myArcs != null)
         foreach(Arc a in ac.myArcs)
         {

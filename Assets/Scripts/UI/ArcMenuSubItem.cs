@@ -72,6 +72,11 @@ public class ArcMenuSubItem : MonoBehaviour{
             //Get Unitoken Connected unitoken
             Unitoken focus = ArcMapManager.Instance.GetFocusedToken();
             ArcToolUIManager.ArcDataUtility.SetRelation(ArcMapManager.Instance.GetFocusedToken(), key, label, isActive);
+            if (isActive)
+            {
+                //SetMenu Item To edited
+                arcCollectionItem.buttonStateHandler.SetToEdited();
+            }
             ArcToolUIManager.ArcUIUtility.UpdatePropertyMenuFromUnitoken(focus);
             ArcToolUIManager.Instance.ToggleSubMenuItem(this);
 
