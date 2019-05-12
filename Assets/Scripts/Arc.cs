@@ -239,6 +239,11 @@ public class Arc : Fragment
         //}
     }
 
+    private void Start()
+    {
+        transform.name = source.name + " - " + target.name;
+    }
+
     // Update is called once per frame
     void Update()
     {

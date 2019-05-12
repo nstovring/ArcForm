@@ -77,7 +77,7 @@ public class ArcMapManager : MonoBehaviour
         return focusedToken;
     }
 
-    public bool AddTokenToList(Unitoken token){
+    public bool AddTokenToList(Fragment token){
         if(!unitokens.Contains(token)){
             token.id = unitokens.Count;
             unitokens.Add(token);

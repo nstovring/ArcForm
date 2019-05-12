@@ -28,6 +28,7 @@ public class ArcCollectionFactory : Factory
 
         //Add items to collection
         ac.AddToCollection(subItem);
+        ArcMapManager.Instance.AddTokenToList(ac);
 
         //Link Collection to source
         Arc a = ArcFactory.Instance.AddNewArc(source, " ", ac);
