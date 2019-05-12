@@ -12,18 +12,6 @@ public class ArcFactory : MonoBehaviour
         Instance = this;
         //throw new NotImplementedException();
     }
-    public void CollapseArc(){
-        string label = ArcMapManager.Instance.selectedArc.Collapse();
-        Vector3 center = ArcMapManager.Instance.selectedArc.TransientPosition;
-        unitoken token = new unitoken();
-        token.Label = label;
-        token.TransientPosition = center;
-        
-        //TokenFactory.Instance.AddNewToken(token);
-    }
-
-
- 
 
     public Arc AddNewArc(Fragment source, string label, Fragment target)
     {

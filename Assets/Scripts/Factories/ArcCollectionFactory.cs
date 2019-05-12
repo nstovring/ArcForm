@@ -5,6 +5,7 @@ using UnityEngine;
 using ArcToolConstants;
 using StructureContainer;
 using System.Linq;
+using static ArcMapGrid;
 
 public class ArcCollectionFactory : Factory
 {
@@ -16,36 +17,13 @@ public class ArcCollectionFactory : Factory
         Instance = this;
     }
 
-    public ArcCollection AddNewCollection(Unitoken source, string topic, List<ArcMenuSubItem> subItems)
-    {
-        //Create Collection token
-        ArcCollection ac = Instantiate(collectionPrefab, ArcMapGrid.Instance.FindEmptySpot(source, 1), Quaternion.identity).GetComponent<ArcCollection>();
-        ac.SetLabel(StaticConstants.KeyToLabel[topic]);
-
-        //Add items to collection
-        foreach(ArcMenuSubItem x in subItems)
-        {
-            if (x.isActive)
-            {
-                x.SetActive(true);
-                ac.AddToCollection(x);
-            }
-        }
-
-        //Link Collection to source
-        Arc a = ArcFactory.Instance.AddNewArc(source, " ", ac);
-        a.transform.parent = ac.transform;
-        
-        ArcMapManager.Instance.unitokens.Add(ac);
-        ArcMapManager.Instance.SetFocusedCollection(ac);
-        return ac;
-    }
-
-
     public ArcCollection AddNewCollection(Unitoken source, string topic, ArcMenuSubItem subItem)
     {
+        Vector3 foundPosition;
+        List<GridCell> cells = ArcMapGrid.Instance.FindEmptySpot(source.TransientPosition, 1, out foundPosition);
         //Create Collection token
-        ArcCollection ac = Instantiate(collectionPrefab, ArcMapGrid.Instance.FindEmptySpot(source, 1), Quaternion.identity).GetComponent<ArcCollection>();
+        ArcCollection ac = Instantiate(collectionPrefab, foundPosition, Quaternion.identity).GetComponent<ArcCollection>();
+        ac.MyCells = cells;
         ac.SetLabel(StaticConstants.KeyToLabel[topic]);
 
         //Add items to collection
@@ -59,11 +37,6 @@ public class ArcCollectionFactory : Factory
     }
 
   
-    internal IEnumerator PlaceCollectionOnMap(string topic, List<ArcMenuSubItem> subItems)
-    {
-        throw new NotImplementedException();
-    }
-
     internal void DestroyArcCollection(ArcCollection myArcCollection)
     {
         ArcMapManager.Instance.unitokens.Remove(myArcCollection);

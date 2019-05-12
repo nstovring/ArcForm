@@ -159,7 +159,11 @@ public class ArcToolUIManager : MonoBehaviour
             }
             if (activeSubItems.Count > 0)
             {
-                ac = ArcCollectionFactory.Instance.AddNewCollection(focusedToken, key, activeSubItems);
+                ac = ArcCollectionFactory.Instance.AddNewCollection(focusedToken, key, activeSubItems[0]);
+                foreach(ArcMenuSubItem item in activeSubItems)
+                {
+                    ac.AddToCollection(item);
+                }
                 ac.SetType(arcMenuItem.index);
                 focusedToken.myArcCollections.Add(key, ac);
             }

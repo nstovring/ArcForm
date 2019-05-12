@@ -125,7 +125,7 @@ public class Mouselistener : MonoBehaviour
 
         if(Input.GetMouseButtonUp(1) && rightClickInstantiate   ){
         
-                ArcMapManager.Instance.selectedUnitoken = TokenFactory.Instance.AddNewToken(mousePositionInSpace);
+                ArcMapManager.Instance.selectedUnitoken = TokenFactory.Instance.AddNewToken("Test", mousePositionInSpace);
                 ArcMapManager.Instance.SelectUnitoken(ArcMapManager.Instance.selectedUnitoken);
                 Debug.Log(Input.mousePosition);
                 Debug.Log(mousePositionInSpace);
@@ -196,8 +196,8 @@ public class Mouselistener : MonoBehaviour
                 //StoreStart vector from empty space
                 if(tokenSpawn==true){
                     
-                    endPointUnitoken = TokenFactory.Instance.AddNewToken(mousePositionInSpace);
-                    startPointUnitoken = TokenFactory.Instance.AddNewToken(unitokenStartPosVector);
+                    endPointUnitoken = TokenFactory.Instance.AddNewToken("Test",mousePositionInSpace);
+                    startPointUnitoken = TokenFactory.Instance.AddNewToken("Test", unitokenStartPosVector);
                     selectedArc = ArcFactory.Instance.AddNewArc(startPointUnitoken, "Test", endPointUnitoken);
                     
                     startPointUnitoken.isInactive = false;
@@ -211,7 +211,7 @@ public class Mouselistener : MonoBehaviour
         if(ClickAndHold() == true && draggingFromToken == true){
                 Debug.Log("Dragging from Token");
                 if(tokenSpawn==true){
-                    endPointUnitoken = TokenFactory.Instance.AddNewToken(mousePositionInSpace);
+                    endPointUnitoken = TokenFactory.Instance.AddNewToken("Test", mousePositionInSpace);
                     selectedArc = ArcFactory.Instance.AddNewArc(hoveredStore, "Test", endPointUnitoken);
                     tokenSpawn = false;
                 }

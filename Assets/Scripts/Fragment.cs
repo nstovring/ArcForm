@@ -2,25 +2,26 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using static ArcMapGrid;
 
 public abstract class Fragment : MonoBehaviour
 {
+    public enum Type { Unitoken, Arc, Collection }
+
+    [Header("Settings")]
     public int id;
     public int cellSize;
     public List<Arc> myArcs;
 
-    public enum Type {Unitoken, Arc, Collection}
-    public Type myType;
-
+    [Header("Refs")]
     public Vector3 TransientPosition;
     public Collider2D myCollider;
-
     public TextMeshPro myLabel;
+    private List<GridCell> myCells;
+    public List<GridCell> MyCells { get => myCells; set => myCells = value; }
 
 
-    public List<Transform> spawnLocations;
 
-  
     // Start is called before the first frame update
     void Start()
     {
@@ -31,10 +32,20 @@ public abstract class Fragment : MonoBehaviour
     void Update()
     {
         TransientPosition = transform.position;
+        if(MyCells != null)
+        {
+            foreach (GridCell g in MyCells)
+            {
+                g.DebugCube.Draw();
+            }
+        }
+       
     }
     public bool isSelected;
     public Transform hoverIcon;
     public bool isHoveredOver = false;
+
+
     public virtual bool SetHoverActive(bool state)
     {
         if(hoverIcon != null) 

@@ -29,7 +29,7 @@ public class Arc : Fragment
         return "";
     }
     public virtual void Initialize(){
-        myType = Type.Arc;
+        //myType = Type.Arc;
     }
 
     public override void ShowInputField()
@@ -43,29 +43,6 @@ public class Arc : Fragment
         }
         myLabel.text = label;
     }
-
-    public string Collapse(){
-       //myLabel.text = CollapseArc(this);
-       return CollapseArc(this);
-    }
-    public string CollapseArc(Arc arc){
-        string left = "";
-        string right = "";
-
-        if(source.myType == Fragment.Type.Arc){
-            left += CollapseArc((Arc)source);
-        }else{
-            left += source.name;
-        }
-        if(target.myType == Fragment.Type.Arc){
-            right += CollapseArc((Arc)target);
-        }else{
-            right += source.name;
-        }
-        //returns a unitoken which inherits the arcs and the label is concatenated
-        return left + myLabel.text + right;
-    }
-
  
     public void Initialize(Fragment source, Fragment target){
         SetTokens(source,target);
@@ -113,8 +90,8 @@ public class Arc : Fragment
         myLine.SetPositions(points);
         //myLine.material = lineMaterial;
         //Color tempColor = myLine.endColor;
-        //myLine.startColor = myLine.startColor;
-        //myLine.endColor = tempColor;
+        myLine.endColor = Color.black;
+        //myLine.endColor = ;
         myLine.endWidth = ArcMapManager.Instance.arcEndWidth;
         myLine.startWidth = ArcMapManager.Instance.arcStartWidth;
         myLine.transform.name = "JoinArcLine";
@@ -177,7 +154,7 @@ public class Arc : Fragment
     public void RefreshArc(){
         if(source.GetType() == typeof(ArcCollection))
         {
-            myLine.endColor = ((ArcCollection)source).spriteRend.color;
+            myLine.startColor = ((ArcCollection)source).spriteRend.color;
         }
 
 
@@ -209,7 +186,7 @@ public class Arc : Fragment
         if (source.myCollider.GetType() == typeof(CircleCollider2D))
         {
             closestSourceVector = source.TransientPosition;
-            sourcePaddingOffset = circlePadding2;
+            sourcePaddingOffset = circlePadding1;
         }
         else
         {
@@ -217,9 +194,13 @@ public class Arc : Fragment
             sourcePaddingOffset = 0;
         }
 
-        points[0] = closestSourceVector;
+        closestTargetVector = target.myCollider is CircleCollider2D ? target.TransientPosition : (Vector3) target.myCollider.ClosestPoint(source.TransientPosition);
+        closestSourceVector = source.myCollider is CircleCollider2D ? source.TransientPosition : (Vector3) source.myCollider.ClosestPoint(target.TransientPosition);
 
-        if(typeof(Arc) == target.GetType()){
+        points[0] = closestSourceVector;
+        points[1] = closestTargetVector;
+
+        if (typeof(Arc) == target.GetType()){
             Arc arcSource = (Arc)target;
             points[1] = arcSource.center;
 
@@ -231,13 +212,19 @@ public class Arc : Fragment
         points[0] += sourceToTarg * (ArcMapManager.Instance.linePadding + sourcePaddingOffset);
         points[1] -= sourceToTarg * (ArcMapManager.Instance.linePadding + targetPaddingOffset);
 
+        UpdateArrowSprite(points[1], sourceToTarg);
+
         center =  points[1] + ( points[0] - points[1])/2.0f;
-        
+        if(Vector3.Distance(points[0], points[1]) < 0.5f)
+        {
+            points[0] = points[1];
+            //points[1] = Vector3.zero;
+        }
         myLine.SetPositions(points);
         UpdateCollider(points);
         SetTransientPosition();
         UpdateLabelPosition(TransientPosition);
-        UpdateArrowSprite(points[0], sourceToTarg);
+        
 
         DebugArc();
     }

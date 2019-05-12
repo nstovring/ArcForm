@@ -53,7 +53,10 @@ public class ArcCollection : Fragment
         target.deleteButton.OnClicked += item.OnClick;
         Arc arc = ArcFactory.Instance.AddNewArc(this, " ", target);
         arc.SetLabel(" ");
-
+        target.DefaultColor = item.buttonStateHandler.EditedColor;
+        target.HoverColor = item.buttonStateHandler.DefaultColor;
+        //target.SetColorToken(ColourBehaviour.Instance.ColorTokens[CollectionType]);
+        target.spriteRenderer.color = spriteRend.color;
         item.SetConnections(target, arc, this);
         target.isInactive = false;
         target.transform.parent = arc.transform;

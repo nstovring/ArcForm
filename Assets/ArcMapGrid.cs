@@ -7,21 +7,14 @@ using UnityEngine;
 public class ArcMapGrid : MonoBehaviour
 {
     public static ArcMapGrid Instance;
+    [System.Serializable]
     public class GridCell
     {
-        public int Xindex;
-        public int Yindex;
+        public Vector2Int Index;
         public bool Placed = false;
-
-        public void Draw()
-        {
-        }
+        public Searcher.DebugCube DebugCube;
     }
 
-    public Transform cellPrefab;
-
-    public int X;
-    public int Y;
 
     public Dictionary<Vector2Int, GridCell> Map;
 
@@ -30,19 +23,17 @@ public class ArcMapGrid : MonoBehaviour
     {
         Map = new Dictionary<Vector2Int, GridCell>();
         Instance = this;
-        //Use a dictionary to store grid
-        //look through grid by using positions as index if there is nothing under a specific index then place there
-        //the method which fills the dictionary spot is also responsible for spawning a debug element at the location
     }
 
-    public Vector3 FindEmptySpot(Fragment frag, int targetSize)
+    public List<GridCell> FindEmptySpot(Fragment frag, int targetSize)
     {
         Vector3 position = frag.TransientPosition;
-        return FindEmptySpot(position, targetSize);
+        List<GridCell> cells = FindEmptySpot(position, targetSize, out position);
+        return cells;
     }
 
-    class Searcher{
-
+    public class Searcher
+    {
         public int size;
         public Vector3 startPos;
         public Vector3 currentPos;
@@ -89,6 +80,7 @@ public class ArcMapGrid : MonoBehaviour
                 bool isOcuppied = IsCellOccupied(currentPos);
                 if (isOcuppied)
                 {
+                    //shift == move center
                     return false;
                 }
                 currentPos += new Vector3(1, 0, 0);
@@ -111,14 +103,23 @@ public class ArcMapGrid : MonoBehaviour
             }
         }
 
+        public List<GridCell> GridCells;
         public void PlaceCell(Vector3 position)
         {
+            if (GridCells == null)
+                GridCells = new List<GridCell>();
+
             Vector2Int indexPos = new Vector2Int((int)position.x, (int)position.y);
             GridCell g = new GridCell();
+            g.Index = indexPos;
+            GridCells.Add(g);
             g.Placed = true;
+            DebugCube d = new DebugCube { center = position };
+            g.DebugCube = d;
             Instance.Map.Add(indexPos, g);
-            Instance.AddDebugCube(position);
         }
+
+
 
         public void PlaceWide(Vector3 position)
         {
@@ -131,15 +132,15 @@ public class ArcMapGrid : MonoBehaviour
             }
         }
 
-        public Vector3[] searchPattern = {new Vector3(1,0,0), new Vector3(0, 1, 0), new Vector3(-1, 0, 0), new Vector3(0, -1, 0)};
-        public int searchCount = 0;
+        public Vector3[] searchPattern = {new Vector3(0,1,0), new Vector3(2, 1, 0), new Vector3(2, 0, 0),  new Vector3(2,-1, 0), new Vector3(0, -1, 0), new Vector3(-2, -1, 0), new Vector3(-2, 0, 0) };
+        public int searchCount = 2;
 
         public void Roam()
         {
             if (checkedLocations == null)
                 checkedLocations = new List<Vector2Int>();
 
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < searchPattern.Length; i++)
             {
                 currentPos = startPos + (searchPattern[i % searchPattern.Length] * searchCount);
                 if (Search(currentPos))
@@ -149,83 +150,83 @@ public class ArcMapGrid : MonoBehaviour
                     searching = false;
                     break;
                 }
-                //else
-                //{
-                //    searchCount++;
-                //}
             }
 
             searchCount++;
         }
+
+
+        public struct DebugCube
+        {
+            public Vector3 center;
+            public Vector3 a;
+            public Vector3 b;
+            public Vector3 c;
+            public Vector3 d;
+
+            public float scale;
+
+            public void Set()
+            {
+                scale = 0.5f;
+                a = center + new Vector3(-1, -1, 0) * scale;
+                b = center + new Vector3(-1, 1, 0) * scale;
+                c = center + new Vector3(1, 1, 0) * scale;
+                d = center + new Vector3(1, -1, 0) * scale;
+            }
+
+            public void Draw()
+            {
+                Set();
+
+                Debug.DrawLine(a, b);
+                Debug.DrawLine(b, c);
+                Debug.DrawLine(c, d);
+                Debug.DrawLine(d, a);
+            }
+        }
+
     }
 
 
-    public Vector3 FindEmptySpot(Vector3 position, int targetSize)
+    public List<GridCell> FindEmptySpot(Vector3 position, int targetSize, out Vector3 outPos)
     {
         Searcher searcher = new Searcher();
+        //position = Vector3.zero;
         searcher.size = targetSize;
         searcher.startPos = position;
         searcher.currentPos = searcher.startPos;
-        searcher.startDirection = new Vector3(1, 1,0);
+        searcher.startDirection = new Vector3(1, 1, 0);
         while (searcher.searching && searcher.searchCount < 10)
         {
             searcher.Run();
         }
 
-        return searcher.endPos;
+        outPos = searcher.endPos;
+        return searcher.GridCells;
     }
 
-  
-    public struct DebugCube
-    {
-        public Vector3 center;
-        public Vector3 a;
-        public Vector3 b;
-        public Vector3 c;
-        public Vector3 d;
 
-        public float scale;
+ 
 
-        public void Set()
-        {
-            scale = 0.5f;
-            a = center + new Vector3(-1, -1, 0) * scale;
-            b = center + new Vector3(-1, 1, 0) * scale;
-            c = center + new Vector3(1, 1, 0) * scale;
-            d = center + new Vector3(1, -1, 0) * scale;
-        }
-
-        public void Draw()
-        {
-            Set();
-
-            Debug.DrawLine(a, b);
-            Debug.DrawLine(b, c);
-            Debug.DrawLine(c, d);
-            Debug.DrawLine(d, a);
-        }
-    }
-
-    public List<DebugCube> debugCubes;
-
-    public void AddDebugCube(Vector3 center)
-    {
-        if (debugCubes == null)
-            debugCubes = new List<DebugCube>();
-        DebugCube d = new DebugCube { center = center };
-        debugCubes.Add(d);
-    }
+    //public void AddDebugCube(Vector3 center)
+    //{
+    //    if (debugCubes == null)
+    //        debugCubes = new List<DebugCube>();
+    //    DebugCube d = new DebugCube { center = center };
+    //    debugCubes.Add(d);
+    //}
 
     // Update is called once per frame
     void Update()
     {
-        if(debugCubes != null)
-        {
-            foreach(DebugCube d in debugCubes)
-            {
-                d.Draw();
-            }
-        }
+        //if(debugCubes != null)
+        //{
+        //    foreach(DebugCube d in debugCubes)
+        //    {
+        //        d.Draw();
+        //    }
+        //}
         //Draw grid with debug.draw
     }
 
@@ -233,16 +234,19 @@ public class ArcMapGrid : MonoBehaviour
     {
         Vector3 position = frag.TransientPosition;
 
-        Vector2Int indexPos = new Vector2Int((int)position.x, (int)position.y);
-        GridCell gTemp = new GridCell();
-        bool isOcuppied = Map.TryGetValue(indexPos, out gTemp);
-        if (isOcuppied)
+        foreach(GridCell cell in frag.MyCells)
         {
-            Map.Remove(indexPos);
-        }
-        else
-        {
-            throw new MissingReferenceException("Cell not inside of map?!");
+            Vector2Int indexPos = cell.Index;
+            GridCell gTemp = new GridCell();
+            bool isOcuppied = Map.TryGetValue(indexPos, out gTemp);
+            if (isOcuppied)
+            {
+                Map.Remove(indexPos);
+            }
+            else
+            {
+                throw new MissingReferenceException("Cell not inside of map?!");
+            }
         }
     }
 }

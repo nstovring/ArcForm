@@ -51,11 +51,9 @@ MonoBehaviour:
   id: 0
   cellSize: 0
   myArcs: []
-  myType: 0
   TransientPosition: {x: 0, y: 0, z: 0}
   myCollider: {fileID: 4895790722118960293}
   myLabel: {fileID: 4686617690231274628}
-  spawnLocations: []
   isSelected: 0
   hoverIcon: {fileID: 2534857143355839381}
   isHoveredOver: 0
@@ -68,7 +66,7 @@ MonoBehaviour:
   target: {fileID: 0}
   isLabelled: 0
   myPadding: 0
-  circlePadding1: 0.44
+  circlePadding1: 0.25
   circlePadding2: 0.44
 --- !u!68 &4895790722118960293
 EdgeCollider2D:

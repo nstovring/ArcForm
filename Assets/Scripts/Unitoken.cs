@@ -9,42 +9,26 @@ using System;
 
 public class Unitoken : Fragment
 {
-    public int arcCount;
-
-    public float tokenRotation;
-
     public delegate void ClickAction();
     public event ClickAction OnClicked;
-
-    public Transform softChild;
-
-    public Transform hardChild;
-
-    public SpriteRenderer spriteRenderer;
-    public unitoken myUnitokenStruct;
-
-    public Dictionary<string, Property> myPropertiesFromConceptNet;
-
-    public Dictionary<string, ArcCollection> myArcCollections;
-
+    [Header("Unitoken Settings")]
+    public int arcCount;
+    public float tokenRotation;
     public bool isInactive = true;
+    public UnitokenDeleteButton deleteButton;
 
 
-    public MapState myMapState = MapState.Preview;
-    public InteractState myInteractState = InteractState.Unselected;
-
-    public enum UnitokenState {Loaded, Preview, Placed, Removed}
-    public enum UnitokenVisibility {Invisible, SemiVisible, Opaque}
-
-
-    UnitokenState unitokenState;
-    UnitokenVisibility unitokenVisibility;
+    [Header("Unitoken Refs")]
+    public SpriteRenderer spriteRenderer;
     Camera mCamera;
-
     public Color DefaultColor;
     public Color HoverColor;
+    [Header("Unitoken Collections")]
+    public Dictionary<string, Property> myPropertiesFromConceptNet;
+    public Dictionary<string, ArcCollection> myArcCollections;
 
-    public UnitokenDeleteButton deleteButton;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -57,101 +41,44 @@ public class Unitoken : Fragment
     }
 
     public void Initialize(unitoken token){
-        myUnitokenStruct = token;
+        //myUnitokenStruct = token;
 
         myLabel.text = token.Label;
         this.TransientPosition = token.TransientPosition;
-        myType = Type.Unitoken;
+        //myType = Type.Unitoken;
         myArcs = new List<Arc>();
         mCamera = Camera.main;
     }
 
     public void Initialize(string label, Vector3 transientPosition, string uri){
-        myUnitokenStruct = new unitoken{URI = uri, TransientPosition = transientPosition, Label = label};
+        //myUnitokenStruct = new unitoken{URI = uri, TransientPosition = transientPosition, Label = label};
         myLabel.text = label;
         this.TransientPosition = transientPosition;
-        myType = Type.Unitoken;
+       // myType = Type.Unitoken;
         myArcs = new List<Arc>();
         mCamera = Camera.main;
     }
 
-    public void SetVisibility(UnitokenVisibility visibility){
-         switch(visibility){
-            case UnitokenVisibility.Invisible:
-            spriteRenderer.color = new Color(1,1,1,0f);
-            break;
-            case UnitokenVisibility.Opaque:
-            spriteRenderer.color = new Color(1,1,1,1);
-            break;
-            case UnitokenVisibility.SemiVisible:
-            spriteRenderer.color = new Color(1,1,1,0.5f);
-            break;
-        }
-        unitokenVisibility = visibility;
-    }
-
-    public void SetState(UnitokenState state){
-        switch(state){
-            case UnitokenState.Loaded:
-            SetVisibility(UnitokenVisibility.Invisible);
-            break;
-            case UnitokenState.Placed:
-            SetVisibility(UnitokenVisibility.Opaque);
-            break;
-            case UnitokenState.Preview:
-            SetVisibility(UnitokenVisibility.SemiVisible);
-            break;
-            case UnitokenState.Removed:
-            SetVisibility(UnitokenVisibility.Invisible);
-            break;        
-        }
-        unitokenState = state;
-    }
-
-    void UpdateVisibility(){
-        switch(unitokenVisibility){
-            case UnitokenVisibility.Invisible:
-            spriteRenderer.color = new Color(1,1,1,0f);
-            break;
-            case UnitokenVisibility.Opaque:
-            spriteRenderer.color = new Color(1,1,1,1);
-            break;
-            case UnitokenVisibility.SemiVisible:
-            spriteRenderer.color = new Color(1,1,1,0.5f);
-            break;
-        }
-    }
-
+  
     internal void SetSprite(Sprite collectionIconSprite)
     {
         spriteRenderer.sprite = collectionIconSprite;
     }
 
-    void Update(){
-      
-       if(isInactive == false){//collider active and hoverOver is active.
-        transform.GetComponent<CapsuleCollider2D>().enabled = true;
-       }
-       else{//collider disabled and dragging is occuring
-        transform.GetComponent<CapsuleCollider2D>().enabled = false;
-       }
-    }
+    //void Update(){
+    //  
+    //   if(isInactive == false){//collider active and hoverOver is active.
+    //    transform.GetComponent<CapsuleCollider2D>().enabled = true;
+    //   }
+    //   else{//collider disabled and dragging is occuring
+    //    transform.GetComponent<CapsuleCollider2D>().enabled = false;
+    //   }
+    //}
 
     public bool SetActive(bool state)
     {
         return isInactive = state;
     }
-
-    public void UpdateUI()
-    {
-
-    }
-
-    void OnMouseDrag()
-    {
-        //FollowMouse();
-    }
-
 
     internal void StoreProperties(Dictionary<string, Property> properties)
     {
@@ -163,6 +90,11 @@ public class Unitoken : Fragment
         Property property;
         myPropertiesFromConceptNet.TryGetValue(key, out property);
         return property;
+    }
+
+    void OnMouseDrag()
+    {
+        //FollowMouse();
     }
 
     void OnMouseOver()

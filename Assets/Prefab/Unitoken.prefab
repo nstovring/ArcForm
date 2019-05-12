@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &3701740090079871808
 Transform:
   m_ObjectHideFlags: 0
@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 1864494159397395179}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: -0.081233196, y: -0.08220026, z: -0.075478}
   m_Children: []
   m_Father: {fileID: 5341252115030082460}
   m_RootOrder: 1
@@ -68,11 +68,11 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0d8c23872c09cf04e8c2eafa73700a9d, type: 3}
-  m_Color: {r: 0, g: 0.28235295, b: 0.43529412, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 138fd46d5386d594a804163c87c70f5c, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 1
+  m_DrawMode: 0
   m_Size: {x: 5.12, y: 1.23}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
@@ -335,30 +335,19 @@ MonoBehaviour:
   id: 0
   cellSize: 3
   myArcs: []
-  myType: 0
   TransientPosition: {x: 0, y: 0, z: 0}
   myCollider: {fileID: 7449332193073609374}
   myLabel: {fileID: 8710245480496348512}
-  spawnLocations: []
   isSelected: 0
-  hoverIcon: {fileID: 3701740090079871808}
+  hoverIcon: {fileID: 0}
   isHoveredOver: 0
   arcCount: 0
   tokenRotation: 0
-  softChild: {fileID: 0}
-  hardChild: {fileID: 0}
-  spriteRenderer: {fileID: 5471176853428962314}
-  myUnitokenStruct:
-    id: 0
-    TransientPosition: {x: 0, y: 0, z: 0}
-    Label: 
-    URI: 
   isInactive: 1
-  myMapState: 0
-  myInteractState: 1
+  deleteButton: {fileID: 7113944281597126546}
+  spriteRenderer: {fileID: 5471176853428962314}
   DefaultColor: {r: 0.039215688, g: 0.4901961, b: 0.7372549, a: 1}
   HoverColor: {r: 0, g: 0.28051692, b: 0.4339623, a: 1}
-  deleteButton: {fileID: 7113944281597126546}
 --- !u!70 &7449332193073609374
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -606,10 +595,10 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 7ca8bf764415dad4e95525d4bcb85f07, type: 3}
-  m_Color: {r: 0.03137255, g: 0.4901961, b: 0.7411765, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 0
+  m_DrawMode: 1
   m_Size: {x: 5.12, y: 5.12}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
@@ -917,7 +906,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 508cf16f16d38e547bd2b4e72c04fc72, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

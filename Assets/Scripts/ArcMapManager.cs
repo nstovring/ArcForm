@@ -139,7 +139,8 @@ public class ArcMapManager : MonoBehaviour
 
         if (token != null)
         {
-            RemoveFromMap(token);
+            ArcMapGrid.Instance.RemoveFromMap(token);
+
             Destroy(token.transform.gameObject);
         }
     }
@@ -156,11 +157,7 @@ public class ArcMapManager : MonoBehaviour
         }
     }
 
-    public void RemoveFromMap(Fragment f)
-    {
-        ArcMapGrid.Instance.RemoveFromMap(f);
-    }
-
+  
     public void DestroyCollection(Fragment ac)
     {
         ArcCollections.Remove(ac);
@@ -180,7 +177,7 @@ public class ArcMapManager : MonoBehaviour
 
         if (ac != null)
         {
-            RemoveFromMap(ac);
+            ArcMapGrid.Instance.RemoveFromMap(ac);
             Destroy(ac.transform.gameObject);
         }
     }

@@ -20,11 +20,11 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
+  m_AmbientSkyColor: {r: 0.6603774, g: 0.6603774, b: 0.6603774, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
-  m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
+  m_AmbientGroundColor: {r: 0.5188679, g: 0.51478875, b: 0.5066305, a: 1}
   m_AmbientIntensity: 1
-  m_AmbientMode: 3
+  m_AmbientMode: 1
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 0}
   m_HaloStrength: 0.5
@@ -710,7 +710,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1105539051}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -2874,7 +2874,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -247.99986, y: 0.00005707338}
+  m_AnchoredPosition: {x: -247.9997, y: 0.00005707338}
   m_SizeDelta: {x: 243.34, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &691375127
@@ -3549,7 +3549,7 @@ RectTransform:
   - {fileID: 1033779419}
   - {fileID: 1744909199}
   m_Father: {fileID: 1105539051}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -3670,7 +3670,7 @@ RectTransform:
   - {fileID: 731183234}
   - {fileID: 723277279}
   m_Father: {fileID: 1105539051}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -5123,7 +5123,7 @@ RectTransform:
   - {fileID: 2015188292}
   - {fileID: 500694261}
   m_Father: {fileID: 1105539051}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -5210,12 +5210,12 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
+  - {fileID: 1850763951}
   - {fileID: 786468233}
   - {fileID: 1909748640}
   - {fileID: 1078305624}
   - {fileID: 843714233}
   - {fileID: 196391537}
-  - {fileID: 1850763951}
   - {fileID: 1789885574}
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -5618,8 +5618,8 @@ MonoBehaviour:
   zoomScale: 1
   minZoom: 3
   maxZoom: 50
-  arcStartWidth: 0.08
-  arcEndWidth: 0.02
+  arcStartWidth: 0.02
+  arcEndWidth: 0.08
   selectedArc: {fileID: 0}
   focusedToken: {fileID: 0}
   selectedUnitoken: {fileID: 0}
@@ -6669,7 +6669,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 1, g: 1, b: 1, a: 0}
+  m_BackGroundColor: {r: 0.9622642, g: 0.9622642, b: 0.9622642, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -6884,15 +6884,15 @@ RectTransform:
   m_GameObject: {fileID: 1619680187}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 56.848873, y: 30.036337, z: 4.830391}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1850763951}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000061035, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1174.9, y: 621.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1619680189
 MonoBehaviour:
@@ -6907,15 +6907,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.8117647}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.32156864}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -7850,7 +7850,7 @@ RectTransform:
   m_Children:
   - {fileID: 1619680188}
   m_Father: {fileID: 1105539051}
-  m_RootOrder: 5
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -8363,7 +8363,7 @@ RectTransform:
   m_Children:
   - {fileID: 1901824005}
   m_Father: {fileID: 1105539051}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -9434,9 +9434,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e230521cda6644c44b92a48186f8c6fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cellPrefab: {fileID: 963815591}
-  X: 0
-  Y: 0
 --- !u!4 &2135155278
 Transform:
   m_ObjectHideFlags: 0
