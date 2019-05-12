@@ -133,8 +133,9 @@ public class Mouselistener : MonoBehaviour
     }
     
     public void CheckOnClick(){
-        
-        if(Input.GetMouseButtonDown(0)){
+        bool isMouseOverUI = EventSystem.current.IsPointerOverGameObject();
+        if(Input.GetMouseButtonDown(0) && !isMouseOverUI)
+        {
             
             if(hoveredOverToken == null && hoveredOverArc == null){//clicked on background
                 Debug.Log("Clicked on background");
@@ -148,7 +149,7 @@ public class Mouselistener : MonoBehaviour
                 DataLogger.Instance.LogSelection(hoveredOverToken);
 
                 ArcMapManager.Instance.SetFocusedToken(hoveredOverToken);
-                TestQuery();
+                ExecuteQuery();
                 draggingFromToken = true;
                 hoveredStore = hoveredOverToken;
                 tokenSpawn = true;
@@ -165,7 +166,7 @@ public class Mouselistener : MonoBehaviour
               if(hoveredOverToken != null && hoveredOverArc == null){//clicked on Token
                 Debug.Log("Right Clicked on Token");
 
-                TestQuery();
+                ExecuteQuery();
                 draggingFromToken = true;
                 hoveredStore = hoveredOverToken;
                 tokenSpawn = true;
@@ -174,7 +175,7 @@ public class Mouselistener : MonoBehaviour
          }
     }
 
-    public void TestQuery(){
+    public void ExecuteQuery(){
         ArcToolUIManager.ArcUIUtility.ClearMenu();
         ArcMapManager.Instance.autoMoveInterrupt = false;
         //ArcToolUIManager.ArcUIUtility.CreateSubMenu();

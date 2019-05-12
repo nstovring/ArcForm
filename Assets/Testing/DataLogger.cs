@@ -21,7 +21,7 @@ public class DataLogger : MonoBehaviour
     public bool LogginActionTime;
     public bool LoggingInstructionTime;
     bool awaitParticipantNumber = true;
-    public bool isActive = true;
+    public bool enabledInUpdate = true;
 
     [Header("Refs")]
     public Text testPanelTitle;
@@ -195,7 +195,7 @@ public class DataLogger : MonoBehaviour
             SceneManager.LoadScene(0);
         }
 
-        if (!isActive)
+        if (!enabledInUpdate)
             return;
         if(!awaitParticipantNumber)
             TestTime += Time.deltaTime;
@@ -338,7 +338,7 @@ public class DataLogger : MonoBehaviour
 
     public void AppendFile(string path, string line)
     {
-        if (!isActive)
+        if (!enabledInUpdate)
             return;
         int testIndex = SceneManager.GetActiveScene().buildIndex;
         using (System.IO.StreamWriter file =

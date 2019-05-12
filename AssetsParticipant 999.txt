@@ -87,3 +87,15 @@ Task : 1 : Started , 0 , 0 , 0 , 1 , 0,4
 Searched for +Dog , 3.15909 , 3.176038 , 3.15909 , 1 , 1,4
 Task : 1 : Completed , 3.276046 , 3.192994 , 0.1169564 , 1 , 2,4
 Task : 2 : Started , 5.663185 , 0 , 0 , 2 , 0,4
+Task : 1 : Started , 0 , 0 , 0 , 1 , 0,0
+Searched for +Dog , 17,35774 , 17,39107 , 17,35774 , 1 , 1,0
+Task : 1 : Completed , 17,44045 , 17,40777 , 0,08271311 , 1 , 2,0
+Task : 2 : Started , 21,96544 , 0 , 0 , 2 , 0,0
+Toggled Menu Item : capable of : Selected , 31,56889 , 9,620438 , 9,603466 , 2 , 1,0
+Toggled Menu Item : capable of : Selected , 33,36865 , 11,42021 , 1,799782 , 2 , 2,0
+Toggled Menu Item : capable of : Selected , 33,9901 , 12,04167 , 0,6214604 , 2 , 3,0
+Toggled Sub Menu Item : run : True , 38,55696 , 16,60861 , 4,56694 , 2 , 4,0
+Toggled Sub Menu Item : be a pet : True , 38,96112 , 17,01276 , 0,4041562 , 2 , 5,0
+Toggled Sub Menu Item : guard your house : True , 40,54612 , 18,59776 , 1,585012 , 2 , 6,0
+Toggled Sub Menu Item : bark : True , 41,03465 , 19,08629 , 0,4885375 , 2 , 7,0
+Toggled Sub Menu Item : guide a blind person : True , 43,18318 , 21,23484 , 2,148548 , 2 , 8,0
