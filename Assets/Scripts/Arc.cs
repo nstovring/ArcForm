@@ -112,10 +112,11 @@ public class Arc : Fragment
 
         myLine.SetPositions(points);
         //myLine.material = lineMaterial;
-        myLine.startColor = Color.black;
-        myLine.endColor = Color.black;
-        myLine.startWidth = 0.0f;
-        myLine.endWidth = 0.2f;
+        //Color tempColor = myLine.endColor;
+        //myLine.startColor = myLine.startColor;
+        //myLine.endColor = tempColor;
+        myLine.endWidth = ArcMapManager.Instance.arcEndWidth;
+        myLine.startWidth = ArcMapManager.Instance.arcStartWidth;
         myLine.transform.name = "JoinArcLine";
         myLine.transform.parent = transform;
 
@@ -174,15 +175,9 @@ public class Arc : Fragment
     public float circlePadding1 = 0.8f;
     public float circlePadding2 = 0.8f;
     public void RefreshArc(){
-        //float distance = Vector3.Distance(target.TransientPosition, source.TransientPosition);
-        //if(distance > 7){
-        //    Vector3 dir = -(target.TransientPosition - source.TransientPosition)/distance;
-        //    source.transform.position-= dir* Time.deltaTime;
-        //    target.transform.position+= dir * Time.deltaTime;
-        //}
         if(source.GetType() == typeof(ArcCollection))
         {
-            myLine.startColor = ((ArcCollection)source).spriteRend.color;
+            myLine.endColor = ((ArcCollection)source).spriteRend.color;
         }
 
 
@@ -192,6 +187,9 @@ public class Arc : Fragment
         }else{
             myLine.GetPositions(points);
         }
+
+        myLine.endWidth = ArcMapManager.Instance.arcEndWidth;
+        myLine.startWidth = ArcMapManager.Instance.arcStartWidth;
 
         Vector3 closestTargetVector;
         Vector3 closestSourceVector;
@@ -205,6 +203,7 @@ public class Arc : Fragment
         else
         {
             closestTargetVector = target.myCollider.ClosestPoint(source.TransientPosition);
+            targetPaddingOffset = 0;
         }
 
         if (source.myCollider.GetType() == typeof(CircleCollider2D))
@@ -215,6 +214,7 @@ public class Arc : Fragment
         else
         {
             closestSourceVector = source.myCollider.ClosestPoint(target.TransientPosition);
+            sourcePaddingOffset = 0;
         }
 
         points[0] = closestSourceVector;
@@ -237,7 +237,7 @@ public class Arc : Fragment
         UpdateCollider(points);
         SetTransientPosition();
         UpdateLabelPosition(TransientPosition);
-        UpdateArrowSprite(points[1], sourceToTarg);
+        UpdateArrowSprite(points[0], sourceToTarg);
 
         DebugArc();
     }

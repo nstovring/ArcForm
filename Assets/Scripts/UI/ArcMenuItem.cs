@@ -7,8 +7,9 @@ using UnityEngine.UI;
 using ArcToolConstants;
 using StructureContainer;
 using System.Linq;
+using UnityEngine.EventSystems;
 
-public class ArcMenuItem : MonoBehaviour
+public class ArcMenuItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     [Header("Settings")]
     public string key;
@@ -122,5 +123,17 @@ public class ArcMenuItem : MonoBehaviour
             }
         }
         return false;
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        //throw new NotImplementedException();
+        buttonStateHandler.SetToEdited();
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        if (!textToggleIsActive)
+            buttonStateHandler.SetToDefault();
     }
 }

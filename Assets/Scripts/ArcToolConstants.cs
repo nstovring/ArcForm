@@ -39,9 +39,19 @@ namespace ArcToolConstants
             return new Vector3(rngFloat(), rngFloat(), 0);
         }
 
+        public static Vector3 rngVector(int min, int max)
+        {
+            return new Vector3(rngFloat(min, max), rngFloat(min, max), 0);
+        }
+
         public static float rngFloat()
         {
             return Random.Range(2.0f,4.0f) * GetRngSign();
+        }
+
+        public static float rngFloat(int min, int max)
+        {
+            return Random.Range(min, max) * GetRngSign();
         }
 
         public static float GetRngSign()

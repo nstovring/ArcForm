@@ -9,6 +9,9 @@ public class ArcCollection : Fragment
 {
     public int CollectionType;
     public SpriteRenderer spriteRend;
+
+
+    
     public void SetType(int type)
     {
         CollectionType = type;
@@ -41,9 +44,12 @@ public class ArcCollection : Fragment
     }
 
 
+
+
     public ArcCollection AddToCollection(ArcMenuSubItem item)
     {
-        Unitoken target = TokenFactory.Instance.AddNewToken(item.text.text, ArcMapManager.Instance.GetAwayVector(this));
+        //Unitoken target = TokenFactory.Instance.AddNewToken(item.text.text, ArcMapManager.Instance.GetAwayVector(this));
+        Unitoken target = TokenFactory.Instance.AddNewToken(item.text.text, transform.position);
         target.deleteButton.OnClicked += item.OnClick;
         Arc arc = ArcFactory.Instance.AddNewArc(this, " ", target);
         arc.SetLabel(" ");

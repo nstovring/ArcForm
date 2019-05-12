@@ -49,11 +49,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
+  cellSize: 0
   myArcs: []
   myType: 0
   TransientPosition: {x: 0, y: 0, z: 0}
   myCollider: {fileID: 4895790722118960293}
   myLabel: {fileID: 4686617690231274628}
+  spawnLocations: []
   isSelected: 0
   hoverIcon: {fileID: 2534857143355839381}
   isHoveredOver: 0
@@ -66,8 +68,8 @@ MonoBehaviour:
   target: {fileID: 0}
   isLabelled: 0
   myPadding: 0
-  circlePadding1: 0.8
-  circlePadding2: 0.8
+  circlePadding1: 0.44
+  circlePadding2: 0.44
 --- !u!68 &4895790722118960293
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -216,7 +218,7 @@ Transform:
   m_GameObject: {fileID: 3683867840030898426}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.14168, y: 0.14168, z: 1}
+  m_LocalScale: {x: 0.04993937, y: 0.04993937, z: 1}
   m_Children: []
   m_Father: {fileID: 2880948707504835924}
   m_RootOrder: 1

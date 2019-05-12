@@ -33,6 +33,8 @@ public class ArcMapManager : MonoBehaviour
     public float zoomScale = 1;
     public int minZoom = 5;
     public int maxZoom = 50;
+    public float arcStartWidth = 0.2f;
+    public float arcEndWidth = 0.2f;
 
     [Header("Refs")]
     public Arc selectedArc;
@@ -43,10 +45,10 @@ public class ArcMapManager : MonoBehaviour
     public Camera mCamera;
 
     [Header("Booleans")]
+    public bool ForceDirectedMap = true;
     public bool FlattenMap = false;
     public bool AutoMoveCamera = false;
     public bool debugCollection = true;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -135,8 +137,11 @@ public class ArcMapManager : MonoBehaviour
             }
         }
 
-        if(token != null)
-        Destroy(token.transform.gameObject);
+        if (token != null)
+        {
+            RemoveFromMap(token);
+            Destroy(token.transform.gameObject);
+        }
     }
 
     public void DestroyArc(Arc arc){
@@ -145,10 +150,15 @@ public class ArcMapManager : MonoBehaviour
         //DestroyToken(arc.source);
         if (arc != null)
         {
-            DestroyToken(arc.target);
+            DestroyFragment(arc.target);
 
             Destroy(arc.gameObject);
         }
+    }
+
+    public void RemoveFromMap(Fragment f)
+    {
+        ArcMapGrid.Instance.RemoveFromMap(f);
     }
 
     public void DestroyCollection(Fragment ac)
@@ -165,10 +175,14 @@ public class ArcMapManager : MonoBehaviour
         if(ac.myArcs != null)
         foreach(Arc a in ac.myArcs)
         {
-            DestroyArc(a);
+                DestroyFragment(a);
         }
 
-        Destroy(ac.gameObject);
+        if (ac != null)
+        {
+            RemoveFromMap(ac);
+            Destroy(ac.transform.gameObject);
+        }
     }
 
     public void DestroyFragment(Fragment f)
@@ -187,12 +201,6 @@ public class ArcMapManager : MonoBehaviour
         }
     }
 
-
-
-    public void OnClickAddNewToken(){
-        tokenFactory.AddNewToken();
-    }
-   
     public void SelectUnitoken(Fragment selected){
         //Deselect
         if(selectedUnitoken != null){
@@ -226,16 +234,9 @@ public class ArcMapManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //MoveUnitoken();
         MoveMap();
 
-        //if(focusedToken != null && unitokens != null && unitokens.Count > 0)
-        //{
-        //    Vector3 awayVector = arcMapLayout.GetForceAwayFromHighDensity(focusedToken, unitokens);
-        //    Debug.DrawRay(focusedToken.TransientPosition, awayVector,Color.green);
-        //}
-
-        if(unitokens != null && unitokens.Count > 0){
+        if(ForceDirectedMap && unitokens != null && unitokens.Count > 0){
             UpdateMap();
         }
         if(AutoMoveCamera)

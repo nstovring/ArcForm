@@ -6,7 +6,7 @@ using ArcToolConstants;
 using StructureContainer;
 using System.Linq;
 
-public class ArcCollectionFactory : MonoBehaviour
+public class ArcCollectionFactory : Factory
 {
     public Transform collectionPrefab;
     public static ArcCollectionFactory Instance;
@@ -19,7 +19,7 @@ public class ArcCollectionFactory : MonoBehaviour
     public ArcCollection AddNewCollection(Unitoken source, string topic, List<ArcMenuSubItem> subItems)
     {
         //Create Collection token
-        ArcCollection ac = Instantiate(collectionPrefab, ArcMapManager.Instance.GetAwayVector(source), Quaternion.identity).GetComponent<ArcCollection>();
+        ArcCollection ac = Instantiate(collectionPrefab, ArcMapGrid.Instance.FindEmptySpot(source, 1), Quaternion.identity).GetComponent<ArcCollection>();
         ac.SetLabel(StaticConstants.KeyToLabel[topic]);
 
         //Add items to collection
@@ -45,7 +45,7 @@ public class ArcCollectionFactory : MonoBehaviour
     public ArcCollection AddNewCollection(Unitoken source, string topic, ArcMenuSubItem subItem)
     {
         //Create Collection token
-        ArcCollection ac = Instantiate(collectionPrefab, ArcMapManager.Instance.GetAwayVector(source), Quaternion.identity).GetComponent<ArcCollection>();
+        ArcCollection ac = Instantiate(collectionPrefab, ArcMapGrid.Instance.FindEmptySpot(source, 1), Quaternion.identity).GetComponent<ArcCollection>();
         ac.SetLabel(StaticConstants.KeyToLabel[topic]);
 
         //Add items to collection
@@ -58,23 +58,7 @@ public class ArcCollectionFactory : MonoBehaviour
         return ac;
     }
 
-    internal ArcCollection AddNewCollection(Unitoken source, string topic)
-    {
-        //Create Collection token
-        //ArcCollection ac = Instantiate(collectionPrefab, source.transform.position + StaticConstants.rngVector(), Quaternion.identity).GetComponent<ArcCollection>();
-        ArcCollection ac = Instantiate(collectionPrefab, ArcMapManager.Instance.GetAwayVector(source), Quaternion.identity).GetComponent<ArcCollection>();
-        ac.SetLabel(StaticConstants.KeyToLabel[topic]);
-
-        //Add items to collection
-        //ac.AddToCollection(subItem);
-
-        //Link Collection to source
-        Arc a = ArcFactory.Instance.AddNewArc(source, " ", ac);
-        a.transform.parent = ac.transform;
-
-        return ac;
-    }
-
+  
     internal IEnumerator PlaceCollectionOnMap(string topic, List<ArcMenuSubItem> subItems)
     {
         throw new NotImplementedException();
@@ -82,14 +66,8 @@ public class ArcCollectionFactory : MonoBehaviour
 
     internal void DestroyArcCollection(ArcCollection myArcCollection)
     {
-        //if(myArcCollection.myArcs.Any(arc => arc.target.myArcs.Any(a => a.target == typeof(ArcCollection))))){
-        //
-        //}
-        //myArcCollection.DestroyConnections();
         ArcMapManager.Instance.unitokens.Remove(myArcCollection);
         ArcMapManager.Instance.DestroyCollection(myArcCollection);
-        
-        //throw new NotImplementedException();
     }
 
  

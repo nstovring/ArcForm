@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class Fragment : MonoBehaviour
+public abstract class Fragment : MonoBehaviour
 {
     public int id;
-
+    public int cellSize;
     public List<Arc> myArcs;
 
     public enum Type {Unitoken, Arc, Collection}
@@ -18,7 +18,9 @@ public class Fragment : MonoBehaviour
     public TextMeshPro myLabel;
 
 
+    public List<Transform> spawnLocations;
 
+  
     // Start is called before the first frame update
     void Start()
     {
@@ -28,7 +30,7 @@ public class Fragment : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        TransientPosition = transform.position;
     }
     public bool isSelected;
     public Transform hoverIcon;
@@ -51,4 +53,5 @@ public class Fragment : MonoBehaviour
         myLabel.text = label;
         transform.name = label;
     }
+
 }

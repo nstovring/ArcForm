@@ -131,28 +131,28 @@ public class ToggleBox : MonoBehaviour
         }
     }
 
-    public void CreateArcs(Unitoken subject, Dictionary<string, PredicateToggle> selectedP){
-        foreach(KeyValuePair<string, PredicateToggle> x in selectedP){
-            string value = x.Value.myPredicate.value;
-            string property = x.Value.myPredicate.property;
-            ArcFactory.Instance.AddNewArc(subject, value, StructConstructor.CreateUnitokenStruct(property));
-        }
-    }
-    public void CreateArcs(Dictionary<string, PredicateToggle> selectedP){
-        Unitoken subject = TokenFactory.Instance.AddNewToken(StructConstructor.CreateUnitokenStruct(selectedSearchElement));
-        foreach(KeyValuePair<string, PredicateToggle> x in selectedP){
-            string value = x.Value.myCategory.URI;
-            string property = x.Value.myCategory.Label;
-            ArcFactory.Instance.AddNewArc(subject, value, StructConstructor.CreateUnitokenStruct(property));
-        }
-    }
+    //public void CreateArcs(Unitoken subject, Dictionary<string, PredicateToggle> selectedP){
+    //    foreach(KeyValuePair<string, PredicateToggle> x in selectedP){
+    //        string value = x.Value.myPredicate.value;
+    //        string property = x.Value.myPredicate.property;
+    //        ArcFactory.Instance.AddNewArc(subject, value, StructConstructor.CreateUnitokenStruct(property));
+    //    }
+    //}
+    //public void CreateArcs(Dictionary<string, PredicateToggle> selectedP){
+    //    Unitoken subject = TokenFactory.Instance.AddNewToken(StructConstructor.CreateUnitokenStruct(selectedSearchElement));
+    //    foreach(KeyValuePair<string, PredicateToggle> x in selectedP){
+    //        string value = x.Value.myCategory.URI;
+    //        string property = x.Value.myCategory.Label;
+    //        ArcFactory.Instance.AddNewArc(subject, value, StructConstructor.CreateUnitokenStruct(property));
+    //    }
+    //}
 
     // Update is called once per frame
     void Update()
     {
         if(Input.GetKeyUp(KeyCode.U)){
             //LayoutRebuilder.ForceRebuildLayoutImmediate(myRectTransform);
-            CreateArcs(selectedPredicates);
+            //CreateArcs(selectedPredicates);
         }
     }
 }
