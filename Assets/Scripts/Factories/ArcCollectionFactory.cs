@@ -20,7 +20,7 @@ public class ArcCollectionFactory : Factory
     public ArcCollection AddNewCollection(Unitoken source, string topic, ArcMenuSubItem subItem)
     {
         Vector3 foundPosition;
-        List<GridCell> cells = ArcMapGrid.Instance.FindEmptySpot(source.TransientPosition, 1, out foundPosition);
+        List<GridCell> cells = ArcMapGrid.Instance.FindEmptySpot(source.TransientPosition, 3, out foundPosition);
         //Create Collection token
         ArcCollection ac = Instantiate(collectionPrefab, foundPosition, Quaternion.identity).GetComponent<ArcCollection>();
         ac.MyCells = cells;

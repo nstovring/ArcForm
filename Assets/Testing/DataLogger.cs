@@ -24,12 +24,8 @@ public class DataLogger : MonoBehaviour
     public bool enabledInUpdate = true;
 
     [Header("Refs")]
-    public Text testPanelTitle;
-    public Text testPanelText;
-    public InputField testPanelInput;
-    public Transform testPanel;
-    public Transform backgroundImage;
-    public Transform testPanelbutton;
+    public TestUIElements elements;
+   
     [Header("Tasks")]
     public int TaskCount = 0;
     public Task currentTask;
@@ -165,8 +161,9 @@ public class DataLogger : MonoBehaviour
         Instance = this;
         testPath = Application.dataPath;
         currentTask = MyTasks[TaskCount];
-        testPanelTitle.text = currentTask.title + " : TestNum " + ((int)SceneManager.GetActiveScene().buildIndex);
-        testPanelText.text = currentTask.description;
+        elements = GameObject.FindGameObjectWithTag("TestTaskPanel").GetComponent<TestUIElements>();
+        elements.testPanelTitle.text = currentTask.title + " : TestNum " + ((int)SceneManager.GetActiveScene().buildIndex);
+        elements.testPanelText.text = currentTask.description;
     }
 
     public void Reset()
@@ -200,7 +197,7 @@ public class DataLogger : MonoBehaviour
         if(!awaitParticipantNumber)
             TestTime += Time.deltaTime;
         ActionTime += Time.deltaTime;
-        ParticipantNr = testPanelInput.text;
+        ParticipantNr = elements.testPanelInput.text;
 
        
     }
@@ -216,7 +213,7 @@ public class DataLogger : MonoBehaviour
     public void StartCurrentTaskTest()
     {
         awaitParticipantNumber = false;
-        testPanelInput.transform.gameObject.SetActive(false);
+        elements.testPanelInput.transform.gameObject.SetActive(false);
         ActionTime = 0;
         currentTask.taskNum = TaskCount;
         StartCoroutine(EvalTask(currentTask));
@@ -279,14 +276,14 @@ public class DataLogger : MonoBehaviour
         if (TaskCount < MyTasks.Count)
         {
             currentTask = MyTasks[TaskCount];
-           
-            testPanelTitle.text = currentTask.title + " : Test " + ((int)SceneManager.GetActiveScene().buildIndex); ;
-            testPanelText.text = currentTask.description;
+
+            elements.testPanelTitle.text = currentTask.title + " : Test " + ((int)SceneManager.GetActiveScene().buildIndex); ;
+            elements.testPanelText.text = currentTask.description;
         }
         else
         {
-            testPanelTitle.text = "The End of Test: " + ((int)SceneManager.GetActiveScene().buildIndex); ;
-            testPanelText.text = "Thank you for participating in this test";
+            elements.testPanelTitle.text = "The End of Test: " + ((int)SceneManager.GetActiveScene().buildIndex); ;
+            elements.testPanelText.text = "Thank you for participating in this test";
             Debug.Log("End Test");
             yield return new WaitForSeconds(10.0f);
 
@@ -313,9 +310,9 @@ public class DataLogger : MonoBehaviour
     public void MovePanelToCorner()
     {
         Mouselistener.Instance.isActive = true;
-        backgroundImage.transform.gameObject.SetActive(false);
-        testPanelbutton.transform.gameObject.SetActive(false);
-        RectTransform rt = (RectTransform)testPanel.transform;
+        elements.backgroundImage.transform.gameObject.SetActive(false);
+        elements.testPanelbutton.transform.gameObject.SetActive(false);
+        RectTransform rt = (RectTransform)elements.testPanel.transform;
         rt.anchorMax = new Vector2(1, 1);
         rt.anchorMin = new Vector2(1, 1);
         rt.pivot = new Vector2(1, 1);
@@ -325,9 +322,9 @@ public class DataLogger : MonoBehaviour
     public void MovePanelToCenter()
     {
         Mouselistener.Instance.isActive = false;
-        backgroundImage.transform.gameObject.SetActive(true);
-        testPanelbutton.transform.gameObject.SetActive(true);
-        RectTransform rt = (RectTransform)testPanel.transform;
+        elements.backgroundImage.transform.gameObject.SetActive(true);
+        elements.testPanelbutton.transform.gameObject.SetActive(true);
+        RectTransform rt = (RectTransform)elements.testPanel.transform;
         rt.anchorMax = new Vector2(0.5f, 0.5f);
         rt.anchorMin = new Vector2(0.5f, 0.5f);
         rt.pivot = new Vector2(0.5f, 0.5f);

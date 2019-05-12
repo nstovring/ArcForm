@@ -8,6 +8,9 @@ public class UnitokenDeleteButton : MonoBehaviour
 
     public delegate void ClickAction();
     public event ClickAction OnClicked;
+    public Unitoken myToken;
+    public ButtonStateHandler buttonStateHandler;
+    public SpriteRenderer rend;
 
     void Start()
     {
@@ -23,6 +26,19 @@ public class UnitokenDeleteButton : MonoBehaviour
     public void ClickTest()
     {
         Debug.Log("BUtton Clicked!");
+    }
+
+    public void OnMouseOver()
+    {
+        rend.color = buttonStateHandler.SelectedColor;
+        rend.color = new Color(rend.color.r, rend.color.g, rend.color.b,1);
+        myToken.SetHoverActive(true);
+    }
+
+    public void OnMouseExit()
+    {
+        rend.color = buttonStateHandler.DefaultColor;
+        rend.color = new Color(rend.color.r, rend.color.g, rend.color.b, 1);
     }
 
     // Update is called once per frame

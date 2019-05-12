@@ -1,0 +1,39 @@
+Task : 1 : Started , 0 , 0 , 0 , 1 , 0,4
+Searched for +Dog , 50,95076 , 27,86452 , 50,95076 , 1 , 1,4
+Task : 1 : Completed , 51,0418 , 27,88119 , 0,09104258 , 1 , 2,4
+Task : 2 : Started , 55,1858 , 0 , 0 , 2 , 0,4
+Toggled Menu Item : capable of : Selected , 57,12638 , 1,959134 , 1,940582 , 2 , 1,4
+Toggled Sub Menu Item : run : True , 57,69786 , 2,530618 , 0,5714836 , 2 , 2,4
+Task : 2 : Completed , 57,73119 , 2,547285 , 0,03333633 , 2 , 3,4
+Task : 3 : Started , 59,14984 , 0 , 0 , 3 , 0,4
+Task : 3 : Completed , 59,1668 , 0,01695503 , 0,01695503 , 3 , 1,4
+Task : 4 : Started , 60,31957 , 0 , 0 , 4 , 0,4
+Toggled Sub Menu Item : be a pet : True , 62,91204 , 2,60945 , 2,592493 , 4 , 1,4
+Toggled Sub Menu Item : guard your house : True , 63,75648 , 3,453891 , 0,8444409 , 4 , 2,4
+Toggled Sub Menu Item : bark : True , 64,33135 , 4,028743 , 0,5748516 , 4 , 3,4
+Toggled Sub Menu Item : guide a blind person : True , 65,2765 , 4,97382 , 0,9450764 , 4 , 4,4
+Toggled Menu Item : is a : Selected , 68,76581 , 8,462973 , 3,489148 , 4 , 5,4
+Toggled Sub Menu Item : pet : True , 70,14859 , 9,845737 , 1,382766 , 4 , 6,4
+Task : 4 : Completed , 70,18192 , 9,862404 , 0,03333282 , 4 , 7,4
+Task : 5 : Started , 71,64075 , 0 , 0 , 5 , 0,4
+Selected Token : pet , 72,26527 , 0,6411597 , 0,6244928 , 5 , 1,4
+Task : 5 : Completed , 72,65441 , 1,011755 , 0,3891416 , 5 , 2,4
+Task : 6 : Started , 73,97686 , 0 , 0 , 6 , 0,4
+Toggled Menu Item : is related to : Selected , 76,35502 , 2,394691 , 2,378024 , 6 , 1,4
+Toggled Sub Menu Item : animal : True , 78,80279 , 4,842338 , 2,447646 , 6 , 2,4
+Selected Token : animal , 80,85546 , 6,894919 , 2,052579 , 6 , 3,4
+Task : 6 : Completed , 81,52441 , 7,545714 , 0,6688921 , 6 , 4,4
+Task : 7 : Started , 82,50005 , 0 , 0 , 7 , 0,4
+Toggled Menu Item : desires : Selected , 83,64577 , 1,162364 , 1,145697 , 7 , 1,4
+Toggled Sub Menu Item : eat : True , 84,91117 , 2,427714 , 1,265349 , 7 , 2,4
+Task : 7 : Completed , 84,9445 , 2,444381 , 0,0333334 , 7 , 3,4
+Task : 8 : Started , 86,42928 , 0 , 0 , 8 , 0,4
+Toggled Sub Menu Item : eat : True , 99,90514 , 13,49197 , 13,47531 , 8 , 1,4
+Toggled Sub Menu Item : eat : True , 101,3909 , 14,97767 , 1,485696 , 8 , 2,4
+Toggled Menu Item : capable of : Selected , 103,3578 , 16,94445 , 1,966794 , 8 , 3,4
+Toggled Menu Item : capable of : Selected , 104,083 , 17,66964 , 0,7251914 , 8 , 4,4
+Selected Token : pet , 106,5335 , 20,12005 , 2,450407 , 8 , 5,4
+Selected Token : Dog , 117,6598 , 31,24601 , 11,12596 , 8 , 6,4
+Toggled Sub Menu Item : guard your house : True , 131,0119 , 44,59782 , 13,35193 , 8 , 7,4
+Toggled Sub Menu Item : guard your house : True , 132,6297 , 46,21579 , 1,617979 , 8 , 8,4
+Toggled Sub Menu Item : guard your house : True , 133,5575 , 47,1437 , 0,9279066 , 8 , 9,4

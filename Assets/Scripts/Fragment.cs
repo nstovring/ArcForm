@@ -36,6 +36,7 @@ public abstract class Fragment : MonoBehaviour
         {
             foreach (GridCell g in MyCells)
             {
+                g.Filled = true;
                 g.DebugCube.Draw();
             }
         }

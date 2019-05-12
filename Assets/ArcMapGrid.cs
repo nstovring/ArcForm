@@ -11,7 +11,7 @@ public class ArcMapGrid : MonoBehaviour
     public class GridCell
     {
         public Vector2Int Index;
-        public bool Placed = false;
+        public bool Filled = false;
         public Searcher.DebugCube DebugCube;
     }
 
@@ -69,7 +69,16 @@ public class ArcMapGrid : MonoBehaviour
             Vector2Int indexPos = new Vector2Int((int)position.x, (int)position.y);
             //Place fragment
             bool isOccupied = ArcMapGrid.Instance.Map.TryGetValue(indexPos, out g);
-            return isOccupied;
+            if (isOccupied)
+            {
+                isOccupied = g.Filled;
+                //place unfilled cell
+            }
+            else
+            {
+                g = PlaceCell(position);
+            }
+            return g.Filled;
         }
         public bool AreCellsOccupied(Vector3 position, int range)
         {
@@ -104,36 +113,46 @@ public class ArcMapGrid : MonoBehaviour
         }
 
         public List<GridCell> GridCells;
-        public void PlaceCell(Vector3 position)
+        public GridCell PlaceCell(Vector3 position)
         {
             if (GridCells == null)
                 GridCells = new List<GridCell>();
 
             Vector2Int indexPos = new Vector2Int((int)position.x, (int)position.y);
-            GridCell g = new GridCell();
+            GridCell g ;
+            bool doesCellExist = Instance.Map.TryGetValue(indexPos, out g);
+            if (doesCellExist)
+            {
+                return g;
+            }
+
+            g = new GridCell();
             g.Index = indexPos;
             GridCells.Add(g);
-            g.Placed = true;
+            //g.Filled = true;
             DebugCube d = new DebugCube { center = position };
             g.DebugCube = d;
             Instance.Map.Add(indexPos, g);
+            return g;
         }
 
 
 
-        public void PlaceWide(Vector3 position)
+        public List<GridCell> PlaceWide(Vector3 position)
         {
+            List<GridCell> g = new List<GridCell>();
             Vector3 tempPos = position - new Vector3(1, 0, 0);
             ///startPos = position - new Vector3(1, 0, 0);
             for (int i = 0; i < size; i++)
             {
-                PlaceCell(tempPos);
+                g.Add(PlaceCell(tempPos));
                 tempPos += new Vector3(1, 0, 0);
             }
+            return g;
         }
-
-        public Vector3[] searchPattern = {new Vector3(0,1,0), new Vector3(2, 1, 0), new Vector3(2, 0, 0),  new Vector3(2,-1, 0), new Vector3(0, -1, 0), new Vector3(-2, -1, 0), new Vector3(-2, 0, 0) };
-        public int searchCount = 2;
+        const int x = 2;
+        public Vector3[] searchPattern = {new Vector3(0,1,0), new Vector3(x, 1, 0), new Vector3(x, 0, 0),  new Vector3(x, -1, 0), new Vector3(0, -1, 0), new Vector3(-x, -1, 0), new Vector3(-x, 0, 0) };
+        public int searchCount = 1;
 
         public void Roam()
         {
@@ -142,7 +161,11 @@ public class ArcMapGrid : MonoBehaviour
 
             for (int i = 0; i < searchPattern.Length; i++)
             {
-                currentPos = startPos + (searchPattern[i % searchPattern.Length] * searchCount);
+                for (int j = 0; j < searchCount; j++)
+                {
+                    currentPos = startPos + (searchPattern[i % searchPattern.Length] + searchPattern[(i + 1) % searchPattern.Length]);
+                }
+
                 if (Search(currentPos))
                 {
                     Place(currentPos);
@@ -151,7 +174,7 @@ public class ArcMapGrid : MonoBehaviour
                     break;
                 }
             }
-
+            //startPos = currentPos;
             searchCount++;
         }
 
@@ -227,7 +250,7 @@ public class ArcMapGrid : MonoBehaviour
         //        d.Draw();
         //    }
         //}
-        //Draw grid with debug.draw
+        ////Draw grid with debug.draw
     }
 
     internal void RemoveFromMap(Fragment frag)

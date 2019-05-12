@@ -1,0 +1,167 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8167286458835327010
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8167286458835327068}
+  - component: {fileID: 8167286458835327069}
+  m_Layer: 0
+  m_Name: DataLoggerTask2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8167286458835327068
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8167286458835327010}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 286, y: 317, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8167286458835327069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8167286458835327010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76146e8b61f61cb42a74e773632ae6c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ParticipantNr: 999
+  TestTime: 0
+  ActionTime: 0
+  InstructionTime: 0
+  LoggingTestTime: 0
+  LoggingTaskTime: 0
+  LogginActionTime: 0
+  LoggingInstructionTime: 0
+  enabledInUpdate: 1
+  testPanelTitle: {fileID: 0}
+  testPanelText: {fileID: 0}
+  testPanelInput: {fileID: 0}
+  testPanel: {fileID: 0}
+  backgroundImage: {fileID: 0}
+  testPanelbutton: {fileID: 0}
+  TaskCount: 0
+  currentTask:
+    title: 
+    description: 
+    type: 0
+    focusedLabel: 
+    key: 0
+    isCompleted: 0
+    taskNum: 0
+    TaskTime: 0
+    LoggedActions: []
+    twiceTask: 0
+  MyTasks:
+  - title: 1
+    description: "Create a \u201CCult\u201D token."
+    type: 0
+    focusedLabel: Cult
+    key: 0
+    isCompleted: 0
+    taskNum: 0
+    TaskTime: 0
+    LoggedActions: []
+    twiceTask: 0
+  - title: 2
+    description: "What is a \u201CCult\u201D related to?"
+    type: 0
+    focusedLabel: is related to
+    key: 0
+    isCompleted: 0
+    taskNum: 0
+    TaskTime: 0
+    LoggedActions: []
+    twiceTask: 0
+  - title: 3
+    description: "Edit your graph so it only has \u201CLoyal\u201D as a relationship."
+    type: 1
+    focusedLabel: loyal
+    key: 0
+    isCompleted: 0
+    taskNum: 0
+    TaskTime: 0
+    LoggedActions: []
+    twiceTask: 0
+  - title: 4
+    description: "Add the \u201Csimilar to\u201D relationship for the \u201CLoyal\u201D
+      token."
+    type: 0
+    focusedLabel: similar to
+    key: 0
+    isCompleted: 0
+    taskNum: 0
+    TaskTime: 0
+    LoggedActions: []
+    twiceTask: 0
+  - title: 5
+    description: "Select \u201CDoglike\u201D."
+    type: 4
+    focusedLabel: doglike
+    key: 0
+    isCompleted: 0
+    taskNum: 0
+    TaskTime: 0
+    LoggedActions: []
+    twiceTask: 0
+  - title: 6
+    description: "Add the \u201Cis related to\u201D relationship and select \u201CDog\u201D. "
+    type: 4
+    focusedLabel: dog
+    key: 0
+    isCompleted: 0
+    taskNum: 0
+    TaskTime: 0
+    LoggedActions: []
+    twiceTask: 0
+  - title: 7
+    description: "Find out what a Dog \u201Cdesires\u201D. "
+    type: 0
+    focusedLabel: desires
+    key: 0
+    isCompleted: 0
+    taskNum: 0
+    TaskTime: 0
+    LoggedActions: []
+    twiceTask: 0
+  - title: 8
+    description: "Remove everything but \u201CCult\u201D. "
+    type: 3
+    focusedLabel: Cult
+    key: 0
+    isCompleted: 0
+    taskNum: 0
+    TaskTime: 0
+    LoggedActions: []
+    twiceTask: 0
+  - title: 9
+    description: "Create a network where \u201CCult\u201D leads to \u201CChurch\u201D
+      and select it"
+    type: 4
+    focusedLabel: church
+    key: 0
+    isCompleted: 0
+    taskNum: 0
+    TaskTime: 0
+    LoggedActions: []
+    twiceTask: 0
+  testPath: E:/GitHub/ArcForm/Assets/Data
+  spaceInput: 0
