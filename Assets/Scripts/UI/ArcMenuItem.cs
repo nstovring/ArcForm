@@ -136,4 +136,9 @@ public class ArcMenuItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         if (!textToggleIsActive)
             buttonStateHandler.SetToDefault();
     }
+
+    public void OnEnable()
+    {
+        buttonStateHandler.SetToDefault();
+    }
 }

@@ -38,6 +38,8 @@ public class Unitoken : Fragment
         if (myArcs == null){
             myArcs = new List<Arc>();
         }
+
+        SetHoverActive(false);
     }
 
     public void Initialize(unitoken token){
@@ -137,5 +139,10 @@ public class Unitoken : Fragment
     public override void SetLabel(string label)
     {
         myLabel.text = label;
+    }
+
+    public void OnEnable()
+    {
+        spriteRenderer.color = DefaultColor;
     }
 }

@@ -315,7 +315,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -392,10 +392,13 @@ MonoBehaviour:
   index: 0
   textToggleIsActive: 0
   numToggleIsActive: 0
-  myState: 0
-  DefaultColor: {r: 0, g: 0, b: 0, a: 0}
-  SelectedColor: {r: 0, g: 0, b: 0, a: 0}
-  HoverColor: {r: 0, g: 0, b: 0, a: 0}
+  submenuEdited: 0
+  buttonStateHandler:
+    myState: 0
+    DefaultColor: {r: 0, g: 0, b: 0, a: 0}
+    SelectedColor: {r: 0, g: 0, b: 0, a: 0}
+    EditedColor: {r: 0, g: 0, b: 0, a: 0}
+    myButtonImage: {fileID: 0}
   textField: {fileID: 3567484364713592746}
   togglebutton: {fileID: 3567484364793065557}
   toggleSubMenuButton: {fileID: 2206822107955861358}
