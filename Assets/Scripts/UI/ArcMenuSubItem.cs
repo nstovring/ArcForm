@@ -74,9 +74,6 @@ public class ArcMenuSubItem : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     public void OnClick()
     {
         SetActive(!isActive);
-        //Property focus = ArcMapManager.Instance.GetFocusedToken().GetProperty(key);
-        //Find relation
-        //Get Unitoken Connected unitoken
         Unitoken focus = ArcMapManager.Instance.GetFocusedToken();
         ArcToolUIManager.ArcDataUtility.SetRelation(ArcMapManager.Instance.GetFocusedToken(), key, label, isActive);
         if (isActive)

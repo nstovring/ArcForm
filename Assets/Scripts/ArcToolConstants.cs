@@ -13,11 +13,14 @@ namespace ArcToolConstants
         public static Dictionary<string, string> LabelToKey;
         public static Dictionary<string, string> KeyToLabel;
         public static Dictionary<string, int> KeyToIndex;
+        public static Dictionary<int, string> IndexToKey;
         public static void IntializeDictionaries()
         {
             LabelToKey = new Dictionary<string, string>();
             KeyToLabel = new Dictionary<string, string>();
             KeyToIndex = new Dictionary<string, int>();
+            IndexToKey = new Dictionary<int, string>();
+
             for (int i = 0; i < RelationURIs.Length; i++)
             {
                 string key = RelationURIs[i];
@@ -26,6 +29,7 @@ namespace ArcToolConstants
                 KeyToIndex.Add(key, index);
                 KeyToLabel.Add(key, label);
                 LabelToKey.Add(label, key);
+                IndexToKey.Add(index, key);
             }
         }
 

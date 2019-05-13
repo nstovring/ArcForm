@@ -173,6 +173,10 @@ public class DataLogger : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.F10))
+        {
+            ArcMapManager.Instance.autoMoveInterrupt = false;
+        }
         //Complete Task
         if (Input.GetKeyDown(KeyCode.F1))
         {

@@ -12,6 +12,7 @@ public abstract class Fragment : MonoBehaviour
     public int id;
     public int cellSize;
     public List<Arc> myArcs;
+    public Fragment Source;
 
     [Header("Refs")]
     public Vector3 TransientPosition;

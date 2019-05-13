@@ -1,0 +1,35 @@
+Task : 1 : Started , 0 , 0 , 0 , 1 , 0,4
+Searched for +Dog , 5.210413 , 5.227729 , 5.210413 , 1 , 1,4
+Task : 1 : Completed , 5.32072 , 5.244394 , 0.1103071 , 1 , 2,4
+Task : 2 : Started , 12.10219 , 0 , 0 , 2 , 0,4
+Toggled Menu Item : capable of : Selected , 17.90953 , 5.824355 , 5.80735 , 2 , 1,4
+Toggled Sub Menu Item : guard your house : True , 20.03417 , 7.949009 , 2.124655 , 2 , 2,4
+Task : 2 : Completed , 20.0755 , 7.965953 , 0.04132383 , 2 , 3,4
+Task : 3 : Started , 23.00911 , 0 , 0 , 3 , 0,4
+Toggled Sub Menu Item : be a pet : True , 26.0333 , 3.040872 , 3.024206 , 3 , 1,4
+Toggled Sub Menu Item : run : True , 27.96707 , 4.974655 , 1.933782 , 3 , 2,4
+Task : 3 : Completed , 29.41141 , 6.402334 , 1.444346 , 3 , 3,4
+Task : 4 : Started , 33.07642 , 0 , 0 , 4 , 0,4
+Toggled Menu Item : is a : Selected , 33.83093 , 0.7711681 , 0.754502 , 4 , 1,4
+Toggled Sub Menu Item : pet : True , 35.83798 , 2.778231 , 2.007063 , 4 , 2,4
+Task : 4 : Completed , 35.87132 , 2.794897 , 0.03333253 , 4 , 3,4
+Task : 5 : Started , 37.94938 , 0 , 0 , 5 , 0,4
+Selected Token : pet , 39.36257 , 1.430056 , 1.413209 , 5 , 1,4
+Task : 5 : Completed , 39.89631 , 1.940203 , 0.5337325 , 5 , 2,4
+Task : 6 : Started , 41.13928 , 0 , 0 , 6 , 0,4
+Toggled Menu Item : is related to : Selected , 43.26125 , 2.138919 , 2.121981 , 6 , 1,4
+Toggled Sub Menu Item : cat : True , 48.21287 , 7.090562 , 4.95164 , 6 , 2,4
+Toggled Sub Menu Item : animal : True , 52.34052 , 11.21821 , 4.127662 , 6 , 3,4
+Selected Token : animal , 54.25907 , 13.13677 , 1.918563 , 6 , 4,4
+Task : 6 : Completed , 54.83932 , 13.69542 , 0.5802689 , 6 , 5,4
+Task : 7 : Started , 56.21108 , 0 , 0 , 7 , 0,4
+Toggled Menu Item : desires : Selected , 56.96065 , 0.76625 , 0.7495831 , 7 , 1,4
+Toggled Sub Menu Item : eat : True , 57.80813 , 1.613727 , 0.8474773 , 7 , 2,4
+Task : 7 : Completed , 57.84584 , 1.634766 , 0.03770626 , 7 , 3,4
+Task : 8 : Started , 59.03082 , 0 , 0 , 8 , 0,4
+Selected Token : Dog , 66.18501 , 7.171092 , 7.154164 , 8 , 1,4
+Toggled Menu Item : is a : Edited , 68.81455 , 9.80045 , 2.629364 , 8 , 2,4
+Toggled Sub Menu Item : pet : False , 70.0966 , 11.08242 , 1.281974 , 8 , 3,4
+Toggled Menu Item : capable of : Edited , 73.22006 , 14.20567 , 3.123261 , 8 , 4,4
+Toggled Sub Menu Item : run : False , 74.12992 , 15.11548 , 0.9098123 , 8 , 5,4
+Task : 8 : Completed , 74.16384 , 15.13245 , 0.03392196 , 8 , 6,4

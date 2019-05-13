@@ -50,7 +50,12 @@ public class ArcCollection : Fragment
     {
         //Unitoken target = TokenFactory.Instance.AddNewToken(item.text.text, ArcMapManager.Instance.GetAwayVector(this));
         Unitoken target = TokenFactory.Instance.AddNewToken(item.text.text, transform.position);
+
         target.deleteButton.OnClicked += item.OnClick;
+        target.Source = this;
+        target.deleteButton.key = item.key;
+        target.deleteButton.label = item.label;
+
         Arc arc = ArcFactory.Instance.AddNewArc(this, " ", target);
         arc.SetLabel(" ");
         target.DefaultColor = item.buttonStateHandler.EditedColor;
@@ -66,8 +71,6 @@ public class ArcCollection : Fragment
 
         return this;
     }
-
-   
 
     public ArcCollection RemoveFromCollection(ArcMenuSubItem item)
     {
@@ -86,6 +89,28 @@ public class ArcCollection : Fragment
             myArcs.Remove(temp);
             ArcMapManager.Instance.DestroyArc(temp);
             item.ClearConnections();
+        }
+        return this;
+    }
+
+
+    public ArcCollection RemoveFromCollection(Unitoken item)
+    {
+        string label = item.myLabel.text;
+        Arc temp = null;
+        foreach (Arc arc in myArcs)
+        {
+            if (arc.target.myLabel.text == label)
+            {
+                temp = arc;
+            }
+        }
+
+        if (temp != null)
+        {
+            myArcs.Remove(temp);
+            ArcMapManager.Instance.DestroyArc(temp);
+            //item.ClearConnections();
         }
         return this;
     }

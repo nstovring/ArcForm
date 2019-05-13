@@ -646,6 +646,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 138103037}
   m_CullTransparentMesh: 0
+--- !u!114 &155569495 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8167286458835327069, guid: a33c3170d4ce5814691f7b221fd1eab4,
+    type: 3}
+  m_PrefabInstance: {fileID: 949931336}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76146e8b61f61cb42a74e773632ae6c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &173235470
 GameObject:
   m_ObjectHideFlags: 0
@@ -2810,7 +2822,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -247.99998, y: 0.00005707338}
+  m_AnchoredPosition: {x: -248.00003, y: 0.00005707338}
   m_SizeDelta: {x: 243.34, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &691375127
@@ -4170,6 +4182,27 @@ PrefabInstance:
       propertyPath: m_Name
       value: DataLoggerTask2
       objectReference: {fileID: 0}
+    - target: {fileID: 8167286458835327069, guid: a33c3170d4ce5814691f7b221fd1eab4,
+        type: 3}
+      propertyPath: MyTasks.Array.data[1].description
+      value: "Select a \u201CCult\u201D related to and select one"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8167286458835327069, guid: a33c3170d4ce5814691f7b221fd1eab4,
+        type: 3}
+      propertyPath: MyTasks.Array.data[3].description
+      value: "Add a \u201Csimilar to\u201D relationship for the \u201CLoyal\u201D
+        token."
+      objectReference: {fileID: 0}
+    - target: {fileID: 8167286458835327069, guid: a33c3170d4ce5814691f7b221fd1eab4,
+        type: 3}
+      propertyPath: MyTasks.Array.data[4].description
+      value: "Click \u201CDoglike\u201D."
+      objectReference: {fileID: 0}
+    - target: {fileID: 8167286458835327069, guid: a33c3170d4ce5814691f7b221fd1eab4,
+        type: 3}
+      propertyPath: MyTasks.Array.data[6].description
+      value: "Find out what a Dog \u201Cdesires\u201D and select one. "
+      objectReference: {fileID: 0}
     - target: {fileID: 8167286458835327068, guid: a33c3170d4ce5814691f7b221fd1eab4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5247,6 +5280,16 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3701740090079871808, guid: 761bfe63af3f02747acf17b5445de68c,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.007169024
+      objectReference: {fileID: 0}
+    - target: {fileID: 3701740090079871808, guid: 761bfe63af3f02747acf17b5445de68c,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.010846017
+      objectReference: {fileID: 0}
     - target: {fileID: 5471176852422465470, guid: 761bfe63af3f02747acf17b5445de68c,
         type: 3}
       propertyPath: m_Mesh
@@ -5402,16 +5445,6 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3701740090079871808, guid: 761bfe63af3f02747acf17b5445de68c,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.007169024
-      objectReference: {fileID: 0}
-    - target: {fileID: 3701740090079871808, guid: 761bfe63af3f02747acf17b5445de68c,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.010846017
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 761bfe63af3f02747acf17b5445de68c, type: 3}
 --- !u!1 &1136915128
@@ -5561,6 +5594,7 @@ MonoBehaviour:
   debugCollection: 0
   autoMoveInterrupt: 0
   autoMoveCameraSpeed: 2
+  movementSpeed: 1
 --- !u!4 &1203884588
 Transform:
   m_ObjectHideFlags: 0
@@ -7776,7 +7810,7 @@ RectTransform:
   m_GameObject: {fileID: 1850763950}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.419391, y: 2.419391, z: 2.419391}
   m_Children:
   - {fileID: 1619680188}
   m_Father: {fileID: 1105539051}
@@ -7890,7 +7924,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 155569495}
         m_MethodName: StartCurrentTaskTest
         m_Mode: 1
         m_Arguments:
@@ -8628,7 +8662,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1679088265}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.99999017
+  m_Size: 0.99999213
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

@@ -189,8 +189,6 @@ public class ArcToolUIManager : MonoBehaviour
         //Get specific relation and set it to toggle state
         Unitoken focusedToken = ArcMapManager.Instance.GetFocusedToken();
         string key = arcMenuSubitem.key;
-        //bool active = arcMenuSubitem.isActive;
-        Property selectedProperty = focusedToken.GetProperty(key);
         
         ArcCollection ac;
         bool arcCollectionExists = focusedToken.myArcCollections.TryGetValue(key, out ac);
@@ -230,9 +228,19 @@ public class ArcToolUIManager : MonoBehaviour
                 ArcCollectionFactory.Instance.DestroyArcCollection(ac);
             }
         }
-
-       
     }
+
+    public void RemoveTokenFromCollection(Unitoken source, ArcCollection ac, Unitoken token)
+    {
+        ac.RemoveFromCollection(token);
+
+        if (ac.myArcs.Count < 1)
+        {
+            source.myArcCollections.Remove(token.myLabel.text);
+            ArcCollectionFactory.Instance.DestroyArcCollection(ac);
+        }
+    }
+
 
     public ArcMenuItem ActiveArcMenuItem;
 

@@ -190,3 +190,4 @@ Selected Token : crying , 202.1923 , 135.1439 , 8.675872 , 9 , 51,3
 Toggled Menu Item : part of : True , 206.1167 , 139.0683 , 3.924732 , 9 , 52,3
 Selected Token : life , 207.7996 , 140.7512 , 1.683018 , 9 , 53,3
 Task : 9 : Completed , 208.2647 , 141.1884 , 0.4651674 , 9 , 54,3
+Task : 1 : Started , 0 , 0 , 0 , 1 , 0,3

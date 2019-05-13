@@ -24,6 +24,7 @@ public class ArcCollectionFactory : Factory
         //Create Collection token
         ArcCollection ac = Instantiate(collectionPrefab, foundPosition, Quaternion.identity).GetComponent<ArcCollection>();
         ac.MyCells = cells;
+        ac.Source = source;
         ac.SetLabel(StaticConstants.KeyToLabel[topic]);
 
         //Add items to collection
@@ -43,6 +44,4 @@ public class ArcCollectionFactory : Factory
         ArcMapManager.Instance.unitokens.Remove(myArcCollection);
         ArcMapManager.Instance.DestroyCollection(myArcCollection);
     }
-
- 
 }

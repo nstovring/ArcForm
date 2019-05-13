@@ -227,13 +227,31 @@ public class ArcMapManager : MonoBehaviour
 
         return awayVector;
     }
-
+    public Vector3 lastCameraPos;
+    public Vector3 lastMousePos;
+    [Range(0,2f)]
+    public float mouseSensitivity = 1f;
     // Update is called once per frame
     void Update()
     {
         MoveMap();
 
-        if(ForceDirectedMap && unitokens != null && unitokens.Count > 0){
+        if (Input.GetMouseButtonDown(2))
+        {
+            lastMousePos = Input.mousePosition;
+        }
+
+        if (Input.GetMouseButton(2))
+        {
+             Vector3 delta = Input.mousePosition - lastMousePos;
+            Vector3 direction = new Vector3(delta.x * mouseSensitivity, delta.y * mouseSensitivity, 0);
+            lastCameraPos = Input.mousePosition;
+
+            mCamera.transform.position -= direction * Time.deltaTime;
+            lastMousePos = Input.mousePosition;
+        }
+
+        if (ForceDirectedMap && unitokens != null && unitokens.Count > 0){
             UpdateMap();
         }
         if(AutoMoveCamera)
@@ -257,8 +275,9 @@ public class ArcMapManager : MonoBehaviour
             }
         }
     }
-
- 
+    const float s = 0.2f;
+    [Range(5,30f)]
+    public float movementSpeed = 1;
     public void MoveMap(){
         float h = Input.GetAxis("Horizontal");
         float v = Input.GetAxis("Vertical");
@@ -270,9 +289,9 @@ public class ArcMapManager : MonoBehaviour
 
         float z = Input.mouseScrollDelta.y * zoomScale;
         float zoomFactor = Mathf.Clamp( mCamera.orthographicSize - z , minZoom, maxZoom);
-        Vector3 mouseDelta = new Vector3(h,v,0);
+        Vector3 inputDelta = new Vector3(h,v,0) * 14.0f * Time.deltaTime;
         mCamera.orthographicSize = zoomFactor;
-        mCamera.transform.position += mouseDelta;
+        mCamera.transform.position += inputDelta;
     }
 
     public void ZoomMap(){

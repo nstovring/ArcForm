@@ -9,6 +9,7 @@ public class UnitokenDeleteButton : MonoBehaviour
     public delegate void ClickAction();
     public event ClickAction OnClicked;
     public Unitoken myToken;
+    public Unitoken focus;
     public ButtonStateHandler buttonStateHandler;
     public SpriteRenderer rend;
 
@@ -16,16 +17,34 @@ public class UnitokenDeleteButton : MonoBehaviour
     {
         
     }
-
+    public string key;
+    public string label;
     public void OnMouseDown()
     {
-        OnClicked?.Invoke();
+        DataLogger.Instance.LogAction("Delete token with mouse click");
+
+        Unitoken mainToken = (Unitoken)myToken.Source.Source;
+        ArcCollection myCollection = (ArcCollection)myToken.Source;
+
+        ArcToolUIManager.ArcDataUtility.SetRelation(mainToken, key, label, false);
+
+        ArcToolUIManager.ArcUIUtility.UpdatePropertyMenuFromUnitoken(mainToken);
+
+        ArcToolUIManager.Instance.RemoveTokenFromCollection(mainToken, myCollection, myToken);
+        //myCollection.RemoveFromCollection(myToken);
+        //ArcToolUIManager.Instance.ToggleSubMenuItem(item);
+
+        //OnClicked?.Invoke();
     }
+
+    public Unitoken SourceToken;
 
 
     public void ClickTest()
     {
-        Debug.Log("BUtton Clicked!");
+        //Unitoken focus = ArcMapManager.Instance.GetFocusedToken();
+        //ArcToolUIManager.ArcDataUtility.SetRelation(SourceToken, myToken.key, label, isActive);
+        //ArcToolUIManager.ArcUIUtility.UpdatePropertyMenuFromUnitoken(focus);
     }
 
     public void OnMouseOver()
