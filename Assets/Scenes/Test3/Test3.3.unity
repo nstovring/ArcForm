@@ -2901,7 +2901,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -247.99997, y: 0.00005707338}
+  m_AnchoredPosition: {x: -247.99988, y: 0.00005707338}
   m_SizeDelta: {x: 243.34, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &691375127
@@ -5275,16 +5275,6 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3701740090079871808, guid: 761bfe63af3f02747acf17b5445de68c,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.007169024
-      objectReference: {fileID: 0}
-    - target: {fileID: 3701740090079871808, guid: 761bfe63af3f02747acf17b5445de68c,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.010846017
-      objectReference: {fileID: 0}
     - target: {fileID: 5471176852422465470, guid: 761bfe63af3f02747acf17b5445de68c,
         type: 3}
       propertyPath: m_Mesh
@@ -5440,6 +5430,16 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3701740090079871808, guid: 761bfe63af3f02747acf17b5445de68c,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.007169024
+      objectReference: {fileID: 0}
+    - target: {fileID: 3701740090079871808, guid: 761bfe63af3f02747acf17b5445de68c,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.010846017
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 761bfe63af3f02747acf17b5445de68c, type: 3}
 --- !u!1 &1136915128
@@ -5587,6 +5587,9 @@ MonoBehaviour:
   FlattenMap: 0
   AutoMoveCamera: 1
   debugCollection: 0
+  lastCameraPos: {x: 0, y: 0, z: 0}
+  lastMousePos: {x: 0, y: 0, z: 0}
+  mouseSensitivity: 1
   autoMoveInterrupt: 0
   autoMoveCameraSpeed: 2
   movementSpeed: 1
@@ -7463,7 +7466,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.392}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -8657,7 +8660,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1679088265}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.99991655
+  m_Size: 0.9999936
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
