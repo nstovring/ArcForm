@@ -72,6 +72,23 @@ public class ArcCollection : Fragment
         return this;
     }
 
+    public void OnMouseEnter()
+    {
+        spriteRend.color = ColourBehaviour.Instance.ColorTokens[CollectionType].Colors[0];
+        hoverIcon.GetComponent<SpriteRenderer>().color = spriteRend.color;
+    }
+
+    public void OnMouseExit()
+    {
+        spriteRend.color = ColourBehaviour.Instance.ColorTokens[CollectionType].Colors[1];
+        hoverIcon.GetComponent<SpriteRenderer>().color = Color.black;
+    }
+
+    public void OnMouseDown()
+    {
+        Mouselistener.Instance.ExecuteQuery((Unitoken)Source);
+    }
+
     public ArcCollection RemoveFromCollection(ArcMenuSubItem item)
     {
         string label = item.label;

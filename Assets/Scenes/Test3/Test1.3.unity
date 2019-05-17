@@ -2810,7 +2810,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -247.99991, y: 0.00005707338}
+  m_AnchoredPosition: {x: -247.99977, y: 0.00005707338}
   m_SizeDelta: {x: 243.34, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &691375127
@@ -5280,6 +5280,16 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3701740090079871808, guid: 761bfe63af3f02747acf17b5445de68c,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.007169024
+      objectReference: {fileID: 0}
+    - target: {fileID: 3701740090079871808, guid: 761bfe63af3f02747acf17b5445de68c,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.010846017
+      objectReference: {fileID: 0}
     - target: {fileID: 5471176852422465470, guid: 761bfe63af3f02747acf17b5445de68c,
         type: 3}
       propertyPath: m_Mesh
@@ -5434,16 +5444,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_textInfo.pageCount
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3701740090079871808, guid: 761bfe63af3f02747acf17b5445de68c,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.007169024
-      objectReference: {fileID: 0}
-    - target: {fileID: 3701740090079871808, guid: 761bfe63af3f02747acf17b5445de68c,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.010846017
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 761bfe63af3f02747acf17b5445de68c, type: 3}
@@ -6018,7 +6018,18 @@ MonoBehaviour:
   m_CharacterLimit: 0
   m_OnEndEdit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1870118344}
+        m_MethodName: set_interactable
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.InputField+SubmitEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
   m_OnValueChanged:
@@ -7922,7 +7933,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1870118345}
   m_OnClick:
     m_PersistentCalls:
@@ -8665,7 +8676,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1679088265}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.9999887
+  m_Size: 0.9999909
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

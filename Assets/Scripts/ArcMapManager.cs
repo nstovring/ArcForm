@@ -90,6 +90,7 @@ public class ArcMapManager : MonoBehaviour
 
     internal Unitoken SetFocusedToken(Unitoken focus)
     {
+        AutoMoveCamera = true;
         focusedToken = focus;
         return focusedToken;
     }
@@ -239,6 +240,7 @@ public class ArcMapManager : MonoBehaviour
         if (Input.GetMouseButtonDown(2))
         {
             lastMousePos = Input.mousePosition;
+            AutoMoveCamera = false;
         }
 
         if (Input.GetMouseButton(2))

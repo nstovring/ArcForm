@@ -946,3 +946,94 @@ Toggled Sub Menu Item : be a pet : True , 105.6454 , 105.6621 , 0.3231215 , 1 , 
 Toggled Sub Menu Item : guard your house : True , 106.0139 , 106.0306 , 0.36852 , 1 , 5,3
 Toggled Sub Menu Item : bark : True , 106.4153 , 106.432 , 0.4013678 , 1 , 6,3
 Toggled Sub Menu Item : guide a blind person : True , 111.9637 , 111.9804 , 5.548161 , 1 , 7,3
+Searched for +Dog , 0 , 0 , 4.733709 , 1 , 0,0
+Toggled Menu Item : is a : Selected , 0 , 0 , 2.11532 , 1 , 1,0
+Toggled Sub Menu Item : pet : True , 0 , 0 , 0.6747609 , 1 , 2,0
+Toggled Sub Menu Item : mammal : True , 0 , 0 , 0.3777644 , 1 , 3,0
+Toggled Sub Menu Item : a canine : True , 0 , 0 , 0.5229586 , 1 , 4,0
+Selected Token : a canine , 0 , 0 , 1.076798 , 1 , 5,0
+Selected Token : mammal , 0 , 0 , 8.045465 , 1 , 6,0
+Searched for +Dog , 0 , 0 , 2.353123 , 1 , 0,0
+Toggled Menu Item : used for : Selected , 0 , 0 , 1.387677 , 1 , 1,0
+Toggled Sub Menu Item : companionship : True , 0 , 0 , 0.6240987 , 1 , 2,0
+Toggled Menu Item : capable of : Selected , 0 , 0 , 1.168804 , 1 , 3,0
+Toggled Sub Menu Item : run : True , 0 , 0 , 0.5405238 , 1 , 4,0
+Toggled Sub Menu Item : be a pet : True , 0 , 0 , 0.4394876 , 1 , 5,0
+Selected Token : run , 0 , 0 , 0.9019016 , 1 , 6,0
+Selected Token : run , 0 , 0 , 7.342401 , 1 , 7,0
+Selected Token : companionship , 0 , 0 , 1.680976 , 1 , 8,0
+Selected Token : be a pet , 0 , 0 , 1.331292 , 1 , 9,0
+Searched for +Dog , 0 , 0 , 2.550396 , 1 , 0,0
+Toggled Menu Item : is a : Selected , 0 , 0 , 1.350284 , 1 , 1,0
+Toggled Sub Menu Item : pet : True , 0 , 0 , 0.6409231 , 1 , 2,0
+Toggled Sub Menu Item : mammal : True , 0 , 0 , 0.3104776 , 1 , 3,0
+Toggled Sub Menu Item : a canine : True , 0 , 0 , 0.5888564 , 1 , 4,0
+Toggled Menu Item : at location : Selected , 0 , 0 , 0.4872175 , 1 , 5,0
+Toggled Sub Menu Item : a park : True , 0 , 0 , 0.5731721 , 1 , 6,0
+Toggled Sub Menu Item : the table : True , 0 , 0 , 0.2692913 , 1 , 7,0
+Toggled Sub Menu Item : a kennel : True , 0 , 0 , 0.286188 , 1 , 8,0
+Selected Token : a kennel , 0 , 0 , 2.110752 , 1 , 9,0
+Selected Token : the table , 0 , 0 , 1.708492 , 1 , 10,0
+Selected Token : mammal , 0 , 0 , 4.836718 , 1 , 11,0
+Selected Token : pet , 0 , 0 , 5.091369 , 1 , 12,0
+Selected Token : pet , 0 , 0 , 1.429556 , 1 , 13,0
+Selected Token : a park , 0 , 0 , 4.389607 , 1 , 14,0
+Selected Token : pet , 0 , 0 , 1.635035 , 1 , 15,0
+Searched for +Dog , 0 , 0 , 3.159094 , 1 , 0,0
+Toggled Menu Item : capable of : Selected , 0 , 0 , 1.672568 , 1 , 1,0
+Toggled Sub Menu Item : run : True , 0 , 0 , 0.6234471 , 1 , 2,0
+Toggled Sub Menu Item : be a pet : True , 0 , 0 , 0.4600585 , 1 , 3,0
+Toggled Sub Menu Item : guard your house : True , 0 , 0 , 0.9913213 , 1 , 4,0
+Selected Token : run , 0 , 0 , 1.744552 , 1 , 5,0
+Selected Token : Dog , 0 , 0 , 1.797558 , 1 , 6,0
+Selected Token : guard your house , 0 , 0 , 1.530649 , 1 , 7,0
+Selected Token : be a pet , 0 , 0 , 1.092708 , 1 , 8,0
+Selected Token : run , 0 , 0 , 0.7948605 , 1 , 9,0
+Selected Token : Dog , 0 , 0 , 0.8783129 , 1 , 10,0
+Selected Token : guard your house , 0 , 0 , 1.496413 , 1 , 11,0
+Toggled Menu Item : capable of : Edited , 0 , 0 , 4.969919 , 1 , 12,0
+Task : 1 : Started , 0 , 0 , 0 , 1 , 0,3
+Searched for +Arson , 3.191309 , 3.207972 , 3.191309 , 1 , 1,3
+Task : 1 : Completed , 3.245161 , 3.224947 , 0.05385122 , 1 , 2,3
+Task : 2 : Started , 4.530532 , 0 , 0 , 2 , 0,3
+Toggled Menu Item : is a : Selected , 5.576777 , 1.063239 , 1.046245 , 2 , 1,3
+Toggled Sub Menu Item : burning : True , 6.170224 , 1.656684 , 0.5934455 , 2 , 2,3
+Toggled Sub Menu Item : criminal act : True , 6.58672 , 2.073182 , 0.4164974 , 2 , 3,3
+Task : 1 : Started , 0 , 0 , 0 , 1 , 0,3
+Searched for +Dog , 3.807501 , 3.824187 , 3.807501 , 1 , 1,3
+Toggled Menu Item : capable of : Selected , 5.140515 , 5.157202 , 1.333015 , 1 , 2,3
+Toggled Sub Menu Item : run : True , 5.597608 , 5.614295 , 0.4570924 , 1 , 3,3
+Toggled Sub Menu Item : be a pet : True , 5.906933 , 5.92362 , 0.3093252 , 1 , 4,3
+Toggled Sub Menu Item : guard your house : True , 6.246287 , 6.262974 , 0.3393538 , 1 , 5,3
+Task : 1 : Started , 0 , 0 , 0 , 1 , 0,3
+Searched for +Dog , 2.595879 , 2.612546 , 2.595879 , 1 , 1,3
+Toggled Menu Item : capable of : Selected , 4.228591 , 4.245257 , 1.632711 , 1 , 2,3
+Toggled Sub Menu Item : be a pet : True , 4.920444 , 4.93711 , 0.6918532 , 1 , 3,3
+Toggled Sub Menu Item : run : True , 5.445762 , 5.462429 , 0.5253183 , 1 , 4,3
+Toggled Menu Item : desires : Selected , 16.84169 , 16.85836 , 11.39594 , 1 , 5,3
+Toggled Sub Menu Item : be petted : True , 17.58502 , 17.60169 , 0.743336 , 1 , 6,3
+Toggled Menu Item : used for : Selected , 24.89947 , 24.91613 , 7.314517 , 1 , 7,3
+Toggled Menu Item : is a : Selected , 25.45002 , 25.46669 , 0.5505587 , 1 , 8,3
+Toggled Sub Menu Item : pet : True , 26.26912 , 26.28579 , 0.8191033 , 1 , 9,3
+Toggled Sub Menu Item : a loyal friend : True , 26.67273 , 26.68939 , 0.403607 , 1 , 10,3
+Toggled Sub Menu Item : a canine : True , 27.36387 , 27.38054 , 0.6911556 , 1 , 11,3
+Task : 1 : Started , 0 , 0 , 0 , 1 , 0,2
+Searched for +Cult , 6.910094 , 6.92736 , 6.910094 , 1 , 1,2
+Task : 1 : Completed , 7.025947 , 6.944027 , 0.1158533 , 1 , 2,2
+Task : 2 : Started , 11.61701 , 0 , 0 , 2 , 0,2
+Toggled Menu Item : is related to : Selected , 12.6726 , 1.095644 , 1.055592 , 2 , 1,2
+Toggled Sub Menu Item : sect : True , 14.94482 , 3.367878 , 2.272233 , 2 , 2,2
+Task : 2 : Completed , 15.00125 , 3.384867 , 0.05642544 , 2 , 3,2
+Task : 3 : Started , 16.13347 , 0 , 0 , 3 , 0,2
+Toggled Sub Menu Item : loyal : True , 17.34451 , 1.23545 , 1.211046 , 3 , 1,2
+Task : 3 : Completed , 18.31322 , 2.12834 , 0.9687198 , 3 , 2,2
+Task : 4 : Started , 22.08421 , 0 , 0 , 4 , 0,2
+Selected Token : loyal , 24.92578 , 2.84219 , 2.841584 , 4 , 1,2
+Toggled Menu Item : similar to : Selected , 26.71537 , 4.64845 , 1.789595 , 4 , 2,2
+Toggled Sub Menu Item : liege : True , 33.57137 , 11.50447 , 6.856029 , 4 , 3,2
+Task : 4 : Completed , 33.60506 , 11.5215 , 0.03369479 , 4 , 4,2
+Task : 5 : Started , 35.42725 , 0 , 0 , 5 , 0,2
+Toggled Sub Menu Item : doglike : True , 36.38879 , 0.9834429 , 0.9615395 , 5 , 1,2
+Selected Token : doglike , 37.94095 , 2.518702 , 1.552169 , 5 , 2,2
+Task : 5 : Completed , 38.21497 , 2.792968 , 0.2740205 , 5 , 3,2
+Task : 6 : Started , 40.19886 , 0 , 0 , 6 , 0,2

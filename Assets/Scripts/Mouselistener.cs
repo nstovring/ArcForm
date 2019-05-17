@@ -148,7 +148,7 @@ public class Mouselistener : MonoBehaviour
 
                 DataLogger.Instance.LogSelection(hoveredOverToken);
 
-                ArcMapManager.Instance.SetFocusedToken(hoveredOverToken);
+                
                 ExecuteQuery();
                 draggingFromToken = true;
                 hoveredStore = hoveredOverToken;
@@ -176,16 +176,22 @@ public class Mouselistener : MonoBehaviour
     }
 
     public void ExecuteQuery(){
+        ExecuteQuery(hoveredOverToken);
+    }
+
+    public void ExecuteQuery(Unitoken token)
+    {
+        ArcMapManager.Instance.SetFocusedToken(token);
         ArcToolUIManager.ArcUIUtility.ClearMenu();
         ArcMapManager.Instance.autoMoveInterrupt = false;
         //ArcToolUIManager.ArcUIUtility.CreateSubMenu();
-        if (hoveredOverToken.myPropertiesFromConceptNet != null)
+        if (token.myPropertiesFromConceptNet != null)
         {
-            ArcToolUIManager.ArcUIUtility.UpdatePropertyMenuFromProperties(hoveredOverToken.myPropertiesFromConceptNet);
+            ArcToolUIManager.ArcUIUtility.UpdatePropertyMenuFromProperties(token.myPropertiesFromConceptNet);
         }
         else
         {
-            SearchEngine.Instance.GetConceptRelations(hoveredOverToken);
+            SearchEngine.Instance.GetConceptRelations(token);
         }
 
         SubItemController.Instance.arcSubItemMenu.SetActive(false);

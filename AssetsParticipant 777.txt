@@ -1,1 +1,8 @@
 Task : 1 : Started , 0 , 0 , 0 , 1 , 0,4
+Task : 1 : Started , 0 , 0 , 0 , 1 , 0,1
+Searched for +Dog , 3.70592 , 3.722653 , 3.70592 , 1 , 1,1
+Task : 1 : Completed , 3.813316 , 3.739677 , 0.1073959 , 1 , 2,1
+Task : 2 : Started , 5.742942 , 0 , 0 , 2 , 0,1
+Toggled Menu Item : capable of : Selected , 7.470956 , 1.745574 , 1.72801 , 2 , 1,1
+Toggled Sub Menu Item : guard your house : True , 8.333293 , 2.607911 , 0.8623377 , 2 , 2,1
+Task : 2 : Completed , 8.372964 , 2.624834 , 0.03967167 , 2 , 3,1
