@@ -93,10 +93,39 @@ public class Unitoken : Fragment
         myPropertiesFromConceptNet.TryGetValue(key, out property);
         return property;
     }
+    void OnMouseDown()
+    {
+        ArcMapGrid.Instance.RemoveFromMap(this);
+        // load a new scene
+        Debug.Log("Clicked");
+    }
 
+    void OnMouseUp()
+    {
+        MyCells = ArcMapGrid.Instance.FindEmptySpot(this, 3);
+        transform.position = MyCells[1].DebugCube.center;
+        Debug.Log("Clicked");
+    }
     void OnMouseDrag()
     {
-        //FollowMouse();
+        if (Input.GetMouseButton(0))
+        {
+            FollowMouse();
+
+        }
+        else if (Input.GetMouseButton(1))
+        {
+            Debug.Log("Dragging right");
+        }
+        
+    }
+
+    void FollowMouse()
+    {
+        Vector3 lastMousePos = mCamera.ScreenToWorldPoint(Input.mousePosition);
+
+        transform.position = new Vector3(lastMousePos.x, lastMousePos.y,0);
+        TransientPosition = transform.position;
     }
 
     void OnMouseOver()

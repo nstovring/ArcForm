@@ -1037,3 +1037,950 @@ Toggled Sub Menu Item : doglike : True , 36.38879 , 0.9834429 , 0.9615395 , 5 , 
 Selected Token : doglike , 37.94095 , 2.518702 , 1.552169 , 5 , 2,2
 Task : 5 : Completed , 38.21497 , 2.792968 , 0.2740205 , 5 , 3,2
 Task : 6 : Started , 40.19886 , 0 , 0 , 6 , 0,2
+Searched for +Dog , 0 , 0 , 3,32899 , 1 , 0,4
+Delete token with mouse click , 0 , 0 , 6,054462 , 1 , 1,4
+Toggled Menu Item : is a : Selected , 0 , 0 , 3,164855 , 1 , 2,4
+Toggled Menu Item : is a : Selected , 0 , 0 , 0,5224925 , 1 , 3,4
+Toggled Menu Item : has a : Selected , 0 , 0 , 0,7330487 , 1 , 4,4
+Toggled Sub Menu Item : four legs : True , 0 , 0 , 15,61734 , 1 , 5,4
+Selected Token : four legs , 0 , 0 , 5,683232 , 1 , 6,4
+Searched for +Dog , 0 , 0 , 3,05133 , 1 , 0,4
+Selected Token : Dog , 0 , 0 , 4,661721 , 1 , 1,4
+Selected Token : Dog , 0 , 0 , 2,175538 , 1 , 2,4
+Searched for +Dog , 0 , 0 , 3,068507 , 1 , 0,4
+Selected Token : Dog , 0 , 0 , 4,014553 , 1 , 1,4
+Selected Token : Dog , 0 , 0 , 10,53814 , 1 , 2,4
+Selected Token : Dog , 0 , 0 , 9,659644 , 1 , 3,4
+Searched for +Dog , 0 , 0 , 3,931304 , 1 , 0,4
+Selected Token : Dog , 0 , 0 , 2,657485 , 1 , 1,4
+Selected Token : Dog , 0 , 0 , 3,20091 , 1 , 2,4
+Selected Token : Dog , 0 , 0 , 2,798815 , 1 , 3,4
+Searched for +Dog , 0 , 0 , 2,945067 , 1 , 0,4
+Selected Token : Dog , 0 , 0 , 1,883515 , 1 , 1,4
+Selected Token : Dog , 0 , 0 , 1,443058 , 1 , 2,4
+Selected Token : Dog , 0 , 0 , 1,987929 , 1 , 3,4
+Searched for +Dog , 0 , 0 , 2,729109 , 1 , 0,4
+Selected Token : Dog , 0 , 0 , 1,830441 , 1 , 1,4
+Selected Token : Dog , 0 , 0 , 1,212512 , 1 , 2,4
+Selected Token : Dog , 0 , 0 , 6,168317 , 1 , 3,4
+Selected Token : Dog , 0 , 0 , 12,84244 , 1 , 4,4
+Selected Token : Dog , 0 , 0 , 1,724184 , 1 , 5,4
+Searched for +Dog , 0 , 0 , 2,786419 , 1 , 0,4
+Selected Token : Dog , 0 , 0 , 1,938826 , 1 , 1,4
+Selected Token : Dog , 0 , 0 , 1,578325 , 1 , 2,4
+Searched for +Dog , 0 , 0 , 2,51122 , 1 , 0,4
+Selected Token : Dog , 0 , 0 , 1,489299 , 1 , 1,4
+Searched for +Dog , 0 , 0 , 2,231397 , 1 , 0,4
+Selected Token : Dog , 0 , 0 , 1,017814 , 1 , 1,4
+Searched for +Dog , 0 , 0 , 2,694944 , 1 , 0,4
+Selected Token : Dog , 0 , 0 , 1,277994 , 1 , 1,4
+Searched for +Dog , 0 , 0 , 2,884635 , 1 , 0,4
+Selected Token : Dog , 0 , 0 , 1,593097 , 1 , 1,4
+Selected Token : Dog , 0 , 0 , 13,45092 , 1 , 2,4
+Selected Token : Dog , 0 , 0 , 2,446795 , 1 , 3,4
+Selected Token : Dog , 0 , 0 , 2,076645 , 1 , 4,4
+Selected Token : Dog , 0 , 0 , 6,635979 , 1 , 5,4
+Selected Token : Dog , 0 , 0 , 1,132208 , 1 , 6,4
+Toggled Menu Item : is a : Selected , 0 , 0 , 2,888566 , 1 , 7,4
+Toggled Sub Menu Item : pet : True , 0 , 0 , 0,64434 , 1 , 8,4
+Toggled Sub Menu Item : mammal : True , 0 , 0 , 0,7257263 , 1 , 9,4
+Toggled Sub Menu Item : a canine : True , 0 , 0 , 0,5501445 , 1 , 10,4
+Selected Token : Dog , 0 , 0 , 1,064011 , 1 , 11,4
+Selected Token : a canine , 0 , 0 , 1,251365 , 1 , 12,4
+Selected Token : mammal , 0 , 0 , 1,185679 , 1 , 13,4
+Selected Token : mammal , 0 , 0 , 2,242391 , 1 , 14,4
+Toggled Menu Item : is a : Selected , 0 , 0 , 3,18544 , 1 , 15,4
+Toggled Sub Menu Item : vertebrate : True , 0 , 0 , 0,636868 , 1 , 16,4
+Toggled Sub Menu Item : vertebrate : True , 0 , 0 , 0,9935227 , 1 , 17,4
+Selected Token : vertebrate , 0 , 0 , 3,150692 , 1 , 18,4
+Selected Token : pet , 0 , 0 , 19,44303 , 1 , 19,4
+Selected Token : pet , 0 , 0 , 1,247478 , 1 , 20,4
+Selected Token : pet , 0 , 0 , 1,792836 , 1 , 21,4
+Selected Token : pet , 0 , 0 , 0,8744369 , 1 , 22,4
+Selected Token : pet , 0 , 0 , 0,4798559 , 1 , 23,4
+Selected Token : pet , 0 , 0 , 3,745714 , 1 , 24,4
+Selected Token : Dog , 0 , 0 , 2,655134 , 1 , 25,4
+Toggled Menu Item : capable of : Selected , 0 , 0 , 6,143346 , 1 , 26,4
+Toggled Sub Menu Item : run : True , 0 , 0 , 0,5529962 , 1 , 27,4
+Toggled Sub Menu Item : be a pet : True , 0 , 0 , 1,022206 , 1 , 28,4
+Toggled Sub Menu Item : guard your house : True , 0 , 0 , 0,8732128 , 1 , 29,4
+Toggled Sub Menu Item : bark : True , 0 , 0 , 0,9058486 , 1 , 30,4
+Selected Token : pet , 0 , 0 , 4,521423 , 1 , 31,4
+Toggled Menu Item : used for : Selected , 0 , 0 , 0,9139448 , 1 , 32,4
+Toggled Sub Menu Item : companionship : True , 0 , 0 , 0,6399798 , 1 , 33,4
+Toggled Menu Item : is a : Selected , 0 , 0 , 1,174921 , 1 , 34,4
+Toggled Sub Menu Item : irritability : True , 0 , 0 , 0,4028631 , 1 , 35,4
+Toggled Sub Menu Item : animal : True , 0 , 0 , 0,5064749 , 1 , 36,4
+Toggled Sub Menu Item : an animal : True , 0 , 0 , 0,7701883 , 1 , 37,4
+Toggled Menu Item : at location : Selected , 0 , 0 , 1,070946 , 1 , 38,4
+Toggled Sub Menu Item : your house : True , 0 , 0 , 0,6091831 , 1 , 39,4
+Toggled Menu Item : synonym : Selected , 0 , 0 , 1,372096 , 1 , 40,4
+Toggled Sub Menu Item : positron emission tomography : True , 0 , 0 , 0,7594147 , 1 , 41,4
+Toggled Sub Menu Item : ljubimac : True , 0 , 0 , 0,5532194 , 1 , 42,4
+Toggled Sub Menu Item : best-loved : True , 0 , 0 , 0,4406646 , 1 , 43,4
+Selected Token : positron emission tomography , 0 , 0 , 45,87421 , 1 , 44,4
+Selected Token : ljubimac , 0 , 0 , 1,24829 , 1 , 45,4
+Selected Token : positron emission tomography , 0 , 0 , 1,439803 , 1 , 46,4
+Selected Token : mammal , 0 , 0 , 8,381209 , 1 , 47,4
+Selected Token : mammal , 0 , 0 , 3,735168 , 1 , 48,4
+Selected Token : mammal , 0 , 0 , 0,8080999 , 1 , 49,4
+Selected Token : run , 0 , 0 , 13,75902 , 1 , 50,4
+Searched for +Dog , 0 , 0 , 3,117377 , 1 , 0,4
+Selected Token : Dog , 0 , 0 , 3,077478 , 1 , 1,4
+Toggled Menu Item : used for : Selected , 0 , 0 , 2,115119 , 1 , 2,4
+Toggled Sub Menu Item : companionship : True , 0 , 0 , 0,7742368 , 1 , 3,4
+Selected Token : companionship , 0 , 0 , 8,383719 , 1 , 4,4
+Selected Token : companionship , 0 , 0 , 4,55138 , 1 , 5,4
+Selected Token : companionship , 0 , 0 , 3,744728 , 1 , 6,4
+Selected Token : companionship , 0 , 0 , 42,60728 , 1 , 7,4
+Selected Token : companionship , 0 , 0 , 2,444011 , 1 , 8,4
+Selected Token : companionship , 0 , 0 , 4,385069 , 1 , 9,4
+Selected Token : companionship , 0 , 0 , 1,614432 , 1 , 10,4
+Searched for +Dog , 0 , 0 , 2,851293 , 1 , 0,4
+Toggled Menu Item : capable of : Selected , 0 , 0 , 1,857032 , 1 , 1,4
+Toggled Sub Menu Item : guard your house : True , 0 , 0 , 0,8432521 , 1 , 2,4
+Selected Token : guard your house , 0 , 0 , 2,257616 , 1 , 3,4
+Selected Token : guard your house , 0 , 0 , 4,858413 , 1 , 4,4
+Searched for +Dog , 0 , 0 , 3,043341 , 1 , 0,4
+Toggled Menu Item : used for : Selected , 0 , 0 , 2,707748 , 1 , 1,4
+Toggled Sub Menu Item : companionship : True , 0 , 0 , 0,6084909 , 1 , 2,4
+Selected Token : companionship , 0 , 0 , 2,313459 , 1 , 3,4
+Selected Token : companionship , 0 , 0 , 11,33885 , 1 , 4,4
+Searched for +Dog , 0 , 0 , 20,50578 , 1 , 0,4
+Toggled Menu Item : used for : Selected , 0 , 0 , 2,022873 , 1 , 1,4
+Toggled Sub Menu Item : companionship : True , 0 , 0 , 0,6361032 , 1 , 2,4
+Selected Token : companionship , 0 , 0 , 3,047715 , 1 , 3,4
+Selected Token : companionship , 0 , 0 , 1,996043 , 1 , 4,4
+Selected Token : companionship , 0 , 0 , 1,457829 , 1 , 5,4
+Selected Token : companionship , 0 , 0 , 1,855389 , 1 , 6,4
+Selected Token : companionship , 0 , 0 , 6,211732 , 1 , 7,4
+Selected Token : companionship , 0 , 0 , 0,9949976 , 1 , 8,4
+Selected Token : companionship , 0 , 0 , 1,669802 , 1 , 9,4
+Selected Token : companionship , 0 , 0 , 1,097298 , 1 , 10,4
+Selected Token : companionship , 0 , 0 , 4,054395 , 1 , 11,4
+Selected Token : companionship , 0 , 0 , 1,260316 , 1 , 12,4
+Selected Token : companionship , 0 , 0 , 1,735176 , 1 , 13,4
+Selected Token : companionship , 0 , 0 , 1,229258 , 1 , 14,4
+Selected Token : companionship , 0 , 0 , 1,22941 , 1 , 15,4
+Selected Token : companionship , 0 , 0 , 1,303114 , 1 , 16,4
+Selected Token : companionship , 0 , 0 , 1,623398 , 1 , 17,4
+Selected Token : companionship , 0 , 0 , 1,391111 , 1 , 18,4
+Selected Token : companionship , 0 , 0 , 0,9263769 , 1 , 19,4
+Selected Token : companionship , 0 , 0 , 1,162311 , 1 , 20,4
+Selected Token : companionship , 0 , 0 , 1,966657 , 1 , 21,4
+Selected Token : companionship , 0 , 0 , 1,066644 , 1 , 22,4
+Selected Token : companionship , 0 , 0 , 2,961844 , 1 , 23,4
+Selected Token : companionship , 0 , 0 , 0,9050356 , 1 , 24,4
+Selected Token : companionship , 0 , 0 , 1,371556 , 1 , 25,4
+Selected Token : companionship , 0 , 0 , 0,9683793 , 1 , 26,4
+Searched for +Dog , 0 , 0 , 3,649707 , 1 , 0,4
+Toggled Menu Item : capable of : Selected , 0 , 0 , 1,725931 , 1 , 1,4
+Toggled Sub Menu Item : guard your house : True , 0 , 0 , 0,6390073 , 1 , 2,4
+Toggled Sub Menu Item : be a pet : True , 0 , 0 , 0,5154527 , 1 , 3,4
+Selected Token : guard your house , 0 , 0 , 1,471027 , 1 , 4,4
+Selected Token : guard your house , 0 , 0 , 1,466847 , 1 , 5,4
+Selected Token : guard your house , 0 , 0 , 1,128337 , 1 , 6,4
+Selected Token : guard your house , 0 , 0 , 0,6052788 , 1 , 7,4
+Selected Token : guard your house , 0 , 0 , 1,320854 , 1 , 8,4
+Searched for +Dog , 0 , 0 , 4,980482 , 1 , 0,4
+Toggled Menu Item : has a : Selected , 0 , 0 , 1,794828 , 1 , 1,4
+Toggled Sub Menu Item : four legs : True , 0 , 0 , 0,5862252 , 1 , 2,4
+Selected Token : four legs , 0 , 0 , 2,703215 , 1 , 3,4
+Selected Token : four legs , 0 , 0 , 2,490723 , 1 , 4,4
+Selected Token : four legs , 0 , 0 , 2,155533 , 1 , 5,4
+Selected Token : four legs , 0 , 0 , 2,573857 , 1 , 6,4
+Selected Token : four legs , 0 , 0 , 1,466852 , 1 , 7,4
+Selected Token : four legs , 0 , 0 , 2,537917 , 1 , 8,4
+Selected Token : four legs , 0 , 0 , 1,077678 , 1 , 9,4
+Selected Token : four legs , 0 , 0 , 2,058246 , 1 , 10,4
+Selected Token : four legs , 0 , 0 , 1,149197 , 1 , 11,4
+Selected Token : four legs , 0 , 0 , 1,074018 , 1 , 12,4
+Selected Token : four legs , 0 , 0 , 1,177815 , 1 , 13,4
+Selected Token : four legs , 0 , 0 , 1,345621 , 1 , 14,4
+Selected Token : four legs , 0 , 0 , 1,082826 , 1 , 15,4
+Selected Token : four legs , 0 , 0 , 5,136902 , 1 , 16,4
+Selected Token : four legs , 0 , 0 , 1,111117 , 1 , 17,4
+Selected Token : four legs , 0 , 0 , 1,212514 , 1 , 18,4
+Selected Token : four legs , 0 , 0 , 13,49567 , 1 , 19,4
+Selected Token : four legs , 0 , 0 , 1,798047 , 1 , 20,4
+Selected Token : four legs , 0 , 0 , 1,722263 , 1 , 21,4
+Selected Token : Dog , 0 , 0 , 11,68271 , 1 , 22,4
+Toggled Menu Item : has a : Edited , 0 , 0 , 1,165498 , 1 , 23,4
+Toggled Sub Menu Item : four legs : False , 0 , 0 , 1,627774 , 1 , 24,4
+Toggled Sub Menu Item : four legs : True , 0 , 0 , 0,7108384 , 1 , 25,4
+Toggled Menu Item : used for : Selected , 0 , 0 , 1,196418 , 1 , 26,4
+Toggled Sub Menu Item : companionship : True , 0 , 0 , 1,448181 , 1 , 27,4
+Toggled Menu Item : capable of : Selected , 0 , 0 , 1,147337 , 1 , 28,4
+Toggled Sub Menu Item : guard your house : True , 0 , 0 , 0,6581118 , 1 , 29,4
+Toggled Sub Menu Item : be a pet : True , 0 , 0 , 1,08736 , 1 , 30,4
+Toggled Sub Menu Item : run : True , 0 , 0 , 0,8286996 , 1 , 31,4
+Toggled Sub Menu Item : guide a blind person : True , 0 , 0 , 0,6351539 , 1 , 32,4
+Selected Token : run , 0 , 0 , 2,148252 , 1 , 33,4
+Selected Token : run , 0 , 0 , 1,595249 , 1 , 34,4
+Selected Token : run , 0 , 0 , 1,665691 , 1 , 35,4
+Selected Token : run , 0 , 0 , 1,113299 , 1 , 36,4
+Selected Token : run , 0 , 0 , 1,162962 , 1 , 37,4
+Selected Token : guide a blind person , 0 , 0 , 5,844719 , 1 , 38,4
+Selected Token : guide a blind person , 0 , 0 , 5,725255 , 1 , 39,4
+Selected Token : guide a blind person , 0 , 0 , 1,427578 , 1 , 40,4
+Selected Token : guide a blind person , 0 , 0 , 1,449166 , 1 , 41,4
+Selected Token : guide a blind person , 0 , 0 , 2,325294 , 1 , 42,4
+Selected Token : guide a blind person , 0 , 0 , 4,817939 , 1 , 43,4
+Selected Token : guide a blind person , 0 , 0 , 1,296654 , 1 , 44,4
+Selected Token : guide a blind person , 0 , 0 , 1,43237 , 1 , 45,4
+Selected Token : guide a blind person , 0 , 0 , 3,584941 , 1 , 46,4
+Selected Token : guide a blind person , 0 , 0 , 9,487692 , 1 , 47,4
+Selected Token : guide a blind person , 0 , 0 , 0,9935822 , 1 , 48,4
+Selected Token : guide a blind person , 0 , 0 , 1,012097 , 1 , 49,4
+Selected Token : guide a blind person , 0 , 0 , 3,521322 , 1 , 50,4
+Selected Token : companionship , 0 , 0 , 1,729861 , 1 , 51,4
+Selected Token : four legs , 0 , 0 , 0,7394752 , 1 , 52,4
+Selected Token : Dog , 0 , 0 , 2,327238 , 1 , 53,4
+Selected Token : Dog , 0 , 0 , 1,027216 , 1 , 54,4
+Selected Token : Dog , 0 , 0 , 0,9419028 , 1 , 55,4
+Selected Token : Dog , 0 , 0 , 0,9904363 , 1 , 56,4
+Selected Token : Dog , 0 , 0 , 1,192727 , 1 , 57,4
+Selected Token : Dog , 0 , 0 , 0,7397631 , 1 , 58,4
+Searched for +Dog , 0 , 0 , 2,675899 , 1 , 0,4
+Toggled Menu Item : capable of : Selected , 0 , 0 , 5,327082 , 1 , 1,4
+Toggled Sub Menu Item : be a pet : True , 0 , 0 , 0,619224 , 1 , 2,4
+Toggled Sub Menu Item : run : True , 0 , 0 , 1,632334 , 1 , 3,4
+Toggled Sub Menu Item : guide a blind person : True , 0 , 0 , 0,8411676 , 1 , 4,4
+Selected Token : run , 0 , 0 , 4,928747 , 1 , 5,4
+Selected Token : run , 0 , 0 , 1,41656 , 1 , 6,4
+Selected Token : run , 0 , 0 , 1,531637 , 1 , 7,4
+Selected Token : run , 0 , 0 , 1,228524 , 1 , 8,4
+Selected Token : run , 0 , 0 , 1,467135 , 1 , 9,4
+Selected Token : guide a blind person , 0 , 0 , 3,129982 , 1 , 10,4
+Selected Token : guide a blind person , 0 , 0 , 1,279879 , 1 , 11,4
+Selected Token : guide a blind person , 0 , 0 , 1,511389 , 1 , 12,4
+Selected Token : guide a blind person , 0 , 0 , 1,602202 , 1 , 13,4
+Selected Token : be a pet , 0 , 0 , 2,711897 , 1 , 14,4
+Selected Token : run , 0 , 0 , 2,325225 , 1 , 15,4
+Selected Token : run , 0 , 0 , 1,249356 , 1 , 16,4
+Selected Token : run , 0 , 0 , 1,078618 , 1 , 17,4
+Selected Token : run , 0 , 0 , 1,398961 , 1 , 18,4
+Selected Token : run , 0 , 0 , 9,245011 , 1 , 19,4
+Selected Token : be a pet , 0 , 0 , 1,175578 , 1 , 20,4
+Selected Token : guide a blind person , 0 , 0 , 0,8571392 , 1 , 21,4
+Selected Token : guide a blind person , 0 , 0 , 2,430876 , 1 , 22,4
+Selected Token : guide a blind person , 0 , 0 , 0,8602765 , 1 , 23,4
+Selected Token : run , 0 , 0 , 36,09078 , 1 , 24,4
+Selected Token : run , 0 , 0 , 1,770488 , 1 , 25,4
+Selected Token : Dog , 0 , 0 , 10,15248 , 1 , 26,4
+Selected Token : be a pet , 0 , 0 , 6,686851 , 1 , 27,4
+Selected Token : Dog , 0 , 0 , 2,002518 , 1 , 28,4
+Selected Token : Dog , 0 , 0 , 2,340151 , 1 , 29,4
+Selected Token : Dog , 0 , 0 , 2,932589 , 1 , 30,4
+Selected Token : Dog , 0 , 0 , 2,981333 , 1 , 31,4
+Selected Token : run , 0 , 0 , 3,765682 , 1 , 32,4
+Searched for +Dog , 0 , 0 , 4,92144 , 1 , 0,4
+Toggled Menu Item : used for : Selected , 0 , 0 , 1,417292 , 1 , 1,4
+Toggled Sub Menu Item : companionship : True , 0 , 0 , 0,6629636 , 1 , 2,4
+Selected Token : companionship , 0 , 0 , 8,39901 , 1 , 3,4
+Selected Token : companionship , 0 , 0 , 4,013983 , 1 , 4,4
+Selected Token : companionship , 0 , 0 , 1,209789 , 1 , 5,4
+Selected Token : companionship , 0 , 0 , 1,516989 , 1 , 6,4
+Selected Token : companionship , 0 , 0 , 1,987801 , 1 , 7,4
+Selected Token : companionship , 0 , 0 , 1,127578 , 1 , 8,4
+Selected Token : companionship , 0 , 0 , 3,14365 , 1 , 9,4
+Selected Token : companionship , 0 , 0 , 1,833947 , 1 , 10,4
+Selected Token : companionship , 0 , 0 , 1,412969 , 1 , 11,4
+Selected Token : companionship , 0 , 0 , 2,016202 , 1 , 12,4
+Selected Token : companionship , 0 , 0 , 1,411034 , 1 , 13,4
+Selected Token : companionship , 0 , 0 , 1,073083 , 1 , 14,4
+Selected Token : companionship , 0 , 0 , 1,418183 , 1 , 15,4
+Selected Token : companionship , 0 , 0 , 1,800441 , 1 , 16,4
+Selected Token : companionship , 0 , 0 , 1,430125 , 1 , 17,4
+Searched for +Dog , 0 , 0 , 2,630787 , 1 , 0,4
+Selected Token : Dog , 0 , 0 , 2,339936 , 1 , 1,4
+Toggled Menu Item : used for : Selected , 0 , 0 , 1,477551 , 1 , 2,4
+Toggled Sub Menu Item : companionship : True , 0 , 0 , 1,032756 , 1 , 3,4
+Toggled Menu Item : capable of : Selected , 0 , 0 , 1,300392 , 1 , 4,4
+Toggled Sub Menu Item : guard your house : True , 0 , 0 , 0,6347425 , 1 , 5,4
+Toggled Sub Menu Item : be a pet : True , 0 , 0 , 0,5085967 , 1 , 6,4
+Toggled Sub Menu Item : guide a blind person : True , 0 , 0 , 0,9209917 , 1 , 7,4
+Selected Token : guide a blind person , 0 , 0 , 2,436794 , 1 , 8,4
+Selected Token : guide a blind person , 0 , 0 , 1,485593 , 1 , 9,4
+Selected Token : guide a blind person , 0 , 0 , 3,462335 , 1 , 10,4
+Selected Token : guide a blind person , 0 , 0 , 1,62713 , 1 , 11,4
+Selected Token : guide a blind person , 0 , 0 , 2,254008 , 1 , 12,4
+Selected Token : guide a blind person , 0 , 0 , 3,008587 , 1 , 13,4
+Selected Token : guide a blind person , 0 , 0 , 1,65499 , 1 , 14,4
+Selected Token : guide a blind person , 0 , 0 , 6,989632 , 1 , 15,4
+Selected Token : guide a blind person , 0 , 0 , 2,243192 , 1 , 16,4
+Selected Token : guide a blind person , 0 , 0 , 1,04397 , 1 , 17,4
+Selected Token : guide a blind person , 0 , 0 , 1,551276 , 1 , 18,4
+Searched for +Dog , 0 , 0 , 2,108234 , 1 , 0,4
+Toggled Menu Item : is a : Selected , 0 , 0 , 3,744394 , 1 , 1,4
+Toggled Sub Menu Item : mammal : True , 0 , 0 , 0,7223949 , 1 , 2,4
+Selected Token : mammal , 0 , 0 , 9,239819 , 1 , 3,4
+Selected Token : mammal , 0 , 0 , 1,039845 , 1 , 4,4
+Selected Token : mammal , 0 , 0 , 1,987991 , 1 , 5,4
+Searched for +Dog , 0 , 0 , 2,559966 , 1 , 0,4
+Selected Token : Dog , 0 , 0 , 2,418868 , 1 , 1,4
+Toggled Menu Item : used for : Selected , 0 , 0 , 0,8415419 , 1 , 2,4
+Toggled Sub Menu Item : companionship : True , 0 , 0 , 0,6188857 , 1 , 3,4
+Toggled Menu Item : capable of : Selected , 0 , 0 , 2,252734 , 1 , 4,4
+Toggled Sub Menu Item : be a pet : True , 0 , 0 , 0,5905857 , 1 , 5,4
+Toggled Sub Menu Item : guard your house : True , 0 , 0 , 0,4389453 , 1 , 6,4
+Toggled Sub Menu Item : run : True , 0 , 0 , 0,8003556 , 1 , 7,4
+Searched for +Dog , 0 , 0 , 3,757963 , 1 , 0,4
+Toggled Menu Item : has a : Selected , 0 , 0 , 4,075889 , 1 , 1,4
+Toggled Sub Menu Item : four legs : True , 0 , 0 , 0,693741 , 1 , 2,4
+Selected Token : four legs , 0 , 0 , 4,635014 , 1 , 3,4
+Selected Token : four legs , 0 , 0 , 4,993486 , 1 , 4,4
+Searched for +Dog , 0 , 0 , 4,835183 , 1 , 0,4
+Toggled Menu Item : used for : Selected , 0 , 0 , 4,172192 , 1 , 1,4
+Toggled Sub Menu Item : companionship : True , 0 , 0 , 0,6039313 , 1 , 2,4
+Toggled Menu Item : at location : Selected , 0 , 0 , 0,8455514 , 1 , 3,4
+Toggled Sub Menu Item : the table : True , 0 , 0 , 0,6530443 , 1 , 4,4
+Toggled Sub Menu Item : a park : True , 0 , 0 , 17,45852 , 1 , 5,4
+Toggled Menu Item : desires : Selected , 0 , 0 , 20,49766 , 1 , 6,4
+Toggled Sub Menu Item : be petted : True , 0 , 0 , 0,654861 , 1 , 7,4
+Toggled Sub Menu Item : a bone : True , 0 , 0 , 1,378272 , 1 , 8,4
+Toggled Menu Item : distinct from : Selected , 0 , 0 , 2,93401 , 1 , 9,4
+Toggled Sub Menu Item : cat : True , 0 , 0 , 0,6375188 , 1 , 10,4
+Toggled Menu Item : has a : Selected , 0 , 0 , 43,76518 , 1 , 11,4
+Toggled Menu Item : is a : Selected , 0 , 0 , 4,709892 , 1 , 12,4
+Toggled Sub Menu Item : pet : True , 0 , 0 , 0,7222348 , 1 , 13,4
+Toggled Sub Menu Item : mammal : True , 0 , 0 , 17,03798 , 1 , 14,4
+Searched for +Dog , 0 , 0 , 3,909744 , 1 , 0,4
+Toggled Menu Item : used for : Selected , 0 , 0 , 3,954728 , 1 , 1,4
+Toggled Sub Menu Item : companionship : True , 0 , 0 , 0,638833 , 1 , 2,4
+Toggled Menu Item : capable of : Selected , 0 , 0 , 1,312931 , 1 , 3,4
+Toggled Sub Menu Item : be a pet : True , 0 , 0 , 0,5586771 , 1 , 4,4
+Toggled Sub Menu Item : guard your house : True , 0 , 0 , 0,5563502 , 1 , 5,4
+Selected Token : be a pet , 0 , 0 , 2,528237 , 1 , 6,4
+Selected Token : be a pet , 0 , 0 , 1,584235 , 1 , 7,4
+Selected Token : be a pet , 0 , 0 , 3,591726 , 1 , 8,4
+Selected Token : companionship , 0 , 0 , 5,10869 , 1 , 9,4
+Selected Token : companionship , 0 , 0 , 1,062684 , 1 , 10,4
+Selected Token : companionship , 0 , 0 , 1,753259 , 1 , 11,4
+Selected Token : companionship , 0 , 0 , 2,754451 , 1 , 12,4
+Selected Token : companionship , 0 , 0 , 1,651397 , 1 , 13,4
+Selected Token : companionship , 0 , 0 , 1,686337 , 1 , 14,4
+Selected Token : companionship , 0 , 0 , 3,13527 , 1 , 15,4
+Selected Token : companionship , 0 , 0 , 1,178026 , 1 , 16,4
+Selected Token : companionship , 0 , 0 , 1,395469 , 1 , 17,4
+Selected Token : Dog , 0 , 0 , 7,052948 , 1 , 18,4
+Toggled Menu Item : capable of : Edited , 0 , 0 , 7,171817 , 1 , 19,4
+Toggled Sub Menu Item : run : True , 0 , 0 , 0,7390699 , 1 , 20,4
+Toggled Sub Menu Item : guide a blind person : True , 0 , 0 , 0,8060256 , 1 , 21,4
+Selected Token : Dog , 0 , 0 , 4,521098 , 1 , 22,4
+Selected Token : Dog , 0 , 0 , 1,287764 , 1 , 23,4
+Selected Token : Dog , 0 , 0 , 1,295472 , 1 , 24,4
+Searched for +Dog , 0 , 0 , 8,350973 , 1 , 0,4
+Toggled Menu Item : is a : Selected , 0 , 0 , 1,990372 , 1 , 1,4
+Toggled Sub Menu Item : pet : True , 0 , 0 , 0,4912053 , 1 , 2,4
+Toggled Sub Menu Item : mammal : True , 0 , 0 , 0,7939482 , 1 , 3,4
+Toggled Sub Menu Item : a canine : True , 0 , 0 , 0,8058909 , 1 , 4,4
+Toggled Sub Menu Item : a loyal friend : True , 0 , 0 , 1,478158 , 1 , 5,4
+Selected Token : a loyal friend , 0 , 0 , 5,820762 , 1 , 6,4
+Selected Token : a loyal friend , 0 , 0 , 1,397346 , 1 , 7,4
+Selected Token : a loyal friend , 0 , 0 , 1,531316 , 1 , 8,4
+Selected Token : a loyal friend , 0 , 0 , 6,520561 , 1 , 9,4
+Selected Token : a loyal friend , 0 , 0 , 1,665115 , 1 , 10,4
+Selected Token : a loyal friend , 0 , 0 , 6,188116 , 1 , 11,4
+Selected Token : a loyal friend , 0 , 0 , 1,248517 , 1 , 12,4
+Selected Token : a loyal friend , 0 , 0 , 1,652328 , 1 , 13,4
+Selected Token : a loyal friend , 0 , 0 , 0,9607796 , 1 , 14,4
+Selected Token : a loyal friend , 0 , 0 , 4,885062 , 1 , 15,4
+Selected Token : a loyal friend , 0 , 0 , 3,330339 , 1 , 16,4
+Selected Token : a canine , 0 , 0 , 1,580448 , 1 , 17,4
+Selected Token : a canine , 0 , 0 , 0,9921896 , 1 , 18,4
+Selected Token : a canine , 0 , 0 , 2,143236 , 1 , 19,4
+Selected Token : a canine , 0 , 0 , 1,749205 , 1 , 20,4
+Selected Token : Dog , 0 , 0 , 5,496771 , 1 , 21,4
+Toggled Menu Item : at location : Selected , 0 , 0 , 1,245536 , 1 , 22,4
+Toggled Sub Menu Item : a park : True , 0 , 0 , 0,6026193 , 1 , 23,4
+Toggled Sub Menu Item : the table : True , 0 , 0 , 0,469257 , 1 , 24,4
+Toggled Sub Menu Item : a kennel : True , 0 , 0 , 0,707256 , 1 , 25,4
+Toggled Menu Item : capable of : Selected , 0 , 0 , 1,260384 , 1 , 26,4
+Toggled Sub Menu Item : be a pet : True , 0 , 0 , 0,6625168 , 1 , 27,4
+Toggled Sub Menu Item : guard your house : True , 0 , 0 , 0,6784101 , 1 , 28,4
+Toggled Sub Menu Item : run : True , 0 , 0 , 0,5642508 , 1 , 29,4
+Toggled Sub Menu Item : guide a blind person : True , 0 , 0 , 0,7588594 , 1 , 30,4
+Toggled Sub Menu Item : bark : True , 0 , 0 , 0,9588559 , 1 , 31,4
+Searched for +Human , 0 , 0 , 19,53443 , 1 , 32,4
+Selected Token : Human , 0 , 0 , 9,18836 , 1 , 33,4
+Toggled Menu Item : at location : Selected , 0 , 0 , 2,372008 , 1 , 34,4
+Toggled Sub Menu Item : a park : True , 0 , 0 , 0,7238582 , 1 , 35,4
+Toggled Sub Menu Item : love : True , 0 , 0 , 0,4858975 , 1 , 36,4
+Toggled Sub Menu Item : the space shuttle : True , 0 , 0 , 0,4358563 , 1 , 37,4
+Toggled Sub Menu Item : the library : True , 0 , 0 , 0,5418787 , 1 , 38,4
+Toggled Sub Menu Item : a church : True , 0 , 0 , 0,8317047 , 1 , 39,4
+Toggled Sub Menu Item : homes : True , 0 , 0 , 1,584566 , 1 , 40,4
+Toggled Sub Menu Item : a workplace : True , 0 , 0 , 0,8564176 , 1 , 41,4
+Toggled Sub Menu Item : the school : False , 0 , 0 , 4,909272 , 1 , 42,4
+Toggled Sub Menu Item : the school : False , 0 , 0 , 1,046192 , 1 , 43,4
+Toggled Sub Menu Item : the school : False , 0 , 0 , 1,113024 , 1 , 44,4
+Selected Token : a park , 0 , 0 , 2,969534 , 1 , 45,4
+Selected Token : Dog , 0 , 0 , 8,19046 , 1 , 46,4
+Selected Token : Dog , 0 , 0 , 1,113205 , 1 , 47,4
+Selected Token : Dog , 0 , 0 , 1,549621 , 1 , 48,4
+Selected Token : Dog , 0 , 0 , 1,183434 , 1 , 49,4
+Toggled Menu Item : capable of : Edited , 0 , 0 , 14,76447 , 1 , 50,4
+Toggled Menu Item : capable of : Edited , 0 , 0 , 0,7224073 , 1 , 51,4
+Searched for +Dog , 0 , 0 , 8,097253 , 1 , 0,4
+Toggled Menu Item : is a : Selected , 0 , 0 , 1,342698 , 1 , 1,4
+Toggled Sub Menu Item : pet : True , 0 , 0 , 0,6578339 , 1 , 2,4
+Toggled Sub Menu Item : mammal : True , 0 , 0 , 1,188925 , 1 , 3,4
+Toggled Sub Menu Item : a canine : True , 0 , 0 , 0,7274567 , 1 , 4,4
+Toggled Sub Menu Item : pet : True , 0 , 0 , 1,79078 , 1 , 5,4
+Toggled Sub Menu Item : a loyal friend : True , 0 , 0 , 0,5193293 , 1 , 6,4
+Toggled Menu Item : has a : Selected , 0 , 0 , 3,16278 , 1 , 7,4
+Toggled Sub Menu Item : four legs : True , 0 , 0 , 0,5855183 , 1 , 8,4
+Toggled Menu Item : used for : Selected , 0 , 0 , 1,431152 , 1 , 9,4
+Toggled Sub Menu Item : companionship : True , 0 , 0 , 0,6725648 , 1 , 10,4
+Toggled Menu Item : capable of : Selected , 0 , 0 , 1,786123 , 1 , 11,4
+Toggled Sub Menu Item : guard your house : True , 0 , 0 , 0,5474707 , 1 , 12,4
+Toggled Sub Menu Item : be a pet : True , 0 , 0 , 0,3985474 , 1 , 13,4
+Toggled Sub Menu Item : run : True , 0 , 0 , 0,5879253 , 1 , 14,4
+Toggled Sub Menu Item : guide a blind person : True , 0 , 0 , 0,4202696 , 1 , 15,4
+Toggled Menu Item : at location : Selected , 0 , 0 , 1,938942 , 1 , 16,4
+Toggled Sub Menu Item : a park : True , 0 , 0 , 0,7057601 , 1 , 17,4
+Toggled Sub Menu Item : the table : True , 0 , 0 , 0,7934353 , 1 , 18,4
+Toggled Sub Menu Item : a kennel : True , 0 , 0 , 0,992919 , 1 , 19,4
+Toggled Menu Item : desires : Selected , 0 , 0 , 4,701237 , 1 , 20,4
+Toggled Sub Menu Item : be petted : True , 0 , 0 , 0,7567775 , 1 , 21,4
+Toggled Sub Menu Item : a bone : True , 0 , 0 , 0,8121388 , 1 , 22,4
+Toggled Menu Item : at location : Edited , 0 , 0 , 1,579793 , 1 , 23,4
+Toggled Sub Menu Item : a park : False , 0 , 0 , 0,8064045 , 1 , 24,4
+Toggled Sub Menu Item : the table : False , 0 , 0 , 0,9759318 , 1 , 25,4
+Toggled Sub Menu Item : a park : True , 0 , 0 , 0,7555369 , 1 , 26,4
+Toggled Sub Menu Item : the table : True , 0 , 0 , 0,4394965 , 1 , 27,4
+Toggled Sub Menu Item : a kennel : False , 0 , 0 , 0,9804549 , 1 , 28,4
+Toggled Sub Menu Item : a kennel : True , 0 , 0 , 0,488897 , 1 , 29,4
+Searched for +Dog , 0 , 0 , 2,776504 , 1 , 0,4
+Toggled Menu Item : capable of : Selected , 0 , 0 , 1,571178 , 1 , 1,4
+Toggled Sub Menu Item : run : True , 0 , 0 , 0,8128359 , 1 , 2,4
+Toggled Sub Menu Item : be a pet : True , 0 , 0 , 0,6132344 , 1 , 3,4
+Toggled Sub Menu Item : guard your house : True , 0 , 0 , 0,7789961 , 1 , 4,4
+Toggled Sub Menu Item : bark : True , 0 , 0 , 0,9153875 , 1 , 5,4
+Toggled Sub Menu Item : guide a blind person : False , 0 , 0 , 1,826669 , 1 , 6,4
+Toggled Menu Item : at location : Selected , 0 , 0 , 0,8401671 , 1 , 7,4
+Toggled Sub Menu Item : a park : True , 0 , 0 , 0,707004 , 1 , 8,4
+Toggled Sub Menu Item : the table : True , 0 , 0 , 0,6566756 , 1 , 9,4
+Toggled Sub Menu Item : a kennel : True , 0 , 0 , 1,145282 , 1 , 10,4
+Selected Token : guard your house , 0 , 0 , 5,931024 , 1 , 11,4
+Selected Token : Dog , 0 , 0 , 6,549644 , 1 , 12,4
+Toggled Menu Item : at location : Edited , 0 , 0 , 1,61782 , 1 , 13,4
+Toggled Sub Menu Item : a park : False , 0 , 0 , 0,7882528 , 1 , 14,4
+Toggled Sub Menu Item : a park : True , 0 , 0 , 0,6407337 , 1 , 15,4
+Toggled Menu Item : desires : Selected , 0 , 0 , 0,9062303 , 1 , 16,4
+Toggled Sub Menu Item : be petted : True , 0 , 0 , 1,024386 , 1 , 17,4
+Toggled Sub Menu Item : a bone : True , 0 , 0 , 1,082758 , 1 , 18,4
+Selected Token : bark , 0 , 0 , 3,269959 , 1 , 19,4
+Selected Token : a park , 0 , 0 , 9,574432 , 1 , 20,4
+Selected Token : a park , 0 , 0 , 1,883921 , 1 , 21,4
+Selected Token : a park , 0 , 0 , 1,410869 , 1 , 22,4
+Selected Token : a park , 0 , 0 , 1,079589 , 1 , 23,4
+Selected Token : Dog , 0 , 0 , 30,11511 , 1 , 24,4
+Toggled Menu Item : at location : Edited , 0 , 0 , 13,8 , 1 , 25,4
+Toggled Menu Item : distinct from : Selected , 0 , 0 , 1,059991 , 1 , 26,4
+Toggled Sub Menu Item : cat : True , 0 , 0 , 1,290506 , 1 , 27,4
+Toggled Menu Item : is related to : Selected , 0 , 0 , 3,039281 , 1 , 28,4
+Toggled Sub Menu Item : pet : True , 0 , 0 , 3,278448 , 1 , 29,4
+Toggled Sub Menu Item : animal : True , 0 , 0 , 1,172768 , 1 , 30,4
+Toggled Sub Menu Item : canine : True , 0 , 0 , 1,090372 , 1 , 31,4
+Selected Token : canine , 0 , 0 , 20,88953 , 1 , 32,4
+Selected Token : bark , 0 , 0 , 28,88215 , 1 , 33,4
+Selected Token : bark , 0 , 0 , 4,694805 , 1 , 34,4
+Selected Token : guard your house , 0 , 0 , 3,5374 , 1 , 35,4
+Selected Token : Dog , 0 , 0 , 20,07952 , 1 , 36,4
+Toggled Menu Item : desires : Edited , 0 , 0 , 0,9737406 , 1 , 37,4
+Toggled Menu Item : desires : Edited , 0 , 0 , 0,6718112 , 1 , 38,4
+Selected Token : pet , 0 , 0 , 1,945842 , 1 , 39,4
+Toggled Menu Item : at location : Selected , 0 , 0 , 1,767755 , 1 , 40,4
+Toggled Sub Menu Item : your house : True , 0 , 0 , 0,8431232 , 1 , 41,4
+Toggled Menu Item : synonym : Selected , 0 , 0 , 1,765028 , 1 , 42,4
+Toggled Sub Menu Item : darling : True , 0 , 0 , 0,8602262 , 1 , 43,4
+Toggled Sub Menu Item : positron emission tomography : True , 0 , 0 , 2,62419 , 1 , 44,4
+Toggled Menu Item : manner of : Selected , 0 , 0 , 1,551363 , 1 , 45,4
+Toggled Sub Menu Item : caress : True , 0 , 0 , 0,8585838 , 1 , 46,4
+Toggled Menu Item : is a : Selected , 0 , 0 , 1,835117 , 1 , 47,4
+Toggled Menu Item : at location : Edited , 0 , 0 , 11,01215 , 1 , 48,4
+Toggled Menu Item : used for : Selected , 0 , 0 , 0,6411784 , 1 , 49,4
+Searched for +Dog , 0 , 0 , 3,065658 , 1 , 0,4
+Toggled Menu Item : capable of : Selected , 0 , 0 , 1,463574 , 1 , 1,4
+Toggled Sub Menu Item : guide a blind person : True , 0 , 0 , 0,7068648 , 1 , 2,4
+Toggled Sub Menu Item : run : True , 0 , 0 , 0,3862828 , 1 , 3,4
+Toggled Sub Menu Item : be a pet : True , 0 , 0 , 0,4568493 , 1 , 4,4
+Toggled Sub Menu Item : guard your house : True , 0 , 0 , 0,45428 , 1 , 5,4
+Toggled Sub Menu Item : bark : False , 0 , 0 , 2,421086 , 1 , 6,4
+Toggled Sub Menu Item : bark : False , 0 , 0 , 0,8249798 , 1 , 7,4
+Toggled Sub Menu Item : bark : False , 0 , 0 , 0,3209077 , 1 , 8,4
+Toggled Sub Menu Item : bark : False , 0 , 0 , 0,3528783 , 1 , 9,4
+Toggled Sub Menu Item : bark : False , 0 , 0 , 0,3709726 , 1 , 10,4
+Toggled Sub Menu Item : bark : False , 0 , 0 , 0,6579298 , 1 , 11,4
+Toggled Sub Menu Item : bark : False , 0 , 0 , 33,12007 , 1 , 12,4
+Toggled Sub Menu Item : guard your house : True , 0 , 0 , 4,623976 , 1 , 13,4
+Toggled Menu Item : at location : Selected , 0 , 0 , 2,95088 , 1 , 14,4
+Toggled Sub Menu Item : a park : True , 0 , 0 , 0,9412003 , 1 , 15,4
+Toggled Sub Menu Item : the table : True , 0 , 0 , 7,431297 , 1 , 16,4
+Toggled Sub Menu Item : a park : True , 0 , 0 , 3,622278 , 1 , 17,4
+Toggled Sub Menu Item : the table : True , 0 , 0 , 1,021864 , 1 , 18,4
+Toggled Sub Menu Item : a kennel : True , 0 , 0 , 0,7894686 , 1 , 19,4
+Toggled Menu Item : capable of : Edited , 0 , 0 , 1,264407 , 1 , 20,4
+Toggled Menu Item : is a : Selected , 0 , 0 , 3,201522 , 1 , 21,4
+Toggled Sub Menu Item : a loyal friend : True , 0 , 0 , 0,8773006 , 1 , 22,4
+Toggled Sub Menu Item : pet : True , 0 , 0 , 1,343758 , 1 , 23,4
+Toggled Sub Menu Item : mammal : True , 0 , 0 , 0,8222529 , 1 , 24,4
+Toggled Sub Menu Item : a canine : True , 0 , 0 , 0,9764915 , 1 , 25,4
+Toggled Menu Item : desires : Selected , 0 , 0 , 3,42819 , 1 , 26,4
+Searched for +Dog , 0 , 0 , 3,717681 , 1 , 0,4
+Toggled Menu Item : capable of : Selected , 0 , 0 , 1,49863 , 1 , 1,4
+Toggled Sub Menu Item : guide a blind person : True , 0 , 0 , 0,6982523 , 1 , 2,4
+Toggled Sub Menu Item : run : False , 0 , 0 , 1,822857 , 1 , 3,4
+Toggled Sub Menu Item : guide a blind person : True , 0 , 0 , 3,03208 , 1 , 4,4
+Toggled Sub Menu Item : run : False , 0 , 0 , 0,976955 , 1 , 5,4
+Toggled Sub Menu Item : be a pet : False , 0 , 0 , 0,5050007 , 1 , 6,4
+Toggled Menu Item : used for : Selected , 0 , 0 , 0,3888888 , 1 , 7,4
+Toggled Sub Menu Item : companionship : True , 0 , 0 , 0,672948 , 1 , 8,4
+Toggled Menu Item : has a : Selected , 0 , 0 , 1,058114 , 1 , 9,4
+Toggled Menu Item : distinct from : Selected , 0 , 0 , 1,647573 , 1 , 10,4
+Toggled Menu Item : is a : Selected , 0 , 0 , 1,51593 , 1 , 11,4
+Searched for +Dog , 0 , 0 , 2,78333 , 1 , 0,4
+Toggled Menu Item : capable of : Selected , 0 , 0 , 1,281504 , 1 , 1,4
+Toggled Sub Menu Item : run : True , 0 , 0 , 0,5266584 , 1 , 2,4
+Toggled Sub Menu Item : be a pet : True , 0 , 0 , 0,5128866 , 1 , 3,4
+Toggled Sub Menu Item : guard your house : True , 0 , 0 , 0,6575542 , 1 , 4,4
+Toggled Sub Menu Item : bark : True , 0 , 0 , 0,9429613 , 1 , 5,4
+Toggled Sub Menu Item : guide a blind person : True , 0 , 0 , 0,9119495 , 1 , 6,4
+Toggled Menu Item : used for : Selected , 0 , 0 , 1,593945 , 1 , 7,4
+Toggled Sub Menu Item : companionship : True , 0 , 0 , 0,6399722 , 1 , 8,4
+Toggled Menu Item : has a : Selected , 0 , 0 , 1,260298 , 1 , 9,4
+Toggled Sub Menu Item : four legs : True , 0 , 0 , 0,6083474 , 1 , 10,4
+Toggled Menu Item : is a : Selected , 0 , 0 , 1,417089 , 1 , 11,4
+Toggled Sub Menu Item : a loyal friend : True , 0 , 0 , 0,5202415 , 1 , 12,4
+Toggled Sub Menu Item : pet : True , 0 , 0 , 0,319944 , 1 , 13,4
+Toggled Sub Menu Item : mammal : True , 0 , 0 , 0,4042566 , 1 , 14,4
+Toggled Sub Menu Item : a canine : True , 0 , 0 , 0,3353045 , 1 , 15,4
+Toggled Menu Item : is related to : Selected , 0 , 0 , 1,157586 , 1 , 16,4
+Toggled Sub Menu Item : pet : True , 0 , 0 , 0,489952 , 1 , 17,4
+Toggled Sub Menu Item : animal : True , 0 , 0 , 0,2859288 , 1 , 18,4
+Toggled Sub Menu Item : canine : True , 0 , 0 , 0,4889182 , 1 , 19,4
+Selected Token : canine , 0 , 0 , 36,72589 , 1 , 20,4
+Toggled Menu Item : synonym : Selected , 0 , 0 , 2,218816 , 1 , 21,4
+Toggled Sub Menu Item : собачий : True , 0 , 0 , 0,923017 , 1 , 22,4
+Toggled Sub Menu Item : koira : True , 0 , 0 , 0,4209929 , 1 , 23,4
+Toggled Sub Menu Item : psi : True , 0 , 0 , 0,5888639 , 1 , 24,4
+Toggled Sub Menu Item : canino : True , 0 , 0 , 0,4523867 , 1 , 25,4
+Toggled Sub Menu Item : σκυλο : True , 0 , 0 , 0,4693266 , 1 , 26,4
+Toggled Sub Menu Item : canino : True , 0 , 0 , 0,4209753 , 1 , 27,4
+Toggled Sub Menu Item : dog : True , 0 , 0 , 0,4049339 , 1 , 28,4
+Selected Token : run , 0 , 0 , 2,937882 , 1 , 29,4
+Toggled Menu Item : is related to : Selected , 0 , 0 , 2,152961 , 1 , 30,4
+Toggled Sub Menu Item : fast : True , 0 , 0 , 0,6914894 , 1 , 31,4
+Toggled Sub Menu Item : walk : True , 0 , 0 , 0,8928926 , 1 , 32,4
+Toggled Sub Menu Item : walking : True , 0 , 0 , 0,6738073 , 1 , 33,4
+Toggled Sub Menu Item : jog : True , 0 , 0 , 0,5045708 , 1 , 34,4
+Toggled Sub Menu Item : movement : True , 0 , 0 , 0,503495 , 1 , 35,4
+Toggled Sub Menu Item : fast walk : True , 0 , 0 , 1,009628 , 1 , 36,4
+Toggled Sub Menu Item : sprint : True , 0 , 0 , 0,5085545 , 1 , 37,4
+Toggled Sub Menu Item : walk fast : True , 0 , 0 , 0,7651315 , 1 , 38,4
+Toggled Sub Menu Item : jogging : True , 0 , 0 , 2,432223 , 1 , 39,4
+Toggled Sub Menu Item : action : True , 0 , 0 , 0,6237723 , 1 , 40,4
+Toggled Sub Menu Item : faster : True , 0 , 0 , 0,5712464 , 1 , 41,4
+Toggled Menu Item : is related to : Edited , 0 , 0 , 2,793586 , 1 , 42,4
+Delete token with mouse click , 0 , 0 , 0,8489189 , 1 , 43,4
+Toggled Sub Menu Item : exercise : True , 0 , 0 , 0,8918859 , 1 , 44,4
+Toggled Sub Menu Item : race : True , 0 , 0 , 0,4870868 , 1 , 45,4
+Toggled Sub Menu Item : activity : True , 0 , 0 , 0,5720507 , 1 , 46,4
+Toggled Sub Menu Item : fast walking : True , 0 , 0 , 0,5901371 , 1 , 47,4
+Toggled Sub Menu Item : walking fast : True , 0 , 0 , 0,554771 , 1 , 48,4
+Delete token with mouse click , 0 , 0 , 36,71005 , 1 , 49,4
+Searched for +Dog , 0 , 0 , 4,644434 , 1 , 0,4
+Toggled Menu Item : has a : Selected , 0 , 0 , 2,324041 , 1 , 1,4
+Toggled Sub Menu Item : four legs : True , 0 , 0 , 0,7910451 , 1 , 2,4
+Toggled Menu Item : is a : Selected , 0 , 0 , 1,044781 , 1 , 3,4
+Toggled Sub Menu Item : a loyal friend : True , 0 , 0 , 0,6874034 , 1 , 4,4
+Toggled Sub Menu Item : pet : True , 0 , 0 , 0,3578947 , 1 , 5,4
+Toggled Sub Menu Item : mammal : True , 0 , 0 , 0,5178939 , 1 , 6,4
+Toggled Sub Menu Item : a canine : True , 0 , 0 , 0,5118485 , 1 , 7,4
+Toggled Menu Item : has a : Edited , 0 , 0 , 4,183012 , 1 , 8,4
+Toggled Sub Menu Item : four legs : False , 0 , 0 , 0,8056065 , 1 , 9,4
+Toggled Sub Menu Item : four legs : True , 0 , 0 , 0,710456 , 1 , 10,4
+Toggled Menu Item : capable of : Selected , 0 , 0 , 1,276132 , 1 , 11,4
+Toggled Sub Menu Item : bark : True , 0 , 0 , 0,9097519 , 1 , 12,4
+Toggled Sub Menu Item : guard your house : True , 0 , 0 , 1,113368 , 1 , 13,4
+Toggled Sub Menu Item : be a pet : True , 0 , 0 , 0,6136498 , 1 , 14,4
+Toggled Sub Menu Item : run : True , 0 , 0 , 0,586303 , 1 , 15,4
+Toggled Sub Menu Item : guide a blind person : True , 0 , 0 , 0,6914694 , 1 , 16,4
+Searched for +Dog , 0 , 0 , 9,770535 , 1 , 0,4
+Toggled Menu Item : used for : Selected , 0 , 0 , 2,221488 , 1 , 1,4
+Toggled Sub Menu Item : companionship : True , 0 , 0 , 0,6441998 , 1 , 2,4
+Toggled Menu Item : has a : Selected , 0 , 0 , 2,244034 , 1 , 3,4
+Toggled Menu Item : is a : Selected , 0 , 0 , 0,5016249 , 1 , 4,4
+Toggled Sub Menu Item : a loyal friend : True , 0 , 0 , 0,6575849 , 1 , 5,4
+Toggled Sub Menu Item : pet : True , 0 , 0 , 3,316413 , 1 , 6,4
+Toggled Sub Menu Item : mammal : True , 0 , 0 , 2,694327 , 1 , 7,4
+Toggled Menu Item : has a : Selected , 0 , 0 , 2,222743 , 1 , 8,4
+Toggled Menu Item : is a : Edited , 0 , 0 , 0,5402501 , 1 , 9,4
+Toggled Sub Menu Item : a canine : True , 0 , 0 , 0,825518 , 1 , 10,4
+Toggled Menu Item : is related to : Selected , 0 , 0 , 4,659935 , 1 , 11,4
+Toggled Sub Menu Item : pet : True , 0 , 0 , 0,6372027 , 1 , 12,4
+Toggled Sub Menu Item : animal : True , 0 , 0 , 0,3853735 , 1 , 13,4
+Toggled Sub Menu Item : canine : True , 0 , 0 , 0,3698924 , 1 , 14,4
+Toggled Menu Item : capable of : Selected , 0 , 0 , 0,714249 , 1 , 15,4
+Toggled Sub Menu Item : bark : True , 0 , 0 , 0,7918774 , 1 , 16,4
+Toggled Sub Menu Item : guard your house : True , 0 , 0 , 0,3679919 , 1 , 17,4
+Toggled Sub Menu Item : be a pet : True , 0 , 0 , 0,4874821 , 1 , 18,4
+Toggled Sub Menu Item : be a pet : True , 0 , 0 , 7,667286 , 1 , 19,4
+Toggled Sub Menu Item : guide a blind person : True , 0 , 0 , 11,66244 , 1 , 20,4
+Searched for +Dog , 0 , 0 , 4,924207 , 1 , 0,4
+Toggled Menu Item : capable of : Selected , 0 , 0 , 2,113852 , 1 , 1,4
+Toggled Sub Menu Item : be a pet : True , 0 , 0 , 0,6582189 , 1 , 2,4
+Toggled Sub Menu Item : run : True , 0 , 0 , 0,9648911 , 1 , 3,4
+Toggled Sub Menu Item : guide a blind person : True , 0 , 0 , 0,8141642 , 1 , 4,4
+Toggled Sub Menu Item : guard your house : True , 0 , 0 , 1,446408 , 1 , 5,4
+Toggled Sub Menu Item : bark : True , 0 , 0 , 0,6029128 , 1 , 6,4
+Searched for +Dog , 0 , 0 , 5,007216 , 1 , 0,4
+Toggled Menu Item : capable of : Selected , 0 , 0 , 3,071999 , 1 , 1,4
+Toggled Sub Menu Item : be a pet : True , 0 , 0 , 0,7409856 , 1 , 2,4
+Selected Token : Dog , 0 , 0 , 4,766735 , 1 , 3,4
+Selected Token : Dog , 0 , 0 , 2,443243 , 1 , 4,4
+Selected Token : Dog , 0 , 0 , 3,142859 , 1 , 5,4
+Selected Token : Dog , 0 , 0 , 1,549623 , 1 , 6,4
+Selected Token : Dog , 0 , 0 , 1,884261 , 1 , 7,4
+Selected Token : be a pet , 0 , 0 , 1,884282 , 1 , 8,4
+Selected Token : be a pet , 0 , 0 , 1,124603 , 1 , 9,4
+Selected Token : be a pet , 0 , 0 , 1,950803 , 1 , 10,4
+Selected Token : be a pet , 0 , 0 , 1,346959 , 1 , 11,4
+Selected Token : be a pet , 0 , 0 , 0,9898443 , 1 , 12,4
+Selected Token : be a pet , 0 , 0 , 1,499119 , 1 , 13,4
+Selected Token : be a pet , 0 , 0 , 2,103286 , 1 , 14,4
+Selected Token : be a pet , 0 , 0 , 1,768349 , 1 , 15,4
+Selected Token : be a pet , 0 , 0 , 1,398189 , 1 , 16,4
+Selected Token : be a pet , 0 , 0 , 1,279746 , 1 , 17,4
+Selected Token : be a pet , 0 , 0 , 1,482378 , 1 , 18,4
+Selected Token : be a pet , 0 , 0 , 0,9979497 , 1 , 19,4
+Selected Token : Dog , 0 , 0 , 3,025719 , 1 , 20,4
+Selected Token : Dog , 0 , 0 , 3,050391 , 1 , 21,4
+Selected Token : be a pet , 0 , 0 , 4,278198 , 1 , 22,4
+Selected Token : be a pet , 0 , 0 , 1,412314 , 1 , 23,4
+Selected Token : Dog , 0 , 0 , 13,43639 , 1 , 24,4
+Selected Token : Dog , 0 , 0 , 1,024807 , 1 , 25,4
+Selected Token : be a pet , 0 , 0 , 1,530756 , 1 , 26,4
+Selected Token : be a pet , 0 , 0 , 2,054572 , 1 , 27,4
+Selected Token : be a pet , 0 , 0 , 2,02091 , 1 , 28,4
+Selected Token : be a pet , 0 , 0 , 1,292394 , 1 , 29,4
+Selected Token : be a pet , 0 , 0 , 1,093337 , 1 , 30,4
+Selected Token : be a pet , 0 , 0 , 1,42985 , 1 , 31,4
+Selected Token : be a pet , 0 , 0 , 0,8093569 , 1 , 32,4
+Selected Token : be a pet , 0 , 0 , 1,581052 , 1 , 33,4
+Selected Token : be a pet , 0 , 0 , 1,047221 , 1 , 34,4
+Selected Token : be a pet , 0 , 0 , 0,9132955 , 1 , 35,4
+Selected Token : be a pet , 0 , 0 , 1,145689 , 1 , 36,4
+Searched for +Dog , 0 , 0 , 6,41609 , 1 , 0,4
+Toggled Menu Item : has a : Selected , 0 , 0 , 2,121831 , 1 , 1,4
+Toggled Sub Menu Item : four legs : True , 0 , 0 , 0,7238652 , 1 , 2,4
+Toggled Menu Item : capable of : Selected , 0 , 0 , 1,763478 , 1 , 3,4
+Toggled Sub Menu Item : guard your house : True , 0 , 0 , 0,7808864 , 1 , 4,4
+Toggled Sub Menu Item : be a pet : True , 0 , 0 , 2,570258 , 1 , 5,4
+Toggled Sub Menu Item : run : True , 0 , 0 , 2,601718 , 1 , 6,4
+Toggled Sub Menu Item : guide a blind person : True , 0 , 0 , 2,626396 , 1 , 7,4
+Toggled Sub Menu Item : bark : True , 0 , 0 , 53,69303 , 1 , 8,4
+Searched for +Dog , 0 , 0 , 7,185884 , 1 , 0,4
+Toggled Menu Item : is a : Selected , 0 , 0 , 1,882999 , 1 , 1,4
+Toggled Sub Menu Item : pet : True , 0 , 0 , 0,6886289 , 1 , 2,4
+Toggled Sub Menu Item : mammal : True , 0 , 0 , 7,627754 , 1 , 3,4
+Searched for +Dog , 0 , 0 , 2,622613 , 1 , 0,4
+Toggled Menu Item : used for : Selected , 0 , 0 , 1,308128 , 1 , 1,4
+Toggled Sub Menu Item : companionship : True , 0 , 0 , 0,7499474 , 1 , 2,4
+Toggled Menu Item : capable of : Selected , 0 , 0 , 1,391803 , 1 , 3,4
+Toggled Sub Menu Item : be a pet : True , 0 , 0 , 1,934569 , 1 , 4,4
+Toggled Sub Menu Item : run : True , 0 , 0 , 8,220734 , 1 , 5,4
+Toggled Sub Menu Item : guide a blind person : True , 0 , 0 , 19,32722 , 1 , 6,4
+Searched for +Dog , 0 , 0 , 2,668628 , 1 , 0,4
+Toggled Menu Item : used for : Selected , 0 , 0 , 1,32374 , 1 , 1,4
+Toggled Sub Menu Item : companionship : True , 0 , 0 , 0,7109175 , 1 , 2,4
+Toggled Menu Item : has a : Selected , 0 , 0 , 2,564145 , 1 , 3,4
+Toggled Sub Menu Item : four legs : True , 0 , 0 , 0,6321585 , 1 , 4,4
+Toggled Menu Item : at location : Selected , 0 , 0 , 1,295252 , 1 , 5,4
+Searched for +Dog , 0 , 0 , 5,64017 , 1 , 0,4
+Toggled Menu Item : capable of : Selected , 0 , 0 , 1,465898 , 1 , 1,4
+Toggled Sub Menu Item : be a pet : True , 0 , 0 , 0,7512861 , 1 , 2,4
+Toggled Sub Menu Item : guard your house : True , 0 , 0 , 3,948427 , 1 , 3,4
+Toggled Sub Menu Item : run : True , 0 , 0 , 3,56436 , 1 , 4,4
+Toggled Sub Menu Item : guide a blind person : True , 0 , 0 , 8,389481 , 1 , 5,4
+Toggled Sub Menu Item : bark : True , 0 , 0 , 20,16934 , 1 , 6,4
+Toggled Menu Item : at location : Selected , 0 , 0 , 7,831607 , 1 , 7,4
+Toggled Sub Menu Item : a park : True , 0 , 0 , 0,8566467 , 1 , 8,4
+Toggled Sub Menu Item : the table : True , 0 , 0 , 2,444391 , 1 , 9,4
+Toggled Sub Menu Item : a kennel : True , 0 , 0 , 2,515245 , 1 , 10,4
+Toggled Sub Menu Item : a kennel : True , 0 , 0 , 27,30812 , 1 , 11,4
+Toggled Menu Item : desires : Selected , 0 , 0 , 2,06998 , 1 , 12,4
+Toggled Sub Menu Item : be petted : True , 0 , 0 , 0,8417933 , 1 , 13,4
+Searched for +Dog , 0 , 0 , 3,788699 , 1 , 0,4
+Toggled Menu Item : capable of : Selected , 0 , 0 , 1,359267 , 1 , 1,4
+Toggled Sub Menu Item : run : True , 0 , 0 , 0,7143988 , 1 , 2,4
+Toggled Sub Menu Item : be a pet : True , 0 , 0 , 3,831225 , 1 , 3,4
+Toggled Sub Menu Item : guide a blind person : True , 0 , 0 , 14,58042 , 1 , 4,4
+Toggled Sub Menu Item : bark : True , 0 , 0 , 15,9753 , 1 , 5,4
+Toggled Menu Item : at location : Selected , 0 , 0 , 6,556139 , 1 , 6,4
+Toggled Sub Menu Item : a park : True , 0 , 0 , 0,8059392 , 1 , 7,4
+Toggled Sub Menu Item : the table : True , 0 , 0 , 0,7905959 , 1 , 8,4
+Toggled Sub Menu Item : a kennel : True , 0 , 0 , 0,6766796 , 1 , 9,4
+Toggled Menu Item : is a : Selected , 0 , 0 , 3,168083 , 1 , 10,4
+Toggled Sub Menu Item : a loyal friend : True , 0 , 0 , 0,8255857 , 1 , 11,4
+Toggled Sub Menu Item : pet : True , 0 , 0 , 0,6404295 , 1 , 12,4
+Toggled Sub Menu Item : mammal : True , 0 , 0 , 0,3711909 , 1 , 13,4
+Toggled Sub Menu Item : a canine : True , 0 , 0 , 0,352318 , 1 , 14,4
+Toggled Menu Item : at location : Edited , 0 , 0 , 21,96614 , 1 , 15,4
+Toggled Sub Menu Item : a park : False , 0 , 0 , 0,9260824 , 1 , 16,4
+Toggled Sub Menu Item : a park : True , 0 , 0 , 0,8415548 , 1 , 17,4
+Toggled Menu Item : capable of : Edited , 0 , 0 , 0,7578701 , 1 , 18,4
+Toggled Menu Item : distinct from : Selected , 0 , 0 , 1,139313 , 1 , 19,4
+Toggled Sub Menu Item : cat : True , 0 , 0 , 0,8737554 , 1 , 20,4
+Searched for +Dog , 0 , 0 , 6,727158 , 1 , 0,4
+Toggled Menu Item : capable of : Selected , 0 , 0 , 1,314211 , 1 , 1,4
+Toggled Sub Menu Item : guard your house : True , 0 , 0 , 0,7490977 , 1 , 2,4
+Toggled Sub Menu Item : be a pet : True , 0 , 0 , 1,896386 , 1 , 3,4
+Toggled Sub Menu Item : run : True , 0 , 0 , 1,950093 , 1 , 4,4
+Toggled Sub Menu Item : guide a blind person : True , 0 , 0 , 2,229428 , 1 , 5,4
+Toggled Sub Menu Item : bark : True , 0 , 0 , 3,578038 , 1 , 6,4
+Toggled Menu Item : is a : Selected , 0 , 0 , 2,599846 , 1 , 7,4
+Toggled Sub Menu Item : a loyal friend : True , 0 , 0 , 0,5889101 , 1 , 8,4
+Toggled Sub Menu Item : pet : True , 0 , 0 , 1,613973 , 1 , 9,4
+Toggled Sub Menu Item : a canine : True , 0 , 0 , 2,973206 , 1 , 10,4
+Toggled Sub Menu Item : mammal : True , 0 , 0 , 2,988885 , 1 , 11,4
+Searched for +Dog , 0 , 0 , 2,71252 , 1 , 0,4
+Toggled Menu Item : capable of : Selected , 0 , 0 , 1,479172 , 1 , 1,4
+Toggled Sub Menu Item : run : True , 0 , 0 , 0,6420673 , 1 , 2,4
+Toggled Sub Menu Item : be a pet : True , 0 , 0 , 1,485069 , 1 , 3,4
+Toggled Sub Menu Item : guard your house : True , 0 , 0 , 2,106551 , 1 , 4,4
+Toggled Sub Menu Item : bark : True , 0 , 0 , 3,298022 , 1 , 5,4
+Delete token with mouse click , 0 , 0 , 3,333791 , 1 , 6,4
+Toggled Sub Menu Item : guide a blind person : True , 0 , 0 , 0,08363654 , 1 , 7,4
+Toggled Menu Item : used for : Selected , 0 , 0 , 2,455442 , 1 , 8,4
+Toggled Sub Menu Item : companionship : True , 0 , 0 , 0,7556121 , 1 , 9,4
+Toggled Menu Item : at location : Selected , 0 , 0 , 5,128461 , 1 , 10,4
+Toggled Sub Menu Item : a park : True , 0 , 0 , 0,6562476 , 1 , 11,4
+Toggled Sub Menu Item : the table : True , 0 , 0 , 1,462191 , 1 , 12,4
+Toggled Sub Menu Item : a kennel : True , 0 , 0 , 1,667371 , 1 , 13,4
+Toggled Menu Item : is a : Selected , 0 , 0 , 3,125829 , 1 , 14,4
+Toggled Sub Menu Item : a loyal friend : True , 0 , 0 , 0,6216441 , 1 , 15,4
+Toggled Sub Menu Item : pet : True , 0 , 0 , 2,772057 , 1 , 16,4
+Toggled Sub Menu Item : mammal : True , 0 , 0 , 2,031203 , 1 , 17,4
+Toggled Sub Menu Item : a canine : True , 0 , 0 , 2,506759 , 1 , 18,4
+Searched for +Dog , 0 , 0 , 4,387316 , 1 , 0,4
+Toggled Menu Item : capable of : Selected , 0 , 0 , 1,43346 , 1 , 1,4
+Toggled Sub Menu Item : be a pet : True , 0 , 0 , 0,5386688 , 1 , 2,4
+Toggled Sub Menu Item : guard your house : True , 0 , 0 , 0,9125827 , 1 , 3,4
+Toggled Sub Menu Item : run : True , 0 , 0 , 2,044039 , 1 , 4,4
+Toggled Sub Menu Item : guide a blind person : True , 0 , 0 , 2,595942 , 1 , 5,4
+Toggled Sub Menu Item : bark : True , 0 , 0 , 4,631368 , 1 , 6,4
+Toggled Menu Item : at location : Selected , 0 , 0 , 7,06406 , 1 , 7,4
+Toggled Sub Menu Item : a kennel : True , 0 , 0 , 0,8048403 , 1 , 8,4
+Searched for +Dog , 0 , 0 , 2,955269 , 1 , 0,4
+Toggled Menu Item : capable of : Selected , 0 , 0 , 1,237544 , 1 , 1,4
+Toggled Sub Menu Item : be a pet : True , 0 , 0 , 0,623024 , 1 , 2,4
+Toggled Sub Menu Item : guard your house : True , 0 , 0 , 1,286069 , 1 , 3,4
+Toggled Sub Menu Item : run : True , 0 , 0 , 1,75685 , 1 , 4,4
+Toggled Sub Menu Item : guide a blind person : True , 0 , 0 , 0,6995611 , 1 , 5,4
+Toggled Sub Menu Item : bark : True , 0 , 0 , 2,964742 , 1 , 6,4
+Toggled Menu Item : used for : Selected , 0 , 0 , 2,206475 , 1 , 7,4
+Toggled Sub Menu Item : companionship : True , 0 , 0 , 0,7703439 , 1 , 8,4
+Toggled Menu Item : desires : Selected , 0 , 0 , 4,468868 , 1 , 9,4
+Toggled Sub Menu Item : be petted : True , 0 , 0 , 0,8072914 , 1 , 10,4
+Toggled Sub Menu Item : a bone : True , 0 , 0 , 1,494467 , 1 , 11,4
+Toggled Menu Item : distinct from : Selected , 0 , 0 , 4,398681 , 1 , 12,4
+Toggled Sub Menu Item : cat : True , 0 , 0 , 0,8249747 , 1 , 13,4
+Selected Token : bark , 0 , 0 , 18,0428 , 1 , 14,4
+Selected Token : bark , 0 , 0 , 1,462805 , 1 , 15,4
+Selected Token : bark , 0 , 0 , 4,13964 , 1 , 16,4
+Searched for +Dog , 0 , 0 , 4,206087 , 1 , 0,4
+Toggled Menu Item : is a : Selected , 0 , 0 , 3,975596 , 1 , 1,4
+Toggled Sub Menu Item : pet : True , 0 , 0 , 0,6568355 , 1 , 2,4
+Toggled Sub Menu Item : mammal : True , 0 , 0 , 3,430345 , 1 , 3,4
+Toggled Sub Menu Item : a canine : True , 0 , 0 , 2,788281 , 1 , 4,4
+Toggled Sub Menu Item : a loyal friend : True , 0 , 0 , 3,162086 , 1 , 5,4
+Toggled Menu Item : used for : Selected , 0 , 0 , 6,505124 , 1 , 6,4
+Toggled Sub Menu Item : companionship : True , 0 , 0 , 0,69185 , 1 , 7,4
+Toggled Menu Item : at location : Selected , 0 , 0 , 4,883323 , 1 , 8,4
+Toggled Sub Menu Item : a park : True , 0 , 0 , 0,6884872 , 1 , 9,4
+Toggled Sub Menu Item : the table : True , 0 , 0 , 4,74033 , 1 , 10,4
+Toggled Menu Item : is a : Edited , 0 , 0 , 4,016317 , 1 , 11,4
+Toggled Sub Menu Item : a loyal friend : False , 0 , 0 , 0,60483 , 1 , 12,4
+Toggled Sub Menu Item : pet : False , 0 , 0 , 1,313182 , 1 , 13,4
+Toggled Menu Item : distinct from : Selected , 0 , 0 , 1,595217 , 1 , 14,4
+Toggled Sub Menu Item : cat : True , 0 , 0 , 1,163111 , 1 , 15,4
+Toggled Menu Item : is related to : Selected , 0 , 0 , 4,526183 , 1 , 16,4
+Toggled Sub Menu Item : pet : True , 0 , 0 , 0,6204951 , 1 , 17,4
+Toggled Sub Menu Item : animal : True , 0 , 0 , 6,404319 , 1 , 18,4
+Toggled Sub Menu Item : canine : True , 0 , 0 , 2,913464 , 1 , 19,4
+Searched for +Dog , 0 , 0 , 4,204325 , 1 , 0,4
+Searched for +Dog , 0 , 0 , 8,569187 , 1 , 0,4
+Searched for +Dog , 0 , 0 , 4,034827 , 1 , 0,4
+Toggled Menu Item : capable of : Selected , 0 , 0 , 7,74001 , 1 , 1,4
+Toggled Sub Menu Item : be a pet : True , 0 , 0 , 0,7716733 , 1 , 2,4
+Searched for +Dog , 0 , 0 , 4,080812 , 1 , 0,4
+Toggled Menu Item : capable of : Selected , 0 , 0 , 50,54675 , 1 , 1,4
+Toggled Sub Menu Item : be a pet : True , 0 , 0 , 0,9093435 , 1 , 2,4
+Searched for +Dog , 0 , 0 , 2,774896 , 1 , 0,4
+Toggled Menu Item : capable of : Selected , 0 , 0 , 6,777576 , 1 , 1,4
+Toggled Sub Menu Item : guard your house : True , 0 , 0 , 0,8090097 , 1 , 2,4
+Toggled Sub Menu Item : run : True , 0 , 0 , 5,954552 , 1 , 3,4
+Toggled Sub Menu Item : guide a blind person : True , 0 , 0 , 4,300553 , 1 , 4,4
+Searched for +Dog , 0 , 0 , 2,445516 , 1 , 0,4
+Searched for +Dog , 0 , 0 , 2,482558 , 1 , 0,4
+Toggled Menu Item : has a : Selected , 0 , 0 , 5,55797 , 1 , 1,4
+Toggled Sub Menu Item : four legs : True , 0 , 0 , 0,7322437 , 1 , 2,4
+Toggled Menu Item : used for : Selected , 0 , 0 , 4,083203 , 1 , 3,4
+Toggled Sub Menu Item : companionship : True , 0 , 0 , 0,6844935 , 1 , 4,4
+Toggled Menu Item : capable of : Selected , 0 , 0 , 3,230567 , 1 , 5,4
+Searched for +Dog , 0 , 0 , 6,536584 , 1 , 0,4
+Toggled Menu Item : has a : Selected , 0 , 0 , 2,362226 , 1 , 1,4
+Toggled Sub Menu Item : four legs : True , 0 , 0 , 0,6538487 , 1 , 2,4
+Toggled Menu Item : capable of : Selected , 0 , 0 , 4,731799 , 1 , 3,4
+Toggled Sub Menu Item : guard your house : True , 0 , 0 , 0,655185 , 1 , 4,4
+Toggled Sub Menu Item : guide a blind person : True , 0 , 0 , 4,449795 , 1 , 5,4
+Searched for +Dog , 0 , 0 , 6,492907 , 1 , 0,4
+Toggled Menu Item : capable of : Selected , 0 , 0 , 18,13328 , 1 , 1,4
+Toggled Sub Menu Item : be a pet : True , 0 , 0 , 0,8878357 , 1 , 2,4
+Searched for +Dog , 0 , 0 , 4,699107 , 1 , 0,4
+Toggled Menu Item : is a : Selected , 0 , 0 , 3,984998 , 1 , 1,4
+Toggled Sub Menu Item : pet : True , 0 , 0 , 0,6560848 , 1 , 2,4
+Toggled Sub Menu Item : mammal : True , 0 , 0 , 2,601226 , 1 , 3,4
+Toggled Sub Menu Item : a canine : True , 0 , 0 , 0,8078217 , 1 , 4,4
+Toggled Sub Menu Item : a loyal friend : True , 0 , 0 , 1,589973 , 1 , 5,4
+Toggled Menu Item : capable of : Selected , 0 , 0 , 0,9884745 , 1 , 6,4
+Toggled Sub Menu Item : guard your house : True , 0 , 0 , 1,792153 , 1 , 7,4
+Toggled Sub Menu Item : be a pet : True , 0 , 0 , 2,138799 , 1 , 8,4
+Toggled Sub Menu Item : run : True , 0 , 0 , 0,368843 , 1 , 9,4
+Toggled Sub Menu Item : guide a blind person : True , 0 , 0 , 1,193164 , 1 , 10,4
+Toggled Sub Menu Item : run : True , 0 , 0 , 0,4049353 , 1 , 11,4
+Toggled Menu Item : is related to : Selected , 0 , 0 , 30,52395 , 1 , 12,4
+Searched for +Dog , 0 , 0 , 4,611273 , 1 , 0,4
+Toggled Menu Item : at location : Selected , 0 , 0 , 7,254504 , 1 , 1,4
+Toggled Sub Menu Item : a park : True , 0 , 0 , 0,7654337 , 1 , 2,4
+Toggled Sub Menu Item : a park : True , 0 , 0 , 4,515837 , 1 , 3,4
+Toggled Sub Menu Item : the table : True , 0 , 0 , 0,891546 , 1 , 4,4
+Toggled Sub Menu Item : a kennel : True , 0 , 0 , 3,311942 , 1 , 5,4
+Toggled Menu Item : capable of : Selected , 0 , 0 , 4,353951 , 1 , 6,4
+Toggled Sub Menu Item : guard your house : True , 0 , 0 , 7,637645 , 1 , 7,4
+Toggled Sub Menu Item : bark : True , 0 , 0 , 4,677638 , 1 , 8,4
+Searched for +Dog , 0 , 0 , 2,668123 , 1 , 0,4
+Toggled Menu Item : has a : Selected , 0 , 0 , 2,729147 , 1 , 1,4
+Toggled Sub Menu Item : four legs : True , 0 , 0 , 0,7400018 , 1 , 2,4
+Toggled Menu Item : used for : Selected , 0 , 0 , 3,081788 , 1 , 3,4
+Toggled Sub Menu Item : companionship : True , 0 , 0 , 0,7699804 , 1 , 4,4
+Toggled Menu Item : capable of : Selected , 0 , 0 , 2,453577 , 1 , 5,4
+Toggled Sub Menu Item : guard your house : True , 0 , 0 , 0,844355 , 1 , 6,4
+Toggled Sub Menu Item : be a pet : True , 0 , 0 , 2,589499 , 1 , 7,4
+Toggled Sub Menu Item : run : True , 0 , 0 , 3,795503 , 1 , 8,4
+Toggled Sub Menu Item : guide a blind person : True , 0 , 0 , 2,87647 , 1 , 9,4
+Toggled Menu Item : is a : Selected , 0 , 0 , 8,860137 , 1 , 10,4
+Toggled Sub Menu Item : a loyal friend : True , 0 , 0 , 0,7079588 , 1 , 11,4
+Toggled Sub Menu Item : mammal : True , 0 , 0 , 10,27931 , 1 , 12,4
+Toggled Sub Menu Item : a canine : True , 0 , 0 , 11,01186 , 1 , 13,4
+Searched for +Dog , 0 , 0 , 2,574703 , 1 , 0,4
+Searched for +Dog , 0 , 0 , 3,498602 , 1 , 0,4
+Toggled Menu Item : used for : Selected , 0 , 0 , 1,429001 , 1 , 1,4
+Toggled Sub Menu Item : companionship : True , 0 , 0 , 0,7475425 , 1 , 2,4
+Toggled Menu Item : has a : Selected , 0 , 0 , 1,992241 , 1 , 3,4
+Toggled Sub Menu Item : four legs : True , 0 , 0 , 0,8132207 , 1 , 4,4
+Toggled Menu Item : is a : Selected , 0 , 0 , 1,905603 , 1 , 5,4
+Toggled Sub Menu Item : a loyal friend : True , 0 , 0 , 0,7135727 , 1 , 6,4
+Toggled Sub Menu Item : pet : True , 0 , 0 , 1,652878 , 1 , 7,4
+Toggled Sub Menu Item : mammal : True , 0 , 0 , 1,678026 , 1 , 8,4
+Toggled Sub Menu Item : a canine : True , 0 , 0 , 0,8816778 , 1 , 9,4
+Searched for +Dog , 0 , 0 , 5,046541 , 1 , 0,4
+Toggled Menu Item : has a : Selected , 0 , 0 , 2,002388 , 1 , 1,4
+Toggled Sub Menu Item : four legs : True , 0 , 0 , 0,6892382 , 1 , 2,4
+Toggled Menu Item : used for : Selected , 0 , 0 , 1,715261 , 1 , 3,4
+Toggled Sub Menu Item : companionship : True , 0 , 0 , 0,8163483 , 1 , 4,4
+Toggled Menu Item : capable of : Selected , 0 , 0 , 0,9330301 , 1 , 5,4
+Toggled Sub Menu Item : guard your house : True , 0 , 0 , 0,6139703 , 1 , 6,4
+Toggled Sub Menu Item : be a pet : True , 0 , 0 , 0,6208105 , 1 , 7,4
+Toggled Sub Menu Item : run : True , 0 , 0 , 0,4071858 , 1 , 8,4
+Toggled Sub Menu Item : guide a blind person : True , 0 , 0 , 0,4001907 , 1 , 9,4
+Toggled Menu Item : at location : Selected , 0 , 0 , 1,9844 , 1 , 10,4
+Toggled Sub Menu Item : the table : True , 0 , 0 , 0,6066823 , 1 , 11,4
+Toggled Sub Menu Item : a park : True , 0 , 0 , 0,3385763 , 1 , 12,4
+Searched for +Dog , 0 , 0 , 3,480319 , 1 , 0,4
+Toggled Menu Item : capable of : Selected , 0 , 0 , 1,211992 , 1 , 1,4
+Toggled Sub Menu Item : guard your house : True , 0 , 0 , 0,6387984 , 1 , 2,4
+Toggled Sub Menu Item : be a pet : True , 0 , 0 , 2,493928 , 1 , 3,4
+Toggled Sub Menu Item : run : True , 0 , 0 , 1,043367 , 1 , 4,4
+Toggled Sub Menu Item : guide a blind person : True , 0 , 0 , 2,904866 , 1 , 5,4
+Toggled Sub Menu Item : bark : True , 0 , 0 , 2,565391 , 1 , 6,4
+Toggled Menu Item : has a : Selected , 0 , 0 , 6,548738 , 1 , 7,4
+Toggled Sub Menu Item : four legs : True , 0 , 0 , 0,6735286 , 1 , 8,4
+Toggled Menu Item : is a : Selected , 0 , 0 , 2,4284 , 1 , 9,4
+Toggled Sub Menu Item : a loyal friend : True , 0 , 0 , 0,7581235 , 1 , 10,4
+Toggled Sub Menu Item : pet : True , 0 , 0 , 3,968116 , 1 , 11,4
+Toggled Sub Menu Item : mammal : True , 0 , 0 , 2,187649 , 1 , 12,4
+Toggled Sub Menu Item : a canine : True , 0 , 0 , 2,260041 , 1 , 13,4
+Searched for +Dog , 0 , 0 , 6,9008 , 1 , 0,4
+Toggled Menu Item : is a : Selected , 0 , 0 , 1,561191 , 1 , 1,4
+Toggled Sub Menu Item : pet : True , 0 , 0 , 0,6731576 , 1 , 2,4
+Toggled Sub Menu Item : mammal : True , 0 , 0 , 1,246984 , 1 , 3,4
+Toggled Sub Menu Item : a canine : True , 0 , 0 , 1,686379 , 1 , 4,4
+Toggled Sub Menu Item : a loyal friend : True , 0 , 0 , 1,451296 , 1 , 5,4
+Toggled Menu Item : is related to : Selected , 0 , 0 , 1,273214 , 1 , 6,4
+Toggled Sub Menu Item : pet : True , 0 , 0 , 0,5886081 , 1 , 7,4
+Toggled Sub Menu Item : animal : True , 0 , 0 , 1,811931 , 1 , 8,4
+Toggled Sub Menu Item : canine : True , 0 , 0 , 1,055685 , 1 , 9,4
+Toggled Menu Item : has a : Selected , 0 , 0 , 1,311623 , 1 , 10,4
+Toggled Sub Menu Item : four legs : True , 0 , 0 , 0,7405593 , 1 , 11,4
+Toggled Menu Item : used for : Selected , 0 , 0 , 1,428964 , 1 , 12,4
+Toggled Sub Menu Item : companionship : True , 0 , 0 , 0,7416003 , 1 , 13,4
+Toggled Menu Item : capable of : Selected , 0 , 0 , 6,680888 , 1 , 14,4
+Toggled Sub Menu Item : be a pet : True , 0 , 0 , 0,6568426 , 1 , 15,4
+Toggled Sub Menu Item : run : True , 0 , 0 , 1,741821 , 1 , 16,4
+Toggled Sub Menu Item : guide a blind person : True , 0 , 0 , 1,345079 , 1 , 17,4
+Toggled Sub Menu Item : guard your house : True , 0 , 0 , 2,104078 , 1 , 18,4
+Toggled Sub Menu Item : bark : True , 0 , 0 , 1,599777 , 1 , 19,4
+Toggled Menu Item : desires : Selected , 0 , 0 , 18,25065 , 1 , 20,4
+Toggled Sub Menu Item : be petted : True , 0 , 0 , 0,8411131 , 1 , 21,4
+Toggled Sub Menu Item : a bone : True , 0 , 0 , 2,701488 , 1 , 22,4
+Toggled Menu Item : is a : Edited , 0 , 0 , 3,506609 , 1 , 23,4
+Toggled Sub Menu Item : a loyal friend : False , 0 , 0 , 0,7221171 , 1 , 24,4
+Toggled Sub Menu Item : a loyal friend : True , 0 , 0 , 0,6728547 , 1 , 25,4
+Toggled Menu Item : is related to : Edited , 0 , 0 , 1,477128 , 1 , 26,4
+Toggled Sub Menu Item : pet : False , 0 , 0 , 4,050314 , 1 , 27,4
+Toggled Sub Menu Item : pet : True , 0 , 0 , 0,5381491 , 1 , 28,4
+Selected Token : Dog , 0 , 0 , 10,04175 , 1 , 29,4
+Selected Token : Dog , 0 , 0 , 4,189818 , 1 , 30,4
+Selected Token : Dog , 0 , 0 , 2,393204 , 1 , 31,4
+Selected Token : Dog , 0 , 0 , 2,376072 , 1 , 32,4
+Selected Token : Dog , 0 , 0 , 1,922666 , 1 , 33,4
+Selected Token : Dog , 0 , 0 , 1,259913 , 1 , 34,4
+Selected Token : Dog , 0 , 0 , 0,8837578 , 1 , 35,4
+Selected Token : Dog , 0 , 0 , 0,9100996 , 1 , 36,4
+Selected Token : Dog , 0 , 0 , 0,9124434 , 1 , 37,4
+Selected Token : Dog , 0 , 0 , 2,305297 , 1 , 38,4
+Selected Token : Dog , 0 , 0 , 1,498454 , 1 , 39,4
+Selected Token : Dog , 0 , 0 , 3,051075 , 1 , 40,4
+Selected Token : Dog , 0 , 0 , 1,214575 , 1 , 41,4
+Selected Token : Dog , 0 , 0 , 1,398466 , 1 , 42,4
+Toggled Menu Item : at location : Selected , 0 , 0 , 20,72768 , 1 , 43,4
+Toggled Sub Menu Item : a park : True , 0 , 0 , 0,9538356 , 1 , 44,4
+Toggled Sub Menu Item : the table : True , 0 , 0 , 2,06409 , 1 , 45,4
+Toggled Sub Menu Item : the table : True , 0 , 0 , 3,891592 , 1 , 46,4
+Toggled Sub Menu Item : a park : True , 0 , 0 , 1,928004 , 1 , 47,4
+Delete token with mouse click , 0 , 0 , 1,118815 , 1 , 48,4
+Toggled Sub Menu Item : a kennel : True , 0 , 0 , 0,08363741 , 1 , 49,4
+Selected Token : the table , 0 , 0 , 6,362771 , 1 , 50,4
+Selected Token : a park , 0 , 0 , 3,367631 , 1 , 51,4
+Selected Token : a park , 0 , 0 , 0,9075688 , 1 , 52,4
+Selected Token : a park , 0 , 0 , 1,867385 , 1 , 53,4
+Searched for +Dog , 0 , 0 , 2,7224 , 1 , 0,4
+Toggled Menu Item : has a : Selected , 0 , 0 , 1,290094 , 1 , 1,4
+Toggled Sub Menu Item : four legs : True , 0 , 0 , 0,7294695 , 1 , 2,4
+Toggled Menu Item : used for : Selected , 0 , 0 , 1,261119 , 1 , 3,4
+Toggled Sub Menu Item : companionship : True , 0 , 0 , 0,6653411 , 1 , 4,4
+Toggled Menu Item : capable of : Selected , 0 , 0 , 1,767467 , 1 , 5,4
+Toggled Sub Menu Item : guard your house : True , 0 , 0 , 1,287041 , 1 , 6,4
+Toggled Sub Menu Item : be a pet : True , 0 , 0 , 1,310579 , 1 , 7,4
+Toggled Sub Menu Item : run : True , 0 , 0 , 0,8561231 , 1 , 8,4
+Toggled Sub Menu Item : guide a blind person : True , 0 , 0 , 1,665931 , 1 , 9,4
+Toggled Menu Item : has a : Edited , 0 , 0 , 2,067902 , 1 , 10,4
+Toggled Menu Item : at location : Selected , 0 , 0 , 1,883275 , 1 , 11,4
+Toggled Sub Menu Item : the table : True , 0 , 0 , 0,7754836 , 1 , 12,4
+Toggled Sub Menu Item : the table : True , 0 , 0 , 4,787953 , 1 , 13,4
+Toggled Sub Menu Item : a park : True , 0 , 0 , 0,5715407 , 1 , 14,4
+Toggled Sub Menu Item : a kennel : True , 0 , 0 , 1,677722 , 1 , 15,4

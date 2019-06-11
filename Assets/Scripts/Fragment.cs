@@ -33,14 +33,7 @@ public abstract class Fragment : MonoBehaviour
     void Update()
     {
         TransientPosition = transform.position;
-        if(MyCells != null)
-        {
-            foreach (GridCell g in MyCells)
-            {
-                g.Filled = true;
-                g.DebugCube.Draw();
-            }
-        }
+       
        
     }
     public bool isSelected;
