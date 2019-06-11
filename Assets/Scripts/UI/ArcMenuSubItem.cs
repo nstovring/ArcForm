@@ -75,7 +75,7 @@ public class ArcMenuSubItem : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     {
         SetActive(!isActive);
         Unitoken focus = ArcMapManager.Instance.GetFocusedToken();
-        ArcToolUIManager.ArcDataUtility.SetRelation(ArcMapManager.Instance.GetFocusedToken(), key, label, isActive);
+        ArcToolUIManager.ArcDataUtility.SetRelation(focus, key, label, isActive);
         if (isActive)
         {
             //SetMenu Item To edited

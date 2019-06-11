@@ -27,6 +27,8 @@ public class ArcToolUIManager : MonoBehaviour
     [Header("Booleans")]
     public bool subMenuIsActive = false;
 
+    public string currentKey;
+
 
     void Start()
     {
@@ -115,6 +117,8 @@ public class ArcToolUIManager : MonoBehaviour
         SubItemController.Instance.arcSubItemMenu.SetActive(true);
     }
 
+  
+
     private ArcMenuItem focusedMenuItem;
     void SetFocusedArcMenuItem(ArcMenuItem arcMenuItem)
     {
@@ -141,6 +145,7 @@ public class ArcToolUIManager : MonoBehaviour
 
         Unitoken focusedToken = ArcMapManager.Instance.GetFocusedToken();
         string key = arcMenuItem.key;
+        currentKey = key;
         Property selectedProperty = focusedToken.GetProperty(key);
         
         PropertySubMenuText.text = StaticConstants.KeyToLabel[selectedProperty.Key];
@@ -465,8 +470,11 @@ public class ArcToolUIManager : MonoBehaviour
         {
             foreach (Transform child in PropertySubMenu)
             {
-                Destroy(child.gameObject);
-                SubItemController.toggleCounter -= 1;
+                if (child.transform.tag != "MenuInputField")
+                {
+                    Destroy(child.gameObject);
+                    SubItemController.toggleCounter -= 1;
+                }
             }
 
             return new List<ArcMenuSubItem>();
