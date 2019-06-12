@@ -7,6 +7,7 @@ TagManager:
   - ToggleBox
   - DeleteUnitokenButton
   - TestTaskPanel
+  - MenuInputField
   layers:
   - Default
   - TransparentFX
