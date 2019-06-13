@@ -515,7 +515,7 @@ public class ArcToolUIManager : MonoBehaviour
         {
             //Update title in menu to label of unitoken
             PropertyMenuText.text = ArcMapManager.Instance.GetFocusedToken().myLabel.text;
-
+            int count = 0;
             foreach (string x in StaticConstants.RelationURIs)
             {
                 string key = x;
@@ -526,7 +526,7 @@ public class ArcToolUIManager : MonoBehaviour
                 bool propertyIsPresent = ArcDataUtility.PropertyMenuItems.TryGetValue(key, out collectionItem);
 
                 int relationCount = property.Relations.Count;
-                if(relationCount < 1)
+                if(relationCount < 1 && count > 5)
                 {
                     collectionItem.transform.gameObject.SetActive(false);
                 }
@@ -534,21 +534,10 @@ public class ArcToolUIManager : MonoBehaviour
                 {
                     collectionItem.transform.gameObject.SetActive(true);
                 }
-                //Check if any relation is deactivated and then turn it purple
-                if(property.Relations.Any(rel => rel.isActive))
-                {
-                    //collectionItem.buttonStateHandler.SetToEdited();
-                }
-                else if (property.Relations.All(rel => !rel.isActive))
-                {
-                    //collectionItem.buttonStateHandler.SetToDefault();
-                }
-                else
-                {
-                    //collectionItem.buttonStateHandler.SetToSelected();
-                }
+               
 
                 collectionItem.subItemCount.text = relationCount.ToString();
+                count++;
             }
 
         }

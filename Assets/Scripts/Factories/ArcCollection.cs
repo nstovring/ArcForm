@@ -24,9 +24,12 @@ public class ArcCollection : Fragment
     {
         spriteRend.color = ColourBehaviour.Instance.ColorTokens[CollectionType].Colors[1];
     }
+
+    public Camera mCamera;
     // Start is called before the first frame update
     void Start()
     {
+        mCamera = Camera.main;
         if (myArcs == null)
         {
             myArcs = new List<Arc>();
@@ -87,6 +90,37 @@ public class ArcCollection : Fragment
     public void OnMouseDown()
     {
         Mouselistener.Instance.ExecuteQuery((Unitoken)Source);
+        ArcMapGrid.Instance.RemoveFromMap(this);
+    }
+
+    void OnMouseUp()
+    {
+        MyCells = ArcMapGrid.Instance.FindEmptySpot(this, 3);
+        transform.position = MyCells[1].DebugCube.center;
+        Debug.Log("Clicked");
+    }
+
+
+    void OnMouseDrag()
+    {
+        if (Input.GetMouseButton(0))
+        {
+            FollowMouse();
+
+        }
+        else if (Input.GetMouseButton(1))
+        {
+            Debug.Log("Dragging right");
+        }
+        ArcMapManager.Instance.autoMoveInterrupt = true;
+    }
+
+    void FollowMouse()
+    {
+        Vector3 lastMousePos = mCamera.ScreenToWorldPoint(Input.mousePosition);
+
+        transform.position = new Vector3(lastMousePos.x, lastMousePos.y, 0);
+        TransientPosition = transform.position;
     }
 
     public ArcCollection RemoveFromCollection(ArcMenuSubItem item)

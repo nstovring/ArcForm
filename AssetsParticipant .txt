@@ -2019,3 +2019,315 @@ Toggled Sub Menu Item : be a pet : True , 0 , 0 , 1,834512 , 1 , 2,4
 Toggled Sub Menu Item : Dance : True , 0 , 0 , 7,99491 , 1 , 3,4
 Toggled Sub Menu Item : run : True , 0 , 0 , 2,897724 , 1 , 4,4
 Toggled Sub Menu Item : bark : True , 0 , 0 , 1,192841 , 1 , 5,4
+Searched for +Dog , 0 , 0 , 5.654179 , 1 , 0,4
+Toggled Menu Item : has a : Selected , 0 , 0 , 1.861226 , 1 , 1,4
+Toggled Sub Menu Item : four legs : True , 0 , 0 , 1.278715 , 1 , 2,4
+Toggled Sub Menu Item : nose : True , 0 , 0 , 10.42733 , 1 , 3,4
+Selected Token : nose , 0 , 0 , 1.307582 , 1 , 4,4
+Toggled Menu Item : used for : Selected , 0 , 0 , 1.964959 , 1 , 5,4
+Searched for +Dog , 0 , 0 , 6.888433 , 1 , 0,4
+Selected Token : Dog , 0 , 0 , 3.908656 , 1 , 1,4
+Selected Token : Dog , 0 , 0 , 1.155446 , 1 , 2,4
+Toggled Menu Item : has a : Selected , 0 , 0 , 3.125091 , 1 , 3,4
+Toggled Sub Menu Item : four legs : True , 0 , 0 , 0.9623818 , 1 , 4,4
+Toggled Sub Menu Item : Nose : True , 0 , 0 , 8.354303 , 1 , 5,4
+Selected Token : Nose , 0 , 0 , 3.839573 , 1 , 6,4
+Selected Token : Nose , 0 , 0 , 2.758297 , 1 , 7,4
+Selected Token : Nose , 0 , 0 , 1.29492 , 1 , 8,4
+Selected Token : four legs , 0 , 0 , 1.185054 , 1 , 9,4
+Selected Token : four legs , 0 , 0 , 2.097896 , 1 , 10,4
+Selected Token : Nose , 0 , 0 , 1.248748 , 1 , 11,4
+Selected Token : Nose , 0 , 0 , 4.087055 , 1 , 12,4
+Selected Token : Dog , 0 , 0 , 11.96231 , 1 , 13,4
+Toggled Menu Item : used for : Selected , 0 , 0 , 1.742017 , 1 , 14,4
+Toggled Sub Menu Item : companionship : True , 0 , 0 , 1.044032 , 1 , 15,4
+Selected Token : companionship , 0 , 0 , 2.692525 , 1 , 16,4
+Selected Token : four legs , 0 , 0 , 4.879185 , 1 , 17,4
+Toggled Menu Item : used for : Edited , 0 , 0 , 14.80744 , 1 , 18,4
+Selected Token : Dog , 0 , 0 , 1.497668 , 1 , 19,4
+Toggled Menu Item : has a : Edited , 0 , 0 , 2.380694 , 1 , 20,4
+Toggled Sub Menu Item : tail : True , 0 , 0 , 7.434698 , 1 , 21,4
+Selected Token : tail , 0 , 0 , 2.486102 , 1 , 22,4
+Delete token with mouse click , 0 , 0 , 8.543408 , 1 , 23,4
+Selected Token : Dog , 0 , 0 , 1.940711 , 1 , 24,4
+Toggled Menu Item : used for : Edited , 0 , 0 , 1.641264 , 1 , 25,4
+Toggled Menu Item : has a : Edited , 0 , 0 , 2.02056 , 1 , 26,4
+Toggled Sub Menu Item : Nose : True , 0 , 0 , 2.729207 , 1 , 27,4
+Selected Token : Nose , 0 , 0 , 2.908266 , 1 , 28,4
+Selected Token : Dog , 0 , 0 , 2.992479 , 1 , 29,4
+Toggled Menu Item : used for : Edited , 0 , 0 , 2.326787 , 1 , 30,4
+Toggled Menu Item : has a : Edited , 0 , 0 , 0.9596435 , 1 , 31,4
+Selected Token : tail , 0 , 0 , 28.74518 , 1 , 32,4
+Searched for +Flat Earth , 0 , 0 , 16.47406 , 1 , 33,4
+Selected Token : Flat Earth , 0 , 0 , 1.955898 , 1 , 34,4
+Selected Token : Flat Earth , 0 , 0 , 2.591695 , 1 , 35,4
+Selected Token : Dog , 0 , 0 , 3.549464 , 1 , 36,4
+Toggled Menu Item : is a : Selected , 0 , 0 , 1.045216 , 1 , 37,4
+Selected Token : Flat Earth , 0 , 0 , 2.113681 , 1 , 38,4
+Selected Token : Dog , 0 , 0 , 2.794572 , 1 , 39,4
+Toggled Menu Item : has a : Edited , 0 , 0 , 4.848645 , 1 , 40,4
+Toggled Menu Item : at location : Selected , 0 , 0 , 6.363681 , 1 , 41,4
+Toggled Sub Menu Item : church : True , 0 , 0 , 6.871923 , 1 , 42,4
+Toggled Sub Menu Item : a park : True , 0 , 0 , 3.264671 , 1 , 43,4
+Toggled Sub Menu Item : the table : True , 0 , 0 , 0.8953193 , 1 , 44,4
+Toggled Sub Menu Item : a kennel : True , 0 , 0 , 0.3531257 , 1 , 45,4
+Delete token with mouse click , 0 , 0 , 4.078553 , 1 , 46,4
+Toggled Sub Menu Item : church : False , 0 , 0 , 3.281207 , 1 , 47,4
+Toggled Sub Menu Item : church : True , 0 , 0 , 0.2191886 , 1 , 48,4
+Toggled Sub Menu Item : church : True , 0 , 0 , 1.111041 , 1 , 49,4
+Toggled Menu Item : used for : Edited , 0 , 0 , 38.38485 , 1 , 50,4
+Toggled Menu Item : used for : Edited , 0 , 0 , 0.4899731 , 1 , 51,4
+Toggled Menu Item : capable of : Selected , 0 , 0 , 0.4862798 , 1 , 52,4
+Toggled Menu Item : used for : Edited , 0 , 0 , 0.5758884 , 1 , 53,4
+Toggled Menu Item : desires : Selected , 0 , 0 , 6.907944 , 1 , 54,4
+Toggled Menu Item : distinct from : Selected , 0 , 0 , 1.951294 , 1 , 55,4
+Toggled Menu Item : at location : Edited , 0 , 0 , 0.4386179 , 1 , 56,4
+Toggled Menu Item : distinct from : Selected , 0 , 0 , 1.180109 , 1 , 57,4
+Toggled Menu Item : is a : Selected , 0 , 0 , 2.070843 , 1 , 58,4
+Toggled Sub Menu Item : church : True , 0 , 0 , 10.25442 , 1 , 59,4
+Toggled Sub Menu Item : chipmunk : True , 0 , 0 , 37.02368 , 1 , 60,4
+Selected Token : chipmunk , 0 , 0 , 1.397807 , 1 , 61,4
+Toggled Menu Item : is related to : Selected , 0 , 0 , 2.13888 , 1 , 62,4
+Toggled Menu Item : synonym : Selected , 0 , 0 , 14.88991 , 1 , 63,4
+Toggled Menu Item : External URL : Selected , 0 , 0 , 0.8298202 , 1 , 64,4
+Toggled Menu Item : is related to : Selected , 0 , 0 , 0.9118605 , 1 , 65,4
+Searched for +Dog , 0 , 0 , 3.472941 , 1 , 0,4
+Toggled Menu Item : is a : Selected , 0 , 0 , 2.297069 , 1 , 1,4
+Toggled Sub Menu Item : pet : True , 0 , 0 , 1.144683 , 1 , 2,4
+Toggled Sub Menu Item : mammal : True , 0 , 0 , 1.136879 , 1 , 3,4
+Toggled Sub Menu Item : John : True , 0 , 0 , 15.27371 , 1 , 4,4
+Selected Token : John , 0 , 0 , 0.9414471 , 1 , 5,4
+Searched for +Flat Earth , 0 , 0 , 8.344775 , 1 , 6,4
+Selected Token : Flat Earth , 0 , 0 , 1.253501 , 1 , 7,4
+Searched for +Flat Earth , 0 , 0 , 3.758495 , 1 , 0,4
+Selected Token : Flat Earth , 0 , 0 , 2.193386 , 1 , 1,4
+Selected Token : Flat Earth , 0 , 0 , 1.650493 , 1 , 2,4
+Searched for +Dog , 0 , 0 , 2.947399 , 1 , 0,4
+Searched for +Flat Earth , 0 , 0 , 5.673252 , 1 , 0,4
+Toggled Menu Item : is related to : Selected , 0 , 0 , 3.247293 , 1 , 1,4
+Toggled Menu Item : External URL : Selected , 0 , 0 , 1.870433 , 1 , 2,4
+Toggled Menu Item : form of : Selected , 0 , 0 , 0.6050108 , 1 , 3,4
+Toggled Menu Item : is a : Selected , 0 , 0 , 0.4558077 , 1 , 4,4
+Toggled Menu Item : External URL : Selected , 0 , 0 , 5.237288 , 1 , 5,4
+Searched for +Dog , 0 , 0 , 2.905139 , 1 , 0,4
+Toggled Menu Item : is related to : Selected , 0 , 0 , 4.213351 , 1 , 1,4
+Toggled Menu Item : causes desire : Selected , 0 , 0 , 15.20359 , 1 , 2,4
+Toggled Sub Menu Item : play frisbee : True , 0 , 0 , 1.532664 , 1 , 3,4
+Toggled Menu Item : desires : Selected , 0 , 0 , 1.87602 , 1 , 4,4
+Toggled Sub Menu Item : be loved by his master : True , 0 , 0 , 2.83457 , 1 , 5,4
+Toggled Sub Menu Item : affection : True , 0 , 0 , 1.387237 , 1 , 6,4
+Toggled Sub Menu Item : lots of attention : True , 0 , 0 , 2.190698 , 1 , 7,4
+Toggled Sub Menu Item : be petted : True , 0 , 0 , 0.554802 , 1 , 8,4
+Toggled Sub Menu Item : a bone : True , 0 , 0 , 0.928796 , 1 , 9,4
+Toggled Sub Menu Item : go for a walk : True , 0 , 0 , 1.140508 , 1 , 10,4
+Toggled Menu Item : capable of : Selected , 0 , 0 , 2.505237 , 1 , 11,4
+Toggled Sub Menu Item : guard your house : True , 0 , 0 , 1.587816 , 1 , 12,4
+Toggled Sub Menu Item : run : True , 0 , 0 , 0.8754303 , 1 , 13,4
+Toggled Sub Menu Item : guide a blind person : True , 0 , 0 , 0.8394774 , 1 , 14,4
+Toggled Sub Menu Item : drink water : True , 0 , 0 , 0.6568753 , 1 , 15,4
+Toggled Sub Menu Item : sense danger : True , 0 , 0 , 6.340335 , 1 , 16,4
+Selected Token : play frisbee , 0 , 0 , 11.76391 , 1 , 17,4
+Toggled Menu Item : External URL : Selected , 0 , 0 , 7.536636 , 1 , 18,4
+Toggled Menu Item : is related to : Selected , 0 , 0 , 1.059515 , 1 , 19,4
+Selected Token : play frisbee , 0 , 0 , 0.8901519 , 1 , 20,4
+Selected Token : play frisbee , 0 , 0 , 0.6073791 , 1 , 21,4
+Selected Token : play frisbee , 0 , 0 , 3.651799 , 1 , 22,4
+Toggled Menu Item : External URL : Selected , 0 , 0 , 11.03347 , 1 , 23,4
+Toggled Menu Item : form of : Selected , 0 , 0 , 0.5881183 , 1 , 24,4
+Toggled Menu Item : is a : Selected , 0 , 0 , 0.6406794 , 1 , 25,4
+Toggled Menu Item : part of : Selected , 0 , 0 , 0.5044426 , 1 , 26,4
+Searched for +Dog , 0 , 0 , 5.532426 , 1 , 0,4
+Selected Token : Dog , 0 , 0 , 12.41506 , 1 , 1,4
+Searched for +Flat Earth , 0 , 0 , 7.804579 , 1 , 2,4
+Toggled Menu Item : is related to : Selected , 0 , 0 , 5.216196 , 1 , 3,4
+Toggled Menu Item : is a : Selected , 0 , 0 , 2.764017 , 1 , 4,4
+Toggled Menu Item : part of : Selected , 0 , 0 , 0.6048647 , 1 , 5,4
+Toggled Menu Item : part of : Selected , 0 , 0 , 0.5744449 , 1 , 6,4
+Toggled Menu Item : has a : Selected , 0 , 0 , 0.5408037 , 1 , 7,4
+Toggled Menu Item : form of : Selected , 0 , 0 , 4.59406 , 1 , 8,4
+Toggled Menu Item : is a : Selected , 0 , 0 , 1.379843 , 1 , 9,4
+Toggled Sub Menu Item : saw : True , 0 , 0 , 3.5072 , 1 , 10,4
+Selected Token : Dog , 0 , 0 , 2.467236 , 1 , 11,4
+Toggled Menu Item : used for : Selected , 0 , 0 , 3.702441 , 1 , 12,4
+Toggled Sub Menu Item : guarding property : True , 0 , 0 , 1.046588 , 1 , 13,4
+Toggled Sub Menu Item : a pet : True , 0 , 0 , 0.4194913 , 1 , 14,4
+Toggled Sub Menu Item : guard a house : True , 0 , 0 , 0.472693 , 1 , 15,4
+Toggled Sub Menu Item : keeping you company : True , 0 , 0 , 0.3540292 , 1 , 16,4
+Searched for +Dog , 0 , 0 , 3.422536 , 1 , 0,4
+Searched for +Flat Earth , 0 , 0 , 20.01203 , 1 , 1,4
+Searched for +Flat Earth , 0 , 0 , 16.64665 , 1 , 0,4
+Searched for +Dog , 0 , 0 , 13.46312 , 1 , 1,4
+Searched for +Dog , 0 , 0 , 3.014315 , 1 , 0,4
+Toggled Menu Item : capable of : Selected , 0 , 0 , 24.41576 , 1 , 1,4
+Toggled Menu Item : part of : Selected , 0 , 0 , 9.962039 , 1 , 2,4
+Toggled Menu Item : is a : Selected , 0 , 0 , 1.266567 , 1 , 3,4
+Toggled Menu Item : form of : Selected , 0 , 0 , 0.9459819 , 1 , 4,4
+Searched for +Dog , 0 , 0 , 2.918603 , 1 , 0,4
+Searched for +Flat Earth , 0 , 0 , 5.32953 , 1 , 0,4
+Toggled Menu Item : is a : Selected , 0 , 0 , 26.08938 , 1 , 1,4
+Toggled Sub Menu Item : Blah : True , 0 , 0 , 3.413916 , 1 , 2,4
+Toggled Sub Menu Item : Patooey : True , 0 , 0 , 7.781457 , 1 , 3,4
+Toggled Sub Menu Item : Humbug : True , 0 , 0 , 9.113364 , 1 , 4,4
+Selected Token : Humbug , 0 , 0 , 1.767478 , 1 , 5,4
+Selected Token : Patooey , 0 , 0 , 3.524712 , 1 , 6,4
+Selected Token : Blah , 0 , 0 , 3.292706 , 1 , 7,4
+Selected Token : Blah , 0 , 0 , 1.379278 , 1 , 8,4
+Selected Token : Blah , 0 , 0 , 2.927849 , 1 , 9,4
+Toggled Menu Item : is related to : Selected , 0 , 0 , 2.808345 , 1 , 10,4
+Toggled Sub Menu Item : boredom : True , 0 , 0 , 2.237984 , 1 , 11,4
+Toggled Sub Menu Item : mock : True , 0 , 0 , 0.4545645 , 1 , 12,4
+Toggled Sub Menu Item : bleah : True , 0 , 0 , 0.5214295 , 1 , 13,4
+Selected Token : Humbug , 0 , 0 , 2.766369 , 1 , 14,4
+Selected Token : Blah , 0 , 0 , 1.982745 , 1 , 15,4
+Selected Token : Blah , 0 , 0 , 2.530201 , 1 , 16,4
+Selected Token : Patooey , 0 , 0 , 6.235338 , 1 , 17,4
+Selected Token : Humbug , 0 , 0 , 3.323884 , 1 , 18,4
+Searched for +Dog , 0 , 0 , 2.886267 , 1 , 0,4
+Toggled Menu Item : is a : Selected , 0 , 0 , 5.723831 , 1 , 1,4
+Toggled Sub Menu Item : mammal : True , 0 , 0 , 0.6124565 , 1 , 2,4
+Toggled Sub Menu Item : pet : True , 0 , 0 , 0.5848844 , 1 , 3,4
+Selected Token : pet , 0 , 0 , 1.054076 , 1 , 4,4
+Selected Token : pet , 0 , 0 , 7.158041 , 1 , 5,4
+Selected Token : pet , 0 , 0 , 8.819275 , 1 , 6,4
+Searched for +Dog , 0 , 0 , 2.971333 , 1 , 0,4
+Toggled Menu Item : is a : Selected , 0 , 0 , 3.13703 , 1 , 1,4
+Toggled Sub Menu Item : mammal : True , 0 , 0 , 0.6823059 , 1 , 2,4
+Toggled Sub Menu Item : a canine : True , 0 , 0 , 0.3534038 , 1 , 3,4
+Toggled Sub Menu Item : a good friend : True , 0 , 0 , 0.6908647 , 1 , 4,4
+Selected Token : a canine , 0 , 0 , 0.9913118 , 1 , 5,4
+Selected Token : a canine , 0 , 0 , 2.146023 , 1 , 6,4
+Selected Token : a canine , 0 , 0 , 1.110093 , 1 , 7,4
+Selected Token : a good friend , 0 , 0 , 2.393715 , 1 , 8,4
+Selected Token : a canine , 0 , 0 , 1.643988 , 1 , 9,4
+Selected Token : mammal , 0 , 0 , 1.429538 , 1 , 10,4
+Searched for +Dog , 0 , 0 , 2.891567 , 1 , 0,4
+Toggled Menu Item : has a : Selected , 0 , 0 , 1.564852 , 1 , 1,4
+Toggled Sub Menu Item : fleas : True , 0 , 0 , 0.7409813 , 1 , 2,4
+Toggled Sub Menu Item : four legs : True , 0 , 0 , 0.3437951 , 1 , 3,4
+Selected Token : fleas , 0 , 0 , 3.157092 , 1 , 4,4
+Selected Token : fleas , 0 , 0 , 4.590009 , 1 , 5,4
+Selected Token : four legs , 0 , 0 , 6.161302 , 1 , 6,4
+Selected Token : Dog , 0 , 0 , 1.721652 , 1 , 7,4
+Selected Token : fleas , 0 , 0 , 1.691916 , 1 , 8,4
+Selected Token : four legs , 0 , 0 , 0.8416272 , 1 , 9,4
+Selected Token : four legs , 0 , 0 , 0.8713748 , 1 , 10,4
+Selected Token : fleas , 0 , 0 , 2.675132 , 1 , 11,4
+Searched for +Flat Earth , 0 , 0 , 203.5628 , 1 , 12,4
+Toggled Menu Item : is related to : Selected , 0 , 0 , 3.121075 , 1 , 13,4
+Toggled Sub Menu Item : Bullshit : True , 0 , 0 , 4.820144 , 1 , 14,4
+Selected Token : Bullshit , 0 , 0 , 1.490988 , 1 , 15,4
+Selected Token : Bullshit , 0 , 0 , 0.7843342 , 1 , 16,4
+Selected Token : Bullshit , 0 , 0 , 0.5893229 , 1 , 17,4
+Selected Token : Bullshit , 0 , 0 , 0.4871366 , 1 , 18,4
+Selected Token : Flat Earth , 0 , 0 , 0.8586063 , 1 , 19,4
+Selected Token : Bullshit , 0 , 0 , 0.8273458 , 1 , 20,4
+Selected Token : Bullshit , 0 , 0 , 1.011971 , 1 , 21,4
+Searched for +Dog , 0 , 0 , 5.000012 , 1 , 0,4
+Toggled Menu Item : is related to : Selected , 0 , 0 , 4.340362 , 1 , 1,4
+Toggled Sub Menu Item : pet : True , 0 , 0 , 0.6343477 , 1 , 2,4
+Toggled Sub Menu Item : animal : True , 0 , 0 , 0.3611991 , 1 , 3,4
+Toggled Sub Menu Item : woof : True , 0 , 0 , 0.455709 , 1 , 4,4
+Selected Token : woof , 0 , 0 , 10.98304 , 1 , 5,4
+Selected Token : animal , 0 , 0 , 1.75339 , 1 , 6,4
+Selected Token : animal , 0 , 0 , 0.6899068 , 1 , 7,4
+Toggled Menu Item : External URL : Selected , 0 , 0 , 1.424705 , 1 , 8,4
+Toggled Menu Item : is related to : Selected , 0 , 0 , 0.6898907 , 1 , 9,4
+Selected Token : pet , 0 , 0 , 0.7535784 , 1 , 10,4
+Selected Token : animal , 0 , 0 , 47.13129 , 1 , 11,4
+Toggled Menu Item : is related to : Selected , 0 , 0 , 1.332449 , 1 , 12,4
+Toggled Sub Menu Item : living : True , 0 , 0 , 0.6700646 , 1 , 13,4
+Toggled Sub Menu Item : creature : True , 0 , 0 , 1.61426 , 1 , 14,4
+Toggled Sub Menu Item : dog : True , 0 , 0 , 0.3712507 , 1 , 15,4
+Toggled Sub Menu Item : dog cat : True , 0 , 0 , 0.5034333 , 1 , 16,4
+Toggled Sub Menu Item : zoo : True , 0 , 0 , 0.5534974 , 1 , 17,4
+Toggled Sub Menu Item : living thing : True , 0 , 0 , 1.194164 , 1 , 18,4
+Searched for +Earth , 0 , 0 , 10.16902 , 1 , 0,4
+Toggled Menu Item : at location : Selected , 0 , 0 , 14.80489 , 1 , 1,4
+Toggled Sub Menu Item : the solar system : True , 0 , 0 , 2.413964 , 1 , 2,4
+Toggled Sub Menu Item : orbit : True , 0 , 0 , 0.4427442 , 1 , 3,4
+Toggled Menu Item : has a : Selected , 0 , 0 , 1.467244 , 1 , 4,4
+Toggled Sub Menu Item : gravity : True , 0 , 0 , 1.433638 , 1 , 5,4
+Toggled Menu Item : part of : Selected , 0 , 0 , 6.621847 , 1 , 6,4
+Toggled Sub Menu Item : the Solar System : True , 0 , 0 , 4.927774 , 1 , 7,4
+Toggled Menu Item : form of : Selected , 0 , 0 , 1.832314 , 1 , 8,4
+Toggled Menu Item : is a : Selected , 0 , 0 , 1.04129 , 1 , 9,4
+Toggled Menu Item : has property : Selected , 0 , 0 , 17.63749 , 1 , 10,4
+Toggled Sub Menu Item : spherical : True , 0 , 0 , 2.798453 , 1 , 11,4
+Searched for +Flat Earth , 0 , 0 , 12.57502 , 1 , 12,4
+Selected Token : Flat Earth , 0 , 0 , 4.061546 , 1 , 13,4
+Selected Token : Flat Earth , 0 , 0 , 1.500623 , 1 , 14,4
+Selected Token : Flat Earth , 0 , 0 , 0.6722736 , 1 , 15,4
+Selected Token : Flat Earth , 0 , 0 , 0.7911873 , 1 , 16,4
+Selected Token : Flat Earth , 0 , 0 , 1.115695 , 1 , 17,4
+Selected Token : Flat Earth , 0 , 0 , 0.6210076 , 1 , 18,4
+Selected Token : Flat Earth , 0 , 0 , 0.6788877 , 1 , 19,4
+Selected Token : Flat Earth , 0 , 0 , 0.7138859 , 1 , 20,4
+Selected Token : Flat Earth , 0 , 0 , 4.445519 , 1 , 21,4
+Toggled Menu Item : is related to : Selected , 0 , 0 , 13.70996 , 1 , 22,4
+Toggled Sub Menu Item : Ice wall : True , 0 , 0 , 7.905344 , 1 , 23,4
+Selected Token : Ice wall , 0 , 0 , 2.711631 , 1 , 24,4
+Delete token with mouse click , 0 , 0 , 9.497939 , 1 , 25,4
+Selected Token : Flat Earth , 0 , 0 , 0.7257519 , 1 , 26,4
+Toggled Menu Item : is related to : Selected , 0 , 0 , 3.599265 , 1 , 27,4
+Toggled Menu Item : part of : Selected , 0 , 0 , 16.20613 , 1 , 28,4
+Toggled Menu Item : is a : Selected , 0 , 0 , 8.101987 , 1 , 29,4
+Toggled Sub Menu Item : Theory : True , 0 , 0 , 18.55766 , 1 , 30,4
+Selected Token : Theory , 0 , 0 , 3.049069 , 1 , 31,4
+Selected Token : Theory , 0 , 0 , 4.49823 , 1 , 32,4
+Selected Token : Theory , 0 , 0 , 0.80803 , 1 , 33,4
+Selected Token : Theory , 0 , 0 , 0.7921633 , 1 , 34,4
+Toggled Menu Item : is a : Selected , 0 , 0 , 37.07456 , 1 , 35,4
+Toggled Menu Item : part of : Selected , 0 , 0 , 2.018513 , 1 , 36,4
+Toggled Menu Item : has a : Selected , 0 , 0 , 0.6043811 , 1 , 37,4
+Toggled Menu Item : capable of : Selected , 0 , 0 , 0.6729129 , 1 , 38,4
+Toggled Sub Menu Item : be disproven : True , 0 , 0 , 5.603395 , 1 , 39,4
+Toggled Menu Item : has context : Selected , 0 , 0 , 38.19057 , 1 , 40,4
+Toggled Sub Menu Item : mathematics : True , 0 , 0 , 8.523789 , 1 , 41,4
+Toggled Menu Item : synonym : Selected , 0 , 0 , 44.18201 , 1 , 42,4
+Toggled Menu Item : synonym : Selected , 0 , 0 , 0.7093405 , 1 , 43,4
+Toggled Menu Item : created by : Selected , 0 , 0 , 0.6537571 , 1 , 44,4
+Toggled Menu Item : synonym : Selected , 0 , 0 , 74.2829 , 1 , 45,4
+Selected Token : Flat Earth , 0 , 0 , 1.283845 , 1 , 46,4
+Selected Token : Flat Earth , 0 , 0 , 1.727291 , 1 , 47,4
+Selected Token : Theory , 0 , 0 , 1.592379 , 1 , 48,4
+Selected Token : Earth , 0 , 0 , 110.9269 , 1 , 49,4
+Selected Token : Earth , 0 , 0 , 0.7462091 , 1 , 50,4
+Selected Token : Earth , 0 , 0 , 0.835162 , 1 , 51,4
+Selected Token : Earth , 0 , 0 , 1.077269 , 1 , 52,4
+Toggled Menu Item : defined as : Selected , 0 , 0 , 1.88634 , 1 , 53,4
+Toggled Sub Menu Item : home of all humans : True , 0 , 0 , 3.773174 , 1 , 54,4
+Toggled Menu Item : receives action : Selected , 0 , 0 , 3.248227 , 1 , 55,4
+Toggled Sub Menu Item : covered mostly with water : True , 0 , 0 , 2.981443 , 1 , 56,4
+Toggled Menu Item : has property : Edited , 0 , 0 , 10.32785 , 1 , 57,4
+Toggled Menu Item : at location : Edited , 0 , 0 , 1.246045 , 1 , 58,4
+Toggled Menu Item : has a : Edited , 0 , 0 , 2.426311 , 1 , 59,4
+Toggled Menu Item : part of : Edited , 0 , 0 , 2.067222 , 1 , 60,4
+Toggled Menu Item : is a : Selected , 0 , 0 , 0.653539 , 1 , 61,4
+Searched for +Dog , 0 , 0 , 2.537301 , 1 , 0,4
+Toggled Menu Item : is a : Selected , 0 , 0 , 2.348954 , 1 , 1,4
+Toggled Sub Menu Item : pet : True , 0 , 0 , 0.4784512 , 1 , 2,4
+Toggled Sub Menu Item : mammal : True , 0 , 0 , 0.3194593 , 1 , 3,4
+Toggled Sub Menu Item : a canine : True , 0 , 0 , 0.4215002 , 1 , 4,4
+Toggled Sub Menu Item : a good friend : True , 0 , 0 , 3.075979 , 1 , 5,4
+Toggled Menu Item : distinct from : Selected , 0 , 0 , 29.25672 , 1 , 6,4
+Toggled Sub Menu Item : cat : True , 0 , 0 , 1.352221 , 1 , 7,4
+Toggled Menu Item : antonym : Selected , 0 , 0 , 3.211545 , 1 , 8,4
+Toggled Sub Menu Item : cat : True , 0 , 0 , 1.042389 , 1 , 9,4
+Searched for +Dog , 0 , 0 , 4.173826 , 1 , 0,4
+Toggled Menu Item : part of : Selected , 0 , 0 , 2.463181 , 1 , 1,4
+Toggled Menu Item : has a : Selected , 0 , 0 , 0.5977566 , 1 , 2,4
+Toggled Sub Menu Item : fleas : True , 0 , 0 , 0.7606925 , 1 , 3,4
+Toggled Sub Menu Item : four legs : True , 0 , 0 , 0.4483202 , 1 , 4,4
+Selected Token : fleas , 0 , 0 , 8.332261 , 1 , 5,4
+Selected Token : four legs , 0 , 0 , 1.24373 , 1 , 6,4
+Selected Token : fleas , 0 , 0 , 1.586883 , 1 , 7,4
+Selected Token : four legs , 0 , 0 , 1.811854 , 1 , 8,4
+Selected Token : four legs , 0 , 0 , 1.080867 , 1 , 9,4
+Selected Token : fleas , 0 , 0 , 1.131387 , 1 , 10,4
+Selected Token : fleas , 0 , 0 , 1.373252 , 1 , 11,4
+Toggled Menu Item : capable of : Selected , 0 , 0 , 15.8316 , 1 , 12,4
+Toggled Sub Menu Item : run : True , 0 , 0 , 0.7529646 , 1 , 13,4
+Toggled Sub Menu Item : guide a blind person : True , 0 , 0 , 0.4468122 , 1 , 14,4
+Toggled Sub Menu Item : drink water : True , 0 , 0 , 0.9050939 , 1 , 15,4
+Toggled Sub Menu Item : guard property : True , 0 , 0 , 0.5589233 , 1 , 16,4
+Selected Token : Dog , 0 , 0 , 555.6227 , 1 , 17,4

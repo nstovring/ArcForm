@@ -195,6 +195,7 @@ public class Mouselistener : MonoBehaviour
         }
 
         SubItemController.Instance.arcSubItemMenu.SetActive(false);
+        ArcMapManager.Instance.autoMoveInterrupt = false;
     }
 
     public void DragFromBackground(){

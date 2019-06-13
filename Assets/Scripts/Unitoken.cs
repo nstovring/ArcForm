@@ -35,11 +35,22 @@ public class Unitoken : Fragment
     {
         mCamera = Camera.main;
         myArcCollections = new Dictionary<string, ArcCollection>();
+        //myPropertiesFromConceptNet = new Dictionary<string, Property>();
         if (myArcs == null){
             myArcs = new List<Arc>();
         }
 
         SetHoverActive(false);
+
+        //for (int i = 0; i < 5; i++)
+        //{
+        //    string key = ArcToolConstants.StaticConstants.IndexToKey[i];
+        //    Property p = new Property { Key = key };
+        //    p.Relations = new List<Relation>();
+        //    myPropertiesFromConceptNet.Add(key, p);
+        //}
+
+        //ArcToolUIManager.ArcUIUtility.UpdatePropertyMenuFromProperties(myPropertiesFromConceptNet);
     }
 
     public void Initialize(unitoken token){
@@ -117,7 +128,7 @@ public class Unitoken : Fragment
         {
             Debug.Log("Dragging right");
         }
-        
+        ArcMapManager.Instance.autoMoveInterrupt = true;
     }
 
     void FollowMouse()

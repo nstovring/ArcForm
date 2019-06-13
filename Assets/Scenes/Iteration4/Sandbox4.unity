@@ -2885,7 +2885,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -243.41771, y: 0.00005707338}
+  m_AnchoredPosition: {x: -235.67693, y: 0.00005707338}
   m_SizeDelta: {x: 243.34, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &691375127
@@ -3168,7 +3168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   testString: Einstein
-  searchLimit: 20
+  searchLimit: 40
   focusedUnitoken: {fileID: 0}
   searchEngineCanvasTransform: {fileID: 1909748640}
   searchBox: {fileID: 0}
@@ -5926,7 +5926,7 @@ MonoBehaviour:
   mCamera: {fileID: 0}
   ForceDirectedMap: 0
   FlattenMap: 0
-  AutoMoveCamera: 1
+  AutoMoveCamera: 0
   debugCollection: 0
   lastCameraPos: {x: 0, y: 0, z: 0}
   lastMousePos: {x: 0, y: 0, z: 0}
@@ -9367,7 +9367,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1679088265}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.9362215
+  m_Size: 0.6036116
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
